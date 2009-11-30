@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="human.xsl"?>
+<!-- $Rev: 1294 $ -->
+<!-- $Date: 2007-08-15 14:05:50 +0100 (Wed, 15 Aug 2007) $ -->
+<!-- $Author: MarkusDoering $ -->
+
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:owl="http://www.w3.org/2002/07/owl#"
+   xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dcterms="http://purl.org/dc/terms/"
+   xmlns:tbase="http://rs.tdwg.org/ontology/Base#" xmlns:tp="http://rs.tdwg.org/ontology/Person#"
+   xml:base="http://rs.tdwg.org/ontology/voc/Team"
+   xmlns:tt="http://rs.tdwg.org/ontology/voc/Team#"
+   xmlns="http://rs.tdwg.org/ontology/voc/Team#">
+
+   <owl:Ontology rdf:about="http://rs.tdwg.org/ontology/voc/Team">
+      <dc:title>TDWG Team LSID Ontology</dc:title>
+      <dc:creator>Roger Hyam</dc:creator>
+      <dc:publisher>TDWG Biodiversity Information Standards</dc:publisher>
+      <dcterms:issued>2006-11-27</dcterms:issued>
+      <dcterms:modified>$Date: 2007-08-15 14:05:50 +0100 (Wed, 15 Aug 2007) $</dcterms:modified>
+      <dc:description>Ontology describing the metadata returned for LSIDs that are used for Teams -
+         collections of actors. </dc:description>
+
+      <owl:versionInfo>0.2 - [SVN $Rev: 1294 $]</owl:versionInfo>
+
+      <rdfs:comment rdf:parseType="Literal">A team is a collection of Actors (TeamMemebers) who may
+         have roles and positions.</rdfs:comment>
+
+   </owl:Ontology>
+
+
+   <!-- *****************************************
+					T E A M 
+ 		******************************************* -->
+   <!-- Team -->
+   <owl:Class rdf:ID="Team">
+      <rdfs:label>Team</rdfs:label>
+      <rdfs:comment>A team is a collection of Actors (TeamMembers) who may have roles and positions.</rdfs:comment>
+      <rdfs:subClassOf rdf:resource="http://rs.tdwg.org/ontology/Core#Team"/>
+      <rdfs:isDefinedBy rdf:resource="http://rs.tdwg.org/ontology/voc/Team"/>
+   </owl:Class>
+   
+   <!-- Team::name -->
+   <owl:DatatypeProperty rdf:ID="name">
+      <rdfs:label>Name</rdfs:label>
+      <rdfs:comment>A name for the team.</rdfs:comment>
+      <rdfs:domain rdf:resource="#Team"/>
+      <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+      <rdfs:isDefinedBy rdf:resource="http://rs.tdwg.org/ontology/voc/Team"/>
+   </owl:DatatypeProperty>
+
+   <!-- Team::hasMember -->
+   <owl:ObjectProperty rdf:ID="hasMember">
+      <rdfs:label>Has Member</rdfs:label>
+      <rdfs:comment>A member of this team. This property repeats to hold each member.</rdfs:comment>
+      <rdfs:domain rdf:resource="#Team"/>
+      <rdfs:range rdf:resource="http://rs.tdwg.org/ontology/voc/Team#TeamMember"/>
+      <rdfs:isDefinedBy rdf:resource="http://rs.tdwg.org/ontology/voc/Team"/>
+   </owl:ObjectProperty>
+
+   <!-- Team::contactDetails -->
+   <owl:ObjectProperty rdf:ID="contactDetails">
+      <rdfs:label>contactDetails</rdfs:label>
+      <rdfs:comment>A link to an object that contains contact information,
+         (such as postal address, email address and phone number) for this team. </rdfs:comment>
+      <rdfs:domain rdf:resource="#Team"/>
+      <rdfs:range rdf:resource="http://rs.tdwg.org/ontology/voc/ContactDetails#ContactDetails"/>
+      <rdfs:isDefinedBy rdf:resource="http://rs.tdwg.org/ontology/voc/Team"/>
+   </owl:ObjectProperty>
+   
+   <!-- *****************************************
+      T E A M   M E M B E R 
+      ******************************************* -->
+   <!-- TeamMember -->
+   <owl:Class rdf:ID="TeamMember">
+      <rdfs:label>Team Member</rdfs:label>
+      <rdfs:comment>A representation of the role and position of an actor (Person etc) within a
+         team.</rdfs:comment>
+      <rdfs:subClassOf rdf:resource="http://rs.tdwg.org/ontology/Base#BaseThing"/>
+      <rdfs:isDefinedBy rdf:resource="http://rs.tdwg.org/ontology/voc/Team"/>
+   </owl:Class>
+   
+   
+   <!-- awaiting final metadata strategy 
+   <owl:DatatypeProperty rdf:ID="dcMemberTitle">
+      <rdfs:label>Dublin Core Title</rdfs:label>
+      <rdfs:comment> Dublin Core Metadata Title for this object. 
+         This property should contain a string representation of the TeamMember as it might appear in printed publication.
+         This property is represented in the TDWG Ontology as http://rs.tdwg.org/ontology/voc/Team#dcMemberTitle but it is good practise to use the Dublin Core equivalent
+         http://purl.org/dc/elements/1.1/title in instance documents as it has the same meaning but it understandable to more clients. </rdfs:comment>
+      <rdfs:domain rdf:resource="#TeamMember"/>
+      <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+      <owl:sameAs rdf:resource="http://purl.org/dc/elements/1.1/title"/>
+      <rdfs:isDefinedBy rdf:resource="http://rs.tdwg.org/ontology/voc/Team"/>
+   </owl:DatatypeProperty>
+   -->
+
+
+   <!-- TeamMember::member -->
+   <owl:ObjectProperty rdf:ID="member">
+      <rdfs:label>Member</rdfs:label>
+      <rdfs:comment>The member who has this role and position.</rdfs:comment>
+      <rdfs:domain rdf:resource="#TeamMember"/>
+      <rdfs:range rdf:resource="http://rs.tdwg.org/ontology/voc/Person#Person"/>
+      <rdfs:isDefinedBy rdf:resource="http://rs.tdwg.org/ontology/voc/Team"/>
+   </owl:ObjectProperty>
+
+   <!-- TeamMember::role -->
+   <owl:DatatypeProperty rdf:ID="role">
+      <rdfs:label>Role</rdfs:label>
+      <rdfs:comment>The members role within the team e.g. Combination Author or Basionym Author.</rdfs:comment>
+      <rdfs:domain rdf:resource="#TeamMember"/>
+      <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+      <rdfs:isDefinedBy rdf:resource="http://rs.tdwg.org/ontology/voc/Team"/>
+   </owl:DatatypeProperty>
+
+   <!-- TeamMember::index -->
+   <owl:DatatypeProperty rdf:ID="index">
+      <rdfs:label>index</rdfs:label>
+      <rdfs:comment>The position of the person within the ordering of team members. The client might
+         expect that ordering the members of team by the values of this property would place them in
+         correct order. If more than one member has the same value then the behaviour is undefined.</rdfs:comment>
+      <rdfs:domain rdf:resource="#TeamMember"/>
+      <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+      <rdfs:isDefinedBy rdf:resource="http://rs.tdwg.org/ontology/voc/Team"/>
+   </owl:DatatypeProperty>
+
+</rdf:RDF>

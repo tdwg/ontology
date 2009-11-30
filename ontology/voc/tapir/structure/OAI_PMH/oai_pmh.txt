@@ -1,0 +1,28 @@
+[concept_source]
+label = OAI PMH structure for the handling the OAI PMH protocol
+namespace = http://www.openarchives.org/OAI/2.0/
+alias = OAI_PMH
+location  = http://www.openarchives.org/OAI/2.0/OAI-PMH.xsd
+
+[aliases]
+identifyRepository = http://www.openarchives.org/OAI/2.0/oai:OAI-PMH/oai:Identify/oai:repositoryName
+identifyUrl = http://www.openarchives.org/OAI/2.0/oai:OAI-PMH/oai:Identify/oai:baseURL
+identifyVersion = http://www.openarchives.org/OAI/2.0/oai:OAI-PMH/oai:Identify/oai:protocolVerion
+identifyEmail = http://www.openarchives.org/OAI/2.0/oai:OAI-PMH/oai:Identify/oai:adminEmail
+identifyDescription = http://www.openarchives.org/OAI/2.0/oai:OAI-PMH/oai:Identify/oai:description
+metadataFormatPrefix = http://www.openarchives.org/OAI/2.0/oai:OAI-PMH/oai:ListMetadataFormats/oai:metadataFormat/oai:metadataPrefix
+metadataFormatSchema = http://www.openarchives.org/OAI/2.0/oai:OAI-PMH/oai:ListMetadataFormats/oai:metadataFormat/oai:schema
+metadataFormatNamespace = http://www.openarchives.org/OAI/2.0/oai:OAI-PMH/oai:ListMetadataFormats/oai:metadataFormat/oai:metadataNamespace
+getRecordIdentifier = http://www.openarchives.org/OAI/2.0/oai:OAI-PMH/oai:GetRecord/oai:record/oai:header/oai:identifier
+getRecordDatestamp = http://www.openarchives.org/OAI/2.0/oai:OAI-PMH/oai:GetRecord/oai:record/oai:header/oai:datestamp
+getRecordMetadata = http://www.openarchives.org/OAI/2.0/oai:OAI-PMH/oai:GetRecord/oai:record/oai:metadata
+listIdsIdentifier = http://www.openarchives.org/OAI/2.0/oai:OAI-PMH/oai:ListIdentifiers/oai:header/oai:identifier
+listIdsDatestamp = http://www.openarchives.org/OAI/2.0/oai:OAI-PMH/oai:ListIdentifiers/oai:header/oai:datestamp
+
+
+[namespaces]
+dc = http://purl.org/dc/elements/1.1/
+dcterm = http://purl.org/dc/terms/
+owl = http://www.w3.org/2002/07/owl#
+tcom = http://rs.tdwg.org/ontology/voc/Common#
+oai = http://www.openarchives.org/OAI/2.0/

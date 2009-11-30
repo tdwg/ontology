@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="human.xsl"?>
+
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:owl="http://www.w3.org/2002/07/owl#"
+   xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:tbase="http://rs.tdwg.org/ontology/Base#" xmlns:tcom="http://rs.tdwg.org/ontology/voc/Common"
+   xml:base="http://rs.tdwg.org/ontology/voc/Interaction" xmlns="http://rs.tdwg.org/ontology/voc/TaxonOccurrenceInteraction#">
+
+   <owl:Ontology rdf:about="http://rs.tdwg.org/ontology/voc/TaxonOccurrenceInteraction">
+      <dc:title>TDWG Interaction LSID Ontology</dc:title>
+      <dc:creator>Kevin Richards</dc:creator>
+      <dc:publisher>TDWG Biodiversity Information Standards</dc:publisher>
+      <dcterms:issued>2007-8-7</dcterms:issued>
+      <dcterms:modified>$Date: 2007-08-07 11:36:21 +0200 (Tue, 26 Jun 2007) $</dcterms:modified>
+      <dc:description>Ontology describing the metadata returned for LSIDs that are used for Interactions between TaxonOccurrences. </dc:description>
+
+      <owl:versionInfo>0.1</owl:versionInfo>
+
+      <rdfs:comment rdf:parseType="Literal">This class is an initial attempt to model interactions between TaxonOccurrences, observations, specimens, etc
+      to express a relationship between two of these objects.  Eg the Interaction class can be express a host/parasite relation between two TaxonOccurrences.
+      </rdfs:comment>
+
+   </owl:Ontology>
+
+
+   <!-- ************************************************
+					I N T E R A C T I O N
+ 		************************************************ -->
+   <!-- Interaction -->
+   <owl:Class rdf:ID="TaxonOccurrenceInteraction">
+      <rdfs:label>Interaction</rdfs:label>
+      <rdfs:comment> Representation of a Interaction.</rdfs:comment>
+      <rdfs:isDefinedBy rdf:resource="http://rs.tdwg.org/ontology/voc/TaxonOccurrenceInteraction"/>
+   </owl:Class>
+
+   <!-- Interaction::fromOccurrence -->
+   <owl:ObjectProperty rdf:ID="fromOccurrence">
+      <rdfs:label>From Taxon Occurrence</rdfs:label>
+      <rdfs:comment>The subject TaxonOccurrence for this interaction. </rdfs:comment>
+      <rdfs:domain rdf:resource="#TaxonOccurrenceInteraction"/>
+      <rdfs:range rdf:resource="http://rs.tdwg.org/ontology/voc/TaxonOccurrence#TaxonOccurrence"/>
+      <rdfs:isDefinedBy rdf:resource="http://rs.tdwg.org/ontology/voc/TaxonOccurrenceInteraction"/>
+   </owl:ObjectProperty>
+   
+   <!-- Interaction::toOccurrence -->
+   <owl:ObjectProperty rdf:ID="toOccurrence">
+      <rdfs:label>To Taxon Occurrence</rdfs:label>
+      <rdfs:comment>The object TaxonOccurrence for this interaction. </rdfs:comment>
+      <rdfs:domain rdf:resource="#TaxonOccurrenceInteraction"/>
+      <rdfs:range rdf:resource="http://rs.tdwg.org/ontology/voc/TaxonOccurrence#TaxonOccurrence"/>
+      <rdfs:isDefinedBy rdf:resource="http://rs.tdwg.org/ontology/voc/TaxonOccurrenceInteraction"/>
+   </owl:ObjectProperty>
+
+   <!-- Interaction::accordingToString -->
+   <owl:DatatypeProperty rdf:ID="accordingToString">
+      <rdfs:label>According To String</rdfs:label>
+      <rdfs:comment>A string representation of the according to for this interaction. </rdfs:comment>
+      <rdfs:domain rdf:resource="#TaxonOccurrenceInteraction"/>
+      <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+      <rdfs:isDefinedBy rdf:resource="http://rs.tdwg.org/ontology/voc/TaxonOccurrenceInteraction"/>
+   </owl:DatatypeProperty>
+
+   <!-- Interaction::accordingTo -->
+   <owl:ObjectProperty rdf:ID="accordingTo">
+      <rdfs:label>accordingTo</rdfs:label>
+      <rdfs:comment>Information about the authorship of this interaction which uses the interaction. Could be an institution or collection or team of individuals. </rdfs:comment>
+      <rdfs:domain rdf:resource="#TaxonOccurrenceInteraction"/>
+      <rdfs:range rdf:resource="http://rs.tdwg.org/ontology/Base#Actor"/>
+      <rdfs:isDefinedBy rdf:resource="http://rs.tdwg.org/ontology/voc/TaxonOccurrenceInteraction"/>
+   </owl:ObjectProperty>
+
+   <!-- Interaction::interactionCategory -->
+   <owl:ObjectProperty rdf:ID="interactionCategory">
+      <rdfs:label>InteractionCategory</rdfs:label>
+      <rdfs:comment>The kind of interaction this is.</rdfs:comment>
+      <rdfs:domain rdf:resource="#TaxonOccurrenceInteraction"/>
+      <rdfs:range rdf:resource="http://rs.tdwg.org/ontology/voc/Interaction#InteractionTerm"/>
+      <rdfs:isDefinedBy rdf:resource="http://rs.tdwg.org/ontology/voc/TaxonOccurrenceInteraction"/>
+   </owl:ObjectProperty>
+
+   <!-- InteractionTerm -->
+   <owl:Class rdf:ID="InteractionTerm">
+      <rdfs:label>TaxonOccurrence Interaction Term</rdfs:label>
+      <rdfs:comment> The class for constructing a controlled vocabulary for TaxonOccurrence to TaxonOccurrence interaction categories.</rdfs:comment>
+      <rdfs:subClassOf rdf:resource="http://rs.tdwg.org/ontology/Base#DefinedTerm"/>
+      <rdfs:isDefinedBy rdf:resource="http://rs.tdwg.org/ontology/voc/TaxonOccurrenceInteraction"/>
+   </owl:Class>
+
+   <!--is host of-->
+   <InteractionTerm rdf:ID="HostOf">
+      <rdfs:label>Host Of</rdfs:label>
+      <dc:title>Host Of</dc:title>
+      <tbase:definition>fromTaxonOccurrence specifies a host organism for the organism specified in toTaxonOccurrence</tbase:definition>
+   </InteractionTerm>
+
+   <!--has host-->
+   <InteractionTerm rdf:ID="HasHost">
+      <rdfs:label>Has Host</rdfs:label>
+      <dc:title>Has Host</dc:title>
+      <tbase:definition>fromTaxonOccurrence has occurrred with the host organism defined in toTaxonOccurrence</tbase:definition>
+   </InteractionTerm>
+
+   <!--preys upon-->
+   <InteractionTerm rdf:ID="PreysUpon">
+      <rdfs:label>Preys Upon</rdfs:label>
+      <dc:title>Preys Upon</dc:title>
+      <tbase:definition></tbase:definition>
+   </InteractionTerm>
+
+   <!--preyed upon by-->
+   <InteractionTerm rdf:ID="PreyedUponBy">
+      <rdfs:label>Preyed Upon By</rdfs:label>
+      <dc:title>Preyed Upon By</dc:title>
+      <tbase:definition></tbase:definition>
+   </InteractionTerm>
+   
+   <!--parasite of-->
+   <InteractionTerm rdf:ID="ParasiteOf">
+      <rdfs:label>Parasite Of</rdfs:label>
+      <dc:title>Parasite Of</dc:title>
+      <tbase:definition></tbase:definition>
+   </InteractionTerm>
+
+   <!--pathogen of-->
+   <InteractionTerm rdf:ID="PathogenOf">
+      <rdfs:label>Pathogen Of</rdfs:label>
+      <dc:title>Pathogen Of</dc:title>
+      <tbase:definition></tbase:definition>
+   </InteractionTerm>
+
+   <!--infected by-->
+   <InteractionTerm rdf:ID="InfectedBy">
+      <rdfs:label>Infected By</rdfs:label>
+      <dc:title>Infected By</dc:title>
+      <tbase:definition></tbase:definition>
+   </InteractionTerm>
+
+   <!--nested in-->
+   <InteractionTerm rdf:ID="NestedIn">
+      <rdfs:label>Nested In</rdfs:label>
+      <dc:title>Nested In</dc:title>
+      <tbase:definition></tbase:definition>
+   </InteractionTerm>
+
+   <!--used as nest by-->
+   <InteractionTerm rdf:ID="UsedAsNestBy">
+      <rdfs:label>Used As Nest By</rdfs:label>
+      <dc:title>Used As Nest By</dc:title>
+      <tbase:definition></tbase:definition>
+   </InteractionTerm>
+
+   <!--visited flower of-->
+   <InteractionTerm rdf:ID="VisitedFlowerOf">
+      <rdfs:label>Visited Flower Of</rdfs:label>
+      <dc:title>Visited Flower Of</dc:title>
+      <tbase:definition></tbase:definition>
+   </InteractionTerm>
+
+   <!--flower visited by-->
+   <InteractionTerm rdf:ID="FlowerVisitedBy">
+      <rdfs:label>Flower Visited By</rdfs:label>
+      <dc:title>Flower Visited By</dc:title>
+      <tbase:definition></tbase:definition>
+   </InteractionTerm>
+
+   <!--dispersed seed of-->
+   <InteractionTerm rdf:ID="DispersedSeedOf">
+      <rdfs:label>Dispersed Seed Of</rdfs:label>
+      <dc:title>Dispersed Seed Of</dc:title>
+      <tbase:definition></tbase:definition>
+   </InteractionTerm>
+
+   <!--seed dispersed by-->
+   <InteractionTerm rdf:ID="SeedDispersedBy">
+      <rdfs:label>Seed Dispersed By</rdfs:label>
+      <dc:title>Seed Dispersed By</dc:title>
+      <tbase:definition></tbase:definition>
+   </InteractionTerm>
+
+   <!--extracts resin from-->
+   <InteractionTerm rdf:ID="ExtractsResinFrom">
+      <rdfs:label>Extracts Resin From</rdfs:label>
+      <dc:title>Extracts Resin From</dc:title>
+      <tbase:definition></tbase:definition>
+   </InteractionTerm>
+
+   <!--resin extracted by-->
+   <InteractionTerm rdf:ID="ResinExtractedBy">
+      <rdfs:label>Resin Extracted By</rdfs:label>
+      <dc:title>Resin Extracted By</dc:title>
+      <tbase:definition></tbase:definition>
+   </InteractionTerm>
+
+</rdf:RDF>

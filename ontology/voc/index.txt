@@ -1,0 +1,86 @@
+TDWG LSID Vocabularies
+Roger Hyam, roger@tdwg.org
+20061113, 0.1
+
++ Introduction + 
+++ What are LSID vocabularies? ++
+
+When a client application comes across an LSID it may attempt to resolve it. The outcome of the resolution process is access to the metadata that the owner of the LSID has associated with it. For this metadata to be useful the client application must process it i.e. read the data into memory and display it to the user or use it in a larger calculation involving other data. 
+
+Most useful client applications are likely to combine data of different kinds from multiple sources i.e. not just consuming specimen or observation data but combining it with geographic, phylogenetic, molecular and other data.
+
+If the metadata could be in any arbitrary XML based format then the task of writing a client application would be exceedingly difficult.
+
+To facilitate consumption of metadata associated with LSIDs it is important that metadata from different sources about different things is in the same basic format and can be meaningfully combined.
+
+LSID vocabularies are descriptions of the metadata returned for particular classes of object within the TDWG domain. They enable data about different things from different places to be combined in meaningful ways. They form part of a larger TDWG ontology effort that describes how these classes of data are related.
+
+Technically each LSID Vocabulary is an OWL ontology containing a single class and a number of properties who's domain is that class. The ontologies use a subset of the constructs available in the variant of OWL known as OWL-Lite - a kind of OWL-Extralite. There are also a set of global properties that can be use with any of the LSID Vocabulary classes.
+
+The metadata returned when the LSID is resolved is a instance of one of these OWL classes containing some or all of the class and global properties. The metadata is RDF encoded in XML. Those unfamiliar with semantic web technologies can think of it as an XML document that follows a specific format.
+
+++ What are the main aims of vocabularies? ++
+
+There are two main aims:
++ Enable the typing of metadata objects associated with LSIDs.
++ Enable sufficiently complex mark up of metadata for the returned object to be generally useful.
+
+
+LSID Vocabularies describe functional packets of data that contain the literal data values it is believed a typical client application will need to do 'something useful' with the metadata object. They may also contain links to other data objects.
+
+++ What guarantees do LSID Vocabularies bring? ++
+
+The metadata returned by an LSID should contain an rfds:type property that stipulates which LSID vocabulary class this metadata is an instance of. If this is lacking then the LSID does not refer to an instance of a TDWG recognized class.
+
+Beyond this the LSID vocabularies do not guarantee anything about the data received. They enable a data supplier to express what they are trying to pass. To mark up data. A consumer of data the has no way to validate that the information is 'correct' because the notion of correctness or validity is likely to change between consumers. Data must be fit for _a_ purpose not _all_ purposes.
+
+It should be possible however to use ontologies you have created yourself or that are supplied by a third party to check the data is fit for a particular purpose. Such ontologies that become generally useful should be come TDWG standards.
+
+LSID vocabularies do come with copious notes and recommendations on which properties should be supplied under what circumstances and what the properties should contain. Reputable data providers will follow these guidelines.
+
+++ How do LSID Vocabularies related to current TDWG standards? ++
+
+All properties in LSID vocabularies contain notes on how they related to existing XML schema base standards such as ABCD, DarwinCore, Taxon Concept Schema and others thus facilitating manual mapping. In the future there may be automatic mapping techniques.
+
+++ How do LSID Vocabularies related to external vocabularies like Dublin Core? ++
+
+The use of external vocabularies is positively encouraged and documented.
+
+++ "There isn't a class/property to express what I want to say." ++
+
+If you believe that there is a general need for a new class or property to be added then the best thing to do is define what you want in your own namespace and demonstrate it working with data in your own LSID authority. If the community as a whole find what you have done is useful then it should be easy to move it into the TDWG namespace and encourage others to use it.
+
+If you need help in doing this then some one on the TAG or LSID mailing lists will be pleased to help you out. FIXME - mailing list addresses.
+
+++ What are global properties? ++
+
+Some properties can occur in any class and, most importantly, have the same meaning no matter which class they occur in. There are two types of global properties:
++ **External Properties** These come from other vocabularies. The properties provided by DublinCore are an example of this.
++ **Common Properties** These are defined within the Common vocabulary for use with any class.
+Both types of properties are documented.
+
+
++ Advanced Issues +
+
+This section gives additional justification and explanation for some aspects of the vocabularies. You may only wish to read this out of interest or if you are designing your own classes for use with LSID metadata.
+
+++ What is the Literal and Link design pattern? ++
+
+There is a fundamental problem in modeling classes of objects to be returned by LSIDs that is related to, but differs from, the normalization of a relational database model. When the metadata for an LSID is requested the consumer needs to receive enough data to act on. If the data model is fully normalized and the LSID only returns its direct properties then the data returned may only consist of links to other resources that have to be traversed before anything 'useful' by way of data literals is discovered. This can be likened to making simple SQL selects on single tables in a complex relational database one at a time - never being able to carry out a join operation on the server always having to run another query with the foreign keys as values.
+
+One solution to this problem is for the data provider to return more than just the values in the immediate properties of the object - to return some embedded objects as well. For this solution to work two further problems have to be solved:
+   1 There must be some way of designating which objects the server must embed. The client would have to pass this information along with its request or the returned graph would have to be defined somewhere before hand.
+   1 It is unclear what the server should do if it doesn't 'own' the embedded objects. If the objects referred to by properties of the requested LSID are owned by another LSID authority should the server attempt to retrieve them in order to build a complete object graph for the client or should it leave them as just links? It is actually desirable that the server does not own the linked data objects - see below.
+
+The LSID Vocabularies take another approach. Each class is designed to be a package of useful literals about the object as direct properties. Clearly which literals are useful is a design time decision but there seems to be enough similarity amongst potential applications to make this call and properties can always be added at a later data. In addition to the literal values the classes also have properties that are links to other objects. Sometimes these objects are fuller versions of values that also appear in literals.
+
+An example:
+
+The TaxonName object has the property TaxonName::authorship which contains the author string for the scientific name. In most cases the client application will just want this string. Typically it is needed separately from the rest of the name so that it can be rendered in a different font in the user interface. Some data providers have more than just a string on the authors though and some clients may be interested in having this data. To support this there is the TaxonName::authorTeam property that has the range of AuthorTeam.
+
+This is what is termed the Literal and Link design pattern. Wherever it is felt that the majority of communication needs will be served by a literal representation of a property value then such a property is included even if there is another similar property that links to a object. The two properties are linked together in the vocabulary by the dc:related owl:AnnotationProperty.
+
+This design pattern would be bad in a closed world environment. To design a relational database model in which many foreign key fields had an associated literal field would be madly redundant and a nightmare to maintain. In an open world model this pattern is not crazy primarily because the data may reside not only on different machines but be owned by different organizations. This spreading of data is a desirable situation and should be encouraged. For LSIDs to be effective it is important that data suppliers reuse the LSIDs of other suppliers as often as possible.
+
+Taking the TaxonName:authorship example. A server may provide both a string in the TaxonName::authorship property and a link to an AuthorTeam in the TaxonName::authorTeam property but the link may be to another service run by a separate organization. The server is saying that it considers the string that it holds in its database is a representation of the data object supplied by another authority.
+

@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- $Rev: 757 $ -->
+<!-- $Date: 2006-11-30 19:07:57 +0000 (Thu, 30 Nov 2006) $ -->
+<!-- $Author: RogerHyam $ -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://rs.tdwg.org/ontology/voc/TaxonConcept#" xmlns:dcterms="http://purl.org/dc/terms/"
+  xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:owl="http://www.w3.org/2002/07/owl#" xmlns:tn="http://rs.tdwg.org/ontology/voc/TaxonName#"
+  xmlns:tc="http://rs.tdwg.org/ontology/voc/TaxonConcept#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:tcom="http://rs.tdwg.org/ontology/voc/Common#">
+  <xs:import namespace="http://purl.org/dc/elements/1.1/" schemaLocation="../lib/dc.xsd"/>
+  <xs:import namespace="http://purl.org/dc/terms/" schemaLocation="../lib/dcterms.xsd"/>
+  <xs:import namespace="http://rs.tdwg.org/ontology/voc/Common#" schemaLocation="../lib/tcom.xsd"/>
+  <xs:import namespace="http://www.w3.org/1999/02/22-rdf-syntax-ns#" schemaLocation="../lib/rdf.xsd"/>
+  <xs:import namespace="http://www.w3.org/2002/07/owl#" schemaLocation="../lib/owl.xsd"/>
+
+  <xs:import namespace="http://rs.tdwg.org/ontology/voc/TaxonName#" schemaLocation="TaxonName.xsd"/>
+
+  <xs:element name="TaxonConcept">
+    <xs:complexType>
+      <xs:sequence>
+
+        <!-- external vocabularies -->
+        <xs:element ref="dc:title" minOccurs="0" maxOccurs="unbounded"/>
+        <xs:element ref="owl:sameAs" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element ref="dc:identifier" minOccurs="0" maxOccurs="unbounded"/>
+
+        <!-- ownership -->
+        <xs:element ref="dc:creator" minOccurs="0" maxOccurs="unbounded"/>
+        <xs:element ref="dc:contributor" minOccurs="0" maxOccurs="unbounded"/>
+        <xs:element ref="dc:publisher" minOccurs="0" maxOccurs="unbounded"/>
+        <xs:element ref="dcterms:license" minOccurs="0" maxOccurs="unbounded"/>
+        <xs:element ref="dcterms:rightsHolder" minOccurs="0" maxOccurs="unbounded"/>
+        <xs:element ref="dcterms:accessRights" minOccurs="0" maxOccurs="unbounded"/>
+
+        <!-- dates -->
+        <xs:element ref="dc:date" minOccurs="0" maxOccurs="unbounded"/>
+        <xs:element ref="dcterms:created" minOccurs="0" maxOccurs="unbounded"/>
+        <xs:element ref="dcterms:dateSubmitted" minOccurs="0" maxOccurs="unbounded"/>
+        <xs:element ref="dcterms:modified" minOccurs="0" maxOccurs="unbounded"/>
+        <xs:element ref="dcterms:issued" minOccurs="0" maxOccurs="unbounded"/>
+        <xs:element ref="dcterms:available" minOccurs="0" maxOccurs="unbounded"/>
+
+        <!-- general links -->
+        <xs:element ref="dcterms:isReferencedBy" minOccurs="0" maxOccurs="unbounded"/>
+        <xs:element ref="dcterms:references" minOccurs="0" maxOccurs="unbounded"/>
+        <xs:element ref="dcterms:isRequiredBy" minOccurs="0" maxOccurs="unbounded"/>
+        <xs:element ref="dc:relation" minOccurs="0" maxOccurs="unbounded"/>
+
+        <!-- provenance -->
+        <xs:element ref="dc:source" minOccurs="0" maxOccurs="unbounded"/>
+        <xs:element ref="dcterms:replaces" minOccurs="0" maxOccurs="unbounded"/>
+        <xs:element ref="dcterms:provenance" minOccurs="0" maxOccurs="unbounded"/>
+        <xs:element ref="dcterms:hasVersion" minOccurs="0" maxOccurs="unbounded"/>
+        <xs:element ref="dcterms:isVersionOf" minOccurs="0" maxOccurs="unbounded"/>
+        <xs:element ref="owl:versionInfo" minOccurs="0" maxOccurs="unbounded"/>
+
+        <!-- common properties -->
+        <xs:element ref="tcom:isDeprecated" minOccurs="0" maxOccurs="unbounded"/>
+        <xs:element ref="tcom:versionedAs" minOccurs="0" maxOccurs="unbounded"/>
+        <xs:element ref="tcom:publishedIn" minOccurs="0" maxOccurs="unbounded"/>
+        <xs:element ref="tcom:publishedInCitation" minOccurs="0" maxOccurs="unbounded"/>
+        <xs:element ref="tcom:microReference" minOccurs="0" maxOccurs="unbounded"/>
+
+        <!-- properties local to this class -->
+        <xs:element name="nameString" minOccurs="0" maxOccurs="unbounded" type="xs:string"/>
+        <xs:element name="hasName" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element ref="tn:TaxonName" minOccurs="1" maxOccurs="1"/>
+            </xs:sequence>
+            <xs:attribute ref="rdf:resource" use="optional"/>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="accordingToString" minOccurs="0" maxOccurs="unbounded" type="xs:string"/>
+        <xs:element name="accordingTo" minOccurs="0" maxOccurs="unbounded" type="tcom:SimpleLinkType"/>
+
+        <xs:element name="describedBy" minOccurs="0" maxOccurs="unbounded" type="tcom:SimpleLinkType"/>
+        <xs:element name="circumscribedBy" minOccurs="0" maxOccurs="unbounded" type="tcom:SimpleLinkType"/>
+        <xs:element name="primary" minOccurs="0" maxOccurs="unbounded" type="xs:boolean"/>
+
+        <xs:element name="hasRelationship" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Relationship" minOccurs="1" maxOccurs="1">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="toTaxon" minOccurs="1" maxOccurs="1">
+                      <xs:complexType>
+                        <xs:attribute ref="rdf:resource"/>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="relationshipCategory" minOccurs="0" maxOccurs="unbounded">
+                      <xs:complexType>
+                        <xs:attribute ref="rdf:resource"/>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+            <xs:attribute ref="rdf:resource"/>
+          </xs:complexType>
+        </xs:element>
+
+      </xs:sequence>
+      <xs:attribute ref="rdf:about" use="optional"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="Relationship">
+    <xs:complexType>
+      <xs:sequence>
+        <!-- external vocabularies -->
+        <xs:element ref="dc:title" minOccurs="0" maxOccurs="unbounded"/>
+        <xs:element ref="owl:sameAs" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element ref="dc:identifier" minOccurs="0" maxOccurs="unbounded"/>
+        
+        <!-- ownership -->
+        <xs:element ref="dc:creator" minOccurs="0" maxOccurs="unbounded"/>
+        <xs:element ref="dc:contributor" minOccurs="0" maxOccurs="unbounded"/>
+        <xs:element ref="dc:publisher" minOccurs="0" maxOccurs="unbounded"/>
+        <xs:element ref="dcterms:license" minOccurs="0" maxOccurs="unbounded"/>
+        <xs:element ref="dcterms:rightsHolder" minOccurs="0" maxOccurs="unbounded"/>
+        <xs:element ref="dcterms:accessRights" minOccurs="0" maxOccurs="unbounded"/>
+        
+        <!-- dates -->
+        <xs:element ref="dc:date" minOccurs="0" maxOccurs="unbounded"/>
+        <xs:element ref="dcterms:created" minOccurs="0" maxOccurs="unbounded"/>
+        <xs:element ref="dcterms:dateSubmitted" minOccurs="0" maxOccurs="unbounded"/>
+        <xs:element ref="dcterms:modified" minOccurs="0" maxOccurs="unbounded"/>
+        <xs:element ref="dcterms:issued" minOccurs="0" maxOccurs="unbounded"/>
+        <xs:element ref="dcterms:available" minOccurs="0" maxOccurs="unbounded"/>
+        
+        <!-- general links -->
+        <xs:element ref="dcterms:isReferencedBy" minOccurs="0" maxOccurs="unbounded"/>
+        <xs:element ref="dcterms:references" minOccurs="0" maxOccurs="unbounded"/>
+        <xs:element ref="dcterms:isRequiredBy" minOccurs="0" maxOccurs="unbounded"/>
+        <xs:element ref="dc:relation" minOccurs="0" maxOccurs="unbounded"/>
+        
+        <!-- provenance -->
+        <xs:element ref="dc:source" minOccurs="0" maxOccurs="unbounded"/>
+        <xs:element ref="dcterms:replaces" minOccurs="0" maxOccurs="unbounded"/>
+        <xs:element ref="dcterms:provenance" minOccurs="0" maxOccurs="unbounded"/>
+        <xs:element ref="dcterms:hasVersion" minOccurs="0" maxOccurs="unbounded"/>
+        <xs:element ref="dcterms:isVersionOf" minOccurs="0" maxOccurs="unbounded"/>
+        <xs:element ref="owl:versionInfo" minOccurs="0" maxOccurs="unbounded"/>
+        
+        <!-- common properties -->
+        <xs:element ref="tcom:isDeprecated" minOccurs="0" maxOccurs="unbounded"/>
+        <xs:element ref="tcom:versionedAs" minOccurs="0" maxOccurs="unbounded"/>
+        <xs:element ref="tcom:publishedIn" minOccurs="0" maxOccurs="unbounded"/>
+        <xs:element ref="tcom:publishedInCitation" minOccurs="0" maxOccurs="unbounded"/>
+        <xs:element ref="tcom:microReference" minOccurs="0" maxOccurs="unbounded"/>
+        
+        <!-- local properties -->
+        <xs:element name="toTaxon" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element ref="tc:TaxonConcept" minOccurs="1" maxOccurs="1" />
+            </xs:sequence>
+            <xs:attribute ref="rdf:resource"/>
+          </xs:complexType>
+        </xs:element>
+        
+        <xs:element name="fromTaxon" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element ref="tc:TaxonConcept" minOccurs="1" maxOccurs="1" />
+            </xs:sequence>
+            <xs:attribute ref="rdf:resource"/>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="relationshipCategory" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:attribute ref="rdf:resource"/>
+          </xs:complexType>
+        </xs:element>
+  
+      </xs:sequence>
+      <xs:attribute ref="rdf:about"/>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

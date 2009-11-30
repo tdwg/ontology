@@ -1,0 +1,832 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="human.xsl"?>
+<!-- $Rev: 1399 $ -->
+<!-- $Date: 2008-08-08 12:12:15 +0100 (Fri, 08 Aug 2008) $ -->
+<!-- $Author: RogerHyam $ -->
+<!-- test -->
+<rdf:RDF xml:base="http://rs.tdwg.org/ontology/voc/Collection"
+	xmlns="http://rs.tdwg.org/ontology/voc/Collection#" xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:dcterms="http://purl.org/dc/terms/" xmlns:owl="http://www.w3.org/2002/07/owl#"
+	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+	xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+	xmlns:tbase="http://rs.tdwg.org/ontology/Base#"
+	xmlns:tcom="http://rs.tdwg.org/ontology/voc/Common#"
+	xmlns:tcore="http://rs.tdwg.org/ontology/Core#">
+
+	<owl:Ontology rdf:about="http://rs.tdwg.org/ontology/voc/Collection">
+		<dc:title>TDWG Natural Collection Description LSID Ontology</dc:title>
+		<dc:creator>Markus Döring, Constance Rinaldo</dc:creator>
+		<dc:publisher>TDWG Biodiversity Information Standards</dc:publisher>
+		<dcterms:issued>2007-03-05</dcterms:issued>
+		<dcterms:modified>2007-09-24</dcterms:modified>
+		<dc:description>Ontology describing the metadata returned for LSIDs that are used for
+			natural collections records. i.e. curated groups of specimens. </dc:description>
+		<owl:versionInfo>0.81 - [SVN $Rev: 1399 $]</owl:versionInfo>
+		<rdfs:comment rdf:parseType="Literal"> The ontology is based on the NCD XML schema version
+			0.70 developed by TDWG, but taken forward in development, especially the controlled vocabulary. 
+			In some cases property names were changed, but in general all
+			names have remained and were simple adapted to lowerCamelCase. Properties based on NCD
+			element names starting with "Collection" have usually lost their Collection prefix.
+			Cardinalities and multiple languages have not been adressed in particular. DublinCore is
+			expected to be used for the digital record properties and at the same time also for the
+			physical collection description. The expected DC properties are: Digital record:
+			dc:source , dc:identifier , dct:created , dct:creator , dct:modified , dct:contributor ,
+			tdwg:notes Physical Collection: dc:title , dc:alternative_title , dc:description ,
+			dct:extent , tcom:note , dc:format , dc:medium , dc:accessRights , dc:rights ,
+			dc:provenance , dc:relation </rdfs:comment>
+	</owl:Ontology>
+	<!-- *************************************************
+					C O L L E C T I O N  
+ 		**************************************************** -->
+	<!-- Collection -->
+	<owl:Class rdf:ID="Collection">
+		<rdfs:label>Collection</rdfs:label>
+		<rdfs:comment>A group of specimens or other objects about natural history. This class represents actual collections. For derived collections please use the DerivedCollection subclass.</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="http://rs.tdwg.org/ontology/Core#Collection"/>
+		<rdfs:isDefinedBy rdf:resource="http://rs.tdwg.org/ontology/voc/Collection"/>
+	</owl:Class>
+	<owl:Class rdf:ID="DerivedCollection">
+		<rdfs:label>Derived collection</rdfs:label>
+		<rdfs:comment>A "derived" collection record. The record has been derived from a query on an
+			item-level database e.g. all items from Australia.</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Collection"/>
+		<rdfs:isDefinedBy rdf:resource="http://rs.tdwg.org/ontology/voc/Collection"/>
+	</owl:Class>
+
+	<!-- START of Collection attributes -->
+	<owl:ObjectProperty rdf:ID="collectionId">
+		<rdfs:label>Collection Identifier</rdfs:label>
+		<rdfs:comment>The URI (LSID or URL) of the the collection. In RDF this will be used as URI of the collection resource.</rdfs:comment>
+		<rdfs:domain rdf:resource="#Collection"/>
+		<rdfs:range rdf:resource="#Collection"/>
+		<rdfs:isDefinedBy rdf:resource="http://rs.tdwg.org/ontology/voc/Collection"/>
+	</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:ID="isPartOfCollection">
+		<rdfs:label>Parent Collection Identifier</rdfs:label>
+		<rdfs:comment>Identifier for the parent collection for this sub-collection. Enables a hierarchy of collections and sub collections to be built.</rdfs:comment>
+		<rdfs:domain rdf:resource="#Collection"/>
+		<rdfs:range rdf:resource="#Collection"/>
+		<rdfs:isDefinedBy rdf:resource="http://rs.tdwg.org/ontology/voc/Collection"/>
+	</owl:ObjectProperty>
+	<!-- END of Collection attributes -->
+	<owl:ObjectProperty rdf:ID="alternativeId">
+		<rdfs:label>Alternative Identifier</rdfs:label>
+		<rdfs:comment>Alternative identifier for the collection with an indication of the source e.g. ISCW.</rdfs:comment>
+		<rdfs:domain rdf:resource="#Collection"/>
+		<rdfs:range rdf:resource="http://rs.tdwg.org/ontology/voc/TermWithSource"/>
+		<rdfs:isDefinedBy rdf:resource="http://rs.tdwg.org/ontology/voc/Collection"/>
+	</owl:ObjectProperty>
+	<!-- START OF DescriptiveGroup -->
+	<owl:DatatypeProperty rdf:ID="descriptionForSpecialists">
+		<rdfs:label>Description for Specialists</rdfs:label>
+		<rdfs:comment>Optional additional descriptive text using terms that are more suited to a specialist audience. Attribute indicates the language of the text.</rdfs:comment>
+		<rdfs:domain rdf:resource="#Collection"/>
+		<rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+		<rdfs:isDefinedBy rdf:resource="http://rs.tdwg.org/ontology/voc/Collection"/>
+	</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:ID="collectionExtent">
+		<rdfs:label>Extent</rdfs:label>
+		<rdfs:comment>An indication of the size or extent of the collection.</rdfs:comment>
+		<rdfs:domain rdf:resource="#Collection"/>
+		<rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+		<rdfs:isDefinedBy rdf:resource="http://rs.tdwg.org/ontology/voc/Collection"/>
+	</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:ID="knownToContainTypes">
+		<rdfs:label>Known to Contain Types</rdfs:label>
+		<rdfs:comment>Flag element to indicate that the collection is known to include type specimens.</rdfs:comment>
+		<rdfs:domain rdf:resource="#Collection"/>
+		<rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+		<rdfs:isDefinedBy rdf:resource="http://rs.tdwg.org/ontology/voc/Collection"/>
+	</owl:DatatypeProperty>
+	<owl:ObjectProperty rdf:ID="primaryGroupingPrinciple">
+		<rdfs:label>Primary Grouping Principle</rdfs:label>
+		<rdfs:comment>Picklist keyword to indicate what the collection is about. The intellectual basis for grouping the collection rather than grouping based on physical characteristics.
+		 Expected to contain an instance from the Primary Grouping Principle Type Term vocabulary.</rdfs:comment>
+		<rdfs:domain rdf:resource="#Collection"/>
+		<rdfs:range rdf:resource="#PrimaryGroupingPrincipleTypeTerm"/>
+		<rdfs:isDefinedBy rdf:resource="http://rs.tdwg.org/ontology/voc/Collection"/>
+	</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:ID="primaryPurpose">
+		<rdfs:label>Primary purpose</rdfs:label>
+		<rdfs:comment>Picklist key word to indicate the primary reason that the collection was assembled. Expected to contain an instance of the Primary Purpose Type Term.</rdfs:comment>
+		<rdfs:domain rdf:resource="#Collection"/>
+		<rdfs:range rdf:resource="#PrimaryPurposeTypeTerm"/>
+		<rdfs:isDefinedBy rdf:resource="http://rs.tdwg.org/ontology/voc/Collection"/>
+	</owl:ObjectProperty>
+	<owl:DatatypeProperty rdf:ID="citeAs">
+		<rdfs:label>Collection citation</rdfs:label>
+		<rdfs:comment>Preferred text for citing the collection, which may include sponsorship
+			acknowledgements</rdfs:comment>
+		<rdfs:domain rdf:resource="#Collection"/>
+		<rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+		<rdfs:isDefinedBy rdf:resource="http://rs.tdwg.org/ontology/voc/Collection"/>
+	</owl:DatatypeProperty>
+	<!-- END OF DescriptiveGroup -->
+
+	<!-- START OF AdministrativeGroup -->
+	<owl:DatatypeProperty rdf:ID="formationPeriod">
+		<rdfs:label>Formation Period</rdfs:label>
+		<rdfs:comment>Text description of the time period during which the collection was assembled e.g. "Victorian", or "1922 - 1932", or "c. 1750".</rdfs:comment>
+		<rdfs:domain rdf:resource="#Collection"/>
+		<rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+		<rdfs:isDefinedBy rdf:resource="http://rs.tdwg.org/ontology/voc/Collection"/>
+	</owl:DatatypeProperty>
+	<owl:ObjectProperty rdf:ID="developmentStatus">
+		<rdfs:label>Development Status</rdfs:label>
+		<rdfs:comment>Picklist keyword indicating potential for change to the scope of the collection. Expected to contain instances from the Development Status Type Term vocabulary.</rdfs:comment>
+		<rdfs:domain rdf:resource="#Collection"/>
+		<rdfs:range rdf:resource="#DevelopmentStatusTypeTerm"/>
+		<rdfs:isDefinedBy rdf:resource="http://rs.tdwg.org/ontology/voc/Collection"/>
+	</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:ID="conservationStatus">
+		<rdfs:label>Conservation Status</rdfs:label>
+		<rdfs:comment>Picklist keyword indicating the conservation status of the collection using the McGinley scale. Link to the date of assessment and repeat to show sequence of snapshots. Expected to contain an instance from the Conservation Status Type Term vocabulary</rdfs:comment>
+		<rdfs:domain rdf:resource="#Collection"/>
+		<rdfs:range rdf:resource="#ConservationStatusTypeTerm"/>
+		<rdfs:isDefinedBy rdf:resource="http://rs.tdwg.org/ontology/voc/Collection"/>
+	</owl:ObjectProperty>
+	<owl:DatatypeProperty rdf:ID="conservationStatusDate">
+		<rdfs:label>Conservation Status Date</rdfs:label>
+		<rdfs:comment>The date that the conservation status was assessed.</rdfs:comment>
+		<rdfs:domain rdf:resource="#Collection"/>
+		<rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+		<rdfs:isDefinedBy rdf:resource="http://rs.tdwg.org/ontology/voc/Collection"/>
+	</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:ID="usageRestrictions">
+		<rdfs:label>Usage Conditions</rdfs:label>
+		<rdfs:comment>Terms and conditions under which the collection may be used. May be a URL to standard T&amp;C. Default text for an institution may be overwritten for a particular collection if the restrictions are different.</rdfs:comment>
+		<rdfs:domain rdf:resource="#Collection"/>
+		<rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+		<rdfs:isDefinedBy rdf:resource="http://rs.tdwg.org/ontology/voc/Collection"/>
+	</owl:DatatypeProperty>
+	<owl:ObjectProperty rdf:ID="hasContact">
+		<rdfs:label>Contact</rdfs:label>
+		<rdfs:comment>Link to the contact details (such as postal address, email address and phone
+			number) to get more information about this collection.</rdfs:comment>
+		<rdfs:domain rdf:resource="#Collection"/>
+		<rdfs:range rdf:resource="http://rs.tdwg.org/ontology/voc/ContactDetails#ContactDetails"/>
+		<rdfs:isDefinedBy rdf:resource="http://rs.tdwg.org/ontology/voc/Collection"/>
+	</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:ID="hasOwner">
+		<rdfs:label>Owner</rdfs:label>
+		<rdfs:comment>Link to the details for the institution or person that owns this collection.</rdfs:comment>
+		<rdfs:domain rdf:resource="#Collection"/>
+		<rdfs:range rdf:resource="http://rs.tdwg.org/ontology/voc/Institution#Institution"/>
+		<rdfs:range rdf:resource="http://rs.tdwg.org/ontology/voc/Person#Person"/>
+		<rdfs:isDefinedBy rdf:resource="http://rs.tdwg.org/ontology/voc/Collection"/>
+	</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:ID="physicalLocation">
+		<rdfs:label>Physical Location</rdfs:label>
+		<rdfs:comment>Link to the contact details for the host institution, or person for a private collection.</rdfs:comment>
+		<rdfs:domain rdf:resource="#Collection"/>
+		<rdfs:range rdf:resource="http://rs.tdwg.org/ontology/voc/Institution#Institution"/>
+		<rdfs:range rdf:resource="http://rs.tdwg.org/ontology/voc/Person#Person"/>
+		<rdfs:isDefinedBy rdf:resource="http://rs.tdwg.org/ontology/voc/Collection"/>
+	</owl:ObjectProperty>
+	<!-- END OF AdministrativeGroup -->
+
+	<!-- START OF KeywordsGroup -->
+	<owl:ObjectProperty rdf:ID="kingdomCoverage">
+		<rdfs:label>Kingdom Coverage</rdfs:label>
+		<rdfs:comment>Picklist keyword to indicate biological kingdom.</rdfs:comment>
+		<rdfs:domain rdf:resource="#Collection"/>
+		<rdfs:range rdf:resource="#KingdomTypeTerm"/>
+		<rdfs:isDefinedBy rdf:resource="http://rs.tdwg.org/ontology/voc/Collection"/>
+	</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:ID="taxonCoverage">
+		<rdfs:label>Taxon Coverage</rdfs:label>
+		<rdfs:comment>Taxon or taxa in the collection at Family level or higher.</rdfs:comment>
+		<rdfs:domain rdf:resource="#Collection"/>
+		<rdfs:range rdf:resource="http://rs.tdwg.org/ontology/voc/TermWithSource"/>
+		<rdfs:isDefinedBy rdf:resource="http://rs.tdwg.org/ontology/voc/Collection"/>
+	</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:ID="temporalCoverage">
+		<rdfs:label>Temporal Coverage</rdfs:label>
+		<rdfs:comment>Time period covered by the materials in the collection.</rdfs:comment>
+		<rdfs:domain rdf:resource="#Collection"/>
+		<rdfs:range rdf:resource="http://rs.tdwg.org/ontology/voc/TermWithSource"/>
+		<rdfs:isDefinedBy rdf:resource="http://rs.tdwg.org/ontology/voc/Collection"/>
+	</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:ID="taxonCoverageStrength">
+		<rdfs:label>Taxon coverage strength</rdfs:label>
+		<rdfs:comment>Taxon or taxa in the collection at Family level or higher which are considered
+			a particular strength of the collection.</rdfs:comment>
+		<rdfs:subPropertyOf rdf:resource="#taxonCoverage"/>
+		<rdfs:isDefinedBy rdf:resource="http://rs.tdwg.org/ontology/voc/Collection"/>
+	</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:ID="commonNameCoverage">
+		<rdfs:label>Common Name Coverage</rdfs:label>
+		<rdfs:comment>Common names or group names equivalent to the taxon names, in the local language.</rdfs:comment>
+		<rdfs:domain rdf:resource="#Collection"/>
+		<rdfs:range rdf:resource="http://rs.tdwg.org/ontology/voc/TermWithSource"/>
+		<rdfs:isDefinedBy rdf:resource="http://rs.tdwg.org/ontology/voc/Collection"/>
+	</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:ID="commonNameCoverageStrength">
+		<rdfs:label>Common name coverage strength</rdfs:label>
+		<rdfs:comment>Common names or group names which are considered a particular strength of the
+			collection.</rdfs:comment>
+		<rdfs:subPropertyOf rdf:resource="#commonNameCoverage"/>
+		<rdfs:isDefinedBy rdf:resource="http://rs.tdwg.org/ontology/voc/Collection"/>
+	</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:ID="geospatialCoverage">
+		<rdfs:label>Place Name Coverage</rdfs:label>
+		<rdfs:comment>Place names from which material in the collection originated.</rdfs:comment>
+		<rdfs:domain rdf:resource="#Collection"/>
+		<rdfs:range rdf:resource="http://rs.tdwg.org/ontology/voc/TermWithSource"/>
+		<rdfs:isDefinedBy rdf:resource="http://rs.tdwg.org/ontology/voc/Collection"/>
+	</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:ID="geospatialCoverageStrength">
+		<rdfs:label>Geospatial coverage strength</rdfs:label>
+		<rdfs:comment>Place names and/or coordinates indicating the place(s) from which material in
+			the collection originated, which are considered a particular strength of the collection.</rdfs:comment>
+		<rdfs:subPropertyOf rdf:resource="#geospatialCoverage"/>
+		<rdfs:isDefinedBy rdf:resource="http://rs.tdwg.org/ontology/voc/Collection"/>
+	</owl:ObjectProperty>
+	<owl:DatatypeProperty rdf:ID="geospatialCoordinates">
+		<rdfs:label>Geospatial Coordinates</rdfs:label>
+		<rdfs:comment>Decimal latitude(s) and longitude(s) of places of origin of the material in the collection.</rdfs:comment>
+		<rdfs:domain rdf:resource="#Collection"/>
+		<rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+		<rdfs:isDefinedBy rdf:resource="http://rs.tdwg.org/ontology/voc/Collection"/>
+	</owl:DatatypeProperty>
+	<owl:ObjectProperty rdf:ID="livingTimePeriodCoverage">
+		<rdfs:label>Living time period coverage</rdfs:label>
+		<rdfs:comment>Time period during which biological material was alive. Includes
+			palaeontological time periods or other text phrases.</rdfs:comment>
+		<rdfs:domain rdf:resource="#Collection"/>
+		<rdfs:range rdf:resource="http://rs.tdwg.org/ontology/voc/TermWithSource"/>
+		<rdfs:isDefinedBy rdf:resource="http://rs.tdwg.org/ontology/voc/Collection"/>
+	</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:ID="livingTimePeriodCoverageStrength">
+		<rdfs:label>Living Time Period</rdfs:label>
+		<rdfs:comment>Time period during which biological material was alive. Includes palaeontological time periods or other text phrases.</rdfs:comment>
+		<rdfs:subPropertyOf rdf:resource="#livingTimePeriodCoverage"/>
+		<rdfs:isDefinedBy rdf:resource="http://rs.tdwg.org/ontology/voc/Collection"/>
+	</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:ID="collectionType">
+		<rdfs:label>Collection Type</rdfs:label>
+		<rdfs:comment>Picklist keyword to indicate the typical content or unifying characteristic of the collection. Expected to contain an instance for the Collection Type Term vocabulary.</rdfs:comment>
+		<rdfs:domain rdf:resource="#Collection"/>
+		<rdfs:range rdf:resource="http://rs.tdwg.org/ontology/voc/CollectionType#CollectionTypeTerm"/>
+		<rdfs:isDefinedBy rdf:resource="http://rs.tdwg.org/ontology/voc/Collection"/>
+	</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:ID="specimenPreservationMethod">
+		<rdfs:label>Specimen Preservation Method</rdfs:label>
+		<rdfs:comment>Picklist keyword indicating the process or technique used to prevent physical deterioration of non-living collections. Expected to contain an instance from the Specimen Preservation Method Type Term vocabulary.</rdfs:comment>
+		<rdfs:domain rdf:resource="#Collection"/>
+		<rdfs:range rdf:resource="#SpecimenPreservationMethodTypeTerm"/>
+		<rdfs:isDefinedBy rdf:resource="http://rs.tdwg.org/ontology/voc/Collection"/>
+	</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:ID="expeditionNameCoverage">
+		<rdfs:label>Expedition Name</rdfs:label>
+		<rdfs:comment>Uniform name for an expedition or voyage of discovery during which the material was collected.</rdfs:comment>
+		<rdfs:domain rdf:resource="#Collection"/>
+		<rdfs:range rdf:resource="http://rs.tdwg.org/ontology/voc/TermWithSource"/>
+		<rdfs:isDefinedBy rdf:resource="http://rs.tdwg.org/ontology/voc/Collection"/>
+	</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:ID="collectorNameCoverage">
+		<rdfs:label>Collector name coverage</rdfs:label>
+		<rdfs:comment>Name(s) of collector(s) of the material within the collection.</rdfs:comment>
+		<rdfs:domain rdf:resource="#Collection"/>
+		<rdfs:range rdf:resource="http://rs.tdwg.org/ontology/voc/TermWithSource"/>
+		<rdfs:isDefinedBy rdf:resource="http://rs.tdwg.org/ontology/voc/Collection"/>
+	</owl:ObjectProperty>
+	<!-- END OF KeywordsGroup -->
+
+	<!-- START OF RelatedMaterialsGroup -->
+	<owl:DatatypeProperty rdf:ID="relatedCollection">
+		<rdfs:label>Related Collection</rdfs:label>
+		<rdfs:comment>Short descriptions of related collections, such as for other components of a large collection that has been dispersed.</rdfs:comment>
+		<rdfs:domain rdf:resource="#Collection"/>
+		<rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+		<rdfs:isDefinedBy rdf:resource="http://rs.tdwg.org/ontology/voc/Collection"/>
+	</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:ID="itemLevelAccess">
+		<rdfs:label>Item-Level Access</rdfs:label>
+		<rdfs:comment>URI of an item-level data source. This can be a Web service or a Webpage designed for humans.</rdfs:comment>
+		<rdfs:domain rdf:resource="#Collection"/>
+		<rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
+		<rdfs:isDefinedBy rdf:resource="http://rs.tdwg.org/ontology/voc/Collection"/>
+	</owl:DatatypeProperty>
+	<!-- END OF RelatedMaterialsGroup -->
+
+
+	<!-- **************************************
+	     D E V E L O P M E N T   S T A T U S
+ 		************************************** -->
+	<owl:Class rdf:ID="DevelopmentStatusTypeTerm">
+		<rdfs:label>Development Status Term</rdfs:label>
+		<rdfs:comment> Controlled vocabulary for development status.</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="http://rs.tdwg.org/ontology/Base#DefinedTerm"/>
+		<rdfs:isDefinedBy rdf:resource="http://rs.tdwg.org/ontology/voc/Collection"/>
+	</owl:Class>
+	<DevelopmentStatusTypeTerm rdf:ID="activegrowth">
+		<rdfs:label>active growth</rdfs:label>
+		<rdfs:comment>Material is being actively sought for this collection</rdfs:comment>
+		<dc:title>active growth</dc:title>
+		<tbase:definition> Currently increasing in volume, count, number of taxa represented or
+			other dimension due to intentional activity. </tbase:definition>
+	</DevelopmentStatusTypeTerm>
+	<DevelopmentStatusTypeTerm rdf:ID="passivegrowth">
+		<rdfs:label>passive growth</rdfs:label>
+		<rdfs:comment>Material is being added to this collection but not actively sought</rdfs:comment>
+		<dc:title>passive growth</dc:title>
+		<tbase:definition> May increase in volume, count, number of taxa represented or other
+			dimension due to unplanned and unpredicatable activity. </tbase:definition>
+	</DevelopmentStatusTypeTerm>
+	<DevelopmentStatusTypeTerm rdf:ID="consumable">
+		<rdfs:label>available for sampling</rdfs:label>
+		<rdfs:comment>Material in this collection may be sampled</rdfs:comment>
+		<dc:title>available for sampling</dc:title>
+		<tbase:definition> Collection may or will be decreasing in volume, count, representation or
+			other dimension due to intentional destructive analytical activity. </tbase:definition>
+	</DevelopmentStatusTypeTerm>
+	<DevelopmentStatusTypeTerm rdf:ID="static">
+		<rdfs:label>static</rdfs:label>
+		<rdfs:comment>The collection is neither growing nor decreasing</rdfs:comment>
+		<dc:title>static</dc:title>
+		<tbase:definition> The collection cannot or will not increase or decrease in any manner.
+		</tbase:definition>
+	</DevelopmentStatusTypeTerm>
+	<DevelopmentStatusTypeTerm rdf:ID="decreasing">
+		<rdfs:label>decreasing</rdfs:label>
+		<dc:title>decreasing</dc:title>
+		<rdfs:comment>The collection is growing smaller as material is withrawn</rdfs:comment>
+		<tbase:definition> The collection is currently diminishing in volume, count, number of taxa
+			represented, or other dimension due to intentional activity. </tbase:definition>
+	</DevelopmentStatusTypeTerm>
+	<DevelopmentStatusTypeTerm rdf:ID="closed">
+		<rdfs:label>closed</rdfs:label>
+		<rdfs:comment>No further objects will be added</rdfs:comment>
+		<dc:title>closed</dc:title>
+		<tbase:definition> The collection is currently closed to acquisitions or deposits.
+		</tbase:definition>
+	</DevelopmentStatusTypeTerm>
+	<DevelopmentStatusTypeTerm rdf:ID="lost">
+		<rdfs:label>lost</rdfs:label>
+		<rdfs:comment>Collection has been lost, for example destroyed in a fire</rdfs:comment>
+		<dc:title>lost</dc:title>
+		<tbase:definition> The host institution has concluded that collection is permanently
+			unavailable after appropriate efforts have been made although documentation of the
+			collection exists. </tbase:definition>
+	</DevelopmentStatusTypeTerm>
+	<DevelopmentStatusTypeTerm rdf:ID="missing">
+		<rdfs:label>missing</rdfs:label>
+		<rdfs:comment>Collection cannot be found.</rdfs:comment>
+		<dc:title>missing</dc:title>
+		<tbase:definition> The physical collection cannot be located although its documentation
+			exists; the possibility of finding the collection exists. </tbase:definition>
+	</DevelopmentStatusTypeTerm>
+
+
+
+
+	<!-- ***************************************************************
+	      S P E C I M E N   P R E S E R V A T I O N   M E T H O D   T Y P E
+ 	*************************************************************** -->
+
+	<owl:Class rdf:ID="SpecimenPreservationMethodTypeTerm">
+		<rdfs:label>Institution Type Term</rdfs:label>
+		<rdfs:comment> Process or technique used to prevent physical deterioration of non-living
+			collections.</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="http://rs.tdwg.org/ontology/Base#DefinedTerm"/>
+		<rdfs:isDefinedBy
+			rdf:resource="http://rs.tdwg.org/ontology/voc/Collection"/>
+	</owl:Class>
+
+
+
+	<SpecimenPreservationMethodTypeTerm rdf:ID="noTreatment">
+		<rdfs:label>no treatment</rdfs:label>
+		<dc:title>no treatment</dc:title>
+		<tbase:definition> Absence of any deliberate preservation action. </tbase:definition>
+	</SpecimenPreservationMethodTypeTerm>
+
+	<SpecimenPreservationMethodTypeTerm rdf:ID="notApplicable">
+		<rdfs:label>Not Applicable</rdfs:label>
+		<dc:title>Not Applicable</dc:title>
+		<tbase:definition> For living collections that grow and reproduce. </tbase:definition>
+	</SpecimenPreservationMethodTypeTerm>
+
+	<SpecimenPreservationMethodTypeTerm rdf:ID="fluidPreserved">
+		<rdfs:label>Fluid-preserved</rdfs:label>
+		<dc:title>Fluid-preserved</dc:title>
+		<tbase:definition> Maintained in formalin, ethyl alcohol, or other liquid preservative.
+		</tbase:definition>
+	</SpecimenPreservationMethodTypeTerm>
+
+	<SpecimenPreservationMethodTypeTerm rdf:ID="frozen">
+		<rdfs:label>frozen</rdfs:label>
+		<dc:title>frozen</dc:title>
+		<tbase:definition> Held a temperatures below freezing (32 Degrees F or 0 degrees C).
+		</tbase:definition>
+	</SpecimenPreservationMethodTypeTerm>
+
+	<SpecimenPreservationMethodTypeTerm rdf:ID="dried">
+		<rdfs:label>dried</rdfs:label>
+		<dc:title>dried</dc:title>
+		<tbase:definition> Treated or exposed to remove all internal fluids; may have used silica
+			gel. </tbase:definition>
+	</SpecimenPreservationMethodTypeTerm>
+
+	<SpecimenPreservationMethodTypeTerm rdf:ID="driedAndPressed">
+		<rdfs:label>dried and pressed</rdfs:label>
+		<dc:title>dried and pressed</dc:title>
+		<tbase:definition> Treated to remove all internal fluids; flattened, typically mounted on
+			paper. </tbase:definition>
+	</SpecimenPreservationMethodTypeTerm>
+
+	<SpecimenPreservationMethodTypeTerm rdf:ID="tanned">
+		<rdfs:label>tanned</rdfs:label>
+		<dc:title>tanned</dc:title>
+		<tbase:definition> Chemically treated skins and hides. </tbase:definition>
+	</SpecimenPreservationMethodTypeTerm>
+
+	<SpecimenPreservationMethodTypeTerm rdf:ID="freezeDried">
+		<rdfs:label>freeze-dried</rdfs:label>
+		<dc:title>freeze-dried</dc:title>
+		<tbase:definition> Removal of internal liquids using cold, low humidity environment.
+		</tbase:definition>
+	</SpecimenPreservationMethodTypeTerm>
+
+	<SpecimenPreservationMethodTypeTerm rdf:ID="glycerin">
+		<rdfs:label>glycerin</rdfs:label>
+		<dc:title>glycerin</dc:title>
+		<tbase:definition> Replacement of original internal fluids with glycerine.
+		</tbase:definition>
+	</SpecimenPreservationMethodTypeTerm>
+
+	<SpecimenPreservationMethodTypeTerm rdf:ID="surfaceCoating">
+		<rdfs:label>Surface Coating</rdfs:label>
+		<dc:title>Surface Coating</dc:title>
+		<tbase:definition> Application of protective or consolidating surface coating using organic
+			or inorganic materials. </tbase:definition>
+	</SpecimenPreservationMethodTypeTerm>
+
+	<SpecimenPreservationMethodTypeTerm rdf:ID="slideMount">
+		<rdfs:label>Slide Mount</rdfs:label>
+		<dc:title>Slide Mount</dc:title>
+		<tbase:definition> Held on a glass slide using fixative and cover slip. </tbase:definition>
+	</SpecimenPreservationMethodTypeTerm>
+
+	<SpecimenPreservationMethodTypeTerm rdf:ID="embedded">
+		<rdfs:label>Embedded</rdfs:label>
+		<dc:title>Embedded</dc:title>
+		<tbase:definition> Maintained in a solid matrix suitable for making thin sections.
+		</tbase:definition>
+	</SpecimenPreservationMethodTypeTerm>
+
+	<SpecimenPreservationMethodTypeTerm rdf:ID="pinned">
+		<rdfs:label>pinned</rdfs:label>
+		<dc:title>pinned</dc:title>
+		<tbase:definition> Treated to remove all internal fluids; held on metalic pin.
+		</tbase:definition>
+	</SpecimenPreservationMethodTypeTerm>
+
+	<SpecimenPreservationMethodTypeTerm rdf:ID="controlledAtmosphere">
+		<rdfs:label>Controlled Atmosphere</rdfs:label>
+		<dc:title>Controlled Atmosphere</dc:title>
+		<tbase:definition> Held in conditions that vary from the typical elemental mix of the
+			atmosphere; usually implies reduced oxygen. </tbase:definition>
+	</SpecimenPreservationMethodTypeTerm>
+
+	<SpecimenPreservationMethodTypeTerm rdf:ID="cryopreserved">
+		<rdfs:label>cryopreserved</rdfs:label>
+		<dc:title>cryopreserved</dc:title>
+		<tbase:definition> Held at very low termperatures, typically in liquid Nitrogen.
+		</tbase:definition>
+	</SpecimenPreservationMethodTypeTerm>
+
+	<SpecimenPreservationMethodTypeTerm rdf:ID="recordedAnalog">
+		<rdfs:label>Recorded (analog)</rdfs:label>
+		<dc:title>Recorded (analog)</dc:title>
+		<tbase:definition> Observations, measurements, or images that capture phenomena in analog
+			formats. </tbase:definition>
+	</SpecimenPreservationMethodTypeTerm>
+
+	<SpecimenPreservationMethodTypeTerm rdf:ID="recordedDigital">
+		<rdfs:label>Recorded (digital)</rdfs:label>
+		<dc:title>Recorded (digital)</dc:title>
+		<tbase:definition> Observations, measurements, or images that capture phenomena in digital
+			formats. </tbase:definition>
+	</SpecimenPreservationMethodTypeTerm>
+
+	<SpecimenPreservationMethodTypeTerm rdf:ID="refrigerated">
+		<rdfs:label>Refrigerated</rdfs:label>
+		<dc:title>Refrigerated</dc:title>
+		<tbase:definition> Maintained at cool temperatures above freezing. </tbase:definition>
+	</SpecimenPreservationMethodTypeTerm>
+
+	<SpecimenPreservationMethodTypeTerm rdf:ID="semstub">
+		<rdfs:label>SEM stub</rdfs:label>
+		<dc:title>SEM stub</dc:title>
+		<tbase:definition> Mounted and coated for scanning electron microscopy. </tbase:definition>
+	</SpecimenPreservationMethodTypeTerm>
+
+	<SpecimenPreservationMethodTypeTerm rdf:ID="skeletonized">
+		<rdfs:label>Skeletonized</rdfs:label>
+		<dc:title>Skeletonized</dc:title>
+		<tbase:definition> Removal of soft tissues including connective tissues. </tbase:definition>
+	</SpecimenPreservationMethodTypeTerm>
+
+	<SpecimenPreservationMethodTypeTerm rdf:ID="stasis">
+		<rdfs:label>Stasis</rdfs:label>
+		<dc:title>Stasis</dc:title>
+		<tbase:definition> Collections capable of growing and reproducing that are held in a
+			suspended state. </tbase:definition>
+	</SpecimenPreservationMethodTypeTerm>
+
+
+
+	<!-- **************************************
+	     P U R P O S E
+ 		************************************** -->
+	<owl:Class rdf:ID="PrimaryPurposeTypeTerm">
+		<rdfs:label>Primary Purpose Type Term</rdfs:label>
+		<rdfs:comment> Controlled vocabulary for primary purpose types.</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="http://rs.tdwg.org/ontology/Base#DefinedTerm"/>
+		<rdfs:isDefinedBy rdf:resource="http://rs.tdwg.org/ontology/voc/Collection"/>
+	</owl:Class>
+	<PrimaryPurposeTypeTerm rdf:ID="research">
+		<rdfs:label>research</rdfs:label>
+		<rdfs:comment/>
+		<dc:title>research</dc:title>
+		<tbase:definition> Acquired for current and future study. </tbase:definition>
+	</PrimaryPurposeTypeTerm>
+	<PrimaryPurposeTypeTerm rdf:ID="education">
+		<rdfs:label>education</rdfs:label>
+		<rdfs:comment/>
+		<dc:title>education</dc:title>
+		<tbase:definition> Acquired to educate, inform, or convey information. </tbase:definition>
+	</PrimaryPurposeTypeTerm>
+	<PrimaryPurposeTypeTerm rdf:ID="exhibition">
+		<rdfs:label>exhibition</rdfs:label>
+		<rdfs:comment/>
+		<dc:title>exhibition</dc:title>
+		<tbase:definition> Acquired to educate, inform, or convey information through display.
+		</tbase:definition>
+	</PrimaryPurposeTypeTerm>
+	<PrimaryPurposeTypeTerm rdf:ID="ornamental">
+		<rdfs:label>ornamental</rdfs:label>
+		<rdfs:comment/>
+		<dc:title>ornamental</dc:title>
+		<tbase:definition> Acquired for decorative purposes. </tbase:definition>
+	</PrimaryPurposeTypeTerm>
+
+	<PrimaryPurposeTypeTerm rdf:ID="Destructiveanalysis">
+		<rdfs:label>Destructive analysis</rdfs:label>
+		<rdfs:comment/>
+		<dc:title>Destructive analysis</dc:title>
+		<tbase:definition> Acquired and maintained for current and future analytical purposes that
+			will consume the specimen or object. </tbase:definition>
+	</PrimaryPurposeTypeTerm>
+
+	<PrimaryPurposeTypeTerm rdf:ID="monitoring">
+		<rdfs:label>Monitoring</rdfs:label>
+		<rdfs:comment/>
+		<dc:title>Monitoring</dc:title>
+		<tbase:definition> Acquired as a result of observation, measurement, or
+		sampling.</tbase:definition>
+	</PrimaryPurposeTypeTerm>
+
+	<PrimaryPurposeTypeTerm rdf:ID="personal">
+		<rdfs:label>Personal</rdfs:label>
+		<rdfs:comment/>
+		<dc:title>Personal</dc:title>
+		<tbase:definition> Acquired for idiosyncratic reasons. </tbase:definition>
+	</PrimaryPurposeTypeTerm>
+
+	<PrimaryPurposeTypeTerm rdf:ID="voucher">
+		<rdfs:label>Voucher</rdfs:label>
+		<rdfs:comment/>
+		<dc:title>Voucher</dc:title>
+		<tbase:definition> Acquired and maintained to document an organism, observance, or
+			phenomenon. </tbase:definition>
+	</PrimaryPurposeTypeTerm>
+
+
+	<PrimaryPurposeTypeTerm rdf:ID="commercial">
+		<rdfs:label>Commercial</rdfs:label>
+		<rdfs:comment>Micro-organism cultures.</rdfs:comment>
+		<dc:title>Commercial</dc:title>
+		<tbase:definition>Biological material for sale. </tbase:definition>
+	</PrimaryPurposeTypeTerm>
+
+	<!-- *****************************************************
+	     P R I M A R Y   G R O U P I N G   P R I N C I P L E
+ 		****************************************************** -->
+	<owl:Class rdf:ID="PrimaryGroupingPrincipleTypeTerm">
+		<rdfs:label>Primary Grouping Principle Type Term</rdfs:label>
+		<rdfs:comment> Controlled vocabulary for primary grouping principle.</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="http://rs.tdwg.org/ontology/Base#DefinedTerm"/>
+		<rdfs:isDefinedBy rdf:resource="http://rs.tdwg.org/ontology/voc/Collection"/>
+	</owl:Class>
+	<PrimaryGroupingPrincipleTypeTerm rdf:ID="spatial">
+		<rdfs:label>spatial</rdfs:label>
+		<rdfs:comment>Examples include arctic fauna, plants from Guiana.</rdfs:comment>
+		<dc:title>spatial</dc:title>
+		<tbase:definition> Relating to a physical location or region. </tbase:definition>
+	</PrimaryGroupingPrincipleTypeTerm>
+
+	<PrimaryGroupingPrincipleTypeTerm rdf:ID="Ecosystems">
+		<rdfs:label>Ecosystems</rdfs:label>
+		<rdfs:comment>Examples include water column samples, forest plot collections.</rdfs:comment>
+		<dc:title>Ecosystems</dc:title>
+		<tbase:definition> Collections relating to complex community of living organisms and their
+			environment. </tbase:definition>
+	</PrimaryGroupingPrincipleTypeTerm>
+
+	<PrimaryGroupingPrincipleTypeTerm rdf:ID="cultural">
+		<rdfs:label>Cultural</rdfs:label>
+		<rdfs:comment></rdfs:comment>
+		<dc:title>Cultural</dc:title>
+		<tbase:definition> Collections relating to a group of people. </tbase:definition>
+	</PrimaryGroupingPrincipleTypeTerm>
+
+<PrimaryGroupingPrincipleTypeTerm rdf:ID="taxonomic">
+		<rdfs:label>Taxonomic</rdfs:label>
+		<rdfs:comment>Examples include North American mammal collection, lichen collection and arachnid collection.</rdfs:comment>
+		<dc:title>Ecosystems</dc:title>
+		<tbase:definition> Collections relating to a particular grouping of biological or geological specimens. </tbase:definition>
+	</PrimaryGroupingPrincipleTypeTerm>
+
+	<PrimaryGroupingPrincipleTypeTerm rdf:ID="relationships">
+		<rdfs:label>Relationships</rdfs:label>
+		<rdfs:comment>Examples include parasite/host; symbiotic</rdfs:comment>
+		<dc:title>relationships</dc:title>
+		<tbase:definition> Items of different kinds having an intimate biological relationship.
+		</tbase:definition>
+	</PrimaryGroupingPrincipleTypeTerm>
+
+	<PrimaryGroupingPrincipleTypeTerm rdf:ID="expeditions">
+		<rdfs:label>expeditions</rdfs:label>
+		<rdfs:comment/>
+		<dc:title>expeditions</dc:title>
+		<tbase:definition> Collections resulting from a journey or trip taken for a specific
+			purpose. </tbase:definition>
+	</PrimaryGroupingPrincipleTypeTerm>
+	<PrimaryGroupingPrincipleTypeTerm rdf:ID="environmental">
+		<rdfs:label>Environmental</rdfs:label>
+		<rdfs:comment>Examples include rainfall measurements, average temperature, specimens from
+			hydrothermal vents.</rdfs:comment>
+		<dc:title>environmental</dc:title>
+		<tbase:definition> The aggregate of external conditions in which organisms live or phenomena
+			occur; may be defined components only. </tbase:definition>
+	</PrimaryGroupingPrincipleTypeTerm>
+	<PrimaryGroupingPrincipleTypeTerm rdf:ID="temporal">
+		<rdfs:label>temporal</rdfs:label>
+		<rdfs:comment> Cenozoic mollusks, for example</rdfs:comment>
+		<dc:title>temporal</dc:title>
+		<tbase:definition> Relating to a particular time period. </tbase:definition>
+	</PrimaryGroupingPrincipleTypeTerm>
+	<PrimaryGroupingPrincipleTypeTerm rdf:ID="repository">
+		<rdfs:label>Repository</rdfs:label>
+		<rdfs:comment>Specimens from US Mineral Management Service, specimens from US National Park
+			Service, for example.</rdfs:comment>
+		<dc:title>repository</dc:title>
+		<tbase:definition> Similar or related items that are placed in a facility for long term care
+			as the result of a specific agreement. </tbase:definition>
+	</PrimaryGroupingPrincipleTypeTerm>
+
+	<PrimaryGroupingPrincipleTypeTerm rdf:ID="national">
+		<rdfs:label>national</rdfs:label>
+		<rdfs:comment/>
+		<dc:title>national</dc:title>
+		<tbase:definition> Relating to geopolitical boundaries. </tbase:definition>
+	</PrimaryGroupingPrincipleTypeTerm>
+
+	<PrimaryGroupingPrincipleTypeTerm rdf:ID="events">
+		<rdfs:label>events</rdfs:label>
+		<rdfs:comment>Specimens collected at a disaster site, for example.</rdfs:comment>
+		<dc:title>events</dc:title>
+		<tbase:definition> Collections that were made as a result of an event, or that document an
+			event. </tbase:definition>
+	</PrimaryGroupingPrincipleTypeTerm>
+
+	<PrimaryGroupingPrincipleTypeTerm rdf:ID="stage">
+		<rdfs:label>stage</rdfs:label>
+		<rdfs:comment>Larva, fetus, for example.</rdfs:comment>
+		<dc:title>stage</dc:title>
+		<tbase:definition> Relating to a specific phase in physical development. </tbase:definition>
+	</PrimaryGroupingPrincipleTypeTerm>
+
+
+	<!-- **************************************
+	     K I N G D O M
+ 		************************************** -->
+	<owl:Class rdf:ID="KingdomTypeTerm">
+		<rdfs:label>Kingdom Type Term</rdfs:label>
+		<rdfs:comment> Controlled vocabulary for taxonomic kingdom.</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="http://rs.tdwg.org/ontology/Base#DefinedTerm"/>
+		<rdfs:isDefinedBy rdf:resource="http://rs.tdwg.org/ontology/voc/Collection"/>
+	</owl:Class>
+	<KingdomTypeTerm rdf:ID="Animalia">
+		<rdfs:label>Animalia</rdfs:label>
+		<rdfs:comment/>
+		<dc:title>Animalia</dc:title>
+		<tbase:definition>Animal Kingdom </tbase:definition>
+	</KingdomTypeTerm>
+	<KingdomTypeTerm rdf:ID="Plantae">
+		<rdfs:label>Plantae</rdfs:label>
+		<rdfs:comment/>
+		<dc:title>Plantae</dc:title>
+		<tbase:definition>Plant Kingdom</tbase:definition>
+	</KingdomTypeTerm>
+	<KingdomTypeTerm rdf:ID="Fungi">
+		<rdfs:comment/>
+		<rdfs:label>Fungi</rdfs:label>
+		<dc:title>Fungi</dc:title>
+		<tbase:definition>Fungi </tbase:definition>
+	</KingdomTypeTerm>
+	<KingdomTypeTerm rdf:ID="Protista">
+		<rdfs:label>Protista</rdfs:label>
+		<rdfs:comment/>
+		<dc:title>Protista</dc:title>
+		<tbase:definition>Protists </tbase:definition>
+	</KingdomTypeTerm>
+	<KingdomTypeTerm rdf:ID="Eubacteria">
+		<rdfs:label>Eubacteria</rdfs:label>
+		<rdfs:comment/>
+		<dc:title>Eubacteria</dc:title>
+		<tbase:definition>Eubacteria </tbase:definition>
+	</KingdomTypeTerm>
+	<KingdomTypeTerm rdf:ID="Archaebacteria">
+		<rdfs:label>Archaebacteria</rdfs:label>
+		<rdfs:comment/>
+		<dc:title>Archaebacteria</dc:title>
+		<tbase:definition>Archaebacteria</tbase:definition>
+	</KingdomTypeTerm>
+
+
+	<!-- **************************************
+	     C O N S E R V A T I O N   S T A T U S 
+ 		************************************** -->
+	<owl:Class rdf:ID="ConservationStatusTypeTerm">
+		<rdfs:label>Conservation Status Type Term</rdfs:label>
+		<rdfs:comment> The class for construction controlled vocabularies of conservation status.
+			Terms are taken from the McGinley levels.</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="http://rs.tdwg.org/ontology/Base#DefinedTerm"/>
+		<rdfs:isDefinedBy rdf:resource="http://rs.tdwg.org/ontology/voc/Collection"/>
+	</owl:Class>
+	<ConservationStatusTypeTerm rdf:ID="McGinley1">
+		<rdfs:label>McGinley level 1</rdfs:label>
+		<rdfs:comment>Materials conservation:Conservation Problem </rdfs:comment>
+		<dc:title>McGinley level 1</dc:title>
+		<tbase:definition>Specimens deteriorating, potentially cullable, or unprepared.  Collection unit in need of immediate attention;  museum pests, rusting pins, crystallizing slide media, unringed Hoyer�s media, evaporated alcohol, fading labels, broken cover slip or slide, etc.  Primary types missed in general collection.   </tbase:definition>
+	</ConservationStatusTypeTerm>
+	<ConservationStatusTypeTerm rdf:ID="McGinley2">
+		<rdfs:label>McGinley level 2</rdfs:label>
+		<rdfs:comment>Specimen accessibility: Specimens Unidentified, Inaccessible</rdfs:comment>
+		<dc:title>McGinley level 2</dc:title>
+		<tbase:definition>Material properly prepared but not sorted or only rough-sorted; not readily available to specialists.</tbase:definition>
+	</ConservationStatusTypeTerm>
+	<ConservationStatusTypeTerm rdf:ID="McGinley3">
+		<rdfs:label>McGinley level 3</rdfs:label>
+		<rdfs:comment>Specimen accessibility: Specimens Unidentified, Accessible</rdfs:comment>
+		<dc:title>McGinley level 3</dc:title>
+		<tbase:definition>Specimens sorted to a level necessary to be efficiently accessible to research specialist for study.  All specimens in soft-bottom trays, shell vials in jars or slide boxes, with appropriate levels denoting pertinent taxonomic information.  Taxonomic category may vary among different taxa. </tbase:definition>
+	</ConservationStatusTypeTerm>
+	<ConservationStatusTypeTerm rdf:ID="McGinley4">
+		<rdfs:label>McGinley level 4</rdfs:label>
+		<rdfs:comment>Specimen accessibility: Specimens Identified but not Integrated into Collection</rdfs:comment>
+		<dc:title>McGinley level 4</dc:title>
+		<tbase:definition>Valuable material that has been identified to the species level but not yet put away effectively inaccessible.</tbase:definition>
+	</ConservationStatusTypeTerm>
+	<ConservationStatusTypeTerm rdf:ID="McGinley5">
+		<rdfs:label>McGinley level 5</rdfs:label>
+		<rdfs:comment>Physical organization: Specimens Identified but Curation Incomplete</rdfs:comment>
+		<dc:title>McGinley level 5</dc:title>
+		<tbase:definition> All specimens identified and integrated.  However, this collection unit needs upgrading, e.g., names checked, header labels for unit trays prepared, transfer to soft-bottom trays, etc., box header labels checked against slides.  Alcoholic collection with individual exposed vials, jar labels misleading or without detail, overall format heterogenous. </tbase:definition>
+	</ConservationStatusTypeTerm>
+	<ConservationStatusTypeTerm rdf:ID="McGinley6">
+		<rdfs:label>McGinley level 6</rdfs:label>
+		<rdfs:comment>Physical organization: Specimens Identified and Properly Curated in Accordance with Departmental Collection Standards</rdfs:comment>
+		<dc:title>McGinley level 6</dc:title>
+		<tbase:definition> All specimens in soft-bottom unit trays; all unit-tray header labels, drawer or box, and cabinet labels completed; space left for expansion.  When a collection reaches Level 6, the name(s) or who did the curation, the date of curation and listing of catalogues or monographs on which the names are based should be entered in the Smithsonian Collection Inventory File computerized files.  Vial within jar system established, labels complete and accurately typed, expansion space allocated, and alcohol levels adequate. </tbase:definition>
+	</ConservationStatusTypeTerm>
+	<ConservationStatusTypeTerm rdf:ID="McGinley7">
+		<rdfs:label>McGinley level 7</rdfs:label>
+		<rdfs:comment>Data Capture: Species Level Inventory</rdfs:comment>
+		<dc:title>McGinley level 7</dc:title>
+		<tbase:definition> Species inventory with header or box label generation completed.  Alcoholic collection with taxa listed on jar labels and in database, as in Level 6 plus species-level inventory. </tbase:definition>
+	</ConservationStatusTypeTerm>
+	<ConservationStatusTypeTerm rdf:ID="McGinley8">
+		<rdfs:label>McGinley level 8</rdfs:label>
+		<rdfs:comment>Data Capture: Specimen Label Data Capture</rdfs:comment>
+		<dc:title>McGinley level 8</dc:title>
+		<tbase:definition> Label data are recorded for systematic, biogeography or natural history studies.  The data elements recorded will vary by group, however, a d standard core set includes the following: a) a country/province/place/latitude-longitude; b) date of collection; c) collector(s); d) miscellaneous (for example, elevation, host).  Miscellaneous voucher specimens, including types, from various studies are also ranked at this level. </tbase:definition>
+	</ConservationStatusTypeTerm>
+	<ConservationStatusTypeTerm rdf:ID="McGinley9">
+		<rdfs:label>McGinley level 9</rdfs:label>
+		<rdfs:comment>Data Capture: Research Data Capture</rdfs:comment>
+		<dc:title>McGinley level 9</dc:title>
+		<tbase:definition> Measurements, graphics, or other pertinent (descriptions) of specimens are captured in a database </tbase:definition>
+	</ConservationStatusTypeTerm>
+	<ConservationStatusTypeTerm rdf:ID="McGinley10">
+		<rdfs:label>McGinley level 10</rdfs:label>
+		<rdfs:comment>Scientific Voucher Material</rdfs:comment>
+		<dc:title>McGinley level 10</dc:title>
+		<tbase:definition> Groups of specimens included in published monographic, synthetic, or revisionary works, including primary type collection if storage is at Level 7 or higher.  When groups of specimens serve to voucher published scientific collection-based studies and have undergone conservation and accession requirements of at least Level 7.</tbase:definition>
+	</ConservationStatusTypeTerm>
+
+</rdf:RDF>

@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="human.xsl"?>
+<!-- $Rev: 1297 $ -->
+<!-- $Date: 2007-08-16 15:58:24 +0100 (Thu, 16 Aug 2007) $ -->
+<!-- $Author: MarkusDoering $ -->
+
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" 
+   xmlns:owl="http://www.w3.org/2002/07/owl#"
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:dcterms="http://purl.org/dc/terms/"
+   xmlns:base="http://rs.tdwg.org/ontology/Base#"
+   xml:base="http://rs.tdwg.org/ontology/voc/CollectionType"
+   xmlns="http://rs.tdwg.org/ontology/voc/CollectionType#">
+
+   <owl:Ontology rdf:about="http://rs.tdwg.org/ontology/voc/CollectionType">
+      <dc:title>TDWG Collection Type LSID Ontology</dc:title>
+      <dc:creator>Markus Döring</dc:creator>
+      <dc:publisher>TDWG Biodiversity Information Standards - NCD subgroup</dc:publisher>
+      <dcterms:issued>2007-03-08</dcterms:issued>
+      <dcterms:modified>$Date: 2007-08-16 15:58:24 +0100 (Thu, 16 Aug 2007) $</dcterms:modified>
+      <dc:description>Ontology describing a controlled vocabulary for type of (biological) collections.</dc:description>
+
+      <owl:versionInfo>0.1</owl:versionInfo>
+
+      <rdfs:comment rdf:parseType="Literal"> FIXME... </rdfs:comment>
+
+   </owl:Ontology>
+
+
+   <!-- ************************************
+	      C O L L E C T I O N    T Y P E
+ 		************************************ -->
+
+   <owl:Class rdf:ID="CollectionTypeTerm">
+      <rdfs:label>Collection Type Term</rdfs:label>
+      <rdfs:comment> The class for controlled vocabularies of collection types. Picklist keyword to indicate typical contents or unifying characteristics of the collection.</rdfs:comment>
+      <rdfs:subClassOf rdf:resource="http://rs.tdwg.org/ontology/Base#DefinedTerm"/>
+      <rdfs:isDefinedBy rdf:resource="http://rs.tdwg.org/ontology/voc/CollectionType"/>
+   </owl:Class>
+
+
+
+   <CollectionTypeTerm rdf:ID="art">
+      <rdfs:label>Art</rdfs:label>
+<rdfs:comment>Paintings, drawings, scientific illustrations are examples.</rdfs:comment>
+      <dc:title>art</dc:title>
+      <base:definition>
+       Representational and impressionistic works from the human hand.
+      </base:definition>
+   </CollectionTypeTerm>
+
+   <CollectionTypeTerm rdf:ID="living">
+      <rdfs:label>living</rdfs:label>
+<rdfs:comment>Plants or fish are examples.</rdfs:comment>
+      <dc:title>living</dc:title>
+      <base:definition>
+  Collections that grow and reproduce, including botanic gardens, zoos and aquaria.
+      </base:definition>
+   </CollectionTypeTerm>
+
+   <CollectionTypeTerm rdf:ID="products">
+      <rdfs:label>Products</rdfs:label>
+<rdfs:comment>Nests, webs or molts are examples.</rdfs:comment>
+      <dc:title>products</dc:title>
+      <base:definition>
+Specimens that result from biological functions or behaviours.      </base:definition>
+   </CollectionTypeTerm>
+
+   <CollectionTypeTerm rdf:ID="cellcultures">
+      <rdfs:label>Cell cultures</rdfs:label>
+<rdfs:comment>Cell lines or microorganisms are examples.</rdfs:comment>
+      <dc:title>cellcultures</dc:title>
+      <base:definition>
+       Biological material that is intentionally cultured and maintained in a viable state.
+      </base:definition>
+   </CollectionTypeTerm>
+
+   <CollectionTypeTerm rdf:ID="preserved">
+      <rdfs:label>preserved</rdfs:label>
+<rdfs:comment>Examples include pinned butterfly, herbarium specimen, skeleton, skin or fluid-preserved invertebrate.</rdfs:comment>
+      <dc:title>preserved</dc:title>
+      <base:definition>
+       Biological specimens that are preserved indefinitely.
+      </base:definition>
+   </CollectionTypeTerm>
+
+   <CollectionTypeTerm rdf:ID="observations">
+      <rdfs:label>observations</rdfs:label>
+<rdfs:comment>Avian mating displays, for example.</rdfs:comment>
+      <dc:title>observations</dc:title>
+      <base:definition>
+      Recorded visual phenomena, may be observation or measurement.
+      </base:definition>
+   </CollectionTypeTerm>
+
+   <CollectionTypeTerm rdf:ID="visual">
+      <rdfs:label>visual</rdfs:label>
+<rdfs:comment>Examples include photograph, SEM image or video.</rdfs:comment>
+      <dc:title>visual</dc:title>
+      <base:definition>
+       Visual representations of an item or object produced with the aid of a camera or a digital imaging system.
+      </base:definition>
+   </CollectionTypeTerm>
+
+   <CollectionTypeTerm rdf:ID="fossils">
+      <rdfs:label>fossils</rdfs:label>
+<rdfs:comment>Tyrannosaurus Rex., for example.</rdfs:comment>
+      <dc:title>fossils</dc:title>
+      <base:definition>
+       Biological specimens that are preserved through geological processes.
+      </base:definition>
+   </CollectionTypeTerm>
+
+   <CollectionTypeTerm rdf:ID="archival">
+      <rdfs:label>archival</rdfs:label>
+<rdfs:comment>Examples include papers and records, field logs, photographs.</rdfs:comment>
+      <dc:title>archival</dc:title>
+      <base:definition>
+        Public and/or private records and historical documents  in various media which are preserved and accessible.
+      </base:definition>
+   </CollectionTypeTerm>
+
+   <CollectionTypeTerm rdf:ID="audio">
+      <rdfs:label>audio</rdfs:label>
+<rdfs:comment>Amphibian mating calls, for example.</rdfs:comment>
+      <dc:title>audio</dc:title>
+      <base:definition>
+        Recorded auditory phenomena.
+      </base:definition>
+   </CollectionTypeTerm>
+
+  <CollectionTypeTerm rdf:ID="texts">
+      <rdfs:label>texts</rdfs:label>
+<rdfs:comment>Books, journals and other printed publications for example.</rdfs:comment>
+      <dc:title>texts</dc:title>
+      <base:definition>
+A collection of books or other written material, or a list of works.
+      </base:definition>
+   </CollectionTypeTerm>
+
+<CollectionTypeTerm rdf:ID="electronic">
+      <rdfs:label>electronic</rdfs:label>
+<rdfs:comment>Electronic documents, web sites or databases for example.</rdfs:comment>
+      <dc:title>electronic</dc:title>
+      <base:definition>
+Data or information that has been captured and digitized for storage and manipulation in an automated system and that requires the use of the system to render it intelligible by a person.      </base:definition>
+   </CollectionTypeTerm>
+
+<CollectionTypeTerm rdf:ID="facsimiles">
+      <rdfs:label>facsimiles</rdfs:label>
+<rdfs:comment>Endocasts or molds for example</rdfs:comment>
+      <dc:title>facsimiles</dc:title>
+      <base:definition>
+Accurate representations of the original item; may be naturally occurring or manufactured.      </base:definition>
+   </CollectionTypeTerm>
+
+<CollectionTypeTerm rdf:ID="genetic">
+      <rdfs:label>genetic</rdfs:label>
+<rdfs:comment>Germplasm, seed, blood or DNA for example.</rdfs:comment>
+      <dc:title>genetic</dc:title>
+      <base:definition>
+Stored or banked biological samples for future use.      </base:definition>
+   </CollectionTypeTerm>
+
+<CollectionTypeTerm rdf:ID="taxonomic">
+      <rdfs:label>taxonomic</rdfs:label>
+<rdfs:comment>North American mammal collection, lichen collection, arachnid collection for example.</rdfs:comment>
+      <dc:title>taxonomic</dc:title>
+      <base:definition>
+Relating to a particular grouping of biological or geological specimens.
+      </base:definition>
+   </CollectionTypeTerm>
+
+<CollectionTypeTerm rdf:ID="tissue">
+      <rdfs:label>tissue</rdfs:label>
+<rdfs:comment>Blood, muscle, ovary or leaf for example.</rdfs:comment>
+      <dc:title>tissue</dc:title>
+      <base:definition>
+Plant and/or animal tissues.      </base:definition>
+   </CollectionTypeTerm>
+
+
+
+
+</rdf:RDF>

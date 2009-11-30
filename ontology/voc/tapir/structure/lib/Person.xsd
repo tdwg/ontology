@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- $Rev: 757 $ -->
+<!-- $Date: 2006-11-30 19:07:57 +0000 (Thu, 30 Nov 2006) $ -->
+<!-- $Author: RogerHyam $ -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
+  targetNamespace="http://rs.tdwg.org/ontology/voc/Person#"
+  xmlns:dcterms="http://purl.org/dc/terms/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+  xmlns:owl="http://www.w3.org/2002/07/owl#" xmlns:tp="http://rs.tdwg.org/ontology/voc/Person#"
+  xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:tcom="http://rs.tdwg.org/ontology/voc/Common#">
+  <xs:import namespace="http://purl.org/dc/elements/1.1/" schemaLocation="dc.xsd"/>
+  <xs:import namespace="http://purl.org/dc/terms/" schemaLocation="dcterms.xsd"/>
+  <xs:import namespace="http://rs.tdwg.org/ontology/voc/Common#" schemaLocation="tcom.xsd"/>
+  <xs:import namespace="http://www.w3.org/1999/02/22-rdf-syntax-ns#" schemaLocation="rdf.xsd"/>
+  <xs:import namespace="http://www.w3.org/2002/07/owl#" schemaLocation="owl.xsd"/>
+  <xs:annotation>
+    <xs:documentation> This schema is designed to help produce XML instance documents that are valid
+      RDF and so can be consumed by semantic web based applications. It is not a normative document.
+      The Person LSID vocabulary (http://rs.tdwg.org/ontology/voc/Person) contains the definitions
+      and documentation for the different fields found here. Please refer to that vocabulary for
+      more details. </xs:documentation>
+  </xs:annotation>
+  <xs:element name="Person">
+    <xs:complexType>
+      <xs:sequence>
+
+        <!-- external vocabularies -->
+        <xs:element ref="dc:title" minOccurs="0" maxOccurs="unbounded"/>
+        <xs:element ref="dcterms:created" minOccurs="0" maxOccurs="unbounded"/>
+        <xs:element ref="dcterms:modified" minOccurs="0" maxOccurs="unbounded"/>
+        <xs:element ref="owl:versionInfo" minOccurs="0" maxOccurs="unbounded"/>
+
+        <!-- common properties -->
+        <xs:element ref="tcom:isDeprecated" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element ref="tcom:versionedAs" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element ref="tcom:publishedIn" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element ref="tcom:publishedInCitation" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element ref="tcom:microReference" minOccurs="0" maxOccurs="unbounded"/>
+
+        <!-- Properties local to this class -->
+        
+        <!--Datatype Properties-->
+        <xs:element name="lifespan" maxOccurs="unbounded" minOccurs="0" type="xs:string"/>
+        <xs:element name="birthdate" maxOccurs="unbounded" minOccurs="0" type="xs:string"/>
+        <xs:element name="deathdate" maxOccurs="unbounded" minOccurs="0" type="xs:string"/>
+        <xs:element name="flourishedDate" maxOccurs="unbounded" minOccurs="0" type="xs:string"/>
+        <xs:element name="subjectScope" maxOccurs="unbounded" minOccurs="0" type="xs:string"/>
+        <xs:element name="geographicScope" maxOccurs="unbounded" minOccurs="0" type="xs:string"/>
+        
+        <!--Object Properties-->
+        <xs:element name="authorOf" maxOccurs="unbounded" minOccurs="0" type="tcom:SimpleLinkType"/>
+        <xs:element name="alias" maxOccurs="unbounded" minOccurs="0">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="PersonNameAlias" minOccurs="1" maxOccurs="1">
+                <xs:complexType>
+                  <xs:sequence>
+                    
+                    <!-- external vocabularies -->
+                    <xs:element ref="dc:title" minOccurs="0" maxOccurs="unbounded"/>
+                    <xs:element ref="dc:source" minOccurs="0" maxOccurs="unbounded"/>
+                    <xs:element ref="dcterms:created" minOccurs="0" maxOccurs="unbounded"/>
+                    <xs:element ref="dcterms:modified" minOccurs="0" maxOccurs="unbounded"/>
+                    <xs:element ref="owl:versionInfo" minOccurs="0" maxOccurs="unbounded"/>
+
+                    <!-- common properties -->
+                    <xs:element ref="tcom:isDeprecated" minOccurs="0" maxOccurs="unbounded" />
+                    <xs:element ref="tcom:versionedAs" minOccurs="0" maxOccurs="unbounded" />
+                    <xs:element ref="tcom:publishedIn" minOccurs="0" maxOccurs="unbounded" />
+                    <xs:element ref="tcom:publishedInCitation" minOccurs="0" maxOccurs="unbounded" />
+                    <xs:element ref="tcom:microReference" minOccurs="0" maxOccurs="unbounded"/>
+
+                    <!-- local properties -->
+                    <xs:element name="surname" maxOccurs="unbounded" minOccurs="0" type="xs:string"/>
+                    <xs:element name="forenames" maxOccurs="unbounded" minOccurs="0"
+                      type="xs:string"/>
+                    <xs:element name="standardForm" maxOccurs="unbounded" minOccurs="0"
+                      type="xs:string"/>
+                    <xs:element name="context" maxOccurs="unbounded" minOccurs="0" type="xs:string"/>
+                    <xs:element name="ratifiedBy" maxOccurs="unbounded" minOccurs="0"
+                    type="tcom:SimpleLinkType"/>
+                    <xs:element name="isPreferred" maxOccurs="1" minOccurs="0"
+                      type="xs:boolean"/>
+                    
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="contactDetails" maxOccurs="unbounded" minOccurs="0" type="tcom:SimpleLinkType"/>
+      </xs:sequence>
+      <xs:attribute ref="rdf:about" use="optional"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:complexType name="PersonLinkType">
+    <xs:sequence>
+      <xs:element ref="tp:Person" maxOccurs="1" minOccurs="0"/>
+    </xs:sequence>
+    <xs:attribute ref="rdf:resource" use="optional"/>
+  </xs:complexType>
+
+
+</xs:schema>

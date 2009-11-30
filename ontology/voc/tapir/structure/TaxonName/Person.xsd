@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- $Rev: 757 $ -->
+<!-- $Date: 2006-11-30 19:07:57 +0000 (Thu, 30 Nov 2006) $ -->
+<!-- $Author: RogerHyam $ -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
+  targetNamespace="http://rs.tdwg.org/ontology/voc/Person#"
+  xmlns:dcterms="http://purl.org/dc/terms/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+  xmlns:owl="http://www.w3.org/2002/07/owl#" xmlns:tp="http://rs.tdwg.org/ontology/voc/Person#"
+  xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:tcom="http://rs.tdwg.org/ontology/voc/Common#">
+  <xs:import namespace="http://purl.org/dc/elements/1.1/" schemaLocation="../lib/dc.xsd"/>
+  <xs:import namespace="http://purl.org/dc/terms/" schemaLocation="../lib/dcterms.xsd"/>
+  <xs:import namespace="http://rs.tdwg.org/ontology/voc/Common#" schemaLocation="../lib/tcom.xsd"/>
+  <xs:import namespace="http://www.w3.org/1999/02/22-rdf-syntax-ns#" schemaLocation="../lib/rdf.xsd"/>
+  
+  <xs:element name="Person">
+    <xs:complexType>
+      <xs:sequence>
+
+        <!-- external vocabularies -->
+        <xs:element ref="dc:title" minOccurs="0" maxOccurs="unbounded"/>
+
+        <!-- Properties local to this class -->
+        
+        <!--Datatype Properties-->
+        <xs:element name="lifespan" maxOccurs="unbounded" minOccurs="0" type="xs:string"/>
+        <xs:element name="birthdate" maxOccurs="unbounded" minOccurs="0" type="xs:string"/>
+        <xs:element name="deathdate" maxOccurs="unbounded" minOccurs="0" type="xs:string"/>
+        <xs:element name="flourishedDate" maxOccurs="unbounded" minOccurs="0" type="xs:string"/>
+        
+        <!--Object Properties-->
+        <xs:element name="alias" maxOccurs="unbounded" minOccurs="0">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="PersonNameAlias" minOccurs="1" maxOccurs="1">
+                <xs:complexType>
+                  <xs:sequence>
+                    
+                    <!-- external vocabularies -->
+                    <xs:element ref="dc:title" minOccurs="0" maxOccurs="unbounded"/>
+
+                    <!-- local properties -->
+                    <xs:element name="surname" maxOccurs="unbounded" minOccurs="0" type="xs:string"/>
+                    <xs:element name="forenames" maxOccurs="unbounded" minOccurs="0"
+                      type="xs:string"/>
+                    <xs:element name="standardForm" maxOccurs="unbounded" minOccurs="0"
+                      type="xs:string"/>
+                    <xs:element ref="dcterms:conformsTo" maxOccurs="unbounded" minOccurs="0" />
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attribute ref="rdf:about" use="optional"/>
+    </xs:complexType>
+  </xs:element>
+
+</xs:schema>

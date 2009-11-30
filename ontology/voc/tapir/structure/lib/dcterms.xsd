@@ -1,0 +1,370 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
+  targetNamespace="http://purl.org/dc/terms/" xmlns:dcterms="http://purl.org/dc/terms/"	
+  xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+>
+	<xs:import namespace="http://www.w3.org/1999/02/22-rdf-syntax-ns#" schemaLocation="rdf.xsd"/>
+
+<xs:element name="abstract"   type="xs:string">
+		<xs:annotation>
+			<xs:appinfo>http://purl.org/dc/terms/abstract</xs:appinfo>
+			<xs:documentation>A summary of the content of the resource. </xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="accessRights"   type="xs:string">
+		<xs:annotation>
+			<xs:appinfo>http://purl.org/dc/terms/accessRights</xs:appinfo>
+			<xs:documentation>Information about who can access the resource or an indication of its
+				security status. Access Rights may include information regarding access or
+				restrictions based on privacy, security or other regulations. </xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="accrualMethod"   type="xs:string">
+		<xs:annotation>
+			<xs:appinfo>http://purl.org/dc/terms/accrualMethod</xs:appinfo>
+			<xs:documentation>The method by which items are added to a collection. Recommended best
+				practice is to use a value from a controlled vocabulary. </xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="accrualPeriodicity"   type="xs:string">
+		<xs:annotation>
+			<xs:appinfo>http://purl.org/dc/terms/accrualPeriodicity</xs:appinfo>
+			<xs:documentation>The frequency with which items are added to a collection. Recommended
+				best practice is to use a value from a controlled vocabulary. </xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="accrualPolicy"   type="xs:string">
+		<xs:annotation>
+			<xs:appinfo>http://purl.org/dc/terms/accrualPolicy</xs:appinfo>
+			<xs:documentation>The policy governing the addition of items to a collection. Recommended
+				best practice is to use a value from a controlled vocabulary. </xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="alternative"   type="xs:string">
+		<xs:annotation>
+			<xs:appinfo>http://purl.org/dc/terms/alternative</xs:appinfo>
+			<xs:documentation>Any form of the title used as a substitute or alternative to the formal
+				title of the resource. </xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="audience"   type="xs:string">
+		<xs:annotation>
+			<xs:appinfo>http://purl.org/dc/terms/audience</xs:appinfo>
+			<xs:documentation>A class of entity for whom the resource is intended or useful. A class of
+				entity may be determined by the creator or the publisher or by a third party.
+			</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="available"   type="xs:string">
+		<xs:annotation>
+			<xs:appinfo>http://purl.org/dc/terms/available</xs:appinfo>
+			<xs:documentation>Date (often a range) that the resource will become or did become
+				available. </xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="bibliographicCitation"  
+		type="xs:string">
+		<xs:annotation>
+			<xs:appinfo>http://purl.org/dc/terms/bibliographicCitation</xs:appinfo>
+			<xs:documentation>A bibliographic reference for the resource. Recommended practice is to
+				include sufficient bibliographic detail to identify the resource as unambiguously as
+				possible, whether or not the citation is in a standard form. c.f.
+				http://rs.tdwg.org/ontology/voc/PublicationCitation#PublicationCitation</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="conformsTo" >
+		<xs:complexType>
+			<xs:attribute ref="rdf:resource" use="required">
+				<xs:annotation>
+					<xs:appinfo>http://purl.org/dc/terms/conformsTo</xs:appinfo>
+					<xs:documentation>A reference to an established standard to which the resource
+						conforms.</xs:documentation>
+				</xs:annotation>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="created"   type="xs:string">
+		<xs:annotation>
+			<xs:appinfo>http://purl.org/dc/terms/created</xs:appinfo>
+			<xs:documentation>Date of creation of the resource. This should be read as the creation
+				date of the digital object rather than the object it might
+			represent.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="dateAccepted"   type="xs:string">
+		<xs:annotation>
+			<xs:appinfo>http://purl.org/dc/terms/dateAccepted</xs:appinfo>
+			<xs:documentation>Date of acceptance of the resource (e.g. of thesis by university
+				department, of article by journal, etc.).</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="dateCopyrighted"   type="xs:string">
+		<xs:annotation>
+			<xs:appinfo>http://purl.org/dc/terms/dateCopyrighted</xs:appinfo>
+			<xs:documentation>Date of a statement of copyright. This applies to the copyright for the
+				digital object. </xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="dateSubmitted"   type="xs:string">
+		<xs:annotation>
+			<xs:appinfo>http://purl.org/dc/terms/dateSubmitted</xs:appinfo>
+			<xs:documentation>Date of submission of the resource. </xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="educationLevel"   type="xs:string">
+		<xs:annotation>
+			<xs:appinfo>http://purl.org/dc/terms/educationLevel</xs:appinfo>
+			<xs:documentation>A general statement describing the education or training context.
+				Alternatively, a more specific statement of the location of the audience in terms of
+				its progression through an education or training context. </xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="extent"   type="xs:string">
+		<xs:annotation>
+			<xs:appinfo>http://purl.org/dc/terms/extent</xs:appinfo>
+			<xs:documentation>The size or duration of the resource.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="hasFormat">
+		<xs:complexType>
+			<xs:attribute ref="rdf:resource" use="required">
+				<xs:annotation>
+					<xs:appinfo>http://purl.org/dc/terms/hasFormat</xs:appinfo>
+					<xs:documentation>The described resource pre-existed the referenced resource, which
+						is essentially the same intellectual content presented in another format.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="isFormatOf">
+		<xs:complexType>
+			<xs:attribute ref="rdf:resource" use="required">
+				<xs:annotation>
+					<xs:appinfo>http://purl.org/dc/terms/isFormatOf</xs:appinfo>
+					<xs:documentation>The described resource is the same intellectual content of the
+						referenced resource, but presented in another format.</xs:documentation>
+				</xs:annotation>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="hasPart">
+		<xs:complexType>
+			<xs:attribute ref="rdf:resource" use="required">
+				<xs:annotation>
+					<xs:appinfo>http://purl.org/dc/terms/hasPart</xs:appinfo>
+					<xs:documentation>The described resource includes the referenced resource either
+						physically or logically.</xs:documentation>
+				</xs:annotation>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="isPartOf">
+		<xs:complexType>
+			<xs:attribute ref="rdf:resource" use="required">
+				<xs:annotation>
+					<xs:appinfo>http://purl.org/dc/terms/isPartOf</xs:appinfo>
+					<xs:documentation>The described resource is a physical or logical part of the
+						referenced resource.</xs:documentation>
+				</xs:annotation>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="hasVersion" >
+		<xs:complexType>
+			<xs:attribute ref="rdf:resource" use="required">
+				<xs:annotation>
+					<xs:appinfo> http://purl.org/dc/terms/hasVersion</xs:appinfo>
+					<xs:documentation>The described resource has a version, edition, or adaptation,
+						namely, the referenced resource.</xs:documentation>
+				</xs:annotation>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="isVersionOf">
+		<xs:complexType>
+			<xs:attribute ref="rdf:resource" use="required">
+				<xs:annotation>
+					<xs:appinfo>http://purl.org/dc/terms/isVersionOf</xs:appinfo>
+					<xs:documentation>The described resource is a version, edition, or adaptation of
+						the referenced resource. Changes in version imply substantive changes in
+						content rather than differences in format.</xs:documentation>
+				</xs:annotation>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="isReferencedBy" >
+		<xs:complexType>
+			<xs:attribute ref="rdf:resource" use="required">
+				<xs:annotation>
+					<xs:appinfo>http://purl.org/dc/terms/isReferencedBy</xs:appinfo>
+					<xs:documentation>The described resource is referenced, cited, or otherwise pointed
+						to by the referenced resource.</xs:documentation>
+				</xs:annotation>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="isReplacedBy" >
+		<xs:complexType>
+			<xs:attribute ref="rdf:resource" use="required">
+				<xs:annotation>
+					<xs:appinfo>http://purl.org/dc/terms/isReplacedBy</xs:appinfo>
+					<xs:documentation>The described resource is supplanted, displaced, or superseded by
+						the referenced resource.</xs:documentation>
+				</xs:annotation>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="instructionalMethod"   type="xs:string">
+		<xs:annotation>
+			<xs:appinfo> http://purl.org/dc/terms/instructionalMethod</xs:appinfo>
+			<xs:documentation>Instructional Method will typically include ways of presenting
+				instructional materials or conducting instructional activities, patterns of
+				learner-to-learner and learner-to-instructor interactions, and mechanisms by which
+				group and individual levels of learning are measured. Instructional methods include
+				all aspects of the instruction and learning processes from planning and
+				implementation through evaluation and feedback.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+
+	<xs:element name="isRequiredBy" >
+		<xs:complexType>
+			<xs:attribute ref="rdf:resource" use="required">
+				<xs:annotation>
+					<xs:appinfo>http://purl.org/dc/terms/isRequiredBy</xs:appinfo>
+					<xs:documentation>The described resource is required by the referenced resource,
+						either physically or logically.</xs:documentation>
+				</xs:annotation>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="issued"   type="xs:string">
+		<xs:annotation>
+			<xs:appinfo>http://purl.org/dc/terms/issued</xs:appinfo>
+			<xs:documentation>Date of formal issuance (e.g., publication) of the resource. Applies to
+				digital object. </xs:documentation>
+		</xs:annotation>
+	</xs:element>
+
+	<xs:element name="license" >
+		<xs:complexType>
+			<xs:attribute ref="rdf:resource" use="required">
+				<xs:annotation>
+					<xs:appinfo>http://purl.org/dc/terms/license</xs:appinfo>
+					<xs:documentation>A legal document giving official permission to do something with
+						the resource.</xs:documentation>
+				</xs:annotation>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="mediator" >
+		<xs:complexType>
+			<xs:attribute ref="rdf:resource" use="required">
+				<xs:annotation>
+					<xs:appinfo>http://purl.org/dc/terms/mediator</xs:appinfo>
+					<xs:documentation>A class of entity that mediates access to the resource and for
+						whom the resource is intended or useful.</xs:documentation>
+				</xs:annotation>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="medium"   type="xs:string">
+		<xs:annotation>
+			<xs:appinfo>http://purl.org/dc/terms/medium</xs:appinfo>
+			<xs:documentation>The material or physical carrier of the resource.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="modified"   type="xs:string">
+		<xs:annotation>
+			<xs:appinfo>http://purl.org/dc/terms/modified</xs:appinfo>
+			<xs:documentation>Date on which the resource was changed. Applies to the digital resource.
+			</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="provenance"   type="xs:string">
+		<xs:annotation>
+			<xs:appinfo>http://purl.org/dc/terms/provenance</xs:appinfo>
+			<xs:documentation>A statement of any changes in ownership and custody of the resource since
+				its creation that are significant for its authenticity, integrity and
+				interpretation. </xs:documentation>
+		</xs:annotation>
+	</xs:element>
+
+	<xs:element name="references" >
+		<xs:complexType>
+			<xs:attribute ref="rdf:resource" use="required">
+				<xs:annotation>
+					<xs:appinfo>http://purl.org/dc/terms/references</xs:appinfo>
+					<xs:documentation>The described resource references, cites, or otherwise points to
+						the referenced resource.</xs:documentation>
+				</xs:annotation>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="replaces">
+		<xs:complexType>
+			<xs:attribute ref="rdf:resource" use="required">
+				<xs:annotation>
+					<xs:appinfo>http://purl.org/dc/terms/replaces</xs:appinfo>
+					<xs:documentation>The described resource supplants, displaces, or supersedes the
+						referenced resource.</xs:documentation>
+				</xs:annotation>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+
+
+	<xs:element name="requires" >
+		<xs:complexType>
+			<xs:attribute ref="rdf:resource" use="required">
+				<xs:annotation>
+					<xs:appinfo>http://purl.org/dc/terms/requires</xs:appinfo>
+					<xs:documentation>The described resource requires the referenced resource to
+						support its function, delivery, or coherence of content.</xs:documentation>
+				</xs:annotation>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="rightsHolder" >
+		<xs:complexType>
+			<xs:attribute ref="rdf:resource" use="required">
+				<xs:annotation>
+					<xs:appinfo>http://purl.org/dc/terms/rightsHolder</xs:appinfo>
+					<xs:documentation>A person or organization owning or managing rights over the
+						resource.</xs:documentation>
+				</xs:annotation>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="spatial"   type="xs:string">
+		<xs:annotation>
+			<xs:appinfo>http://purl.org/dc/terms/spatial</xs:appinfo>
+			<xs:documentation>Spatial characteristics of the intellectual content of the resource.
+			</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="tableOfContents"   type="xs:string">
+		<xs:annotation>
+			<xs:appinfo>http://purl.org/dc/terms/tableOfContents</xs:appinfo>
+			<xs:documentation>A list of subunits of the content of the resource.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="temporal"   type="xs:string">
+		<xs:annotation>
+			<xs:appinfo>http://purl.org/dc/terms/temporal</xs:appinfo>
+			<xs:documentation>Temporal characteristics of the intellectual content of the resource.
+			</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="valid"   type="xs:string">
+		<xs:annotation>
+			<xs:appinfo>http://purl.org/dc/terms/valid</xs:appinfo>
+			<xs:documentation>Date (often a range) of validity of a resource. </xs:documentation>
+		</xs:annotation>
+	</xs:element>
+
+</xs:schema>

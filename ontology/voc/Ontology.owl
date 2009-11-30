@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="human.xsl"?>
+<!-- $Rev: 1354 $ -->
+<!-- $Date: 2007-12-07 13:59:24 +0000 (Fri, 07 Dec 2007) $ -->
+<!-- $Author: RogerHyam $ -->
+
+
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" 
+   xmlns:owl="http://www.w3.org/2002/07/owl#"
+   xmlns:dc="http://purl.org/dc/elements/1.1/" 
+   xmlns:dcterms="http://purl.org/dc/terms/" >
+
+   <owl:Ontology rdf:about="http://rs.tdwg.org/ontology/voc/Ontology">
+      <dc:title>TDWG LSID Ontology</dc:title>
+      <dc:creator>Markus Döring</dc:creator>
+      <dc:publisher>TDWG Biodiversity Information Standards</dc:publisher>
+      <dcterms:issued>2007-07-25</dcterms:issued>
+      <dcterms:modified>2007-06-25</dcterms:modified>
+      <dc:description>Entire TDWG ontology including all other separate lsid vocabularies</dc:description>
+
+      <owl:versionInfo>0.1 - [SVN $Rev: 1354 $]</owl:versionInfo>
+
+      <rdfs:comment rdf:parseType="Literal">
+      </rdfs:comment>
+
+      <owl:imports rdf:resource="http://rs.tdwg.org/ontology/Base" />
+      <owl:imports rdf:resource="http://rs.tdwg.org/ontology/Core" />
+      <owl:imports rdf:resource="http://rs.tdwg.org/ontology/voc/Collection" />
+      <owl:imports rdf:resource="http://rs.tdwg.org/ontology/voc/CollectionType" />
+      <owl:imports rdf:resource="http://rs.tdwg.org/ontology/voc/Common" />
+      <owl:imports rdf:resource="http://rs.tdwg.org/ontology/voc/ContactDetails" />
+      <owl:imports rdf:resource="http://rs.tdwg.org/ontology/voc/DigitalImage" />
+      <owl:imports rdf:resource="http://rs.tdwg.org/ontology/voc/Institution" />
+      <owl:imports rdf:resource="http://rs.tdwg.org/ontology/voc/InstitutionType" />
+      <owl:imports rdf:resource="http://rs.tdwg.org/ontology/voc/OccurrenceStatusTerm" />
+      <owl:imports rdf:resource="http://rs.tdwg.org/ontology/voc/Person" />
+      <owl:imports rdf:resource="http://rs.tdwg.org/ontology/voc/PreservationMethodType" />
+      <owl:imports rdf:resource="http://rs.tdwg.org/ontology/voc/Procedure" />
+      <owl:imports rdf:resource="http://rs.tdwg.org/ontology/voc/PublicationCitation" />
+      <owl:imports rdf:resource="http://rs.tdwg.org/ontology/voc/SpeciesProfileModel" />
+      <owl:imports rdf:resource="http://rs.tdwg.org/ontology/voc/Specimen" />
+      <owl:imports rdf:resource="http://rs.tdwg.org/ontology/voc/TaxonConcept" />
+      <owl:imports rdf:resource="http://rs.tdwg.org/ontology/voc/TaxonName" />
+      <owl:imports rdf:resource="http://rs.tdwg.org/ontology/voc/TaxonOccurrence" />
+      <owl:imports rdf:resource="http://rs.tdwg.org/ontology/voc/TaxonRank" />
+      <owl:imports rdf:resource="http://rs.tdwg.org/ontology/voc/Team" />
+   </owl:Ontology>
+   
+</rdf:RDF>

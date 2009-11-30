@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="human.xsl"?>
+<!-- $Rev: 1294 $ -->
+<!-- $Date: 2007-08-15 14:05:50 +0100 (Wed, 15 Aug 2007) $ -->
+<!-- $Author: MarkusDoering $ -->
+
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:owl="http://www.w3.org/2002/07/owl#"
+   xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:base="http://rs.tdwg.org/ontology/Base#" xml:base="http://rs.tdwg.org/ontology/voc/SPMInfoItems"
+   xmlns="http://rs.tdwg.org/ontology/voc/SPMInfoItems#" xmlns:tct="http://rs.tdwg.org/ontology/voc/OccurrenceStatusTerm#">
+
+   <owl:Ontology rdf:about="http://rs.tdwg.org/ontology/voc/OccurrenceStatusTerm">
+      <dc:title>TDWG Occurrence Status Terms Ontology</dc:title>
+      <dc:creator>Markus Döring</dc:creator>
+      <dc:publisher>TDWG Biodiversity Information Standards</dc:publisher>
+      <dcterms:issued>2007-05-29</dcterms:issued>
+      <dcterms:modified>$Date: 2007-08-15 14:05:50 +0100 (Wed, 15 Aug 2007) $</dcterms:modified>
+      <dc:description>Ontology describing a controlled vocabulary for species occurrence statuses based on W.Greuters and Euro+Med modifications to the TDWG POS standard.</dc:description>
+
+      <owl:versionInfo>0.2</owl:versionInfo>
+
+   </owl:Ontology>
+
+
+   <!-- ************************************
+               OccurrenceStatusTerm
+ 		************************************ -->
+
+   <owl:Class rdf:ID="OccurrenceStatusTerm">
+      <rdfs:label>Occurrence Status Term</rdfs:label>
+      <rdfs:comment>The class for constructing controlled vocabularies associated with Occurrence Status Terms</rdfs:comment>
+      <rdfs:subClassOf rdf:resource="http://rs.tdwg.org/ontology/Base#DefinedTerm"/>
+      <rdfs:isDefinedBy rdf:resource="http://rs.tdwg.org/ontology/voc/SpeciesProfileModel"/>
+   </owl:Class>
+
+
+
+
+
+   <owl:Class rdf:ID="AbsentOccurrenceStatusTerm">
+      <rdfs:label>Absent Occurrence Status Term</rdfs:label>
+      <rdfs:comment>The class for constructing controlled vocabularies for Occurrence Status Terms that indicate an absence of a taxon</rdfs:comment>
+      <rdfs:subClassOf rdf:resource="#OccurrenceStatusTerm"/>
+      <rdfs:isDefinedBy rdf:resource="http://rs.tdwg.org/ontology/voc/SpeciesProfileModel"/>
+   </owl:Class>
+
+   <!-- AbsentButReportedInError -->
+   <AbsentOccurrenceStatusTerm rdf:ID="AbsentButReportedInError">
+      <rdfs:label>AbsentButReportedInError</rdfs:label>
+      <dc:title>AbsentButReportedInError</dc:title>
+      <base:definition>Absent but reported in error</base:definition>
+   </AbsentOccurrenceStatusTerm>
+   
+   <!-- Extinct -->
+   <AbsentOccurrenceStatusTerm rdf:ID="Extinct">
+      <rdfs:label>Extinct</rdfs:label>
+      <dc:title>Extinct</dc:title>
+      <base:definition>FIXME ...</base:definition>
+   </AbsentOccurrenceStatusTerm>
+   
+   
+      
+      
+   <owl:Class rdf:ID="PresentOccurrenceStatusTerm">
+      <rdfs:label>Present Occurrence Status Term</rdfs:label>
+      <rdfs:comment>The class for constructing controlled vocabularies for Occurrence Status Terms that indicate a presence of a taxon</rdfs:comment>
+      <rdfs:subClassOf rdf:resource="#OccurrenceStatusTerm"/>
+      <rdfs:isDefinedBy rdf:resource="http://rs.tdwg.org/ontology/voc/SpeciesProfileModel"/>
+   </owl:Class>
+
+   <!-- Questionable -->
+   <PresentOccurrenceStatusTerm rdf:ID="Questionable">
+      <rdfs:label>Questionable</rdfs:label>
+      <dc:title>Presence questionable</dc:title>
+      <base:definition>There is (little) evidence for the presence of a taxon but it might exist</base:definition>
+   </PresentOccurrenceStatusTerm>
+   
+   
+   
+   
+   <owl:Class rdf:ID="NativeOccurrenceStatusTerm">
+      <rdfs:label>Native Occurrence Status Term</rdfs:label>
+      <rdfs:comment>The class for constructing controlled vocabularies for native with Occurrence Status Terms</rdfs:comment>
+      <rdfs:subClassOf rdf:resource="#PresentOccurrenceStatusTerm"/>
+      <rdfs:isDefinedBy rdf:resource="http://rs.tdwg.org/ontology/voc/SpeciesProfileModel"/>
+   </owl:Class>
+   
+   <!-- Native -->
+   <NativeOccurrenceStatusTerm rdf:ID="Native">
+      <rdfs:label>Native</rdfs:label>
+      <dc:title>Native</dc:title>
+      <base:definition>FIXME ...</base:definition>
+   </NativeOccurrenceStatusTerm>
+   
+   <!-- DoubtfullyNative -->
+   <NativeOccurrenceStatusTerm rdf:ID="DoubtfullyNative">
+      <rdfs:label>DoubtfullyNative</rdfs:label>
+      <dc:title>DoubtfullyNative</dc:title>
+      <base:definition>FIXME ...</base:definition>
+   </NativeOccurrenceStatusTerm>
+   
+   <!-- Endemic -->
+   <NativeOccurrenceStatusTerm rdf:ID="Endemic">
+      <rdfs:label>Endemic</rdfs:label>
+      <dc:title>Endemic</dc:title>
+      <base:definition>FIXME ...</base:definition>
+   </NativeOccurrenceStatusTerm>
+
+   
+   
+   
+   
+   <owl:Class rdf:ID="IntroducedOccurrenceStatusTerm">
+      <rdfs:label>Introduced Occurrence Status Term</rdfs:label>
+      <rdfs:comment>The class for constructing controlled vocabularies for introduced Occurrence Status Terms</rdfs:comment>
+      <rdfs:subClassOf rdf:resource="#PresentOccurrenceStatusTerm"/>
+      <rdfs:isDefinedBy rdf:resource="http://rs.tdwg.org/ontology/voc/SpeciesProfileModel"/>
+   </owl:Class>
+      
+   <!-- Introduced -->
+   <IntroducedOccurrenceStatusTerm rdf:ID="Introduced">
+      <rdfs:label>Introduced</rdfs:label>
+      <dc:title>Introduced</dc:title>
+      <base:definition>Introduced in general but not further categorised</base:definition>
+   </IntroducedOccurrenceStatusTerm>
+   
+   <!-- DoubtfullyIntroduced -->
+   <IntroducedOccurrenceStatusTerm rdf:ID="DoubtfullyIntroduced">
+      <rdfs:label>DoubtfullyIntroduced</rdfs:label>
+      <dc:title>DoubtfullyIntroduced</dc:title>
+      <base:definition>FIXME ...</base:definition>
+   </IntroducedOccurrenceStatusTerm>
+
+   <!-- Naturalized -->
+   <IntroducedOccurrenceStatusTerm rdf:ID="Naturalized">
+      <rdfs:label>Naturalized</rdfs:label>
+      <dc:title>Naturalized</dc:title>
+      <base:definition>FIXME ...</base:definition>
+   </IntroducedOccurrenceStatusTerm>
+   
+   <!-- Casual Alien -->
+   <IntroducedOccurrenceStatusTerm rdf:ID="CasualAlien">
+      <rdfs:label>Casual Alien</rdfs:label>
+      <dc:title>Casual Alien</dc:title>
+      <base:definition>Casual alien or adventive species</base:definition>
+   </IntroducedOccurrenceStatusTerm>
+   
+   <!-- Cultivated -->
+   <IntroducedOccurrenceStatusTerm rdf:ID="Cultivated">
+      <rdfs:label>Cultivated</rdfs:label>
+      <dc:title>Cultivated</dc:title>
+      <base:definition>FIXME ...</base:definition>
+   </IntroducedOccurrenceStatusTerm>
+
+
+
+</rdf:RDF>
+

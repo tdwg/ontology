@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- $Rev: 776 $ -->
+<!-- $Date: 2006-12-13 21:56:41 +0000 (Wed, 13 Dec 2006) $ -->
+<!-- $Author: RogerHyam $ -->
+
+<xs:schema 
+  xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
+  targetNamespace="http://rs.tdwg.org/ontology/voc/OccurrenceRecord#"
+  xmlns:dcterms="http://purl.org/dc/terms/"
+  xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+  xmlns:owl="http://www.w3.org/2002/07/owl#"
+  xmlns:dc="http://purl.org/dc/elements/1.1/"
+  xmlns:tcom="http://rs.tdwg.org/ontology/voc/Common#"
+  xmlns:or="http://rs.tdwg.org/ontology/voc/OccurrenceRecord#"
+  xmlns:tp="http://rs.tdwg.org/ontology/voc/Person#"
+  xmlns:ts="http://rs.tdwg.org/ontology/voc/Specimen#"
+  xmlns:tc="http://rs.tdwg.org/ontology/voc/TaxonConcept#"
+  >
+  <xs:import namespace="http://purl.org/dc/elements/1.1/" schemaLocation="dc.xsd"/>
+  <xs:import namespace="http://purl.org/dc/terms/" schemaLocation="dcterms.xsd"/>
+  <xs:import namespace="http://rs.tdwg.org/ontology/voc/Common#" schemaLocation="tcom.xsd"/>
+  <xs:import namespace="http://rs.tdwg.org/ontology/voc/Person#" schemaLocation="Person.xsd"/>
+  <xs:import namespace="http://rs.tdwg.org/ontology/voc/TaxonConcept#" schemaLocation="TaxonConcept.xsd"/>
+  <xs:import namespace="http://rs.tdwg.org/ontology/voc/Specimen#" schemaLocation="Specimen.xsd"/>
+  <xs:import namespace="http://www.w3.org/1999/02/22-rdf-syntax-ns#" schemaLocation="rdf.xsd"/>
+  <xs:import namespace="http://www.w3.org/2002/07/owl#" schemaLocation="owl.xsd"/>
+  <xs:import namespace="http://www.w3.org/1999/02/22-rdf-syntax-ns#" schemaLocation="rdf.xsd"/>
+  <xs:annotation>
+    <xs:documentation> This schema is designed to help produce XML instance documents that are valid
+      RDF and so can be consumed by semantic web based applications. It is not a normative document.
+      The OccurrenceRecord LSID vocabulary (http://rs.tdwg.org/ontology/voc/OccurrenceRecord) contains the
+      definitions and documentation for the different fields found here. Please refer to the
+      vocabulary for more details. </xs:documentation>
+  </xs:annotation>
+  <xs:element name="OccurrenceRecord">
+    <xs:complexType>
+      <xs:sequence>
+
+        <!-- external vocabularies -->
+        <xs:element ref="dc:title" minOccurs="0" maxOccurs="unbounded"/>
+        <xs:element ref="dcterms:created" minOccurs="0" maxOccurs="unbounded"/>
+        <xs:element ref="dcterms:modified" minOccurs="0" maxOccurs="unbounded"/>
+        <xs:element ref="owl:versionInfo" minOccurs="0" maxOccurs="unbounded"/>
+
+        <!-- common properties -->
+        <xs:element ref="tcom:isDeprecated" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element ref="tcom:versionedAs" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element ref="tcom:publishedIn" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element ref="tcom:publishedInCitation" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element ref="tcom:microReference" minOccurs="0" maxOccurs="unbounded"/>
+
+        <!-- properties local to this class -->
+        <xs:element name="continent" maxOccurs="unbounded" minOccurs="0" type="xs:string"/>
+        <xs:element name="coordinateUncertaintyInMeters" maxOccurs="unbounded" minOccurs="0"
+          type="xs:string"/>
+        <xs:element name="country" maxOccurs="unbounded" minOccurs="0" type="xs:string"/>
+        <xs:element name="county" maxOccurs="unbounded" minOccurs="0" type="xs:string"/>
+        <xs:element name="dayOfYear" maxOccurs="unbounded" minOccurs="0" type="xs:string"/>
+        <xs:element name="decimalLatitude" maxOccurs="unbounded" minOccurs="0" type="xs:string"/>
+        <xs:element name="decimalLongitude" maxOccurs="unbounded" minOccurs="0" type="xs:string"/>
+        <xs:element name="derivedFrom" maxOccurs="unbounded" minOccurs="0"
+          type="tcom:SimpleLinkType"/>
+        <xs:element name="earliestDateCollected" maxOccurs="unbounded" minOccurs="0"
+          type="xs:string"/>
+        <xs:element name="footprintSpatialFit" maxOccurs="unbounded" minOccurs="0" type="xs:string"/>
+        <xs:element name="geodeticDatum" maxOccurs="unbounded" minOccurs="0" type="xs:string"/>
+        <xs:element name="georeferenceProtocol" maxOccurs="unbounded" minOccurs="0" type="xs:string"/>
+        <xs:element name="georeferenceRemarks" maxOccurs="unbounded" minOccurs="0" type="xs:string"/>
+        <xs:element name="georeferenceSources" maxOccurs="unbounded" minOccurs="0" type="xs:string"/>
+        <xs:element name="georeferenceVerificationStatus" maxOccurs="unbounded" minOccurs="0"
+          type="xs:string"/>
+        <xs:element name="hasVoucher" maxOccurs="unbounded" minOccurs="0" type="ts:SpecimenLinkType"/>
+        <xs:element name="higherGeography" maxOccurs="unbounded" minOccurs="0" type="xs:string"/>
+        <xs:element name="identifiedToString" maxOccurs="unbounded" minOccurs="0" type="xs:string"/>
+        <xs:element name="identifiedTo" maxOccurs="unbounded" minOccurs="0">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Identification" minOccurs="1" maxOccurs="1">
+                <xs:complexType>
+                  <xs:sequence>
+                    <!-- external vocabularies -->
+                    <xs:element ref="dc:title" minOccurs="0" maxOccurs="unbounded"/>
+                    <xs:element ref="dcterms:created" minOccurs="0" maxOccurs="unbounded"/>
+                    <xs:element ref="dcterms:modified" minOccurs="0" maxOccurs="unbounded"/>
+                    <xs:element ref="owl:versionInfo" minOccurs="0" maxOccurs="unbounded"/>
+                    
+                    <!-- common properties -->
+                    <xs:element ref="tcom:isDeprecated" minOccurs="0" maxOccurs="unbounded" />
+                    <xs:element ref="tcom:versionedAs" minOccurs="0" maxOccurs="unbounded" />
+                    <xs:element ref="tcom:publishedIn" minOccurs="0" maxOccurs="unbounded" />
+                    <xs:element ref="tcom:publishedInCitation" minOccurs="0" maxOccurs="unbounded" />
+                    <xs:element ref="tcom:microReference" minOccurs="0" maxOccurs="unbounded"/>
+                    
+                    <!-- local properties -->
+                    <xs:element name="confidence" maxOccurs="unbounded" minOccurs="0" type="xs:string"/>
+                    <xs:element name="date" maxOccurs="unbounded" minOccurs="0" type="xs:string"/>
+                    <xs:element name="expert" maxOccurs="unbounded" minOccurs="0" type="tp:PersonLinkType"/>
+                    <xs:element name="expertName" maxOccurs="unbounded" minOccurs="0" type="xs:string"/>
+                    <xs:element name="location" maxOccurs="unbounded" minOccurs="0" type="xs:string"/>
+                    <xs:element name="method" maxOccurs="unbounded" minOccurs="0" type="tcom:SimpleLinkType"/>
+                    <xs:element name="methodDescriptor" maxOccurs="unbounded" minOccurs="0" type="xs:string"/>
+                    <xs:element name="taxon" maxOccurs="unbounded" minOccurs="0" type="xs:string"/>
+                    <xs:element name="taxonName" maxOccurs="unbounded" minOccurs="0" type="xs:string"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="island" maxOccurs="unbounded" minOccurs="0" type="xs:string"/>
+        <xs:element name="islandGroup" maxOccurs="unbounded" minOccurs="0" type="xs:string"/>
+        <xs:element name="latestDateCollected" maxOccurs="unbounded" minOccurs="0" type="xs:string"/>
+        <xs:element name="locality" maxOccurs="unbounded" minOccurs="0" type="xs:string"/>
+        <xs:element name="maximumDepthInMeters" maxOccurs="unbounded" minOccurs="0" type="xs:string"/>
+        <xs:element name="maximumElevationInMeters" maxOccurs="unbounded" minOccurs="0"
+          type="xs:string"/>
+        <xs:element name="minimumDepthInMeters" maxOccurs="unbounded" minOccurs="0" type="xs:string"/>
+        <xs:element name="minimumElevationInMeters" maxOccurs="unbounded" minOccurs="0"
+          type="xs:string"/>
+        <xs:element name="pointRadiusSpatialFit" maxOccurs="unbounded" minOccurs="0"
+          type="xs:string"/>
+        <xs:element name="procedure" maxOccurs="unbounded" minOccurs="0" type="tcom:SimpleLinkType"/>
+        <xs:element name="procedureDescriptor" maxOccurs="unbounded" minOccurs="0" type="xs:string"/>
+        <xs:element name="stateProvince" maxOccurs="unbounded" minOccurs="0" type="xs:string"/>
+        <xs:element name="validDistributionFlag" maxOccurs="unbounded" minOccurs="0"
+          type="xs:string"/>
+        <xs:element name="value" maxOccurs="unbounded" minOccurs="0" type="xs:string"/>
+        <xs:element name="valueConfidence" maxOccurs="unbounded" minOccurs="0" type="xs:string"/>
+        <xs:element name="verbatimCoordinates" maxOccurs="unbounded" minOccurs="0" type="xs:string"/>
+        <xs:element name="verbatimCoordinateSystem" maxOccurs="unbounded" minOccurs="0"
+          type="xs:string"/>
+        <xs:element name="verbatimLatitude" maxOccurs="unbounded" minOccurs="0" type="xs:string"/>
+        <xs:element name="verbatimLongitude" maxOccurs="unbounded" minOccurs="0" type="xs:string"/>
+        <xs:element name="voucherString" maxOccurs="unbounded" minOccurs="0" type="xs:string"/>
+        <xs:element name="waterBody" maxOccurs="unbounded" minOccurs="0" type="xs:string"/>
+        <xs:element name="wktFootprint" maxOccurs="unbounded" minOccurs="0" type="xs:string"/>
+       
+      </xs:sequence>
+      <xs:attribute ref="rdf:about" use="optional"/>
+    </xs:complexType>
+  </xs:element>
+  
+  <xs:complexType name="OccurrenceRecordLinkType">
+    <xs:sequence>
+      <xs:element ref="or:OccurrenceRecord" maxOccurs="1" minOccurs="0"/>
+    </xs:sequence>
+    <xs:attribute ref="rdf:resource" use="optional"/>
+  </xs:complexType>
+</xs:schema>

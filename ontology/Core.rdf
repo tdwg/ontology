@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="human.xsl"?>
+<!-- $Rev: 1322 $ -->
+<!-- $Date: 2007-09-10 16:55:47 +0100 (Mon, 10 Sep 2007) $ -->
+<!-- $Author: RogerHyam $ -->
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+         xmlns:owl="http://www.w3.org/2002/07/owl#"
+         xmlns:dc="http://purl.org/dc/elements/1.1/"
+         xmlns:dcterms="http://purl.org/dc/terms/"
+         xml:base="http://rs.tdwg.org/ontology/Core"
+         xmlns:tcore="http://rs.tdwg.org/ontology/Core#"
+         xmlns="http://rs.tdwg.org/ontology/Core#">
+
+   <owl:Ontology rdf:about="http://rs.tdwg.org/ontology/Core">
+      <dc:creator>Robert Gales / Roger Hyam</dc:creator>
+      <dcterms:issued>2006-1-28</dcterms:issued>
+      <dcterms:modified>$Date: 2007-09-10 16:55:47 +0100 (Mon, 10 Sep 2007) $</dcterms:modified>
+      <dc:title>TDWG Ontology - Core</dc:title>
+      <dc:publisher>Taxonomic Databases Working Group</dc:publisher>
+      <dc:description>
+         The Core Ontology represents extension to the Base Ontology describing high
+         level general concepts that may be extended to represent Biology &amp; Biodiversity
+         Informatics domain specific classes and properties.
+      </dc:description>
+      
+      <dc:relation rdf:resource="http://rs.tdwg.org/ontology/Base"/>
+      
+      <rdfs:comment rdf:parseType="Literal"></rdfs:comment>
+      
+      <owl:versionInfo>0.3</owl:versionInfo>
+      
+      <owl:imports rdf:resource="http://rs.tdwg.org/ontology/Base"/>
+      
+   </owl:Ontology>
+
+   <!-- *********************************************************************************
+   C L A S S E S
+   ***********************************************************************************-->
+   
+   <!-- ContactInformation -->
+   <owl:Class rdf:ID="ContactInformation">
+      <rdfs:label>Contact Information</rdfs:label>
+      <rdfs:comment>
+         A class representing the base for which any contact information should be
+         extended. Contact information should describe some manner in which a person or software
+         agent may contact a person or organisation.
+      </rdfs:comment>
+      <rdfs:subClassOf rdf:resource="http://rs.tdwg.org/ontology/Base#BaseThing"/>
+      <rdfs:isDefinedBy rdf:resource="http://rs.tdwg.org/ontology/Core"/>
+   </owl:Class>
+   
+   <!-- Organisation -->
+   <owl:Class rdf:ID="Organisation">
+      <rdfs:label>Core Organisation</rdfs:label>
+      <rdfs:comment rdf:parseType="Literal">
+         An establishment, organization, or association, instituted for the promotion of some
+         object, esp. one of public or general utility.
+      </rdfs:comment>
+      <rdfs:subClassOf rdf:resource="http://rs.tdwg.org/ontology/Base#Actor"/>
+      <rdfs:isDefinedBy rdf:resource="http://rs.tdwg.org/ontology/Core"/>
+   </owl:Class>
+   
+   <!-- Collection -->
+   <owl:Class rdf:ID="Collection">
+      <rdfs:label>Collection</rdfs:label>
+      <rdfs:comment rdf:parseType="Literal">
+         <p>
+            A number of objects collected or gathered together, viewed as a whole, [...] of
+            scientific specimens, objects of interest, works of art, etc.[1]
+         </p>
+         <p>1. Oxford English Dictionary</p>
+      </rdfs:comment>
+      <rdfs:subClassOf rdf:resource="http://rs.tdwg.org/ontology/Base#BaseThing"/>
+      <rdfs:isDefinedBy rdf:resource="http://rs.tdwg.org/ontology/Core"/>
+   </owl:Class>
+
+   <!-- Description -->
+   <owl:Class rdf:ID="Description">
+      <rdfs:label>Description</rdfs:label>
+      <rdfs:comment rdf:parseType="Literal">
+         <p>
+            A Statement which describes, sets forth or portrays; a graphic or detailed account of a
+            thing.[1]
+         </p>
+         <p>1. Oxford English Dictionary</p>
+      </rdfs:comment>
+      <rdfs:subClassOf rdf:resource="http://rs.tdwg.org/ontology/Base#BaseThing"/>
+      <rdfs:isDefinedBy rdf:resource="http://rs.tdwg.org/ontology/Core"/>
+   </owl:Class>
+
+   <!-- Geolocalisation -->
+   <owl:Class rdf:ID="Geolocalisation">
+      <rdfs:label>Core Geolocalisation</rdfs:label>
+      <rdfs:comment>
+         An object that represents the artifact of a geolocalisation event, where a
+         geolocalisation event is the identification of a specific place from only textual
+         representations of the locality.
+      </rdfs:comment>
+      <rdfs:subClassOf rdf:resource="http://rs.tdwg.org/ontology/Base#BaseThing"/>
+      <rdfs:isDefinedBy rdf:resource="http://rs.tdwg.org/ontology/Core"/>
+   </owl:Class>
+
+   <!-- Person -->
+   <owl:Class rdf:ID="Person">
+      <rdfs:label>Person</rdfs:label>
+      <rdfs:comment rdf:parseType="Literal">
+         <p>An individual human being.[1]</p>
+         <p>1. Oxford English Dictionary</p>
+      </rdfs:comment>
+      <rdfs:subClassOf rdf:resource="http://rs.tdwg.org/ontology/Base#BaseActor"/>
+      <rdfs:isDefinedBy rdf:resource="http://rs.tdwg.org/ontology/Core"/>
+   </owl:Class>
+
+   <!-- Place -->
+   <owl:Class rdf:ID="Place">
+      <rdfs:label>Place</rdfs:label>
+      <rdfs:comment rdf:parseType="Literal">
+         <p>
+            A particular part of space of defined or undefined extent but of definite situation.
+            [1]
+         </p>
+         <p>1. Oxford English Dictionary</p>
+      </rdfs:comment>
+      <rdfs:subClassOf rdf:resource="http://rs.tdwg.org/ontology/Base#BaseThing"/>
+      <rdfs:isDefinedBy rdf:resource="http://rs.tdwg.org/ontology/Core"/>
+   </owl:Class>
+
+   <!-- PublicationCitation -->
+   <owl:Class rdf:ID="PublicationCitation">
+      <rdfs:label>Publication Citation</rdfs:label>
+      <rdfs:comment rdf:parseType="Literal">
+         <p>
+            A citation or bibliographic citation is a reference to a book, article, web page or
+            other published item, with sufficient details to uniquely identify the item. [1]
+         </p>
+         <p>
+            1. <a href="http://en.wikipedia.org/wiki/Citation">http://en.wikipedia.org/wiki/Citation</a>
+         </p>
+      </rdfs:comment>
+      <rdfs:subClassOf rdf:resource="http://rs.tdwg.org/ontology/Base#BaseThing"/>
+      <rdfs:isDefinedBy rdf:resource="http://rs.tdwg.org/ontology/Core"/>
+   </owl:Class>
+
+   <!-- Specimen -->
+   <owl:Class rdf:ID="Specimen">
+      <rdfs:label>Specimen</rdfs:label>
+      <rdfs:comment rdf:parseType="Literal">
+         <p>
+            An animal, plant, or mineral, a part or portion of some substance or organism, etc.,
+            serving as an example of the thing in question for purposes of investigation or
+            scientific study.[1]
+         </p>
+         <p>1. Oxford English Dictionary</p>
+      </rdfs:comment>
+      <rdfs:subClassOf rdf:resource="http://rs.tdwg.org/ontology/Base#BaseThing"/>
+      <rdfs:isDefinedBy rdf:resource="http://rs.tdwg.org/ontology/Core"/>
+   </owl:Class>
+
+   <!-- Concept -->
+   <owl:Class rdf:ID="Concept">
+      <rdfs:label>Concept</rdfs:label>
+      <rdfs:comment>
+         an abstract or general idea inferred or derived from specific instances
+      </rdfs:comment>
+      <rdfs:subClassOf rdf:resource="http://rs.tdwg.org/ontology/Base#BaseThing"/>
+      <rdfs:isDefinedBy rdf:resource="http://rs.tdwg.org/ontology/Core"/>
+   </owl:Class>
+
+   <!-- Identification -->
+   <owl:Class rdf:ID="Identification">
+      <rdfs:label>Identification</rdfs:label>
+      <rdfs:comment>
+         The identification of a specimen to a specific concept.
+      </rdfs:comment>
+      <rdfs:subClassOf rdf:resource="http://rs.tdwg.org/ontology/Base#BaseThing"/>
+      <rdfs:isDefinedBy rdf:resource="http://rs.tdwg.org/ontology/Core"/>
+   </owl:Class>
+   
+   <!-- Team -->
+   <owl:Class rdf:ID="Team">
+      <rdfs:label>Team</rdfs:label>
+      <rdfs:comment rdf:parseType="Literal">
+         <p>a group of people (CorePerson) linked in a common purpose[1]</p>
+         <p>1. en.wikipedia.org</p>
+      </rdfs:comment>
+      <rdfs:subClassOf rdf:resource="http://rs.tdwg.org/ontology/Base#Actor"/>
+      <rdfs:isDefinedBy rdf:resource="http://rs.tdwg.org/ontology/Core"/>
+   </owl:Class>
+
+   <!-- Observation -->
+   <owl:Class rdf:ID="Observation">
+      <rdfs:label>Observation</rdfs:label>
+      <rdfs:comment>
+         A record of the observation of some concept at a particular location and time.
+      </rdfs:comment>
+      <rdfs:subClassOf rdf:resource="http://rs.tdwg.org/ontology/Base#BaseThing"/>
+      <rdfs:isDefinedBy rdf:resource="http://rs.tdwg.org/ontology/Core"/>
+   </owl:Class>
+
+   <!-- Gathering -->
+   <owl:Class rdf:ID="Gathering">
+      <rdfs:label>Gathering</rdfs:label>
+      <rdfs:comment>
+         A record of the event of gathering specimens at a particular location over a
+         specific time period.
+      </rdfs:comment>
+      <rdfs:subClassOf rdf:resource="http://rs.tdwg.org/ontology/Base#BaseThing"/>
+      <rdfs:isDefinedBy rdf:resource="http://rs.tdwg.org/ontology/Core"/>
+   </owl:Class>
+
+</rdf:RDF>

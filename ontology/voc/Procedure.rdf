@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="human.xsl"?>
+<!-- $Rev: 1294 $ -->
+<!-- $Date: 2007-08-15 14:05:50 +0100 (Wed, 15 Aug 2007) $ -->
+<!-- $Author: MarkusDoering $ -->
+
+<rdf:RDF
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+   xmlns:owl="http://www.w3.org/2002/07/owl#"
+   xmlns:dc="http://purl.org/dc/elements/1.1/" 
+   xmlns:dcterms="http://purl.org/dc/terms/"
+   xmlns:tbase="http://rs.tdwg.org/ontology/Base#"
+   xmlns:tcore="http://rs.tdwg.org/ontology/Core#"
+   xmlns="http://rs.tdwg.org/ontology/voc/Procedure#"
+   xmlns:tproc="http://rs.tdwg.org/ontology/voc/Procedure#"
+   xml:base="http://rs.tdwg.org/ontology/voc/Procedure">
+
+   <owl:Ontology rdf:about="http://rs.tdwg.org/ontology/voc/ContactDetails">
+      <dc:title>TDWG Procedure LSID Ontology</dc:title>
+      <dc:creator>Roger Hyam</dc:creator>
+      <dc:publisher>TDWG Biodiversity Information Standards</dc:publisher>
+      <dcterms:issued>2007-04-11</dcterms:issued>
+      <dcterms:modified>$Date: 2007-08-15 14:05:50 +0100 (Wed, 15 Aug 2007) $</dcterms:modified>
+      <dc:description>Ontology describing the metadata returned for LSIDs that are used for
+         procedures.</dc:description>
+
+      <owl:versionInfo>0.2 - [SVN $Rev: 1294 $]</owl:versionInfo>
+
+   </owl:Ontology>
+
+
+   <!-- *************************************************
+					P R O C E D U R E
+ 		**************************************************** -->
+   <!-- Procedure -->
+   <owl:Class rdf:ID="Procedure">
+      <rdfs:label>Procedure</rdfs:label>
+      <rdfs:comment>
+         A representation of a procedure that has been carried out.
+         Standard vocabularies such as DublinCore should be used in this object.
+      </rdfs:comment>
+      <rdfs:subClassOf rdf:resource="http://rs.tdwg.org/ontology/Base#BaseThing"/>
+      <rdfs:isDefinedBy rdf:resource="http://rs.tdwg.org/ontology/voc/Procedure"/>
+   </owl:Class>
+
+
+</rdf:RDF>

@@ -1,0 +1,368 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="human.xsl"?>
+<!-- $Rev: 1393 $ -->
+<!-- $Date: 2008-07-07 11:54:09 +0100 (Mon, 07 Jul 2008) $ -->
+<!-- $Author: MarkusDoering $ -->
+
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:owl="http://www.w3.org/2002/07/owl#"
+   xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:base="http://rs.tdwg.org/ontology/Base#" xml:base="http://rs.tdwg.org/ontology/voc/SPMInfoItems"
+   xmlns="http://rs.tdwg.org/ontology/voc/SPMInfoItems#" xmlns:spmi="http://rs.tdwg.org/ontology/voc/SPMInfoItems#">
+
+   <owl:Ontology rdf:about="http://rs.tdwg.org/ontology/voc/SPMInfoItems">
+      <dc:title>TDWG Species Profile Model InfoItems Ontology</dc:title>
+      <dc:creator>Roger Hyam</dc:creator>
+      <dc:publisher>TDWG Biodiversity Information Standards</dc:publisher>
+      <dcterms:issued>2007-04-17</dcterms:issued>
+      <dcterms:modified>$Date: 2008-07-07 11:54:09 +0100 (Mon, 07 Jul 2008) $</dcterms:modified>
+      <dc:description>*Experimental* Ontology describing a controlled vocabulary for types of InfoItem.</dc:description>
+
+      <owl:versionInfo>0.4</owl:versionInfo>
+
+   </owl:Ontology>
+
+
+
+   <!-- ************************************
+               Basic InfoItems
+ 	************************************ -->
+
+   <owl:Class rdf:ID="Biology">
+      <rdfs:label>Biology</rdfs:label>
+      <dc:title>Biology</dc:title>
+      <base:definition>An account of the biology of the taxon. E.g. behavior, reproduction, dispersal</base:definition>
+      <rdfs:subClassOf rdf:resource="http://rs.tdwg.org/ontology/voc/SpeciesProfileModel#InfoItem"/>
+      <rdfs:isDefinedBy rdf:resource="http://rs.tdwg.org/ontology/voc/SpeciesProfileModel"/>
+   </owl:Class>
+
+   <owl:Class rdf:ID="Description">
+      <rdfs:label>Description</rdfs:label>
+      <dc:title>Description</dc:title>
+      <base:definition>Description</base:definition>
+      <rdfs:subClassOf rdf:resource="http://rs.tdwg.org/ontology/voc/SpeciesProfileModel#InfoItem"/>
+      <rdfs:isDefinedBy rdf:resource="http://rs.tdwg.org/ontology/voc/SpeciesProfileModel"/>
+   </owl:Class>
+
+   <owl:Class rdf:ID="Size">
+      <rdfs:label>Size</rdfs:label>
+      <dc:title>Size</dc:title>
+      <base:definition>Average size, max, range; type of size (perimeter, length, volume, weight ...)</base:definition>
+      <rdfs:subClassOf rdf:resource="#Description"/>
+      <rdfs:isDefinedBy rdf:resource="http://rs.tdwg.org/ontology/voc/SpeciesProfileModel"/>
+   </owl:Class>
+   
+   <owl:Class rdf:ID="Cytology">
+      <rdfs:label>Cytology Info Item</rdfs:label>
+      <dc:title>Cytology</dc:title>
+      <base:definition>Cell biology: formation , structure and function of cells.</base:definition>
+      <rdfs:subClassOf rdf:resource="http://rs.tdwg.org/ontology/voc/SpeciesProfileModel#InfoItem"/>
+      <rdfs:isDefinedBy rdf:resource="http://rs.tdwg.org/ontology/voc/SpeciesProfileModel"/>
+   </owl:Class>
+   
+   <owl:Class rdf:ID="Physiology">
+      <rdfs:label>Physiology</rdfs:label>
+      <dc:title>Physiology</dc:title>
+      <base:definition>Physiology</base:definition>
+      <rdfs:subClassOf rdf:resource="http://rs.tdwg.org/ontology/voc/SpeciesProfileModel#InfoItem"/>
+      <rdfs:isDefinedBy rdf:resource="http://rs.tdwg.org/ontology/voc/SpeciesProfileModel"/>
+   </owl:Class>
+
+   <owl:Class rdf:ID="MolecularBiology">
+      <rdfs:label>MolecularBiology</rdfs:label>
+      <dc:title>MolecularBiology</dc:title>
+      <base:definition>MolecularBiology</base:definition>
+      <rdfs:subClassOf rdf:resource="http://rs.tdwg.org/ontology/voc/SpeciesProfileModel#InfoItem"/>
+      <rdfs:isDefinedBy rdf:resource="http://rs.tdwg.org/ontology/voc/SpeciesProfileModel"/>
+   </owl:Class>
+
+   <owl:Class rdf:ID="Ecology">
+      <rdfs:label>Ecology</rdfs:label>
+      <dc:title>Ecology</dc:title>
+      <base:definition>Ecology</base:definition>
+      <rdfs:subClassOf rdf:resource="http://rs.tdwg.org/ontology/voc/SpeciesProfileModel#InfoItem"/>
+      <rdfs:isDefinedBy rdf:resource="http://rs.tdwg.org/ontology/voc/SpeciesProfileModel"/>
+   </owl:Class>
+
+   <owl:Class rdf:ID="Conservation">
+      <rdfs:label>Conservation</rdfs:label>
+      <dc:title>Conservation</dc:title>
+      <base:definition>Conservation</base:definition>
+      <rdfs:subClassOf rdf:resource="http://rs.tdwg.org/ontology/voc/SpeciesProfileModel#InfoItem"/>
+      <rdfs:isDefinedBy rdf:resource="http://rs.tdwg.org/ontology/voc/SpeciesProfileModel"/>
+   </owl:Class>
+
+   <owl:Class rdf:ID="Distribution">
+      <rdfs:label>Distribution</rdfs:label>
+      <dc:title>Distribution</dc:title>
+      <base:definition>Distribution</base:definition>
+      <rdfs:subClassOf rdf:resource="http://rs.tdwg.org/ontology/voc/SpeciesProfileModel#InfoItem"/>
+      <rdfs:isDefinedBy rdf:resource="http://rs.tdwg.org/ontology/voc/SpeciesProfileModel"/>
+   </owl:Class>
+
+   <owl:Class rdf:ID="Use">
+      <rdfs:label>Use</rdfs:label>
+      <dc:title>Use</dc:title>
+      <base:definition>Use</base:definition>
+      <rdfs:subClassOf rdf:resource="http://rs.tdwg.org/ontology/voc/SpeciesProfileModel#InfoItem"/>
+      <rdfs:isDefinedBy rdf:resource="http://rs.tdwg.org/ontology/voc/SpeciesProfileModel"/>
+   </owl:Class>
+
+   <owl:Class rdf:ID="Evolution">
+      <rdfs:label>Evolution Info Item</rdfs:label>
+      <dc:title>Evolution</dc:title>
+      <base:definition>Phylogenetic information relating to the taxon</base:definition>
+      <rdfs:subClassOf rdf:resource="http://rs.tdwg.org/ontology/voc/SpeciesProfileModel#InfoItem"/>
+      <rdfs:isDefinedBy rdf:resource="http://rs.tdwg.org/ontology/voc/SpeciesProfileModel"/>
+   </owl:Class>
+
+
+
+   <!-- ************************************
+               InfoItems
+ 	************************************ -->
+
+   <!-- TaxonBiology -->
+   <owl:Class rdf:ID="TaxonBiology">
+      <rdfs:label>Taxon Biology Info Item</rdfs:label>
+      <dc:title>Taxon Biology</dc:title>
+      <base:definition>An account of the biology of the taxon.</base:definition>
+      <rdfs:subClassOf rdf:resource="http://rs.tdwg.org/ontology/voc/SpeciesProfileModel#InfoItem"/>
+      <rdfs:isDefinedBy rdf:resource="http://rs.tdwg.org/ontology/voc/SpeciesProfileModel"/>
+   </owl:Class>
+
+   <!-- TrophicStrategy -->
+   <owl:Class rdf:ID="TrophicStrategy">
+      <rdfs:label>Trophic Strategy Info Item</rdfs:label>
+      <dc:title>Trophic Strategy</dc:title>
+      <base:definition>Include nutritional aspects, diet, position in food network.</base:definition>
+      <rdfs:subClassOf rdf:resource="http://rs.tdwg.org/ontology/voc/SpeciesProfileModel#InfoItem"/>
+      <rdfs:isDefinedBy rdf:resource="http://rs.tdwg.org/ontology/voc/SpeciesProfileModel"/>
+   </owl:Class>
+
+   <!-- Cyclicity -->
+   <owl:Class rdf:ID="Cyclicity">
+      <rdfs:label>Cyclicity Info Item</rdfs:label>
+      <dc:title>Cyclicity</dc:title>
+      <base:definition>A state or condition characterised by regular repetition in time.</base:definition>
+      <rdfs:subClassOf rdf:resource="http://rs.tdwg.org/ontology/voc/SpeciesProfileModel#InfoItem"/>
+      <rdfs:isDefinedBy rdf:resource="http://rs.tdwg.org/ontology/voc/SpeciesProfileModel"/>
+   </owl:Class>
+
+   <!-- Dispersal -->
+   <owl:Class rdf:ID="Dispersal">
+      <rdfs:label>Dispersal Info Item</rdfs:label>
+      <dc:title>Dispersal</dc:title>
+      <base:definition>Dispersal strategies and mechanisms</base:definition>
+      <rdfs:subClassOf rdf:resource="http://rs.tdwg.org/ontology/voc/SpeciesProfileModel#InfoItem"/>
+      <rdfs:isDefinedBy rdf:resource="http://rs.tdwg.org/ontology/voc/SpeciesProfileModel"/>
+   </owl:Class>
+
+   <!-- Migration -->
+   <owl:Class rdf:ID="Migration">
+      <rdfs:label>Migration Info Item</rdfs:label>
+      <dc:title>Migration</dc:title>
+      <base:definition>Periodic movement of organisms from one locality to another (e.g., for breeding)</base:definition>
+      <rdfs:subClassOf rdf:resource="http://rs.tdwg.org/ontology/voc/SpeciesProfileModel#InfoItem"/>
+      <rdfs:isDefinedBy rdf:resource="http://rs.tdwg.org/ontology/voc/SpeciesProfileModel"/>
+   </owl:Class>
+
+   <!-- LifeCycle -->
+   <owl:Class rdf:ID="LifeCycle">
+      <rdfs:label>LifeCycle Info Item</rdfs:label>
+      <dc:title>LifeCycle</dc:title>
+      <base:definition>Obligatory developmental transformations</base:definition>
+      <rdfs:subClassOf rdf:resource="http://rs.tdwg.org/ontology/voc/SpeciesProfileModel#InfoItem"/>
+      <rdfs:isDefinedBy rdf:resource="http://rs.tdwg.org/ontology/voc/SpeciesProfileModel"/>
+   </owl:Class>
+
+   <!-- Reproduction -->
+   <owl:Class rdf:ID="Reproduction">
+      <rdfs:label>Reproduction Info Item</rdfs:label>
+      <dc:title>Reproduction</dc:title>
+      <base:definition>Reproduction cues, strategies, restraints</base:definition>
+      <rdfs:subClassOf rdf:resource="http://rs.tdwg.org/ontology/voc/SpeciesProfileModel#InfoItem"/>
+      <rdfs:isDefinedBy rdf:resource="http://rs.tdwg.org/ontology/voc/SpeciesProfileModel"/>
+   </owl:Class>
+
+   <!-- Growth -->
+   <owl:Class rdf:ID="Growth">
+      <rdfs:label>Growth Info Item</rdfs:label>
+      <dc:title>Growth</dc:title>
+      <base:definition>Rate; parameters; allometries</base:definition>
+      <rdfs:subClassOf rdf:resource="http://rs.tdwg.org/ontology/voc/SpeciesProfileModel#InfoItem"/>
+      <rdfs:isDefinedBy rdf:resource="http://rs.tdwg.org/ontology/voc/SpeciesProfileModel"/>
+   </owl:Class>
+
+   <!-- LifeExpectancy -->
+   <owl:Class rdf:ID="LifeExpectancy">
+      <rdfs:label>LifeExpectancy Info Item</rdfs:label>
+      <dc:title>LifeExpectancy</dc:title>
+      <base:definition>The average period an organism can be expected to survive.</base:definition>
+      <rdfs:subClassOf rdf:resource="http://rs.tdwg.org/ontology/voc/SpeciesProfileModel#InfoItem"/>
+      <rdfs:isDefinedBy rdf:resource="http://rs.tdwg.org/ontology/voc/SpeciesProfileModel"/>
+   </owl:Class>
+
+   <!-- Genetics -->
+   <owl:Class rdf:ID="Genetics">
+      <rdfs:label>Genetics Info Item</rdfs:label>
+      <dc:title>Genetics</dc:title>
+      <base:definition>Including karyotypes; </base:definition>
+      <rdfs:subClassOf rdf:resource="http://rs.tdwg.org/ontology/voc/SpeciesProfileModel#InfoItem"/>
+      <rdfs:isDefinedBy rdf:resource="http://rs.tdwg.org/ontology/voc/SpeciesProfileModel"/>
+   </owl:Class>
+
+   <!-- Associations -->
+   <owl:Class rdf:ID="Associations">
+      <rdfs:label>Associations Info Item</rdfs:label>
+      <dc:title>Associations</dc:title>
+      <base:definition>Predator-prey; host-parasite, pollinators, symbiosis, mutualism, commensalism; hybridisation, ...</base:definition>
+      <rdfs:subClassOf rdf:resource="http://rs.tdwg.org/ontology/voc/SpeciesProfileModel#InfoItem"/>
+      <rdfs:isDefinedBy rdf:resource="http://rs.tdwg.org/ontology/voc/SpeciesProfileModel"/>
+   </owl:Class>
+
+   <!-- Diseases -->
+   <owl:Class rdf:ID="Diseases">
+      <rdfs:label>Diseases Info Item</rdfs:label>
+      <dc:title>Diseases</dc:title>
+      <base:definition>Diseases of organisms</base:definition>
+      <rdfs:subClassOf rdf:resource="http://rs.tdwg.org/ontology/voc/SpeciesProfileModel#InfoItem"/>
+      <rdfs:isDefinedBy rdf:resource="http://rs.tdwg.org/ontology/voc/SpeciesProfileModel"/>
+   </owl:Class>
+
+   <!-- Habitat -->
+   <owl:Class rdf:ID="Habitat">
+      <rdfs:label>Habitat Info Item</rdfs:label>
+      <dc:title>Habitat</dc:title>
+      <base:definition>Includes realm (e.g. Terrestrial etc) and climatic information (e.g. Boreal); also includes requirements and tolerances; horizontal and vertical distribution;</base:definition>
+      <rdfs:subClassOf rdf:resource="http://rs.tdwg.org/ontology/voc/SpeciesProfileModel#InfoItem"/>
+      <rdfs:isDefinedBy rdf:resource="http://rs.tdwg.org/ontology/voc/SpeciesProfileModel"/>
+   </owl:Class>
+
+   <!-- Behaviour -->
+   <owl:Class rdf:ID="Behaviour">
+      <rdfs:label>Behaviour Info Item</rdfs:label>
+      <dc:title>Behaviour</dc:title>
+      <base:definition>Covers actions and reactions of organism in relation to its biotic and abiotic environment.</base:definition>
+      <rdfs:subClassOf rdf:resource="http://rs.tdwg.org/ontology/voc/SpeciesProfileModel#InfoItem"/>
+      <rdfs:isDefinedBy rdf:resource="http://rs.tdwg.org/ontology/voc/SpeciesProfileModel"/>
+   </owl:Class>
+
+   <!-- PopulationBiology -->
+   <owl:Class rdf:ID="PopulationBiology">
+      <rdfs:label>PopulationBiology Info Item</rdfs:label>
+      <dc:title>PopulationBiology</dc:title>
+      <base:definition>Includes abundance information.</base:definition>
+      <rdfs:subClassOf rdf:resource="http://rs.tdwg.org/ontology/voc/SpeciesProfileModel#InfoItem"/>
+      <rdfs:isDefinedBy rdf:resource="http://rs.tdwg.org/ontology/voc/SpeciesProfileModel"/>
+   </owl:Class>
+
+   <!-- GeneralDescription -->
+   <owl:Class rdf:ID="GeneralDescription">
+      <rdfs:label>GeneralDescription Info Item</rdfs:label>
+      <dc:title>GeneralDescription</dc:title>
+      <base:definition>A comprehensive description of the characteristics of the taxon </base:definition>
+      <rdfs:subClassOf rdf:resource="http://rs.tdwg.org/ontology/voc/SpeciesProfileModel#InfoItem"/>
+      <rdfs:isDefinedBy rdf:resource="http://rs.tdwg.org/ontology/voc/SpeciesProfileModel"/>
+   </owl:Class>
+
+   <!-- DiagnosticDescription -->
+   <owl:Class rdf:ID="DiagnosticDescription">
+      <rdfs:label>DiagnosticDescription Info Item</rdfs:label>
+      <dc:title>DiagnosticDescription</dc:title>
+      <base:definition>Distinguishing feature of this taxon from its closest relatives. FIXME: how do we know what it's relatives are? may be rendered in isolation.</base:definition>
+      <rdfs:subClassOf rdf:resource="http://rs.tdwg.org/ontology/voc/SpeciesProfileModel#InfoItem"/>
+      <rdfs:isDefinedBy rdf:resource="http://rs.tdwg.org/ontology/voc/SpeciesProfileModel"/>
+   </owl:Class>
+
+   <!-- LookAlikes -->
+   <owl:Class rdf:ID="LookAlikes">
+      <rdfs:label>LookAlikes Info Item</rdfs:label>
+      <dc:title>LookAlikes</dc:title>
+      <base:definition>Other taxa that this taxon may be confused with. Common in invasive species communities.</base:definition>
+      <rdfs:subClassOf rdf:resource="http://rs.tdwg.org/ontology/voc/SpeciesProfileModel#InfoItem"/>
+      <rdfs:isDefinedBy rdf:resource="http://rs.tdwg.org/ontology/voc/SpeciesProfileModel"/>
+   </owl:Class>
+
+   <!-- Key -->
+   <owl:Class rdf:ID="Key">
+      <rdfs:label>Key Info Item</rdfs:label>
+      <dc:title>Key</dc:title>
+      <base:definition>FIXME: how do we reference an external resource? Diagnostic key for 'associated' species. </base:definition>
+      <rdfs:subClassOf rdf:resource="http://rs.tdwg.org/ontology/voc/SpeciesProfileModel#InfoItem"/>
+      <rdfs:isDefinedBy rdf:resource="http://rs.tdwg.org/ontology/voc/SpeciesProfileModel"/>
+   </owl:Class>
+
+   <!-- Morphology -->
+   <owl:Class rdf:ID="Morphology">
+      <rdfs:label>Morphology Info Item</rdfs:label>
+      <dc:title>Morphology</dc:title>
+      <base:definition>The appearance of the taxon (is it only external?); e.g. Habit; antomy (thee branch of morphology that deals with structure of animals)</base:definition>
+      <rdfs:subClassOf rdf:resource="http://rs.tdwg.org/ontology/voc/SpeciesProfileModel#InfoItem"/>
+      <rdfs:isDefinedBy rdf:resource="http://rs.tdwg.org/ontology/voc/SpeciesProfileModel"/>
+   </owl:Class>
+
+   <!-- Management -->
+   <owl:Class rdf:ID="Management">
+      <rdfs:label>Management Info Item</rdfs:label>
+      <dc:title>Management</dc:title>
+      <base:definition>A statement about the level of need to manage a taxon which can be related to a piece of legislation, e.g., a CITES list.</base:definition>
+      <rdfs:subClassOf rdf:resource="http://rs.tdwg.org/ontology/voc/SpeciesProfileModel#InfoItem"/>
+      <rdfs:isDefinedBy rdf:resource="http://rs.tdwg.org/ontology/voc/SpeciesProfileModel"/>
+   </owl:Class>
+
+   <!-- ConservationStatus -->
+   <owl:Class rdf:ID="ConservationStatus">
+      <rdfs:label>ConservationStatus Info Item</rdfs:label>
+      <dc:title>ConservationStatus</dc:title>
+      <base:definition>A description of the likelihood of the species becoming extinct in the present day or in the near future.</base:definition>
+      <rdfs:subClassOf rdf:resource="http://rs.tdwg.org/ontology/voc/SpeciesProfileModel#InfoItem"/>
+      <rdfs:isDefinedBy rdf:resource="http://rs.tdwg.org/ontology/voc/SpeciesProfileModel"/>
+   </owl:Class>
+
+   <!-- Legislation -->
+   <owl:Class rdf:ID="Legislation">
+      <rdfs:label>Legislation Info Item</rdfs:label>
+      <dc:title>Legislation</dc:title>
+      <base:definition>Legal regulations or statutes relating to the taxon.</base:definition>
+      <rdfs:subClassOf rdf:resource="http://rs.tdwg.org/ontology/voc/SpeciesProfileModel#InfoItem"/>
+      <rdfs:isDefinedBy rdf:resource="http://rs.tdwg.org/ontology/voc/SpeciesProfileModel"/>
+   </owl:Class>
+
+   <!-- Threats -->
+   <owl:Class rdf:ID="Threats">
+      <rdfs:label>Threats Info Item</rdfs:label>
+      <dc:title>Threats</dc:title>
+      <base:definition>The threats to which this taxon is subject.</base:definition>
+      <rdfs:subClassOf rdf:resource="http://rs.tdwg.org/ontology/voc/SpeciesProfileModel#InfoItem"/>
+      <rdfs:isDefinedBy rdf:resource="http://rs.tdwg.org/ontology/voc/SpeciesProfileModel"/>
+   </owl:Class>
+   
+   <!-- Trends -->
+   <owl:Class rdf:ID="Trends">
+      <rdfs:label>Trends Info Item</rdfs:label>
+      <dc:title>Trends</dc:title>
+      <base:definition>An indication of whether a population is stable, or increasing or decreasing.</base:definition>
+      <rdfs:subClassOf rdf:resource="http://rs.tdwg.org/ontology/voc/SpeciesProfileModel#InfoItem"/>
+      <rdfs:isDefinedBy rdf:resource="http://rs.tdwg.org/ontology/voc/SpeciesProfileModel"/>
+   </owl:Class>
+   
+   <!-- Procedures -->
+   <owl:Class rdf:ID="Procedures">
+      <rdfs:label>Procedures Info Item</rdfs:label>
+      <dc:title>Procedures</dc:title>
+      <base:definition>Deals with how you go about managing this taxon; what are the known threats to this taxon? FIXME: how does this differ from management and threat?</base:definition>
+      <rdfs:subClassOf rdf:resource="http://rs.tdwg.org/ontology/voc/SpeciesProfileModel#InfoItem"/>
+      <rdfs:isDefinedBy rdf:resource="http://rs.tdwg.org/ontology/voc/SpeciesProfileModel"/>
+   </owl:Class>
+   
+   <!-- RiskStatement -->
+   <owl:Class rdf:ID="RiskStatement">
+      <rdfs:label>RiskStatement Info Item</rdfs:label>
+      <dc:title>RiskStatement</dc:title>
+      <base:definition>Includes invasiveness, impacts</base:definition>
+      <rdfs:subClassOf rdf:resource="http://rs.tdwg.org/ontology/voc/SpeciesProfileModel#InfoItem"/>
+      <rdfs:isDefinedBy rdf:resource="http://rs.tdwg.org/ontology/voc/SpeciesProfileModel"/>
+   </owl:Class>
+
+
+
+</rdf:RDF>

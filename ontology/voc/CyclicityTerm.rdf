@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="human.xsl"?>
+<!-- $Rev: 1294 $ -->
+<!-- $Date: 2007-08-15 14:05:50 +0100 (Wed, 15 Aug 2007) $ -->
+<!-- $Author: MarkusDoering $ -->
+
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:owl="http://www.w3.org/2002/07/owl#"
+   xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:base="http://rs.tdwg.org/ontology/Base#" xml:base="http://rs.tdwg.org/ontology/voc/SPMInfoItems"
+   xmlns="http://rs.tdwg.org/ontology/voc/SPMInfoItems#" xmlns:tct="http://rs.tdwg.org/ontology/voc/CyclicityTerm#">
+
+   <owl:Ontology rdf:about="http://rs.tdwg.org/ontology/voc/CyclicityTerm">
+      <dc:title>TDWG Cyclicity Terms Ontology</dc:title>
+      <dc:creator>Roger Hyam</dc:creator>
+      <dc:publisher>TDWG Biodiversity Information Standards</dc:publisher>
+      <dcterms:issued>2007-04-17</dcterms:issued>
+      <dcterms:modified>$Date: 2007-08-15 14:05:50 +0100 (Wed, 15 Aug 2007) $</dcterms:modified>
+      <dc:description>Ontology describing a controlled vocabulary for cyclicity.</dc:description>
+
+      <owl:versionInfo>0.3</owl:versionInfo>
+
+   </owl:Ontology>
+
+
+   <!-- ************************************
+               CyclicityTerm
+ 		************************************ -->
+
+   <owl:Class rdf:ID="CyclicityTerm">
+      <rdfs:label>Cyclicity Term</rdfs:label>
+      <rdfs:comment> The class for constructing controlled vocabularies associated with Cyclisity</rdfs:comment>
+      <rdfs:subClassOf rdf:resource="http://rs.tdwg.org/ontology/Base#DefinedTerm"/>
+      <rdfs:isDefinedBy rdf:resource="http://rs.tdwg.org/ontology/voc/SpeciesProfileModel"/>
+   </owl:Class>
+
+   <!-- Circadian -->
+   <CyclicityTerm rdf:ID="Circadian">
+      <rdfs:label>Circadian</rdfs:label>
+      <dc:title>Circadian</dc:title>
+      <base:definition>FIXME ...</base:definition>
+   </CyclicityTerm>
+
+   <!-- SemiLunar -->
+   <CyclicityTerm rdf:ID="SemiLunar">
+      <rdfs:label>SemiLunar</rdfs:label>
+      <dc:title>SemiLunar</dc:title>
+      <base:definition>FIXME ...</base:definition>
+   </CyclicityTerm>
+
+   <!-- Lunar -->
+   <CyclicityTerm rdf:ID="Lunar">
+      <rdfs:label>Lunar</rdfs:label>
+      <dc:title>Lunar</dc:title>
+      <base:definition>FIXME ...</base:definition>
+   </CyclicityTerm>  
+
+   <!-- Seasonal -->
+   <CyclicityTerm rdf:ID="Seasonal">
+      <rdfs:label>Seasonal</rdfs:label>
+      <dc:title>Seasonal</dc:title>
+      <base:definition>FIXME ...</base:definition>
+   </CyclicityTerm>  
+
+   <!-- Annual -->
+   <CyclicityTerm rdf:ID="Annual">
+      <rdfs:label>Annual</rdfs:label>
+      <dc:title>Annual</dc:title>
+      <base:definition>FIXME ...</base:definition>
+   </CyclicityTerm>  
+
+</rdf:RDF>

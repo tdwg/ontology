@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="human.xsl"?>
+<!-- $Rev: 1294 $ -->
+<!-- $Date: 2007-08-15 14:05:50 +0100 (Wed, 15 Aug 2007) $ -->
+<!-- $Author: MarkusDoering $ -->
+
+<rdf:RDF
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+   xmlns:owl="http://www.w3.org/2002/07/owl#"
+   xmlns:dc="http://purl.org/dc/elements/1.1/" 
+   xmlns:dcterms="http://purl.org/dc/terms/"
+   xmlns:tbase="http://rs.tdwg.org/ontology/Base#"
+   xmlns:tcore="http://rs.tdwg.org/ontology/Core#"
+   xmlns="http://rs.tdwg.org/ontology/voc/ContactDetails#"
+   xmlns:tcd="http://rs.tdwg.org/ontology/voc/ContactDetails#"
+   xmlns:vc="http://www.w3.org/2001/vcard-rdf/3.0#"
+   xml:base="http://rs.tdwg.org/ontology/voc/ContactDetails">
+
+   <owl:Ontology rdf:about="http://rs.tdwg.org/ontology/voc/ContactDetails">
+      <dc:title>TDWG ContactDetails LSID Ontology</dc:title>
+      <dc:creator>Roger Hyam</dc:creator>
+      <dc:publisher>TDWG Biodiversity Information Standards</dc:publisher>
+      <dcterms:issued>2007-04-06</dcterms:issued>
+      <dcterms:modified>$Date: 2007-08-15 14:05:50 +0100 (Wed, 15 Aug 2007) $</dcterms:modified>
+      <dc:description>Ontology describing the metadata returned for LSIDs that are used for
+         contact details.</dc:description>
+
+      <owl:versionInfo>0.2 - [SVN $Rev: 1294 $]</owl:versionInfo>
+
+   </owl:Ontology>
+
+
+   <!-- *************************************************
+					C O N T A C T    D E T A I L S
+ 		**************************************************** -->
+   <!-- ContactDetails -->
+   <owl:Class rdf:ID="ContactDetails">
+      <rdfs:label>ContactDetails</rdfs:label>
+      <rdfs:comment>
+         Information on how to contact an entity including postal and electronic methods.
+         This class is an attempt to mirror the IETF vCard standard and should be directly mappable to it. 
+      </rdfs:comment>
+      <rdfs:subClassOf rdf:resource="http://rs.tdwg.org/ontology/Base#BaseThing"/>
+      <rdfs:isDefinedBy rdf:resource="http://rs.tdwg.org/ontology/voc/ContactDetails"/>
+   </owl:Class>
+
+
+
+   <!-- ************************************************************************* -->
+   <!-- TODO: the following attributes are all covered by vCard.                  -->
+   <!-- ************************************************************************* -->
+
+   <owl:DatatypeProperty rdf:ID="TEL">
+      <owl:sameAs rdf:resource="http://www.w3.org/2001/vcard-rdf/3.0#TEL"/>
+      <rdfs:domain rdf:resource="#ContactDetails"/>
+      <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+   </owl:DatatypeProperty>
+   <owl:DatatypeProperty rdf:ID="EMAIL">
+      <owl:sameAs rdf:resource="http://www.w3.org/2001/vcard-rdf/3.0#EMAIL"/>
+      <rdfs:domain rdf:resource="#ContactDetails"/>
+      <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+   </owl:DatatypeProperty>
+   <owl:ObjectProperty rdf:ID="ADR">
+      <owl:sameAs rdf:resource="http://www.w3.org/2001/vcard-rdf/3.0#ADR"/>
+      <rdfs:domain rdf:resource="#ContactDetails"/>
+      <rdfs:range rdf:resource="#Address"/>
+   </owl:ObjectProperty>
+   <owl:ObjectProperty rdf:ID="GEO">
+      <owl:sameAs rdf:resource="http://www.w3.org/2001/vcard-rdf/3.0#GEO"/>
+      <rdfs:domain rdf:resource="#ContactDetails"/>
+      <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+   </owl:ObjectProperty>
+   <owl:DatatypeProperty rdf:ID="URL">
+      <owl:sameAs rdf:resource="http://www.w3.org/2001/vcard-rdf/3.0#URL"/>
+      <rdfs:domain rdf:resource="#ContactDetails"/>
+      <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+   </owl:DatatypeProperty>
+   <owl:DatatypeProperty rdf:ID="LOGO">
+      <owl:sameAs rdf:resource="http://www.w3.org/2001/vcard-rdf/3.0#LOGO"/>
+      <rdfs:domain rdf:resource="#ContactDetails"/>
+      <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+   </owl:DatatypeProperty>
+   <owl:DatatypeProperty rdf:ID="NOTE">
+      <owl:sameAs rdf:resource="http://www.w3.org/2001/vcard-rdf/3.0#NOTE"/>
+      <rdfs:domain rdf:resource="#ContactDetails"/>
+      <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+   </owl:DatatypeProperty>
+
+   <owl:Class rdf:ID="Address">
+      <rdfs:subClassOf rdf:resource="http://rs.tdwg.org/ontology/Base#BaseThing"/>
+   </owl:Class>
+   <owl:ObjectProperty rdf:ID="TYPE">
+      <owl:sameAs rdf:resource="http://www.w3.org/2001/vcard-rdf/3.0#TYPE"/>
+      <rdfs:domain rdf:resource="#Address"/>
+      <rdfs:range rdf:resource="#ContactTypeTerm"/>
+   </owl:ObjectProperty>
+   <owl:DatatypeProperty rdf:ID="Pobox">
+      <owl:sameAs rdf:resource="http://www.w3.org/2001/vcard-rdf/3.0#Pobox"/>
+      <rdfs:domain rdf:resource="#Address"/>
+      <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+   </owl:DatatypeProperty>
+   <owl:DatatypeProperty rdf:ID="Extadd">
+      <owl:sameAs rdf:resource="http://www.w3.org/2001/vcard-rdf/3.0#Extadd"/>
+      <rdfs:domain rdf:resource="#Address"/>
+      <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+   </owl:DatatypeProperty>
+   <owl:DatatypeProperty rdf:ID="Street">
+      <owl:sameAs rdf:resource="http://www.w3.org/2001/vcard-rdf/3.0#Street"/>
+      <rdfs:domain rdf:resource="#Address"/>
+      <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+   </owl:DatatypeProperty>
+   <owl:DatatypeProperty rdf:ID="Locality">
+      <owl:sameAs rdf:resource="http://www.w3.org/2001/vcard-rdf/3.0#Locality"/>
+      <rdfs:domain rdf:resource="#Address"/>
+      <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+   </owl:DatatypeProperty>
+   <owl:DatatypeProperty rdf:ID="Region">
+      <owl:sameAs rdf:resource="http://www.w3.org/2001/vcard-rdf/3.0#Region"/>
+      <rdfs:domain rdf:resource="#Address"/>
+      <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+   </owl:DatatypeProperty>
+   <owl:DatatypeProperty rdf:ID="Pcode">
+      <owl:sameAs rdf:resource="http://www.w3.org/2001/vcard-rdf/3.0#Pcode"/>
+      <rdfs:domain rdf:resource="#Address"/>
+      <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+   </owl:DatatypeProperty>
+   <owl:DatatypeProperty rdf:ID="Country">
+      <owl:sameAs rdf:resource="http://www.w3.org/2001/vcard-rdf/3.0#Country"/>
+      <rdfs:domain rdf:resource="#Address"/>
+      <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+   </owl:DatatypeProperty>
+
+   <owl:Class rdf:ID="ContactTypeTerm">
+      <rdfs:subClassOf rdf:resource="http://rs.tdwg.org/ontology/Base#DefinedTerm"/>
+   </owl:Class>
+	<ContactTypeTerm rdf:ID="home" />
+	<ContactTypeTerm rdf:ID="msg" />
+	<ContactTypeTerm rdf:ID="work" />
+	<ContactTypeTerm rdf:ID="pref" />
+	<ContactTypeTerm rdf:ID="voice" />
+	<ContactTypeTerm rdf:ID="fax" />
+	<ContactTypeTerm rdf:ID="cell" />
+	<ContactTypeTerm rdf:ID="video" />
+	<ContactTypeTerm rdf:ID="pager" />
+	<ContactTypeTerm rdf:ID="bbs" />
+	<ContactTypeTerm rdf:ID="modem" />
+	<ContactTypeTerm rdf:ID="car" />
+	<ContactTypeTerm rdf:ID="isdn" />
+	<ContactTypeTerm rdf:ID="pcs" />
+
+</rdf:RDF>

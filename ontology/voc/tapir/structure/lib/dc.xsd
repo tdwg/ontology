@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="qualified"
+  targetNamespace="http://purl.org/dc/elements/1.1/"
+  xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+  >
+  
+  <xs:import namespace="http://www.w3.org/1999/02/22-rdf-syntax-ns#" schemaLocation="rdf.xsd"/>
+  
+  <xs:element  name="title" type="xs:string">
+    <xs:annotation>
+      <xs:appinfo>http://purl.org/dc/elements/1.1/title</xs:appinfo>
+      <xs:documentation>A name given to the resource. An indication of the what should appear in
+        the dc:title element for any particular class should be given in the class
+        documentation. All instances should have a dc:title property.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="contributor"  type="xs:string">
+    <xs:annotation>
+      <xs:appinfo>http://purl.org/dc/elements/1.1/contributor</xs:appinfo>
+      <xs:documentation>An entity responsible for making contributions to the resource.
+      </xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="coverage"  type="xs:string">
+    <xs:annotation>
+      <xs:appinfo>http://purl.org/dc/elements/1.1/coverage</xs:appinfo>
+      <xs:documentation>The spatial or temporal topic of the resource, the spatial applicability
+        of the resource, or the jurisdiction under which the resource is relevant. This
+        should be used for general context information and should not take the place of TDWG
+        ontology elements that provide more precision of meaning. </xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="creator"  type="xs:string">
+    <xs:annotation>
+      <xs:appinfo>http://purl.org/dc/elements/1.1/creator</xs:appinfo>
+      <xs:documentation>An entity primarily responsible for making the resource. This should
+        apply to the DIGITAL resource rather than the biological object it may apply to. It
+        should not be used in place of the authorString of a PublicationCitation for example
+        but it could be used for the creator of the PublicationCitation bibliographic
+        record. </xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="date"  type="xs:string">
+    <xs:annotation>
+      <xs:appinfo>http://purl.org/dc/elements/1.1/date</xs:appinfo>
+      <xs:documentation>A point or period of time associated with an event in the lifecycle of
+        the resource. This should apply to the DIGITAL resource rather than the biological
+        object it may represent. It should not be used in place of the year property of a
+        TaxonName for example but it could be used for the date the name was digitised.
+      </xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="description"  type="xs:string">
+    <xs:annotation>
+      <xs:appinfo>http://purl.org/dc/elements/1.1/description</xs:appinfo>
+      <xs:documentation>A human readable account of the resource. This can apply to both the
+        digital resource and/or the object as appropriate but it should be made clear which
+        it applies to. The phrase "Possibly a spelling error" is misleading as it cold apply
+        to either the digital object or the object it represents. </xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="format"  type="xs:string">
+    <xs:annotation>
+      <xs:appinfo>http://purl.org/dc/elements/1.1/format</xs:appinfo>
+      <xs:documentation>The file format, physical medium, or dimensions of the resource. This
+        should always be used for the digital objects and should be restricted to MIME
+        types. For LSIDs it is the format of the data returned by the getData() call to the
+        resource. </xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="identifier"  type="xs:string">
+    <xs:annotation>
+      <xs:appinfo>http://purl.org/dc/elements/1.1/identifier</xs:appinfo>
+      <xs:documentation>An unambiguous reference to the resource within a given context. This can
+        be used for any identifier for the digital object or the object it represents that
+        is not a resolvable URI. Examples include ISBN, ISSN, catalogue numbers, barcodes
+        etc. Anything that may be useful to a client but isn't included in the TDWG ontology
+        for this class of object. Identifiers which are resolvable URIs and are considered
+        to refer to the same object should be included using the owl:sameAs property
+        instead. </xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="language"  type="xs:string">
+    <xs:annotation>
+      <xs:appinfo>http://purl.org/dc/elements/1.1/language</xs:appinfo>
+      <xs:documentation> A language of the resource. Recommended best practice is to use a
+        controlled vocabulary such as RFC 3066 [RFC3066]. </xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="publisher"  type="xs:string">
+    <xs:annotation>
+      <xs:appinfo>http://purl.org/dc/elements/1.1/publisher</xs:appinfo>
+      <xs:documentation>An entity responsible for making the resource available. Examples of a
+        Publisher include a person, an organization, or a service. Typically, the name of a
+        Publisher should be used to indicate the entity. </xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="relation" >
+    <xs:complexType>
+      <xs:attribute ref="rdf:resource" use="required">
+        <xs:annotation>
+          <xs:appinfo>http://purl.org/dc/elements/1.1/relation</xs:appinfo>
+          <xs:documentation>A related resource.</xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="rights"  type="xs:string">
+    <xs:annotation>
+      <xs:appinfo>http://purl.org/dc/elements/1.1/rights</xs:appinfo>
+      <xs:documentation>Information about rights held in and over the resource. Typically, rights
+        information includes a statement about various property rights associated with the
+        resource, including intellectual property rights. </xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="source" >
+    <xs:complexType>
+      <xs:attribute ref="rdf:resource" use="required">
+        <xs:annotation>
+          <xs:appinfo>http://purl.org/dc/elements/1.1/source</xs:appinfo>
+          <xs:documentation>The resource from which the described resource is derived. The
+            described resource may be derived from the related resource in whole or in
+            part.</xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="subject"  type="xs:string">
+    <xs:annotation>
+      <xs:appinfo>http://purl.org/dc/elements/1.1/subject</xs:appinfo>
+      <xs:documentation>The topic of the resource. Typically, the topic will be represented using
+        keywords, key phrases, or classification codes. Recommended best practice is to use
+        a controlled vocabulary. To describe the spatial or temporal topic of the resource,
+        use the Coverage element.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="type">
+    <xs:complexType>
+      <xs:attribute ref="rdf:resource" use="required">
+        <xs:annotation>
+          <xs:appinfo>http://purl.org/dc/elements/1.1/type</xs:appinfo>
+          <xs:documentation>The nature or genre of the resource. Recommended best practice is
+            to use a controlled vocabulary such as the DCMI Type Vocabulary. To describe
+            the file format, physical medium, or dimensions of the resource, use the
+            Format element. </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+    </xs:complexType>
+    </xs:element>
+
+</xs:schema>

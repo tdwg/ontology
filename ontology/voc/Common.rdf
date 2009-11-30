@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="human.xsl"?>
+<!-- $Rev: 1060 $ -->
+<!-- $Date: 2007-05-03 15:13:08 +0100 (Thu, 03 May 2007) $ -->
+<!-- $Author: RogerHyam $ -->
+
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:owl="http://www.w3.org/2002/07/owl#"
+	xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dcterms="http://purl.org/dc/terms/" xml:base="http://rs.tdwg.org/ontology/voc/Common" xmlns="http://rs.tdwg.org/ontology/voc/Common#">
+
+	<owl:Ontology rdf:about="http://rs.tdwg.org/ontology/voc/Common">
+
+		<dc:creator>Roger Hyam</dc:creator>
+		<dcterms:issued>2006-11-13</dcterms:issued>
+		<dcterms:modified>$Date: 2007-05-03 15:13:08 +0100 (Thu, 03 May 2007) $</dcterms:modified>
+		<dc:title>TDWG Ontology LSID Vocabularies - Globals</dc:title>
+		<dc:publisher>TDWG - Biodiversity Information Standards</dc:publisher>
+		<dc:description> Global properties for use in any LSID Vocabulary classes. </dc:description>
+
+		<rdfs:comment rdf:parseType="Literal"> FIXME - must validate using: <a href="http://phoebus.cs.man.ac.uk:9999/OWL/Validator">Wonder Web OWL Ontology Validator</a>
+		</rdfs:comment>
+		<owl:versionInfo>0.1</owl:versionInfo>
+
+	</owl:Ontology>
+
+	<!-- common - isDeprecated -->
+	<owl:DatatypeProperty rdf:ID="isDeprecated">
+		<rdfs:label>Is Deprecated</rdfs:label>
+		<rdfs:comment>The resource identified by this LSID is deprecated and should not be used. The LSID authority may choose to only provide this flag property or it may choose to continue providing
+			the data along with the flag. Use of the DublinCore replaced ** FIXME ** property is recommended. </rdfs:comment>
+		<rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+		<rdfs:isDefinedBy rdf:resource="http://rs.tdwg.org/ontology/voc/Common"/>
+		<!-- FIXME defined by -->
+	</owl:DatatypeProperty>
+
+	<!-- common - isRestricted -->
+	<owl:DatatypeProperty rdf:ID="isRestricted">
+		<rdfs:label>Is Restricted</rdfs:label>
+		<rdfs:comment>The metadata and/or data associated with this LSID is being deliberately presented in a restricted form by the authority. Some information is either being deliberately withheld
+			or obfuscated. This may occur for a number of reasons: It may be inappropriate to release full information prior to the publishing of a scientific paper - especially if it contains
+			nomenclature. It may be commercially necessary if some of the information is only available on a subscription basis. It may be necessary to hide the true location of rare and endangered
+			species. If this property is set to 'true' then it is recommended that a dcterms:accessRights property is also included with an explanation of why the restriction is in place and how full
+			access might be gained. It may also be appropriate to include a dcterms:rightsHolder property that is an rdf:resource. Note that this property should only be used when the missing data is
+			known to the authority but not released. If the authority merely knows that data is missing the property should NOT be used. It is NOT an 'incomplete' flag. </rdfs:comment>
+		<rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+		<rdfs:isDefinedBy rdf:resource="http://rs.tdwg.org/ontology/voc/Common"/>
+		<dc:relation rdf:resource="http://rs.tdwg.org/ontology/voc/Common#dctermAccessRights"/>
+		<dc:relation rdf:resource="http://rs.tdwg.org/ontology/voc/Common#dctermRightsHolder"/>
+	</owl:DatatypeProperty>
+
+	<!-- common - versionedAs -->
+	<owl:ObjectProperty rdf:ID="versionedAs">
+		<rdfs:label>Versioned As</rdfs:label>
+		<rdfs:comment> When the metadata linked to by this LSID is liable to change the LSID authority may choose to make an older version of the metadata available via another LSID. For some clients
+			retrieving the version of the data current at a particular time (rather than the current metadata) may be important. By storing the value of the versionedAs LSID that is supplied with the
+			current metadata they can be sure that they will always be able to refer to a particular version of the metadata. It is recommended that the DublinCore term isVersionOf is used to point
+			from the versioned metadata to the principle LSID.</rdfs:comment>
+		<rdfs:isDefinedBy rdf:resource="http://rs.tdwg.org/ontology/voc/Common"/>
+	</owl:ObjectProperty>
+
+	<!-- common - publishedIn -->
+	<owl:DatatypeProperty rdf:ID="publishedIn">
+		<rdfs:label>Published In</rdfs:label>
+		<rdfs:comment>A string of the citation of the publication associated with this object.</rdfs:comment>
+		<rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+		<rdfs:isDefinedBy rdf:resource="http://rs.tdwg.org/ontology/voc/Common"/>
+	</owl:DatatypeProperty>
+
+	<!-- common - publishedInCitation -->
+	<owl:ObjectProperty rdf:ID="publishedInCitation">
+		<rdfs:label>Published In Citation</rdfs:label>
+		<rdfs:comment> A link to a citation object that expands on the publishedIn property. </rdfs:comment>
+		<rdfs:range rdf:resource="http://rs.tdwg.org/ontology/voc/PublicationCitation#PublicationCitation"/>
+		<!-- FIXME range -->
+		<rdfs:isDefinedBy rdf:resource="http://rs.tdwg.org/ontology/voc/Common"/>
+	</owl:ObjectProperty>
+
+	<!-- microReference -->
+	<owl:DatatypeProperty rdf:ID="microReference">
+		<rdfs:label>MicroReference</rdfs:label>
+		<rdfs:comment> The microreference within the publication where the this object is mentioned. A qualification to the publishedIn and publicatedInCitation properties. Specifies any minor
+			reference parts connected to the name publication e.g. page number. </rdfs:comment>
+		<rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+		<rdfs:isDefinedBy rdf:resource="http://rs.tdwg.org/ontology/voc/Common"/>
+	</owl:DatatypeProperty>
+
+	<!-- note -->
+	<owl:DatatypeProperty rdf:ID="note">
+		<rdfs:label>note</rdfs:label>
+		<rdfs:comment>An annotation to the current resource. This is not a description of the resource which should be given in a rdfs:comment or dc:label property. Information contained in this
+			property is additional to that provided in other properties. </rdfs:comment>
+		<rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+		<rdfs:isDefinedBy rdf:resource="http://rs.tdwg.org/ontology/voc/Common"/>
+	</owl:DatatypeProperty>
+
+	<!-- taxonomic placement formal -->
+	<owl:DatatypeProperty rdf:ID="taxonomicPlacementFormal">
+		<rdfs:label>Taxonomic Placement Formal</rdfs:label>
+		<rdfs:comment>A comma separated list of scientific taxon names that indicate (for administrative and data discovery purposes only) the taxonomic placement of this object.
+			The value may be a single word such as 'Ericaceae' or a series of comma separated words such as "Magnoliopsida, Ericales, Ericaceae, Arbutus".
+			The words should represent taxa of decreasing rank.
+			This property should not be used in place of a formal taxonomic hierarchy constructed using TaxonConcept objects.
+		</rdfs:comment>
+		<rdfs:range rdf:resource="http://rs.tdwg.org/ontology/voc/DigitalImage#DigitalImage"/>
+		<rdfs:isDefinedBy rdf:resource="http://rs.tdwg.org/ontology/voc/Common"/>
+	</owl:DatatypeProperty>
+	
+	<!-- taxonomic placement informal -->
+	<owl:DatatypeProperty rdf:ID="taxonomicPlacementInformal">
+		<rdfs:label>Taxonomic Placement Informal</rdfs:label>
+		<rdfs:comment>A comma separated list of scientific and/or vernacular taxon names that indicate (for administrative and data discovery purposes only) the taxonomic placement of this object.
+			The value may be a single word such as 'Bird' or a series of comma separated words such as "Crow, Bird, Corvid". The order of the words is of no significance. 
+			This property should not be used in place of a formal taxonomic hierarchy constructed using TaxonConcept objects.
+		</rdfs:comment>
+		<rdfs:range rdf:resource="http://rs.tdwg.org/ontology/voc/DigitalImage#DigitalImage"/>
+		<rdfs:isDefinedBy rdf:resource="http://rs.tdwg.org/ontology/voc/Common"/>
+	</owl:DatatypeProperty>
+	
+	<!-- image -->
+	<owl:ObjectProperty rdf:ID="hasDigitalImage">
+		<rdfs:label>Has Digital Image</rdfs:label>
+		<rdfs:comment> A link to a non-text visual representation of this object.</rdfs:comment>
+		<rdfs:range rdf:resource="http://rs.tdwg.org/ontology/voc/DigitalImage#DigitalImage"/>
+		<rdfs:isDefinedBy rdf:resource="http://rs.tdwg.org/ontology/voc/Common"/>
+	</owl:ObjectProperty>
+
+	<!-- tcsEquivalence -->
+	<owl:DatatypeProperty rdf:ID="tcsEquivalence">
+		<rdfs:label>TCS Equivalence</rdfs:label>
+		<rdfs:comment>Used to indicate the equivalent construct in the Taxon Concept Schema for any Class, Property or Individual. This is a datatype property because TCS is not semantic web based and
+			so does not provide a URI that can be used to refer to constructs.</rdfs:comment>
+		<rdfs:isDefinedBy rdf:resource="http://rs.tdwg.org/ontology/voc/Common"/>
+	</owl:DatatypeProperty>
+
+
+	<!-- berlinModelEquivalence -->
+	<owl:DatatypeProperty rdf:ID="berlinModelEquivalence">
+		<rdfs:label>Berlin Model Equivalence</rdfs:label>
+		<rdfs:comment>Used to indicate the equivalent construct in the Berlin Taxonomic data model for any Class, Property or Individual. This is a datatype property because the Berlin Model is not
+			semantic web based and so does not provide a URI that can be used to refer to constructs.</rdfs:comment>
+		<rdfs:isDefinedBy rdf:resource="http://rs.tdwg.org/ontology/voc/Common"/>
+	</owl:DatatypeProperty>
+
+
+	<!-- abcdEquivalence -->
+	<owl:DatatypeProperty rdf:ID="abcdEquivalence">
+		<rdfs:label>ABCD Equivalence</rdfs:label>
+		<rdfs:comment>Used to indicate the equivalent construct in the ABCD XML Schema data model for any Class, Property or Individual. This is a datatype property because ABCD is not semantic web
+			based and so does not provide a URI that can be used to refer to constructs.</rdfs:comment>
+		<rdfs:isDefinedBy rdf:resource="http://rs.tdwg.org/ontology/voc/Common"/>
+	</owl:DatatypeProperty>
+
+
+	<!-- darwinCoreEquivalence -->
+	<owl:DatatypeProperty rdf:ID="darwinCoreEquivalence">
+		<rdfs:label>DarwinCore Equivalence</rdfs:label>
+		<rdfs:comment>Used to indicate the equivalent construct in the DarwinCore XML Schema data models for any Class, Property or Individual. This is a datatype property because DarwinCore is not
+			semantic web based and so does not provide a URI that can be used to refer to constructs although it might be feasible to refer to individual elements within the namespace their meaning
+			can be changed by the contents of the basisOfRecord field and so a text only approach is taken.</rdfs:comment>
+		<rdfs:isDefinedBy rdf:resource="http://rs.tdwg.org/ontology/voc/Common"/>
+	</owl:DatatypeProperty>
+
+</rdf:RDF>

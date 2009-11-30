@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="human.xsl"?>
+<!-- $Rev: 1296 $ -->
+<!-- $Date: 2007-08-15 14:27:16 +0100 (Wed, 15 Aug 2007) $ -->
+<!-- $Author: MarkusDoering $ -->
+
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" 
+   xmlns:owl="http://www.w3.org/2002/07/owl#"
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:dcterms="http://purl.org/dc/terms/"
+   xmlns:base="http://rs.tdwg.org/ontology/Base#"
+   xml:base="http://rs.tdwg.org/ontology/voc/InstitutionType"
+   xmlns="http://rs.tdwg.org/ontology/voc/InstitutionType#">
+
+   <owl:Ontology rdf:about="http://rs.tdwg.org/ontology/voc/InstitutionType">
+      <dc:title>TDWG Institution Type LSID Ontology</dc:title>
+      <dc:creator>Markus Döring, Constance Rinaldo</dc:creator>
+      <dc:publisher>TDWG Biodiversity Information Standards - NCD subgroup</dc:publisher>
+      <dcterms:issued>2007-03-08</dcterms:issued>
+      <dcterms:modified>$Date: 2007-08-15 14:27:16 +0100 (Wed, 15 Aug 2007) $</dcterms:modified>
+      <dc:description>Ontology describing a controlled vocabulary for type of institutions.</dc:description>
+
+      <owl:versionInfo>0.3</owl:versionInfo>
+
+      <rdfs:comment rdf:parseType="Literal">FIXME... </rdfs:comment>
+
+   </owl:Ontology>
+
+
+   <!-- ************************************
+		  I N S T I T U T I O N   T Y P E
+ 		************************************ -->
+
+   <owl:Class rdf:ID="InstitutionTypeTerm">
+      <rdfs:label>Institution Type Term</rdfs:label>
+      <rdfs:comment> Keyword describing the primary activity or purpose of an organization or entity that holds or uses collections.</rdfs:comment>
+      <rdfs:subClassOf rdf:resource="http://rs.tdwg.org/ontology/Base#DefinedTerm"/>
+      <rdfs:isDefinedBy rdf:resource="http://rs.tdwg.org/ontology/voc/InstitutionType"/>
+   </owl:Class>
+
+  <!-- archive -->
+   <InstitutionTypeTerm rdf:ID="archive">
+      <rdfs:label>archive</rdfs:label>
+      <dc:title>archive</dc:title>
+      <base:definition>
+ An instiutiton where public and/or private records and historical documents are preserved and made accessible.</base:definition>
+   </InstitutionTypeTerm>
+
+
+   <!-- botanic_garden -->
+   <InstitutionTypeTerm rdf:ID="botanicGarden">
+      <rdfs:label>botanic garden</rdfs:label>
+      <dc:title>botanic garden</dc:title>
+      <base:definition>
+   A garden, sometimes with greenhouse, for the study and exhibition of special plants.
+      </base:definition>
+   </InstitutionTypeTerm>
+
+   <!--zoo-->
+   <InstitutionTypeTerm rdf:ID="zoo">
+      <rdfs:label>zoo</rdfs:label>
+      <dc:title>zoo</dc:title>
+      <base:definition>
+An institution where living animals are maintained and exhibited.      </base:definition>
+   </InstitutionTypeTerm>
+
+   <!--aquarium-->
+   <InstitutionTypeTerm rdf:ID="aquarium">
+      <rdfs:label>aquarium</rdfs:label>
+      <dc:title>aquarium</dc:title>
+      <base:definition>
+An institution where aquatic collections of living organisms are kept and exhibited.    </base:definition>
+   </InstitutionTypeTerm>
+
+
+   <!-- horticulturalinstitution -->
+   <InstitutionTypeTerm rdf:ID="horticulturalInstitution">
+      <rdfs:label>horticultural institution</rdfs:label>
+      <dc:title>horticultural institution</dc:title>
+      <base:definition>
+     An institution associated with the science and study of propagating plants.
+      </base:definition>
+   </InstitutionTypeTerm>
+
+   <!-- museum -->
+   <InstitutionTypeTerm rdf:ID="museum">
+      <rdfs:label>museum</rdfs:label>
+      <dc:title>museum</dc:title>
+      <base:definition>
+   An institution for the procurement, preservation, study and exhibition of specimens and objects of value.
+      </base:definition>
+   </InstitutionTypeTerm>
+
+   <!-- herbarium -->
+   <InstitutionTypeTerm rdf:ID="herbarium">
+      <rdfs:label>herbarium</rdfs:label>
+      <dc:title>herbarium</dc:title>
+      <base:definition>
+An institution holding preserved plants.      </base:definition>
+   </InstitutionTypeTerm>
+
+   <!-- laboratory -->
+   <InstitutionTypeTerm rdf:ID="laboratory">
+      <rdfs:label>laboratory</rdfs:label>
+      <dc:title>laboratory</dc:title>
+      <base:definition>
+An institution or facility for experimental, observational or analytical studies.      </base:definition>
+   </InstitutionTypeTerm>
+
+   <!-- university -->
+   <InstitutionTypeTerm rdf:ID="university">
+      <rdfs:label>university</rdfs:label>
+      <dc:title>university</dc:title>
+      <base:definition>
+       A degree-granting institution of higher learning.
+      </base:definition>
+   </InstitutionTypeTerm>
+
+   <!-- non_university_college -->
+   <InstitutionTypeTerm rdf:ID="nonUniversityCollege">
+      <rdfs:label>non university college</rdfs:label>
+      <dc:title>non university college</dc:title>
+      <base:definition>
+       An institution of higher learning that does not grant advanced degrees beyond the bachelor's.
+      </base:definition>
+   </InstitutionTypeTerm>
+
+   <!-- research_institute -->
+   <InstitutionTypeTerm rdf:ID="researchInstitute">
+      <rdfs:label>research institute</rdfs:label>
+      <dc:title>research institute</dc:title>
+      <base:definition>
+        An institution dedicated to acquiring, developing and communicating knowledge.
+      </base:definition>
+   </InstitutionTypeTerm>
+
+   <!-- field_station -->
+   <InstitutionTypeTerm rdf:ID="fieldStation">
+      <rdfs:label>field station</rdfs:label>
+      <dc:title>field station</dc:title>
+      <base:definition>
+      An establishment for the study and observation of phenomena that is in close proximity to the object of study.
+      </base:definition>
+   </InstitutionTypeTerm>
+
+   <!-- management -->
+   <InstitutionTypeTerm rdf:ID="management">
+      <rdfs:label>management</rdfs:label>
+      <dc:title>management</dc:title>
+      <base:definition>
+        An institution dedicated to preservation and management of natural resources in a specific region.
+      </base:definition>
+   </InstitutionTypeTerm>
+
+   <!-- nature_education_center -->
+   <InstitutionTypeTerm rdf:ID="natureEducationCenter">
+      <rdfs:label>nature education centre</rdfs:label>
+      <dc:title>nature education center</dc:title>
+      <base:definition>
+        An institution dedicated to informing audiences on phenomena related to the natural world.
+      </base:definition>
+   </InstitutionTypeTerm>
+
+   <!-- park -->
+   <InstitutionTypeTerm rdf:ID="park">
+      <rdfs:label>park</rdfs:label>
+      <dc:title>nature reserves management</dc:title>
+      <base:definition>
+      
+      </base:definition>
+   </InstitutionTypeTerm>
+
+   <!-- society -->
+   <InstitutionTypeTerm rdf:ID="society">
+      <rdfs:label>society</rdfs:label>
+      <dc:title>society</dc:title>
+      <base:definition>
+        A local or national professional or amateur society for the study of nature in a region, or study of a particular type.
+      </base:definition>
+   </InstitutionTypeTerm>
+
+   <!-- library -->
+   <InstitutionTypeTerm rdf:ID="library">
+      <rdfs:label>library</rdfs:label>
+      <dc:title>library</dc:title>
+      <base:definition>
+       An institution holding books, manuscripts, images and recordings for research and study.
+      </base:definition>
+   </InstitutionTypeTerm>
+
+   <!-- independent_expert -->
+   <InstitutionTypeTerm rdf:ID="independentExpert">
+      <rdfs:label>independent expert</rdfs:label>
+      <dc:title>independent expert</dc:title>
+      <base:definition>
+     An individual with relevant collections and expertise who is not formally associated with an institution.
+      </base:definition>
+   </InstitutionTypeTerm>
+
+   <!-- industry -->
+   <InstitutionTypeTerm rdf:ID="industry">
+      <rdfs:label>industry</rdfs:label>
+      <dc:title>industry</dc:title>
+      <base:definition>
+        A private or public industrial enterprise.
+      </base:definition>
+   </InstitutionTypeTerm>
+
+   <!-- voluntary_observer -->
+   <InstitutionTypeTerm rdf:ID="voluntaryObserver">
+      <rdfs:label>voluntary observer</rdfs:label>
+      <dc:title>voluntary observer</dc:title>
+      <base:definition>
+     An individual who willingly particpates in gathering information on external phenomena.
+      </base:definition>
+   </InstitutionTypeTerm>
+
+   <!-- conservation -->
+   <InstitutionTypeTerm rdf:ID="conservation">
+      <rdfs:label>conservation</rdfs:label>
+      <dc:title>conservation</dc:title>
+      <base:definition>
+An organization dedicated to the conservation or preservation of wildlife and/or habitats.      </base:definition>
+   </InstitutionTypeTerm>
+
+   <!-- government -->
+   <InstitutionTypeTerm rdf:ID="government">
+      <rdfs:label>government</rdfs:label>
+      <dc:title>government</dc:title>
+      <base:definition>
+      Local or regional government agency or entity.
+      </base:definition>
+   </InstitutionTypeTerm>
+
+   <!-- historicalsociety -->
+   <InstitutionTypeTerm rdf:ID="historicalSociety">
+      <rdfs:label>historical society</rdfs:label>
+      <dc:title>historical society</dc:title>
+      <base:definition>
+        An institution established for the preservation, study and exhibition of a defined region's history.      </base:definition>
+   </InstitutionTypeTerm>
+
+<!-- repository -->
+   <InstitutionTypeTerm rdf:ID="repository">
+      <rdfs:label>repository</rdfs:label>
+      <dc:title>repository</dc:title>
+      <base:definition>
+      An institution that provides care and accessibiltiy to deposited materials based upon a series of defined formal agreements.
+      </base:definition>
+   </InstitutionTypeTerm>
+
+<!-- school -->
+   <InstitutionTypeTerm rdf:ID="school">
+      <rdfs:label>school</rdfs:label>
+      <dc:title>school</dc:title>
+      <base:definition>
+        An institution dedicated to providing basic knowledge and education, typically from the earliest stages to the college or university level.
+      </base:definition>
+   </InstitutionTypeTerm>
+
+<!-- sciencecenter -->
+   <InstitutionTypeTerm rdf:ID="scienceCenter">
+      <rdfs:label>science center</rdfs:label>
+      <dc:title>science center</dc:title>
+      <base:definition>
+        An institution dedicated to informing audiences on scientific facts, phenomena and theory.
+      </base:definition>
+   </InstitutionTypeTerm>
+
+	
+</rdf:RDF>

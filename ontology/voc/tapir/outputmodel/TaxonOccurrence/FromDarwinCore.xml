@@ -1,0 +1,387 @@
+<?xml version="1.0" encoding="UTF-8"?><tapir:outputModel xmlns:tapir="http://rs.tdwg.org/tapir/1.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://rs.tdwg.org/tapir/1.0 http://rs.tdwg.org/tapir/1.0/schema/tapir.xsd"
+	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:dcterm="http://purl.org/dc/terms/"
+	xmlns:owl="http://www.w3.org/2002/07/owl#"
+	xmlns:tcom="http://rs.tdwg.org/ontology/voc/Common#"
+	xmlns:to="http://rs.tdwg.org/ontology/voc/TaxonOccurrence#"
+	xmlns:tp="http://rs.tdwg.org/ontology/voc/Person#"
+	xmlns:tc="http://rs.tdwg.org/ontology/voc/TaxonConcept#"
+	xmlns:tt="http://rs.tdwg.org/ontology/voc/Team#"
+	xmlns:tn="http://rs.tdwg.org/ontology/voc/TaxonName#"
+>
+	<tapir:label>TaxonOccurrence in the TDWG Ontology</tapir:label>
+	<tapir:documentation>
+		This output model maps darwin core (core, curation and geospatial extensions) into TDWG ontology RDF. It is still experimental but is 
+		nearly complete in coverage. There are undoubtedly issues that need to be resolved.
+	</tapir:documentation>
+	<!-- 
+		Missing / not mapped concepts from dwc.
+		
+		http://rs.tdwg.org/dwc/dwcore/CollectionCode - available in ontology but not in structure yet
+		
+		http://rs.tdwg.org/dwc/dwcore/InformationWithheld - - available in ontology but not in structure yet
+		
+		http://rs.tdwg.org/dwc/dwcore/Remarks - as notes but not in structure yet
+		
+		http://rs.tdwg.org/dwc/dwcore/IdentificationQualifier - should be note on identification - but not in structure yet
+		
+		http://rs.tdwg.org/dwc/dwcore/Attributes - probably not going to be supported (general descriptive stuff?)
+		
+		http://rs.tdwg.org/dwc/dwcore/ImageURL - needs clarification should be hasImage or digitalRepresentation?
+		
+		http://rs.tdwg.org/dwc/dwcore/RelatedInformation - should be dc:related - but not in structure yet.
+		
+		http://rs.tdwg.org/dwc/curatorial/GenBankNumber  - needs discussion on how to implement.
+		
+		http://rs.tdwg.org/dwc/curatorial/OtherCatalogNumbers - should use dc:identifier but needs repeating element and not in structure.
+		
+		http://rs.tdwg.org/dwc/curatorial/RelatedCatalogedItems - - should be dc:related but needs to be URI
+		
+	-->
+	<tapir:structure>
+		<tapir:schema location="http://rs.tdwg.org/ontology/voc/tapir/structure/TaxonOccurrence/TaxonOccurrence.xsd"/>
+	</tapir:structure>
+	<tapir:indexingElement path="/rdf:RDF/to:TaxonOccurrence"/>
+	<tapir:mapping>
+		
+		<tapir:node path="/rdf:RDF/to:TaxonOccurrence/@rdf:about">
+			<tapir:concept id="http://rs.tdwg.org/dwc/dwcore/GlobalUniqueIdentifier"/>
+		</tapir:node>
+		
+		
+		<tapir:node path="/rdf:RDF/to:TaxonOccurrence/dc:title">
+			<tapir:concept id="http://rs.tdwg.org/dwc/dwcore/ScientificName"/>
+		</tapir:node>
+		
+		<!-- map this to the search URL?
+		<tapir:node path="/rdf:RDF/to:TaxonOccurrence/owl:sameAs/@rdf:resource">
+			<tapir:concept id="http://rs.tdwg.org/ontology/voc/TaxonOccurrence#/rdf:RDF/to:TaxonOccurrence/owl:sameAs/@rdf:resource"/>
+		</tapir:node>
+		-->
+
+		<tapir:node path="/rdf:RDF/to:TaxonOccurrence/dc:identifier">
+			<tapir:concept id="http://rs.tdwg.org/dwc/curatorial/CatalogNumberNumeric"/>
+		</tapir:node>
+		
+		<!-- The metadata for the record is actually in the head for TAPIR rather than per-record
+			is there a way of getting at this stuff?
+		<tapir:node path="/rdf:RDF/to:TaxonOccurrence/dc:creator">
+			<tapir:concept id="http://rs.tdwg.org/ontology/voc/TaxonOccurrence#/rdf:RDF/to:TaxonOccurrence/dc:creator"/>
+		</tapir:node>
+		
+		<tapir:node path="/rdf:RDF/to:TaxonOccurrence/dc:contributor">
+			<tapir:concept id="http://rs.tdwg.org/ontology/voc/TaxonOccurrence#/rdf:RDF/to:TaxonOccurrence/dc:contributor"/>
+		</tapir:node>
+
+		<tapir:node path="/rdf:RDF/to:TaxonOccurrence/dc:publisher">
+			<tapir:concept id="http://rs.tdwg.org/ontology/voc/TaxonOccurrence#/rdf:RDF/to:TaxonOccurrence/dc:publisher"/>
+		</tapir:node>
+		<tapir:node path="/rdf:RDF/to:TaxonOccurrence/dcterm:license/@rdf:resource">
+			<tapir:concept id="http://rs.tdwg.org/ontology/voc/TaxonOccurrence#/rdf:RDF/to:TaxonOccurrence/dcterm:license/@rdf:resource"/>
+		</tapir:node>
+		<tapir:node path="/rdf:RDF/to:TaxonOccurrence/dcterm:rightsHolder/@rdf:resource">
+			<tapir:concept id="http://rs.tdwg.org/ontology/voc/TaxonOccurrence#/rdf:RDF/to:TaxonOccurrence/dcterm:rightsHolder/@rdf:resource"/>
+		</tapir:node>
+
+		<tapir:node path="/rdf:RDF/to:TaxonOccurrence/dcterm:accessRight">
+			<tapir:concept id="http://rs.tdwg.org/ontology/voc/TaxonOccurrence#/rdf:RDF/to:TaxonOccurrence/dcterm:accessRight"/>
+		</tapir:node>
+		<tapir:node path="/rdf:RDF/to:TaxonOccurrence/dc:date">
+			<tapir:concept id="http://rs.tdwg.org/ontology/voc/TaxonOccurrence#/rdf:RDF/to:TaxonOccurrence/dc:date"/>
+		</tapir:node>
+		<tapir:node path="/rdf:RDF/to:TaxonOccurrence/dcterm:created">
+			<tapir:concept id="http://rs.tdwg.org/ontology/voc/TaxonOccurrence#/rdf:RDF/to:TaxonOccurrence/dcterm:created"/>
+		</tapir:node>
+
+		<tapir:node path="/rdf:RDF/to:TaxonOccurrence/dcterm:dateSubmitted">
+			<tapir:concept id="http://rs.tdwg.org/ontology/voc/TaxonOccurrence#/rdf:RDF/to:TaxonOccurrence/dcterm:dateSubmitted"/>
+		</tapir:node>
+		<tapir:node path="/rdf:RDF/to:TaxonOccurrence/dcterm:modified">
+			<tapir:concept id="http://rs.tdwg.org/dwc/dwcore/DateLastModified"/>
+		</tapir:node>
+		<tapir:node path="/rdf:RDF/to:TaxonOccurrence/dcterm:issued">
+			<tapir:concept id="http://rs.tdwg.org/ontology/voc/TaxonOccurrence#/rdf:RDF/to:TaxonOccurrence/dcterm:issued"/>
+		</tapir:node>
+
+		<tapir:node path="/rdf:RDF/to:TaxonOccurrence/dcterm:available">
+			<tapir:concept id="http://rs.tdwg.org/ontology/voc/TaxonOccurrence#/rdf:RDF/to:TaxonOccurrence/dcterm:available"/>
+		</tapir:node>
+		<tapir:node path="/rdf:RDF/to:TaxonOccurrence/dcterm:isReferencedBy/@rdf:resource">
+			<tapir:concept id="http://rs.tdwg.org/ontology/voc/TaxonOccurrence#/rdf:RDF/to:TaxonOccurrence/dcterm:isReferencedBy/@rdf:resource"/>
+		</tapir:node>
+		<tapir:node path="/rdf:RDF/to:TaxonOccurrence/dcterm:references/@rdf:resource">
+			<tapir:concept id="http://rs.tdwg.org/ontology/voc/TaxonOccurrence#/rdf:RDF/to:TaxonOccurrence/dcterm:references/@rdf:resource"/>
+		</tapir:node>
+
+		<tapir:node path="/rdf:RDF/to:TaxonOccurrence/dcterm:isRequiredBy/@rdf:resource">
+			<tapir:concept id="http://rs.tdwg.org/ontology/voc/TaxonOccurrence#/rdf:RDF/to:TaxonOccurrence/dcterm:isRequiredBy/@rdf:resource"/>
+		</tapir:node>
+		
+		<tapir:node path="/rdf:RDF/to:TaxonOccurrence/dc:relation/@rdf:resource">
+			<tapir:concept id="http://rs.tdwg.org/ontology/voc/TaxonOccurrence#/rdf:RDF/to:TaxonOccurrence/dc:relation/@rdf:resource"/>
+		</tapir:node>
+		<tapir:node path="/rdf:RDF/to:TaxonOccurrence/dc:source/@rdf:resource">
+			<tapir:concept id="http://rs.tdwg.org/ontology/voc/TaxonOccurrence#/rdf:RDF/to:TaxonOccurrence/dc:source/@rdf:resource"/>
+		</tapir:node>
+
+		<tapir:node path="/rdf:RDF/to:TaxonOccurrence/dcterm:replaces/@rdf:resource">
+			<tapir:concept id="http://rs.tdwg.org/ontology/voc/TaxonOccurrence#/rdf:RDF/to:TaxonOccurrence/dcterm:replaces/@rdf:resource"/>
+		</tapir:node>
+		<tapir:node path="/rdf:RDF/to:TaxonOccurrence/dcterm:provenance">
+			<tapir:concept id="http://rs.tdwg.org/ontology/voc/TaxonOccurrence#/rdf:RDF/to:TaxonOccurrence/dcterm:provenance"/>
+		</tapir:node>
+		<tapir:node path="/rdf:RDF/to:TaxonOccurrence/dcterm:hasVersion/@rdf:resource">
+			<tapir:concept id="http://rs.tdwg.org/ontology/voc/TaxonOccurrence#/rdf:RDF/to:TaxonOccurrence/dcterm:hasVersion/@rdf:resource"/>
+		</tapir:node>
+
+		<tapir:node path="/rdf:RDF/to:TaxonOccurrence/dcterm:isVersionOf/@rdf:resource">
+			<tapir:concept id="http://rs.tdwg.org/ontology/voc/TaxonOccurrence#/rdf:RDF/to:TaxonOccurrence/dcterm:isVersionOf/@rdf:resource"/>
+		</tapir:node>
+		<tapir:node path="/rdf:RDF/to:TaxonOccurrence/owl:versionInfo">
+			<tapir:concept id="http://rs.tdwg.org/ontology/voc/TaxonOccurrence#/rdf:RDF/to:TaxonOccurrence/owl:versionInfo"/>
+		</tapir:node>
+		<tapir:node path="/rdf:RDF/to:TaxonOccurrence/tcom:isDeprecated">
+			<tapir:concept id="http://rs.tdwg.org/ontology/voc/TaxonOccurrence#/rdf:RDF/to:TaxonOccurrence/tcom:isDeprecated"/>
+		</tapir:node>
+
+		<tapir:node path="/rdf:RDF/to:TaxonOccurrence/tcom:versionedAs/@rdf:resource">
+			<tapir:concept id="http://rs.tdwg.org/ontology/voc/TaxonOccurrence#/rdf:RDF/to:TaxonOccurrence/tcom:versionedAs/@rdf:resource"/>
+		</tapir:node>
+		<tapir:node path="/rdf:RDF/to:TaxonOccurrence/tcom:publishedIn">
+			<tapir:concept id="http://rs.tdwg.org/ontology/voc/TaxonOccurrence#/rdf:RDF/to:TaxonOccurrence/tcom:publishedIn"/>
+		</tapir:node>
+		<tapir:node path="/rdf:RDF/to:TaxonOccurrence/tcom:publishedInCitation/@rdf:resource">
+			<tapir:concept id="http://rs.tdwg.org/ontology/voc/TaxonOccurrence#/rdf:RDF/to:TaxonOccurrence/tcom:publishedInCitation/@rdf:resource"/>
+		</tapir:node>
+
+		<tapir:node path="/rdf:RDF/to:TaxonOccurrence/tcom:microReference">
+			<tapir:concept id="http://rs.tdwg.org/ontology/voc/TaxonOccurrence#/rdf:RDF/to:TaxonOccurrence/tcom:microReference"/>
+		</tapir:node>
+		
+		-->
+		<tapir:node path="/rdf:RDF/to:TaxonOccurrence/to:continent">
+			<tapir:concept id="http://rs.tdwg.org/dwc/dwcore/Continent"/>
+		</tapir:node>
+		<tapir:node path="/rdf:RDF/to:TaxonOccurrence/to:coordinateUncertaintyInMeters">
+			<tapir:concept id="http://rs.tdwg.org/dwc/geospatial/CoordinateUncertaintyInMeters"/>
+		</tapir:node>
+
+		<tapir:node path="/rdf:RDF/to:TaxonOccurrence/to:country">
+			<tapir:concept id="http://rs.tdwg.org/dwc/dwcore/Country"/>
+		</tapir:node>
+		<tapir:node path="/rdf:RDF/to:TaxonOccurrence/to:county">
+			<tapir:concept id="http://rs.tdwg.org/dwc/dwcore/County"/>
+		</tapir:node>
+		<tapir:node path="/rdf:RDF/to:TaxonOccurrence/to:dayOfYear">
+			<tapir:concept id="http://rs.tdwg.org/dwc/dwcore/DayOfYear"/>
+		</tapir:node>
+
+		<tapir:node path="/rdf:RDF/to:TaxonOccurrence/to:decimalLatitude">
+			<tapir:concept id="http://rs.tdwg.org/dwc/geospatial/DecimalLatitude"/>
+		</tapir:node>
+		<tapir:node path="/rdf:RDF/to:TaxonOccurrence/to:decimalLongitude">
+			<tapir:concept id="http://rs.tdwg.org/dwc/geospatial/DecimalLongitude"/>
+		</tapir:node>
+
+		<tapir:node path="/rdf:RDF/to:TaxonOccurrence/to:earliestDateCollected">
+			<tapir:concept id="http://rs.tdwg.org/dwc/dwcore/EarliestDateCollected"/>
+		</tapir:node>
+		<tapir:node path="/rdf:RDF/to:TaxonOccurrence/to:footprintSpatialFit">
+			<tapir:concept id="http://rs.tdwg.org/dwc/geospatial/FootprintSpatialFit"/>
+		</tapir:node>
+		<tapir:node path="/rdf:RDF/to:TaxonOccurrence/to:geodeticDatum">
+			<tapir:concept id="http://rs.tdwg.org/dwc/geospatial/GeodeticDatum"/>
+		</tapir:node>
+
+		<tapir:node path="/rdf:RDF/to:TaxonOccurrence/to:georeferenceProtocol">
+			<tapir:concept id="http://rs.tdwg.org/dwc/geospatial/GeoreferenceProtocol"/>
+		</tapir:node>
+		<tapir:node path="/rdf:RDF/to:TaxonOccurrence/to:georeferenceRemarks">
+			<tapir:concept id="http://rs.tdwg.org/dwc/geospatial/GeoreferenceRemarks"/>
+		</tapir:node>
+		<tapir:node path="/rdf:RDF/to:TaxonOccurrence/to:georeferenceSources">
+			<tapir:concept id="http://rs.tdwg.org/dwc/geospatial/GeoreferenceSources"/>
+		</tapir:node>
+
+		<tapir:node path="/rdf:RDF/to:TaxonOccurrence/to:georeferenceVerificationStatus">
+			<tapir:concept id="http://rs.tdwg.org/dwc/geospatial/GeoreferenceVerificationStatus"/>
+		</tapir:node>
+		<tapir:node path="/rdf:RDF/to:TaxonOccurrence/to:collector">
+			<tapir:concept id="http://rs.tdwg.org/dwc/dwcore/Collector"/>
+		</tapir:node>
+		<tapir:node path="/rdf:RDF/to:TaxonOccurrence/to:collectorsBatchNumber">
+			<tapir:concept id="http://rs.tdwg.org/dwc/curatorial/FieldNumber"/>
+		</tapir:node>
+
+		<tapir:node path="/rdf:RDF/to:TaxonOccurrence/to:collectorsFieldNumber">
+			<tapir:concept id="http://rs.tdwg.org/dwc/curatorial/CollectorNumber"/>
+		</tapir:node>
+
+		<tapir:node path="/rdf:RDF/to:TaxonOccurrence/to:digitalRepresentation/@rdf:resource">
+			<tapir:concept id="http://rs.tdwg.org/dwc/dwcore/ImageURL"/>
+		</tapir:node>
+
+		<tapir:node path="/rdf:RDF/to:TaxonOccurrence/to:disposition">
+			<tapir:concept id="http://rs.tdwg.org/dwc/curatorial/Disposition"/>
+		</tapir:node>
+		<tapir:node path="/rdf:RDF/to:TaxonOccurrence/to:fieldNotes">
+			<tapir:concept id="http://rs.tdwg.org/dwc/curatorial/FieldNotes"/>
+		</tapir:node>
+
+		<tapir:node path="/rdf:RDF/to:TaxonOccurrence/to:hostCollectionString">
+			<tapir:concept id="http://rs.tdwg.org/dwc/dwcore/InstitutionCode"/>
+		</tapir:node>
+		<tapir:node path="/rdf:RDF/to:TaxonOccurrence/to:individualCount">
+			<tapir:concept id="http://rs.tdwg.org/dwc/curatorial/IndividualCount"/>
+		</tapir:node>
+
+		<tapir:node path="/rdf:RDF/to:TaxonOccurrence/to:kindOfSpecimenString">
+			<tapir:concept id="http://rs.tdwg.org/dwc/dwcore/BasisOfRecord"/>
+			<tapir:literal value=" "/>
+			<tapir:concept id="http://rs.tdwg.org/dwc/curatorial/Preparations"/>
+		</tapir:node>
+		
+		<tapir:node path="/rdf:RDF/to:TaxonOccurrence/to:lifeStage">
+			<tapir:concept id="http://rs.tdwg.org/dwc/dwcore/LifeStage"/>
+		</tapir:node>
+
+		<tapir:node path="/rdf:RDF/to:TaxonOccurrence/to:procedureDescriptor">
+			<tapir:concept id="http://rs.tdwg.org/dwc/dwcore/CollectingMethod"/>
+		</tapir:node>
+		<tapir:node path="/rdf:RDF/to:TaxonOccurrence/to:sex">
+			<tapir:concept id="http://rs.tdwg.org/dwc/dwcore/Sex"/>
+		</tapir:node>
+		
+		<tapir:node path="/rdf:RDF/to:TaxonOccurrence/to:specimenID">
+			<tapir:concept id="http://rs.tdwg.org/dwc/dwcore/CatalogNumber"/>
+		</tapir:node>
+
+		<tapir:node path="/rdf:RDF/to:TaxonOccurrence/to:typeStatus/@rdf:resource">
+			<tapir:concept id="http://rs.tdwg.org/dwc/curatorial/TypeStatus"/>
+		</tapir:node>
+
+		<tapir:node path="/rdf:RDF/to:TaxonOccurrence/to:verbatimCollectingDate">
+			<tapir:concept id="http://rs.tdwg.org/dwc/curatorial/VerbatimCollectingDate"/>
+		</tapir:node>
+		<tapir:node path="/rdf:RDF/to:TaxonOccurrence/to:verbatimCoordinates">
+			<tapir:concept id="http://rs.tdwg.org/dwc/geospatial/VerbatimCoordinates"/>
+		</tapir:node>
+		<tapir:node path="/rdf:RDF/to:TaxonOccurrence/to:verbatimCoordinateSystem">
+			<tapir:concept id="http://rs.tdwg.org/dwc/geospatial/VerbatimCoordinateSystem"/>
+		</tapir:node>
+
+		<tapir:node path="/rdf:RDF/to:TaxonOccurrence/to:verbatimDepth">
+			<tapir:concept id="http://rs.tdwg.org/dwc/curatorial/VerbatimDepth"/>
+		</tapir:node>
+		<tapir:node path="/rdf:RDF/to:TaxonOccurrence/to:verbatimElevation">
+			<tapir:concept id="http://rs.tdwg.org/dwc/curatorial/VerbatimElevation"/>
+		</tapir:node>
+
+		<tapir:node path="/rdf:RDF/to:TaxonOccurrence/to:verbatimLatitude">
+			<tapir:concept id="http://rs.tdwg.org/dwc/geospatial/VerbatimLatitude"/>
+		</tapir:node>
+		<tapir:node path="/rdf:RDF/to:TaxonOccurrence/to:verbatimLongitude">
+			<tapir:concept id="http://rs.tdwg.org/dwc/geospatial/VerbatimLongitude"/>
+		</tapir:node>
+		<tapir:node path="/rdf:RDF/to:TaxonOccurrence/to:higherGeography">
+			<tapir:concept id="http://rs.tdwg.org/dwc/dwcore/HigherGeography"/>
+		</tapir:node>
+
+		<tapir:node path="/rdf:RDF/to:TaxonOccurrence/to:identifiedToString">
+			<tapir:concept id="http://rs.tdwg.org/dwc/dwcore/ScientificName"/>
+		</tapir:node>
+		
+		<tapir:node path="/rdf:RDF/to:TaxonOccurrence/to:identifiedTo/to:Identification/tcom:taxonomicPlacementFormal">
+			<tapir:concept id="http://rs.tdwg.org/dwc/dwcore/HigherTaxon"/>
+			<tapir:literal value=","/>
+			<tapir:concept id="http://rs.tdwg.org/dwc/dwcore/Kingdom"/>
+			<tapir:literal value=","/>
+			<tapir:concept id="http://rs.tdwg.org/dwc/dwcore/Phylum"/>
+			<tapir:literal value=","/>
+			<tapir:concept id="http://rs.tdwg.org/dwc/dwcore/Class"/>
+			<tapir:literal value=","/>
+			<tapir:concept id="http://rs.tdwg.org/dwc/dwcore/Order"/>
+			<tapir:literal value=","/>
+			<tapir:concept id="http://rs.tdwg.org/dwc/dwcore/Family"/>
+		</tapir:node>
+
+		<tapir:node path="/rdf:RDF/to:TaxonOccurrence/to:identifiedTo/to:Identification/to:date">
+			<tapir:concept id="http://rs.tdwg.org/dwc/curatorial/DateIdentified"/>
+		</tapir:node>
+		<tapir:node path="/rdf:RDF/to:TaxonOccurrence/to:identifiedTo/to:Identification/to:expertName">
+			<tapir:concept id="http://rs.tdwg.org/dwc/curatorial/IdentifiedBy"/>
+		</tapir:node>
+
+		<tapir:node path="/rdf:RDF/to:TaxonOccurrence/to:identifiedTo/to:Identification/to:taxon/tc:TaxonConcept/tc:hasName/tn:TaxonName/tn:nomenclaturalCode/@rdf:resource">
+			<tapir:concept id="http://rs.tdwg.org/dwc/dwcore/NomenclaturalCode"/>
+		</tapir:node>
+
+		<tapir:node path="/rdf:RDF/to:TaxonOccurrence/to:identifiedTo/to:Identification/to:taxon/tc:TaxonConcept/tc:hasName/tn:TaxonName/tn:genusPart">
+			<tapir:concept id="http://rs.tdwg.org/dwc/dwcore/Genus"/>
+		</tapir:node>
+
+		<tapir:node path="/rdf:RDF/to:TaxonOccurrence/to:identifiedTo/to:Identification/to:taxon/tc:TaxonConcept/tc:hasName/tn:TaxonName/tn:specificEpithet">
+			<tapir:concept id="http://rs.tdwg.org/dwc/dwcore/SpecificEpithet"/>
+		</tapir:node>
+
+		<tapir:node path="/rdf:RDF/to:TaxonOccurrence/to:identifiedTo/to:Identification/to:taxon/tc:TaxonConcept/tc:hasName/tn:TaxonName/tn:infraspecificEpithet">
+			<tapir:concept id="http://rs.tdwg.org/dwc/dwcore/InfraspecificEpithet"/>
+		</tapir:node>
+
+		<tapir:node path="/rdf:RDF/to:TaxonOccurrence/to:identifiedTo/to:Identification/to:taxon/tc:TaxonConcept/tc:hasName/tn:TaxonName/tn:authorship">
+			<tapir:concept id="http://rs.tdwg.org/dwc/dwcore/AuthorYearOfScientificName"/>
+		</tapir:node>
+
+		<tapir:node path="/rdf:RDF/to:TaxonOccurrence/to:identifiedTo/to:Identification/to:taxon/tc:TaxonConcept/tc:hasName/tn:TaxonName/tn:rankString">
+			<tapir:concept id="http://rs.tdwg.org/dwc/dwcore/InfraspecificRank"/>
+		</tapir:node>
+
+		<tapir:node path="/rdf:RDF/to:TaxonOccurrence/to:island">
+			<tapir:concept id="http://rs.tdwg.org/dwc/dwcore/Island"/>
+		</tapir:node>
+		<tapir:node path="/rdf:RDF/to:TaxonOccurrence/to:islandGroup">
+			<tapir:concept id="http://rs.tdwg.org/dwc/dwcore/IslandGroup"/>
+		</tapir:node>
+		<tapir:node path="/rdf:RDF/to:TaxonOccurrence/to:latestDateCollected">
+			<tapir:concept id="http://rs.tdwg.org/dwc/dwcore/LatestDateCollected"/>
+		</tapir:node>
+
+		<tapir:node path="/rdf:RDF/to:TaxonOccurrence/to:locality">
+			<tapir:concept id="http://rs.tdwg.org/dwc/dwcore/Locality"/>
+		</tapir:node>
+		<tapir:node path="/rdf:RDF/to:TaxonOccurrence/to:maximumDepthInMeters">
+			<tapir:concept id="http://rs.tdwg.org/dwc/dwcore/MaximumDepthInMeters"/>
+		</tapir:node>
+		<tapir:node path="/rdf:RDF/to:TaxonOccurrence/to:maximumElevationInMeters">
+			<tapir:concept id="http://rs.tdwg.org/dwc/dwcore/MaximumElevationInMeters"/>
+		</tapir:node>
+
+		<tapir:node path="/rdf:RDF/to:TaxonOccurrence/to:minimumDepthInMeters">
+			<tapir:concept id="http://rs.tdwg.org/dwc/dwcore/MinimumDepthInMeters"/>
+		</tapir:node>
+		<tapir:node path="/rdf:RDF/to:TaxonOccurrence/to:minimumElevationInMeters">
+			<tapir:concept id="http://rs.tdwg.org/dwc/dwcore/MinimumElevationInMeters"/>
+		</tapir:node>
+		<tapir:node path="/rdf:RDF/to:TaxonOccurrence/to:pointRadiusSpatialFit">
+			<tapir:concept id="http://rs.tdwg.org/dwc/geospatial/PointRadiusSpatialFit"/>
+		</tapir:node>
+
+		<tapir:node path="/rdf:RDF/to:TaxonOccurrence/to:stateProvince">
+			<tapir:concept id="http://rs.tdwg.org/dwc/dwcore/StateProvince"/>
+		</tapir:node>
+		<tapir:node path="/rdf:RDF/to:TaxonOccurrence/to:validDistributionFlag">
+			<tapir:concept id="http://rs.tdwg.org/dwc/dwcore/ValidDistributionFlag"/>
+		</tapir:node>
+
+		<tapir:node path="/rdf:RDF/to:TaxonOccurrence/to:waterBody">
+			<tapir:concept id="http://rs.tdwg.org/dwc/dwcore/WaterBody"/>
+		</tapir:node>
+
+		<tapir:node path="/rdf:RDF/to:TaxonOccurrence/to:wktFootprint">
+			<tapir:concept id="http://rs.tdwg.org/dwc/geospatial/FootprintWKT"/>
+		</tapir:node>
+	</tapir:mapping>
+</tapir:outputModel>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- $Rev: 758 $ -->
+<!-- $Date: 2006-11-30 20:55:35 +0000 (Thu, 30 Nov 2006) $ -->
+<!-- $Author: RogerHyam $ -->
+<!-- 
+    
+ This is an example document that can be used as a starting point for developing
+ TaxonName instance documents. It is both valid against an XML Schema and also
+ valid RDF (if the xsi:schemaLocation attribute is removed and certain simple rules are followed).
+ 
+ A script that produces XML like this - that is valid against the schema is also
+ producing RDF that can be digested by semantic web applications.
+
+ **************************************
+ Note: The xsi:schemaLocation attribute
+ must be removed to make this a valid RDF
+ document.
+ ***************************************
+-->
+
+<rdf:RDF xmlns="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dcterms="http://purl.org/dc/terms/"
+    xmlns:base="http://rs.tdwg.org/ontology/Base#"
+    xmlns:tcom="http://rs.tdwg.org/ontology/voc/Common#"
+    xmlns:tn="http://rs.tdwg.org/ontology/voc/TaxonName#"
+    xmlns:tc="http://rs.tdwg.org/ontology/voc/TaxonConcept#"
+    xsi:schemaLocation="http://www.w3.org/1999/02/22-rdf-syntax-ns# http://rs.tdwg.org/ontology/voc/tapir/structure/TaxonConcept/TaxonConcept.xsd">
+
+    <tc:TaxonConcept rdf:about="urn:lsid:example.tdwg.org:concept:123">
+        <dc:title>Aus bus (Smith) Jones sensu Brown</dc:title>
+        <dcterms:created>2006-11-19</dcterms:created>
+        <dcterms:modified>2006-11-20</dcterms:modified>
+        <owl:versionInfo>1.2.1</owl:versionInfo>
+        <tcom:publishedIn>Brown, G. (2006) A prudent revision of the genus Aus. Serious Botany 123
+            p44</tcom:publishedIn>
+        <tc:hasName>
+            <tn:TaxonName rdf:about="urn:lsid:example.tdwg.org:names:123">
+                <tn:nameComplete>Aus bus (Smith) Jones</tn:nameComplete>
+            </tn:TaxonName>
+        </tc:hasName>
+        <tc:accordingToString>Gordon Brown</tc:accordingToString>
+        <tc:accordingTo rdf:resource="urn:lsid:example.tdwg.org:expert:123"/>
+        
+        <!-- FIXME - needs expanding -->
+    </tc:TaxonConcept>
+</rdf:RDF>

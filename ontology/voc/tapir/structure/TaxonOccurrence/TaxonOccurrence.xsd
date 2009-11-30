@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+  xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:to="http://rs.tdwg.org/ontology/voc/TaxonOccurrence#" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <xs:import namespace="http://purl.org/dc/elements/1.1/" schemaLocation="../lib/dc.xsd"/>
+  <xs:import namespace="http://rs.tdwg.org/ontology/voc/TaxonOccurrence#" schemaLocation="TaxonOccurrence_content.xsd"/>
+
+  <xs:import namespace="http://www.w3.org/2002/07/owl#" schemaLocation="../lib/owl.xsd"/>
+  <xs:element name="RDF">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="to:TaxonOccurrence" minOccurs="0" maxOccurs="unbounded"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:attribute name="about" type="xs:anyURI"/>
+  <xs:attribute name="resource" type="xs:anyURI"/>
+</xs:schema>

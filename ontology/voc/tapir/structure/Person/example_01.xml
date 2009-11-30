@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- $Rev: 758 $ -->
+<!-- $Date: 2006-11-30 20:55:35 +0000 (Thu, 30 Nov 2006) $ -->
+<!-- $Author: RogerHyam $ -->
+<!-- 
+    
+ This is an example document that can be used as a starting point for developing
+ Person instance documents. It is both valid against an XML Schema and also
+ valid RDF (if the xsi:schemaLocation attribute is removed and certain simple rules are followed).
+ 
+ A script that produces XML like this - that is valid against the schema is also
+ producing RDF that can be digested by semantic web applications.
+
+ **************************************
+ Note: The xsi:schemaLocation attribute
+ must be removed to make this a valid RDF
+ document.
+ ***************************************
+-->
+
+<rdf:RDF xmlns="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dcterms="http://purl.org/dc/terms/"
+    xmlns:base="http://rs.tdwg.org/ontology/Base#"
+    xmlns:tcom="http://rs.tdwg.org/ontology/voc/Common#"
+    xmlns:tp="http://rs.tdwg.org/ontology/voc/Person#"
+    xsi:schemaLocation="http://www.w3.org/1999/02/22-rdf-syntax-ns# schema.xsd">
+    <tp:Person rdf:about="urn:lsid:ipni.org:authors:27708-1">
+        <dc:title>Thum. - Felix (Karl Albert Ernst Joachim) von Thumen 1839-1892</dc:title>
+        <dc:source>CMI</dc:source>
+        <!--     
+        <dcterms:created>2006-11-19</dcterms:created>
+        <dcterms:modified>2006-11-20</dcterms:modified>
+        -->
+        
+        <owl:versionInfo>1.1</owl:versionInfo>
+        <tp:lifespan>1839-1892</tp:lifespan>
+        <tp:scope>Mycology</tp:scope>
+        <tp:scope>Spermatophytes</tp:scope>
+        <tp:alias>
+            <tp:PersonNameAlias>
+                <tp:surname>Thumen</tp:surname>
+                <tp:forenames>Felix (Karl Albert Ernst Joachim) von</tp:forenames>
+                <tp:standardForm>Thum.</tp:standardForm>
+                <tp:context>ICBN Authors</tp:context>
+                <tp:ratifiedBy rdf:resource="http://www.ipni.org"/>
+                <tp:isPreferred>true</tp:isPreferred>
+            </tp:PersonNameAlias>
+        </tp:alias>
+        <tp:alias>
+            <tp:PersonNameAlias>
+                <tp:standardForm>Thuem</tp:standardForm>
+                <tp:context>TL2</tp:context>
+                <tp:isPreferred>false</tp:isPreferred>
+            </tp:PersonNameAlias>
+        </tp:alias>
+        <tp:alias>
+            <tp:PersonNameAlias>
+                <tp:surname>Thumen-Grafendorf</tp:surname>
+                <tp:forenames>Felix (Karl Albert Ernst Joachim) von</tp:forenames>
+                <tp:context>Alternative name</tp:context>
+                <tp:isPreferred>false</tp:isPreferred>
+            </tp:PersonNameAlias>
+        </tp:alias>
+
+
+    </tp:Person>
+</rdf:RDF>

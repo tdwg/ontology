@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<outputModel xmlns="http://rs.tdwg.org/tapir/1.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ts="http://rs.tdwg.org/ontology/voc/Specimen#"
+    xsi:schemaLocation="http://rs.tdwg.org/tapir/1.0 
+    http://rs.tdwg.org/tapir/1.0/schema/tapir.xsd"
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <structure>
+        <schema location="http://rs.tdwg.org/ontology/voc/tapir/structure/Test/Test.xsd"/>
+    </structure>
+    <indexingElement path="/rdf:RDF/ts:Specimen"/>
+    <mapping>
+        <node path="/rdf:RDF/ts:Specimen/ts:verbatimLatitude">
+            <concept
+                id="http://rs.tdwg.org/ontology/voc/Specimen#/rdf:RDF/ts:Specimen/ts:verbatimLatitude"
+            />
+        </node>
+        <node path="/rdf:RDF/ts:Specimen/ts:verbatimLongitude">
+            <concept
+                id="http://rs.tdwg.org/ontology/voc/Specimen#/rdf:RDF/ts:Specimen/ts:verbatimLongitude"
+            />
+        </node>
+    </mapping>
+</outputModel>
