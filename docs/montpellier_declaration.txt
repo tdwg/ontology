@@ -28,3 +28,21 @@ Things that it would be nice to happen before the next TDWG meeting and that we 
 * Adaption of the IPT to meet the guidelines.
 
 ******************************
+
+Signatories
+
+Andreas Kohlbecker <a.kohlbecker@BGBM.org> - EDIT/CDM
+Clark, Benjamin R <b.clark@rbgkew.org.uk> - CATE/CDM
+Cynthia Parr <parrc@si.edu> EoL
+David Remsen <dremsen@gbif.org>- GBIF
+Donald Hobern <Donald.Hobern@csiro.au> - ALA
+John Wieczorek <tuco@berkeley.edu> - IPT/DwC
+Markus Döring (GBIF) <mdoering@gbif.org> - GBIF
+Nicola Nicolson <n.nicolson@rbgkew.org.uk> - IPNI
+Rich Pyle <deepreef@bishopmuseum.org> - ZooBank	
+Roger Hyam <roger@hyam.net> - PESI
+Simon Rycroft <s.rycroft@nhm.ac.uk> - ScratchPads
+Wouter Addink <wouter@eti.uva.nl> - ETI
+
+
+******************************
