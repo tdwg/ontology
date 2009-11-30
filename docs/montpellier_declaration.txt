@@ -1,0 +1,30 @@
+****************************************
+Montpellier Taxonomy  Declaration
+****************************************
+
+We intend to promote the sharing of taxonomic data (lists of names and taxa) by attempting to publish them in a unified way.
+
+Publishing a classification or taxonomic checklist on the web involves some or all of the following components
+
+* Lists of taxa in text files in accordance with the DwC archive format.
+* HTTP URIs for taxa that are "Linked Data" compliant and return RDF using an agreed vocabulary.
+* Inclusion of standardised HTTP URI for shared taxon names e.g. from nomenclators
+* Links to other classifications also published on the web.
+
+How publication is achieved for any one dataset will depend on the abilities of the data provider.
+
+Various resources are needed to make progress.
+
+* A set of guidelines or best practice documentation
+* Validation services to check that published data meets the guidelines.
+* Promotional material (docs, talks, challenges) to encourage the exploitation of published taxonomies.
+
+We will cooperate in creating these resources.
+
+Things that it would be nice to happen before the next TDWG meeting and that we will attempt to achieve are:
+
+* Drupal plug-in to help the Drupal powered systems (Scratchpads, Lifedesks etc) meet the guidelines.
+* Adaption of the CDM or CDM portal component to meet the guidelines.
+* Adaption of the IPT to meet the guidelines.
+
+******************************
