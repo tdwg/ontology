@@ -33,7 +33,7 @@ Signatories
 
 Andreas Kohlbecker <a.kohlbecker@BGBM.org> - EDIT/CDM
 Clark, Benjamin R <b.clark@rbgkew.org.uk> - CATE/CDM
-Cynthia Parr <parrc@si.edu> EoL
+[ Cynthia Parr <parrc@si.edu> - possible adoption by EoL ] 
 David Remsen <dremsen@gbif.org>- GBIF
 Donald Hobern <Donald.Hobern@csiro.au> - ALA
 John Wieczorek <tuco@berkeley.edu> - IPT/DwC
