@@ -1,12 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-stylesheet type="text/xsl" href="human.xsl"?>
 <!-- $Rev: 1211 $ -->
 <!-- $Date: 2007-06-26 10:36:21 +0100 (Tue, 26 Jun 2007) $ -->
 <!-- $Author: RogerHyam $ -->
 
-<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:owl="http://www.w3.org/2002/07/owl#"
-   xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:tbase="http://rs.tdwg.org/ontology/Base#" xmlns:tcom="http://rs.tdwg.org/ontology/voc/Common"
-   xml:base="http://rs.tdwg.org/ontology/voc/TaxonConcept" xmlns="http://rs.tdwg.org/ontology/voc/TaxonConcept#" xmlns:tc="http://rs.tdwg.org/ontology/voc/TaxonConcept#">
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:owl="http://www.w3.org/2002/07/owl#"
+   xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dcterms="http://purl.org/dc/terms/"
+   xmlns:tbase="http://rs.tdwg.org/ontology/Base#"
+   xmlns:tcom="http://rs.tdwg.org/ontology/voc/Common"
+   xml:base="http://rs.tdwg.org/ontology/voc/TaxonConcept"
+   xmlns="http://rs.tdwg.org/ontology/voc/TaxonConcept#"
+   xmlns:tc="http://rs.tdwg.org/ontology/voc/TaxonConcept#">
 
    <owl:Ontology rdf:about="http://rs.tdwg.org/ontology/voc/TaxonConcept">
       <dc:title>TDWG Taxon Concept LSID Ontology</dc:title>
@@ -14,13 +18,18 @@
       <dc:publisher>TDWG Biodiversity Information Standards</dc:publisher>
       <dcterms:issued>2006-11-27</dcterms:issued>
       <dcterms:modified>$Date: 2007-06-26 10:36:21 +0100 (Tue, 26 Jun 2007) $</dcterms:modified>
-      <dc:description>Ontology describing the metadata returned for LSIDs that are used for Taxon Concepts. </dc:description>
+      <dc:description>Ontology describing the metadata returned for LSIDs that are used for Taxon
+         Concepts. </dc:description>
 
       <owl:versionInfo>0.2 - [SVN $Rev: 1211 $]</owl:versionInfo>
 
-      <rdfs:comment rdf:parseType="Literal"> This is not a full rendering of TaxonConcept as presented in the Taxon Concept Schema 1.0. Not all the possible concept-concept relationships have been
-         modelled just the basic set theory and taxonomic hierarchy relationships. RelationshipAssertions have not been included. These omissions will be addressed in collaboration with the first data
-         provider/consumer pairs who need to make use them. FIXME: <a href="http://phoebus.cs.man.ac.uk:9999/OWL/Validator">Wonder Web OWL Ontology Validator</a>
+      <rdfs:comment rdf:parseType="Literal"> This is not a full rendering of TaxonConcept as
+         presented in the Taxon Concept Schema 1.0. Not all the possible concept-concept
+         relationships have been modelled just the basic set theory and taxonomic hierarchy
+         relationships. RelationshipAssertions have not been included. These omissions will be
+         addressed in collaboration with the first data provider/consumer pairs who need to make use
+         them. FIXME: <a href="http://phoebus.cs.man.ac.uk:9999/OWL/Validator">Wonder Web OWL
+            Ontology Validator</a>
       </rdfs:comment>
 
    </owl:Ontology>
@@ -32,7 +41,8 @@
    <!-- TaxonConcept -->
    <owl:Class rdf:ID="TaxonConcept">
       <rdfs:label>Taxon Concept</rdfs:label>
-      <rdfs:comment> Representation of a TaxonConcept. Equivalent to TCS /DataSet/TaxonConcepts/TaxonConcept </rdfs:comment>
+      <rdfs:comment> Representation of a TaxonConcept. Equivalent to TCS
+         /DataSet/TaxonConcepts/TaxonConcept </rdfs:comment>
       <rdfs:subClassOf rdf:resource="http://rs.tdwg.org/ontology/Core#Concept"/>
       <rdfs:isDefinedBy rdf:resource="http://rs.tdwg.org/ontology/voc/TaxonConcept"/>
    </owl:Class>
@@ -40,7 +50,8 @@
    <!-- TaxonConcept::nameString -->
    <owl:DatatypeProperty rdf:ID="nameString">
       <rdfs:label>Name String</rdfs:label>
-      <rdfs:comment>A string representation of the TaxonName for this concept. Equivalent to TCS /DataSet/TaxonConcepts/TaxonConcept/Name/TaxonName/Simple </rdfs:comment>
+      <rdfs:comment>A string representation of the TaxonName for this concept. Equivalent to TCS
+         /DataSet/TaxonConcepts/TaxonConcept/Name/TaxonName/Simple </rdfs:comment>
       <rdfs:domain rdf:resource="#TaxonConcept"/>
       <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
       <rdfs:isDefinedBy rdf:resource="http://rs.tdwg.org/ontology/voc/TaxonConcept"/>
@@ -49,46 +60,46 @@
    <!-- TaxonConcept::hasName -->
    <owl:ObjectProperty rdf:ID="hasName">
       <rdfs:label>Has Name</rdfs:label>
-      <rdfs:comment>The TaxonName for this concept. Equivalent to TCS /DataSet/TaxonConcepts/TaxonConcept/Name </rdfs:comment>
+      <rdfs:comment>The TaxonName for this concept. Equivalent to TCS
+         /DataSet/TaxonConcepts/TaxonConcept/Name </rdfs:comment>
       <rdfs:domain rdf:resource="#TaxonConcept"/>
-      <rdfs:range rdf:resource="http://rs.tdwg.org/ontology/voc/TaxonName#TaxonName"/>
       <rdfs:isDefinedBy rdf:resource="http://rs.tdwg.org/ontology/voc/TaxonConcept"/>
    </owl:ObjectProperty>
 
    <!-- TaxonConcept::accordingToString -->
    <owl:DatatypeProperty rdf:ID="accordingToString">
       <rdfs:label>According To String</rdfs:label>
-      <rdfs:comment>A string representation of the according to for this concept. Equivalent to TCS /DataSet/TaxonConcepts/TaxonConcept/AccordingTo/Simple </rdfs:comment>
+      <rdfs:comment>A string representation of the according to for this concept. Equivalent to TCS
+         /DataSet/TaxonConcepts/TaxonConcept/AccordingTo/Simple </rdfs:comment>
       <rdfs:domain rdf:resource="#TaxonConcept"/>
-      <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
       <rdfs:isDefinedBy rdf:resource="http://rs.tdwg.org/ontology/voc/TaxonConcept"/>
    </owl:DatatypeProperty>
 
    <!-- TaxonConcept::accordingTo -->
    <owl:ObjectProperty rdf:ID="accordingTo">
       <rdfs:label>accordingTo</rdfs:label>
-      <rdfs:comment>Information about the authorship of this concept which uses the Name in their sense (i.e. secundum, sensu). Could be an institution or collection or team of individuals. Equivalent
-         to TCS /DataSet/TaxonConcepts/TaxonConcept/AccordingTo/AccordingToDetailed </rdfs:comment>
+      <rdfs:comment>Information about the authorship of this concept which uses the Name in their
+         sense (i.e. secundum, sensu). Could be an institution or collection or team of individuals.
+         Equivalent to TCS /DataSet/TaxonConcepts/TaxonConcept/AccordingTo/AccordingToDetailed </rdfs:comment>
       <rdfs:domain rdf:resource="#TaxonConcept"/>
-      <rdfs:range rdf:resource="http://rs.tdwg.org/ontology/Base#Actor"/>
       <rdfs:isDefinedBy rdf:resource="http://rs.tdwg.org/ontology/voc/TaxonConcept"/>
    </owl:ObjectProperty>
 
    <!-- TaxonConcept::describedBy -->
    <owl:ObjectProperty rdf:ID="describedBy">
       <rdfs:label>Described By</rdfs:label>
-      <rdfs:comment>A description that delimits this taxon. Equivalent to TCS /DataSet/TaxonConcepts/TaxonConcept/CharacterCircumscription </rdfs:comment>
+      <rdfs:comment>A description that delimits this taxon. Equivalent to TCS
+         /DataSet/TaxonConcepts/TaxonConcept/CharacterCircumscription </rdfs:comment>
       <rdfs:domain rdf:resource="#TaxonConcept"/>
-      <rdfs:range rdf:resource="http://rs.tdwg.org/ontology/Core#Description"/>
       <rdfs:isDefinedBy rdf:resource="http://rs.tdwg.org/ontology/voc/TaxonConcept"/>
    </owl:ObjectProperty>
 
    <!-- TaxonConcept::circumscribedBy -->
    <owl:ObjectProperty rdf:ID="circumscribedBy">
       <rdfs:label>Circumscribed By</rdfs:label>
-      <rdfs:comment>A specimen that forms part of the circumscription of this taxon. Equivalent to TCS /DataSet/TaxonConcepts/TaxonConcept/SpecimenCircumscription </rdfs:comment>
+      <rdfs:comment>A specimen that forms part of the circumscription of this taxon. Equivalent to
+         TCS /DataSet/TaxonConcepts/TaxonConcept/SpecimenCircumscription </rdfs:comment>
       <rdfs:domain rdf:resource="#TaxonConcept"/>
-      <rdfs:range rdf:resource="http://rs.tdwg.org/ontology/Core#Specimen"/>
       <rdfs:isDefinedBy rdf:resource="http://rs.tdwg.org/ontology/voc/TaxonConcept"/>
    </owl:ObjectProperty>
 
@@ -104,9 +115,12 @@
    <!-- TaxonConcept::rank -->
    <owl:ObjectProperty rdf:ID="rank">
       <rdfs:label>Rank</rdfs:label>
-      <rdfs:comment>*Deprecated* The taxonomic rank of this concept. This is a link to an instance of TaxonomicRank. Compare with the rankString property. Equivalent to TCS
-         /DataSet/TaxonConcepts/TaxonConcept/Rank. After discussions between a number of parties this property is considered to be deprecated. The rank of a TaxonConcept should be indicated by
-         including a TaxonName of the appropriate rank in the hasName property even if the name object is empty apart from the rank.</rdfs:comment>
+      <rdfs:comment>*Deprecated* The taxonomic rank of this concept. This is a link to an instance
+         of TaxonomicRank. Compare with the rankString property. Equivalent to TCS
+         /DataSet/TaxonConcepts/TaxonConcept/Rank. After discussions between a number of parties
+         this property is considered to be deprecated. The rank of a TaxonConcept should be
+         indicated by including a TaxonName of the appropriate rank in the hasName property even if
+         the name object is empty apart from the rank.</rdfs:comment>
       <rdfs:domain rdf:resource="#TaxonConcept"/>
       <rdfs:range rdf:resource="http://rs.tdwg.org/ontology/voc/TaxonRank#TaxonRankTerm"/>
       <rdfs:isDefinedBy rdf:resource="http://rs.tdwg.org/ontology/voc/TaxonConcept"/>
@@ -116,10 +130,14 @@
    <!-- TaxonConcept::rankString -->
    <owl:DatatypeProperty rdf:ID="rankString">
       <rdfs:label>Rank String</rdfs:label>
-      <rdfs:comment>*Deprecated* The taxonomic rank of this concept as a string. A string representation of the rank of this concept. It is highly recommended that the rank property be used along with
-         this one unless the correct rank is not available in the rank vocabulary. No direct equivalent in TCS but is string version of /DataSet/TaxonConcepts/TaxonConcept/Rank. Requested by data
-         suppliers. After discussions between a number of parties this property is considered to be deprecated. The rank of a TaxonConcept should be indicated by including a TaxonName of the
-         appropriate rank in the hasName property even if the name object is empty apart from the rank. </rdfs:comment>
+      <rdfs:comment>*Deprecated* The taxonomic rank of this concept as a string. A string
+         representation of the rank of this concept. It is highly recommended that the rank property
+         be used along with this one unless the correct rank is not available in the rank
+         vocabulary. No direct equivalent in TCS but is string version of
+         /DataSet/TaxonConcepts/TaxonConcept/Rank. Requested by data suppliers. After discussions
+         between a number of parties this property is considered to be deprecated. The rank of a
+         TaxonConcept should be indicated by including a TaxonName of the appropriate rank in the
+         hasName property even if the name object is empty apart from the rank. </rdfs:comment>
       <rdfs:domain rdf:resource="#TaxonConcept"/>
       <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
       <rdfs:isDefinedBy rdf:resource="http://rs.tdwg.org/ontology/voc/TaxonConcept"/>
@@ -129,15 +147,16 @@
    <!-- TaxonConcept::primary -->
    <owl:DatatypeProperty rdf:ID="primary">
       <rdfs:label>Primary</rdfs:label>
-      <rdfs:comment>If primary='true' the concept is the first level response to a query. If 'false' the concept may be a secondary concept linked directly or
-         indirectly to the definition of a primary concept.</rdfs:comment>
+      <rdfs:comment>If primary='true' the concept is the first level response to a query. If 'false'
+         the concept may be a secondary concept linked directly or indirectly to the definition of a
+         primary concept.</rdfs:comment>
       <rdfs:domain rdf:resource="#TaxonConcept"/>
       <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
       <rdfs:isDefinedBy rdf:resource="http://rs.tdwg.org/ontology/voc/TaxonConcept"/>
       <dc:relation rdf:resource="http://rs.tdwg.org/ontology/voc/TaxonConcept#rank"/>
    </owl:DatatypeProperty>
-   
-   
+
+
    <!-- TaxonConcept::hasInformation -->
    <owl:ObjectProperty rdf:ID="hasInformation">
       <rdfs:label>Has Information</rdfs:label>
@@ -175,7 +194,7 @@
       <rdfs:isDefinedBy rdf:resource="http://rs.tdwg.org/ontology/voc/TaxonConcept"/>
       <tcom:tcsEquivalence>/DataSet/TaxonConcepts/TaxonConcept/Relationships/Relationship/FromTaxonConcept</tcom:tcsEquivalence>
    </owl:ObjectProperty>
-   
+
    <!-- Relationship::relationshipCategory -->
    <owl:ObjectProperty rdf:ID="relationshipCategory">
       <rdfs:label>relationshipCategory</rdfs:label>
@@ -189,7 +208,8 @@
    <!-- TaxonRelationshipTerm -->
    <owl:Class rdf:ID="TaxonRelationshipTerm">
       <rdfs:label>Taxon Relationship Term</rdfs:label>
-      <rdfs:comment> The class for constructing a controlled vocabulary for TaxonConcept to TaxonConcept relationship categories.</rdfs:comment>
+      <rdfs:comment> The class for constructing a controlled vocabulary for TaxonConcept to
+         TaxonConcept relationship categories.</rdfs:comment>
       <rdfs:subClassOf rdf:resource="http://rs.tdwg.org/ontology/Base#DefinedTerm"/>
       <rdfs:isDefinedBy rdf:resource="http://rs.tdwg.org/ontology/voc/TaxonConcept"/>
    </owl:Class>
@@ -198,7 +218,8 @@
    <TaxonRelationshipTerm rdf:ID="IsCongruentTo">
       <rdfs:label>Is Congruent To</rdfs:label>
       <dc:title>Is Congruent To</dc:title>
-      <tbase:definition>Set Relationship: The extent of Concept 1 is (essentially) identical to Concept 2</tbase:definition>
+      <tbase:definition>Set Relationship: The extent of Concept 1 is (essentially) identical to
+         Concept 2</tbase:definition>
       <tcom:tcsEquivalence>/RelationshipType/is congruent to</tcom:tcsEquivalence>
    </TaxonRelationshipTerm>
 
@@ -206,7 +227,8 @@
    <TaxonRelationshipTerm rdf:ID="IsNotCongruentTo">
       <rdfs:label>Is Not Congruent To</rdfs:label>
       <dc:title>Is Not Congruent To</dc:title>
-      <tbase:definition>Set Relationship: The extent of Concept 1 is not identical to Concept 2</tbase:definition>
+      <tbase:definition>Set Relationship: The extent of Concept 1 is not identical to Concept
+         2</tbase:definition>
       <tcom:tcsEquivalence>/RelationshipType/is not congruent to</tcom:tcsEquivalence>
    </TaxonRelationshipTerm>
 
@@ -230,7 +252,8 @@
    <TaxonRelationshipTerm rdf:ID="Excludes">
       <rdfs:label>Excludes</rdfs:label>
       <dc:title>Excludes</dc:title>
-      <tbase:definition>Set Relationship: Concept 1 does not overlap or include Concept 2</tbase:definition>
+      <tbase:definition>Set Relationship: Concept 1 does not overlap or include Concept
+         2</tbase:definition>
       <tcom:tcsEquivalence>/RelationshipType/excludes</tcom:tcsEquivalence>
    </TaxonRelationshipTerm>
 
@@ -254,7 +277,8 @@
    <TaxonRelationshipTerm rdf:ID="Overlaps">
       <rdfs:label>Overlaps</rdfs:label>
       <dc:title>Overlaps</dc:title>
-      <tbase:definition>Set Relationship: Concepts 1 and 2 share members/children in common</tbase:definition>
+      <tbase:definition>Set Relationship: Concepts 1 and 2 share members/children in
+         common</tbase:definition>
       <tcom:tcsEquivalence>/RelationshipType/overlaps</tcom:tcsEquivalence>
    </TaxonRelationshipTerm>
 
@@ -262,7 +286,8 @@
    <TaxonRelationshipTerm rdf:ID="DoesNotOverlap">
       <rdfs:label>Does Not Overlap</rdfs:label>
       <dc:title>Does Not Overlap</dc:title>
-      <tbase:definition>Set Relationship: Concepts 1 and 2 have no members/children in common</tbase:definition>
+      <tbase:definition>Set Relationship: Concepts 1 and 2 have no members/children in
+         common</tbase:definition>
       <tcom:tcsEquivalence>/RelationshipType/does not overlap</tcom:tcsEquivalence>
    </TaxonRelationshipTerm>
 
@@ -270,7 +295,8 @@
    <TaxonRelationshipTerm rdf:ID="IsChildTaxonOf">
       <rdfs:label>Is Child Taxon Of</rdfs:label>
       <dc:title>Is Child Taxon Of</dc:title>
-      <tbase:definition>Hierarchical Relationship: Concept 1 is a member of lower taxonomic rank of Concept 2</tbase:definition>
+      <tbase:definition>Hierarchical Relationship: Concept 1 is a member of lower taxonomic rank of
+         Concept 2</tbase:definition>
       <tcom:tcsEquivalence>/RelationshipType/is child taxon of</tcom:tcsEquivalence>
    </TaxonRelationshipTerm>
 
@@ -278,7 +304,8 @@
    <TaxonRelationshipTerm rdf:ID="IsParentTaxonOf">
       <rdfs:label>Is Parent Taxon Of</rdfs:label>
       <dc:title>Is Parent Taxon Of</dc:title>
-      <tbase:definition>Hierarchical Relationship: Taxon Concept 1 includes Concept 2 as a lower-ranked member.</tbase:definition>
+      <tbase:definition>Hierarchical Relationship: Taxon Concept 1 includes Concept 2 as a
+         lower-ranked member.</tbase:definition>
       <tcom:tcsEquivalence>/RelationshipType/is parent taxon of</tcom:tcsEquivalence>
    </TaxonRelationshipTerm>
 
@@ -286,7 +313,9 @@
    <TaxonRelationshipTerm rdf:ID="IsAnamorphOf">
       <rdfs:label>Is Anamorph Of</rdfs:label>
       <dc:title>Is Anamorph Of</dc:title>
-      <tbase:definition>Concept 1 is the asexual or mitotic reproductive stage in a pleomorphic life cycle in which Concept 2 is the teleomorph or meiotic reproductive stage .</tbase:definition>
+      <tbase:definition>Concept 1 is the asexual or mitotic reproductive stage in a pleomorphic life
+         cycle in which Concept 2 is the teleomorph or meiotic reproductive stage
+         .</tbase:definition>
       <tcom:tcsEquivalence>/RelationshipType/is anamorph of</tcom:tcsEquivalence>
    </TaxonRelationshipTerm>
 
@@ -294,7 +323,9 @@
    <TaxonRelationshipTerm rdf:ID="IsTeleomorphOf">
       <rdfs:label>Is Teleomorph Of</rdfs:label>
       <dc:title>Is Teleomorph Of</dc:title>
-      <tbase:definition>Concept 1 is the teleomorph or meiotic reproductive stage in a pleomorphic life cycle in which Concept 2 is the asexual or mitotic reproductive stage.</tbase:definition>
+      <tbase:definition>Concept 1 is the teleomorph or meiotic reproductive stage in a pleomorphic
+         life cycle in which Concept 2 is the asexual or mitotic reproductive
+         stage.</tbase:definition>
       <tcom:tcsEquivalence>/RelationshipType/is teleomorph of</tcom:tcsEquivalence>
    </TaxonRelationshipTerm>
 
@@ -302,7 +333,8 @@
    <TaxonRelationshipTerm rdf:ID="IsSecondParentOf">
       <rdfs:label>Is Second Parent Of</rdfs:label>
       <dc:title>Is Second Parent Of</dc:title>
-      <tbase:definition>Hybrid Relationship: Concept 1 is genetic parent (2) of Concept 2.</tbase:definition>
+      <tbase:definition>Hybrid Relationship: Concept 1 is genetic parent (2) of Concept
+         2.</tbase:definition>
       <tcom:tcsEquivalence>/RelationshipType/is second parent of</tcom:tcsEquivalence>
    </TaxonRelationshipTerm>
 
@@ -318,7 +350,8 @@
    <TaxonRelationshipTerm rdf:ID="IsFirstParentOf">
       <rdfs:label>Is First Parent Of</rdfs:label>
       <dc:title>Is First Parent Of</dc:title>
-      <tbase:definition>Hybrid Relationship: Concept 1 is genetic parent (1) of Concept 2</tbase:definition>
+      <tbase:definition>Hybrid Relationship: Concept 1 is genetic parent (1) of Concept
+         2</tbase:definition>
       <tcom:tcsEquivalence>/RelationshipType/is first parent of</tcom:tcsEquivalence>
    </TaxonRelationshipTerm>
 
@@ -326,7 +359,8 @@
    <TaxonRelationshipTerm rdf:ID="IsMaleParentOf">
       <rdfs:label>Is Male Parent Of</rdfs:label>
       <dc:title>Is Male Parent Of</dc:title>
-      <tbase:definition>Hybrid Relationship: Concept 1 is genetic father of Concept 2</tbase:definition>
+      <tbase:definition>Hybrid Relationship: Concept 1 is genetic father of Concept
+         2</tbase:definition>
       <tcom:tcsEquivalence>/RelationshipType/is male parent of</tcom:tcsEquivalence>
    </TaxonRelationshipTerm>
 
@@ -334,7 +368,8 @@
    <TaxonRelationshipTerm rdf:ID="IsHybridParentOf">
       <rdfs:label>Is Hybrid Parent Of</rdfs:label>
       <dc:title>Is Hybrid Parent Of</dc:title>
-      <tbase:definition>Hybrid Relationship: Concept 1 is genetic parent of Concept 2</tbase:definition>
+      <tbase:definition>Hybrid Relationship: Concept 1 is genetic parent of Concept
+         2</tbase:definition>
       <tcom:tcsEquivalence>/RelationshipType/is hybrid parent of</tcom:tcsEquivalence>
    </TaxonRelationshipTerm>
 
@@ -342,7 +377,8 @@
    <TaxonRelationshipTerm rdf:ID="IsHybridChildOf">
       <rdfs:label>Is Hybrid Child Of</rdfs:label>
       <dc:title>Is Hybrid Child Of</dc:title>
-      <tbase:definition>Hybrid Relationship: Concept 2 is a genetic parent of Concept 1</tbase:definition>
+      <tbase:definition>Hybrid Relationship: Concept 2 is a genetic parent of Concept
+         1</tbase:definition>
       <tcom:tcsEquivalence>/RelationshipType/is hybrid child of</tcom:tcsEquivalence>
    </TaxonRelationshipTerm>
 
@@ -350,17 +386,21 @@
    <TaxonRelationshipTerm rdf:ID="IsAmbiregnalOf">
       <rdfs:label>Is Ambiregnal Of</rdfs:label>
       <dc:title>Is Ambiregnal Of</dc:title>
-      <tbase:definition>The two concepts are considered to represent the same taxon (i.e. they are congruent) but their names governed by different nomenclatural codes.</tbase:definition>
-      <tcom:tcsEquivalence>/RelationshipType/is ambiregnal of (The definition is somewhat different as TaxonConcepts are permitted to have multiple names in the RDF version of
-      TCS)</tcom:tcsEquivalence>
+      <tbase:definition>The two concepts are considered to represent the same taxon (i.e. they are
+         congruent) but their names governed by different nomenclatural codes.</tbase:definition>
+      <tcom:tcsEquivalence>/RelationshipType/is ambiregnal of (The definition is somewhat different
+         as TaxonConcepts are permitted to have multiple names in the RDF version of
+         TCS)</tcom:tcsEquivalence>
    </TaxonRelationshipTerm>
 
    <!--is vernacular for-->
    <TaxonRelationshipTerm rdf:ID="IsVernacularFor">
       <rdfs:label>Is Vernacular For</rdfs:label>
       <dc:title>Is Vernacular For</dc:title>
-      <tbase:definition>The current concept is used as a vernacular concept, at least in part, for the target concept. This kind of relationship should not be used to express any form of set
-         relationship (e.g. overlaps, is congruent with, includes). Consider using vernacular type relationships along with set type relationships to avoid any ambiguity.</tbase:definition>
+      <tbase:definition>The current concept is used as a vernacular concept, at least in part, for
+         the target concept. This kind of relationship should not be used to express any form of set
+         relationship (e.g. overlaps, is congruent with, includes). Consider using vernacular type
+         relationships along with set type relationships to avoid any ambiguity.</tbase:definition>
       <tcom:tcsEquivalence>/RelationshipType/is vernacular for</tcom:tcsEquivalence>
    </TaxonRelationshipTerm>
 
@@ -368,8 +408,11 @@
    <TaxonRelationshipTerm rdf:ID="HasVernacular">
       <rdfs:label>Has Vernacular</rdfs:label>
       <dc:title>Has Vernacular</dc:title>
-      <tbase:definition>The target concept is used as a vernacular concept, at least in part, for the current concept. This kind of relationship should not be used to express any form of set
-         relationship (e.g. overlaps, is congruent with, includes). Consider using vernacular type relationships along with set type relationships to avoid any ambiguity.</tbase:definition>
+      <tbase:definition>The target concept is used as a vernacular concept, at least in part, for
+         the current concept. This kind of relationship should not be used to express any form of
+         set relationship (e.g. overlaps, is congruent with, includes). Consider using vernacular
+         type relationships along with set type relationships to avoid any
+         ambiguity.</tbase:definition>
       <tcom:tcsEquivalence>/RelationshipType/has vernacular</tcom:tcsEquivalence>
    </TaxonRelationshipTerm>
 
@@ -377,10 +420,15 @@
    <TaxonRelationshipTerm rdf:ID="HasSynonym">
       <rdfs:label>Has Synonym</rdfs:label>
       <dc:title>Has Synonym</dc:title>
-      <tbase:definition>The target concept is considered a synonym of the current concept. This is an ambiguous relationship. It can mean: 1) a nomenclatural relationship where all that is implied is
-         that the type of the target concept is included in the current circumscription. This is more precisely expressed as a specimen circumscription (for heterotypic synonyms) or as TaxonName
-         basionym relationships (for homotypic synonyms) 2) a concept relationship where some part of (or all of) the target concept is included in the current circumscription. This is more precisely
-         expressed using the set relationships such as 'is congruent to'. The HasSynonym term is principally intended for handling legacy data.</tbase:definition>
+      <tbase:definition>The target concept is considered a synonym of the current concept. This is
+         an ambiguous relationship. It can mean: 1) a nomenclatural relationship where all that is
+         implied is that the type of the target concept is included in the current circumscription.
+         This is more precisely expressed as a specimen circumscription (for heterotypic synonyms)
+         or as TaxonName basionym relationships (for homotypic synonyms) 2) a concept relationship
+         where some part of (or all of) the target concept is included in the current
+         circumscription. This is more precisely expressed using the set relationships such as 'is
+         congruent to'. The HasSynonym term is principally intended for handling legacy
+         data.</tbase:definition>
       <tcom:tcsEquivalence>/RelationshipType/has synonym</tcom:tcsEquivalence>
    </TaxonRelationshipTerm>
 
@@ -388,10 +436,15 @@
    <TaxonRelationshipTerm rdf:ID="IsSynonymFor">
       <rdfs:label>Is Synonym For</rdfs:label>
       <dc:title>Is Synonym For</dc:title>
-      <tbase:definition>The current concept is considered a synonym of the target concept. This is an ambiguous relationship. It can mean: 1) a nomenclatural relationship where all that is implied is
-         that the type of the current concept is included in the target circumscription. This is more precisely expressed as a specimen circumscription (for heterotypic synonyms) or as TaxonName
-         basionym relationships (for homotypic synonyms) 2) a concept relationship where some part of (or all of) the current concept is included in the target circumscription. This is more precisely
-         expressed using the set relationships such as 'is congruent to'. The IsSynonymFor term is principally intended for handling legacy data.</tbase:definition>
+      <tbase:definition>The current concept is considered a synonym of the target concept. This is
+         an ambiguous relationship. It can mean: 1) a nomenclatural relationship where all that is
+         implied is that the type of the current concept is included in the target circumscription.
+         This is more precisely expressed as a specimen circumscription (for heterotypic synonyms)
+         or as TaxonName basionym relationships (for homotypic synonyms) 2) a concept relationship
+         where some part of (or all of) the current concept is included in the target
+         circumscription. This is more precisely expressed using the set relationships such as 'is
+         congruent to'. The IsSynonymFor term is principally intended for handling legacy
+         data.</tbase:definition>
       <tcom:tcsEquivalence>No direct equivalent</tcom:tcsEquivalence>
    </TaxonRelationshipTerm>
 

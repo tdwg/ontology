@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- $Rev: 1211 $ -->
+<!-- $Date: 2007-06-26 10:36:21 +0100 (Tue, 26 Jun 2007) $ -->
+<!-- $Author: RogerHyam $ -->
+
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:owl="http://www.w3.org/2002/07/owl#"
+   xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dcterms="http://purl.org/dc/terms/"
+   xmlns:tbase="http://rs.tdwg.org/ontology/Base#"
+   xmlns:tcom="http://rs.tdwg.org/ontology/voc/Common"
+   xml:base="http://rs.tdwg.org/ontology/voc/TaxonConcept"
+   xmlns="http://rs.tdwg.org/ontology/voc/TaxonConcept#"
+   xmlns:tc="http://rs.tdwg.org/ontology/voc/TaxonConcept#">
+
+   <owl:Ontology rdf:about="http://rs.tdwg.org/ontology/voc/TaxonConcept">
+      <dc:title>TDWG Taxon Concept LSID Ontology</dc:title>
+      <dc:creator>Roger Hyam</dc:creator>
+      <dc:publisher>TDWG Biodiversity Information Standards</dc:publisher>
+      <dcterms:issued>2006-11-27</dcterms:issued>
+      <dcterms:modified>$Date: 2007-06-26 10:36:21 +0100 (Tue, 26 Jun 2007) $</dcterms:modified>
+      <dc:description>Ontology describing the metadata returned for LSIDs that are used for Taxon
+         Concepts. </dc:description>
+
+      <owl:versionInfo>0.2 - [SVN $Rev: 1211 $]</owl:versionInfo>
+
+      <rdfs:comment rdf:parseType="Literal"> This is not a full rendering of TaxonConcept as
+         presented in the Taxon Concept Schema 1.0. Not all the possible concept-concept
+         relationships have been modelled just the basic set theory and taxonomic hierarchy
+         relationships. RelationshipAssertions have not been included. These omissions will be
+         addressed in collaboration with the first data provider/consumer pairs who need to make use
+         them. FIXME: <a href="http://phoebus.cs.man.ac.uk:9999/OWL/Validator">Wonder Web OWL
+            Ontology Validator</a>
+      </rdfs:comment>
+
+   </owl:Ontology>
+
+
+   <!-- *****************************************
+					T A X O N    C O N C E P T 
+ 		******************************************* -->
+   <!-- TaxonConcept -->
+   <owl:Class rdf:ID="TaxonConcept">
+      <rdfs:label>Taxon Concept</rdfs:label>
+      <rdfs:comment> Representation of a TaxonConcept. Equivalent to TCS
+         /DataSet/TaxonConcepts/TaxonConcept </rdfs:comment>
+      <rdfs:subClassOf rdf:resource="http://rs.tdwg.org/ontology/Core#Concept"/>
+      <rdfs:isDefinedBy rdf:resource="http://rs.tdwg.org/ontology/voc/TaxonConcept"/>
+   </owl:Class>
+
+   <!-- TaxonConcept::nameString -->
+   <owl:DatatypeProperty rdf:ID="nameString">
+      <rdfs:label>Name String</rdfs:label>
+      <rdfs:comment>A string representation of the TaxonName for this concept. Equivalent to TCS
+         /DataSet/TaxonConcepts/TaxonConcept/Name/TaxonName/Simple </rdfs:comment>
+      <rdfs:domain rdf:resource="#TaxonConcept"/>
+      <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+      <rdfs:isDefinedBy rdf:resource="http://rs.tdwg.org/ontology/voc/TaxonConcept"/>
+   </owl:DatatypeProperty>
+
+   <!-- TaxonConcept::hasName -->
+   <owl:ObjectProperty rdf:ID="hasName">
+      <rdfs:label>Has Name</rdfs:label>
+      <rdfs:comment>The TaxonName for this concept. Equivalent to TCS
+         /DataSet/TaxonConcepts/TaxonConcept/Name </rdfs:comment>
+      <rdfs:domain rdf:resource="#TaxonConcept"/>
+      <rdfs:isDefinedBy rdf:resource="http://rs.tdwg.org/ontology/voc/TaxonConcept"/>
+   </owl:ObjectProperty>
+
+   <!-- TaxonConcept::accordingToString -->
+   <owl:DatatypeProperty rdf:ID="accordingToString">
+      <rdfs:label>According To String</rdfs:label>
+      <rdfs:comment>A string representation of the according to for this concept. Equivalent to TCS
+         /DataSet/TaxonConcepts/TaxonConcept/AccordingTo/Simple </rdfs:comment>
+      <rdfs:domain rdf:resource="#TaxonConcept"/>
+      <rdfs:isDefinedBy rdf:resource="http://rs.tdwg.org/ontology/voc/TaxonConcept"/>
+   </owl:DatatypeProperty>
+
+   <!-- TaxonConcept::accordingTo -->
+   <owl:ObjectProperty rdf:ID="accordingTo">
+      <rdfs:label>accordingTo</rdfs:label>
+      <rdfs:comment>Information about the authorship of this concept which uses the Name in their
+         sense (i.e. secundum, sensu). Could be an institution or collection or team of individuals.
+         Equivalent to TCS /DataSet/TaxonConcepts/TaxonConcept/AccordingTo/AccordingToDetailed </rdfs:comment>
+      <rdfs:domain rdf:resource="#TaxonConcept"/>
+      <rdfs:isDefinedBy rdf:resource="http://rs.tdwg.org/ontology/voc/TaxonConcept"/>
+   </owl:ObjectProperty>
+
+   <!-- TaxonConcept::describedBy -->
+   <owl:ObjectProperty rdf:ID="describedBy">
+      <rdfs:label>Described By</rdfs:label>
+      <rdfs:comment>A description that delimits this taxon. Equivalent to TCS
+         /DataSet/TaxonConcepts/TaxonConcept/CharacterCircumscription </rdfs:comment>
+      <rdfs:domain rdf:resource="#TaxonConcept"/>
+      <rdfs:isDefinedBy rdf:resource="http://rs.tdwg.org/ontology/voc/TaxonConcept"/>
+   </owl:ObjectProperty>
+
+   <!-- TaxonConcept::circumscribedBy -->
+   <owl:ObjectProperty rdf:ID="circumscribedBy">
+      <rdfs:label>Circumscribed By</rdfs:label>
+      <rdfs:comment>A specimen that forms part of the circumscription of this taxon. Equivalent to
+         TCS /DataSet/TaxonConcepts/TaxonConcept/SpecimenCircumscription </rdfs:comment>
+      <rdfs:domain rdf:resource="#TaxonConcept"/>
+      <rdfs:isDefinedBy rdf:resource="http://rs.tdwg.org/ontology/voc/TaxonConcept"/>
+   </owl:ObjectProperty>
+   
+   <!-- Taxonomic Hierarchy -->
+   
+   <!--is child taxon of-->
+   <owl:ObjectProperty rdf:ID="isChildTaxonOf">
+      <rdfs:label>Is Child Taxon Of</rdfs:label>
+      <dc:title>Is Child Taxon Of</dc:title>
+      <tbase:definition>Hierarchical Relationship: Concept 1 is a member of lower taxonomic rank of
+         Concept 2</tbase:definition>
+      <tcom:tcsEquivalence>/RelationshipType/is child taxon of</tcom:tcsEquivalence>
+      <rdfs:domain rdf:resource="#TaxonConcept"/>
+      <rdfs:range rdf:resource="#TaxonConcept"/>
+   </owl:ObjectProperty>
+   
+   <!--is parent taxon of-->
+   <owl:ObjectProperty rdf:ID="isParentTaxonOf">
+      <rdfs:label>Is Parent Taxon Of</rdfs:label>
+      <dc:title>Is Parent Taxon Of</dc:title>
+      <tbase:definition>Hierarchical Relationship: Taxon Concept 1 includes Concept 2 as a
+         lower-ranked member.</tbase:definition>
+      <tcom:tcsEquivalence>/RelationshipType/is parent taxon of</tcom:tcsEquivalence>
+      <rdfs:domain rdf:resource="#TaxonConcept"/>
+      <rdfs:range rdf:resource="#TaxonConcept"/>
+   </owl:ObjectProperty>
+   
+   <!-- cross classification relationships -->
+   
+   <!--is congruent to-->
+   <owl:ObjectProperty rdf:ID="isCongruentTo">
+      <rdfs:label>Is Congruent To</rdfs:label>
+      <dc:title>Is Congruent To</dc:title>
+      <rdfs:comment>Set Relationship: The extent of Concept 1 is (essentially) identical to
+         Concept 2</rdfs:comment>
+      <tcom:tcsEquivalence>/RelationshipType/is congruent to</tcom:tcsEquivalence>
+   </owl:ObjectProperty>
+
+   <!--includes-->
+   <owl:ObjectProperty rdf:ID="includes">
+      <rdfs:label>Includes</rdfs:label>
+      <dc:title>Includes</dc:title>
+      <rdfs:comment>Set Relationship: Concept 2 is a subset of Concept 1</rdfs:comment>
+      <tcom:tcsEquivalence>/RelationshipType/includes</tcom:tcsEquivalence>
+   </owl:ObjectProperty>
+   
+   <!--excludes-->
+   <owl:ObjectProperty rdf:ID="excludes">
+      <rdfs:label>Excludes</rdfs:label>
+      <dc:title>Excludes</dc:title>
+      <rdfs:comment>Set Relationship: Concept 1 does not overlap or include Concept
+         2</rdfs:comment>
+      <tcom:tcsEquivalence>/RelationshipType/excludes</tcom:tcsEquivalence>
+   </owl:ObjectProperty>
+   
+   <!--is hybrid parent of-->
+   <owl:ObjectProperty rdf:ID="isHybridParentOf">
+      <rdfs:label>Is Hybrid Parent Of</rdfs:label>
+      <dc:title>Is Hybrid Parent Of</dc:title>
+      <rdfs:comment>Hybrid Relationship: Concept 1 is genetic parent of Concept
+         2</rdfs:comment>
+      <tcom:tcsEquivalence>/RelationshipType/is hybrid parent of</tcom:tcsEquivalence>
+   </owl:ObjectProperty>
+   
+   <!--is male parent of-->
+   <owl:ObjectProperty rdf:ID="isMaleParentOf">
+      <rdfs:label>Is Male Parent Of</rdfs:label>
+      <dc:title>Is Male Parent Of</dc:title>
+      <rdfs:comment>Hybrid Relationship: Concept 1 is genetic father of Concept
+         2</rdfs:comment>
+      <tcom:tcsEquivalence>/RelationshipType/is male parent of</tcom:tcsEquivalence>
+   </owl:ObjectProperty>
+
+   <!--is female parent of-->
+   <owl:ObjectProperty rdf:ID="isFemaleParentOf">
+      <rdfs:label>Is Female Parent Of</rdfs:label>
+      <dc:title>Is Female Parent Of</dc:title>
+      <rdfs:comment>Hybrid Relationship: Concept 1 is genetic mother of Concept 2 </rdfs:comment>
+      <tcom:tcsEquivalence>/RelationshipType/is female parent of</tcom:tcsEquivalence>
+   </owl:ObjectProperty>
+
+
+</rdf:RDF>

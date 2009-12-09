@@ -1,0 +1,119 @@
+<!DOCTYPE html SYSTEM "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>TDWG Ontology Design Guide</title>
+    </head>
+    <body>
+        <h1>TDWG Ontology Design Guide</h1>
+
+        <p>These are design guidelines for the TDWG ontology. They explain how and where concepts
+            should be specified so as to facilitate governance of the ontology in the long run.</p>
+
+        <p>This is a practical document for people working on the ontology. It is not a TDWG
+            standard or proposal.</p>
+
+        <h2>Components</h2>
+        <ul>
+            <li>
+                <p>
+                    <strong>Data</strong> This is the stuff that is produced and consumed over the
+                    internet. Publishers express their data as RDF (or as a form that can be mapped
+                    to RDF). The predicates and some of the objects in the RDF are resources defined
+                    in the Vocabulary Files. i.e. the URIs used are to concepts (classes, properties
+                    and individuals) defined in the vocabulary files. </p>
+            </li>
+            <li>
+                <p>
+                    <strong>Vocabulary Files</strong> These contain the definitions of the classes,
+                    properties and individuals used in our domain. Each vocabulary file is a free
+                    standing 'module' in that it does not reference anything defined in any other
+                    vocabulary file. This is the primary mechanism to enable management of the
+                    ontology.</p>
+                <p> Consumers of data may resolve the URIs used in that data and import the
+                    associated vocabulary files into their local analysis (or ontology). In doing so
+                    they will acquire the basic meaning of the data. i.e. the definitions for the
+                    resources they have data on. They will <strong>not</strong> import the whole of
+                    the TDWG Ontology (including definitions of resources that are not in their
+                    data) by doing this.</p>
+                <p>Vocabulary Files are stored in the /ontologoy/voc/ directory.</p>
+            </li>
+
+            <li>
+                <p>
+                    <strong>Ontology Files</strong> Ontology files define how the classes and
+                    properties in the vocabulary files are related. Each ontology file imports one
+                    or more vocabulary files and makes assertions about how the contents of these
+                    vocabulary files are related.</p>
+                <p>Ontology files define nothing new - no classes, properties or individuals.</p>
+                <p>As an example TaxonOntology.owl imports TaxonConcept.owl, TaxonName.owl and
+                    TaxonRank.owl. It then asserts that TaxonConcept#hasName has the range
+                    TaxonName#TaxonName and TaxonName#rank has the range TaxonRank#TaxonRank.
+                    Although TaxonOntology.owl defines a uniform way of relating these three
+                    vocabularies they are only loosely bound together and may be used in different
+                    combinations in other ontologies. In the future ZooTaxonOntology.owl may defined
+                    that places restrictions on interpretation of TaxonName.</p>
+                <p>Consumers of data may choose to import ontology files into their analyses
+                    separately from importing the data. They can be seen as an interpretation of the
+                    vocabulary files.</p>
+                <p>Ontology Files are stored in the /ontology/ directory.</p>
+            </li>
+        </ul>
+
+        <p>This approach to ontology construction can be described as a bricks and mortar approach.
+            Vocabularies are independent bricks that are cemented together using the assertions in
+            the ontology files but can be reassembled in different ways in the future should it be
+            necessary.</p>
+
+        <h2>OWL</h2>
+
+        <p>The TDWG ontology is currently expressed in OWL. Wherever possible lowest common
+            denominator OWL constructs should be used. Vocabulary Files should be OWL Lite. It is
+            preferred Ontology Files are OWL Lite though OWL DL may be required.</p>
+
+
+        <h2>Vocabulary Files Language Elements</h2>
+
+        <p>The following language elements are permitted in vocabulary files</p>
+        <ul>
+            <li>owl:Class</li>
+            <li>owl:ObjectProperty</li>
+            <li>owl:DatatypeProperty</li>
+            <li>rdfs:domain</li>
+            <li>rdfs:range - only permitted when the object of the range is a class defined in the same file</li>
+            <li>rdfs:label</li>
+            <li>rdfs:comment</li>
+            <li>rdfs:isDefinedBy</li>
+        </ul>
+        <p>The following language element are <strong>banned</strong> from vocabulary files</p>
+        <ul>
+            <li>owl:subClassOf</li>
+            <li>rdfs:range - where the object of the range is a class not defined in the file</li>
+        </ul>
+
+
+        <h2>Ontology Files Language Elements</h2>
+
+        <p>The following language elements are permitted in ontology files</p>
+        <ul>
+            <li>owl:subClassOf</li>
+            <li>owl:range</li>
+            <li>owl:domain</li>
+        </ul>
+        <p>The following language element are <strong>banned</strong> from ontology files</p>
+        <ul>
+            <li>owl:Class</li>
+            <li>owl:ObjectProperty</li>
+            <li>owl:DatatypeProperty</li>
+        </ul>
+
+
+
+        <h2>Relationship Between TDWG Ontology and TDWG Standards</h2>
+
+        <p>There is not a one-to-one relationship between the files in the ontology and TDWG
+            standards. Standards may cover particular property or class definitions and these may
+            reside within files with the same </p>
+
+
+    </body>
+</html>
