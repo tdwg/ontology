@@ -9,8 +9,8 @@
         <p>These are design guidelines for the TDWG ontology. They explain how and where concepts
             should be specified so as to facilitate governance of the ontology in the long run.</p>
 
-        <p>This is a practical document for people working on the ontology. It is not a TDWG
-            standard or proposal.</p>
+        <p>This is a practical document for people working on the ontology. <strong>This is not a
+                TDWG standard or proposal.</strong></p>
 
         <h2>Components</h2>
         <ul>
@@ -59,6 +59,12 @@
             </li>
         </ul>
 
+        <p>The TDWG Ontology only defines things that are thought to be unique to the Biodiversity
+            Informatics domain. Although the Ontology Files may bind the existing bricks in the
+            Vocabulary Files to existing non-TDWG vocabularies there is should be no attempt to
+            overload the meaning of external vocabularies or include references to these
+            vocabularies in the Vocabulary Files.</p>
+
         <p>This approach to ontology construction can be described as a bricks and mortar approach.
             Vocabularies are independent bricks that are cemented together using the assertions in
             the ontology files but can be reassembled in different ways in the future should it be
@@ -79,7 +85,8 @@
             <li>owl:ObjectProperty</li>
             <li>owl:DatatypeProperty</li>
             <li>rdfs:domain</li>
-            <li>rdfs:range - only permitted when the object of the range is a class defined in the same file</li>
+            <li>rdfs:range - only permitted when the object of the range is a class defined in the
+                same file</li>
             <li>rdfs:label</li>
             <li>rdfs:comment</li>
             <li>rdfs:isDefinedBy</li>

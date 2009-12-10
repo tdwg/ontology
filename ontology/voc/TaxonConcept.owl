@@ -23,15 +23,6 @@
 
       <owl:versionInfo>0.2 - [SVN $Rev: 1211 $]</owl:versionInfo>
 
-      <rdfs:comment rdf:parseType="Literal"> This is not a full rendering of TaxonConcept as
-         presented in the Taxon Concept Schema 1.0. Not all the possible concept-concept
-         relationships have been modelled just the basic set theory and taxonomic hierarchy
-         relationships. RelationshipAssertions have not been included. These omissions will be
-         addressed in collaboration with the first data provider/consumer pairs who need to make use
-         them. FIXME: <a href="http://phoebus.cs.man.ac.uk:9999/OWL/Validator">Wonder Web OWL
-            Ontology Validator</a>
-      </rdfs:comment>
-
    </owl:Ontology>
 
 
@@ -102,75 +93,105 @@
       <rdfs:domain rdf:resource="#TaxonConcept"/>
       <rdfs:isDefinedBy rdf:resource="http://rs.tdwg.org/ontology/voc/TaxonConcept"/>
    </owl:ObjectProperty>
-   
+
    <!-- Taxonomic Hierarchy -->
-   
+
    <!--is child taxon of-->
    <owl:ObjectProperty rdf:ID="isChildTaxonOf">
       <rdfs:label>Is Child Taxon Of</rdfs:label>
       <dc:title>Is Child Taxon Of</dc:title>
       <tbase:definition>Hierarchical Relationship: Concept 1 is a member of lower taxonomic rank of
          Concept 2</tbase:definition>
-      <tcom:tcsEquivalence>/RelationshipType/is child taxon of</tcom:tcsEquivalence>
       <rdfs:domain rdf:resource="#TaxonConcept"/>
       <rdfs:range rdf:resource="#TaxonConcept"/>
+      <rdfs:isDefinedBy rdf:resource="http://rs.tdwg.org/ontology/voc/TaxonConcept"/>
    </owl:ObjectProperty>
-   
+
    <!--is parent taxon of-->
    <owl:ObjectProperty rdf:ID="isParentTaxonOf">
       <rdfs:label>Is Parent Taxon Of</rdfs:label>
       <dc:title>Is Parent Taxon Of</dc:title>
       <tbase:definition>Hierarchical Relationship: Taxon Concept 1 includes Concept 2 as a
          lower-ranked member.</tbase:definition>
-      <tcom:tcsEquivalence>/RelationshipType/is parent taxon of</tcom:tcsEquivalence>
       <rdfs:domain rdf:resource="#TaxonConcept"/>
       <rdfs:range rdf:resource="#TaxonConcept"/>
+      <rdfs:isDefinedBy rdf:resource="http://rs.tdwg.org/ontology/voc/TaxonConcept"/>
    </owl:ObjectProperty>
-   
-   <!-- cross classification relationships -->
-   
+
+   <!-- cross classification or set relationships  -->
+
    <!--is congruent to-->
    <owl:ObjectProperty rdf:ID="isCongruentTo">
       <rdfs:label>Is Congruent To</rdfs:label>
       <dc:title>Is Congruent To</dc:title>
-      <rdfs:comment>Set Relationship: The extent of Concept 1 is (essentially) identical to
-         Concept 2</rdfs:comment>
-      <tcom:tcsEquivalence>/RelationshipType/is congruent to</tcom:tcsEquivalence>
+      <rdfs:comment>Set Relationship: The subject and object taxa contain exactly the same set of
+         individuals.</rdfs:comment>
+      <rdfs:domain rdf:resource="#TaxonConcept"/>
+      <rdfs:range rdf:resource="#TaxonConcept"/>
+      <rdfs:isDefinedBy rdf:resource="http://rs.tdwg.org/ontology/voc/TaxonConcept"/>
    </owl:ObjectProperty>
 
    <!--includes-->
    <owl:ObjectProperty rdf:ID="includes">
       <rdfs:label>Includes</rdfs:label>
       <dc:title>Includes</dc:title>
-      <rdfs:comment>Set Relationship: Concept 2 is a subset of Concept 1</rdfs:comment>
-      <tcom:tcsEquivalence>/RelationshipType/includes</tcom:tcsEquivalence>
+      <rdfs:comment>Set Relationship: Every member of the object taxon is a member of the subject
+         taxon.</rdfs:comment>
+      <rdfs:domain rdf:resource="#TaxonConcept"/>
+      <rdfs:range rdf:resource="#TaxonConcept"/>
+      <rdfs:isDefinedBy rdf:resource="http://rs.tdwg.org/ontology/voc/TaxonConcept"/>
    </owl:ObjectProperty>
-   
+
    <!--excludes-->
    <owl:ObjectProperty rdf:ID="excludes">
       <rdfs:label>Excludes</rdfs:label>
       <dc:title>Excludes</dc:title>
-      <rdfs:comment>Set Relationship: Concept 1 does not overlap or include Concept
-         2</rdfs:comment>
-      <tcom:tcsEquivalence>/RelationshipType/excludes</tcom:tcsEquivalence>
+      <rdfs:comment>Set Relationship: No member of the object taxon is a member of the subject
+         taxon.</rdfs:comment>
+      <rdfs:domain rdf:resource="#TaxonConcept"/>
+      <rdfs:range rdf:resource="#TaxonConcept"/>
+      <rdfs:isDefinedBy rdf:resource="http://rs.tdwg.org/ontology/voc/TaxonConcept"/>
    </owl:ObjectProperty>
-   
+
+   <!--overlaps-->
+   <owl:ObjectProperty rdf:ID="overlaps">
+      <rdfs:label>Overlaps</rdfs:label>
+      <dc:title>Overlaps</dc:title>
+      <rdfs:comment> Set Relationship: The subject and object taxa have some members in common but
+         both the subject and object taxa also have members they don't share.</rdfs:comment>
+      <rdfs:domain rdf:resource="#TaxonConcept"/>
+      <rdfs:range rdf:resource="#TaxonConcept"/>
+      <rdfs:isDefinedBy rdf:resource="http://rs.tdwg.org/ontology/voc/TaxonConcept"/>
+   </owl:ObjectProperty>
+
+   <!-- isSynonymOf -->
+   <owl:ObjectProperty rdf:ID="isSynonymOf">
+      <rdfs:label>Is Synonym Of</rdfs:label>
+      <dc:title>Is Synonym Of</dc:title>
+      <rdfs:comment>The subject taxon is a synonym of the object taxon. This is ambiguous in terms of the set relationship.</rdfs:comment>
+      <rdfs:domain rdf:resource="#TaxonConcept"/>
+      <rdfs:range rdf:resource="#TaxonConcept"/>
+      <rdfs:isDefinedBy rdf:resource="http://rs.tdwg.org/ontology/voc/TaxonConcept"/>
+   </owl:ObjectProperty>
+
    <!--is hybrid parent of-->
    <owl:ObjectProperty rdf:ID="isHybridParentOf">
       <rdfs:label>Is Hybrid Parent Of</rdfs:label>
       <dc:title>Is Hybrid Parent Of</dc:title>
-      <rdfs:comment>Hybrid Relationship: Concept 1 is genetic parent of Concept
-         2</rdfs:comment>
-      <tcom:tcsEquivalence>/RelationshipType/is hybrid parent of</tcom:tcsEquivalence>
+      <rdfs:comment>Hybrid Relationship: Concept 1 is genetic parent of Concept 2</rdfs:comment>
+      <rdfs:domain rdf:resource="#TaxonConcept"/>
+      <rdfs:range rdf:resource="#TaxonConcept"/>
+      <rdfs:isDefinedBy rdf:resource="http://rs.tdwg.org/ontology/voc/TaxonConcept"/>
    </owl:ObjectProperty>
-   
+
    <!--is male parent of-->
    <owl:ObjectProperty rdf:ID="isMaleParentOf">
       <rdfs:label>Is Male Parent Of</rdfs:label>
       <dc:title>Is Male Parent Of</dc:title>
-      <rdfs:comment>Hybrid Relationship: Concept 1 is genetic father of Concept
-         2</rdfs:comment>
-      <tcom:tcsEquivalence>/RelationshipType/is male parent of</tcom:tcsEquivalence>
+      <rdfs:comment>Hybrid Relationship: Concept 1 is genetic father of Concept 2</rdfs:comment>
+      <rdfs:domain rdf:resource="#TaxonConcept"/>
+      <rdfs:range rdf:resource="#TaxonConcept"/>
+      <rdfs:isDefinedBy rdf:resource="http://rs.tdwg.org/ontology/voc/TaxonConcept"/>
    </owl:ObjectProperty>
 
    <!--is female parent of-->
@@ -178,7 +199,9 @@
       <rdfs:label>Is Female Parent Of</rdfs:label>
       <dc:title>Is Female Parent Of</dc:title>
       <rdfs:comment>Hybrid Relationship: Concept 1 is genetic mother of Concept 2 </rdfs:comment>
-      <tcom:tcsEquivalence>/RelationshipType/is female parent of</tcom:tcsEquivalence>
+      <rdfs:domain rdf:resource="#TaxonConcept"/>
+      <rdfs:range rdf:resource="#TaxonConcept"/>
+      <rdfs:isDefinedBy rdf:resource="http://rs.tdwg.org/ontology/voc/TaxonConcept"/>
    </owl:ObjectProperty>
 
 
