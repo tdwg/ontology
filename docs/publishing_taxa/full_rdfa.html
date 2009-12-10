@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML+RDFa 1.0//EN" "http://www.w3.org/MarkUp/DTD/xhtml-rdfa-1.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:tc="http://rs.tdwg.org/ontology/voc/TaxonConcept#"
+    xmlns:tn="http://rs.tdwg.org/ontology/voc/TaxonName#" xmlns:dc="http://purl.org/dc/terms/"
+    xmlns:owl="http://www.w3.org/2002/07/owl#">
+    <head profile="http://www.w3.org/1999/xhtml/vocab">
+        <title>Puma concolor</title>
+        <style type="text/css">
+            .hidden {
+                display: none;
+            }</style>
+    </head>
+    <body>
+        <!-- visible stuff -->
+        <div about="http://data.example.com/species/Puma_concolor" rel="rdfs:subClassOf"
+            href="http://rs.tdwg.org/ontology/voc/TaxonConcept#TaxonConcept">
+            <h1 rel="tc:hasName">
+                <span typeof="tn:TaxonName" about="http://data.example.com/species/Puma_concolor#name">
+                    <i property="tn:genusPart">Puma</i>
+                    <i property="tn:specificEpithet">concolor</i>
+                    <span property="tn:authorship">(Linnaeus, 1771)</span>
+                    <span class="hidden" rel="tn:year" >1771</span>
+                    <span rel="tn:rank" resource="http://rs.tdwg.org/ontology/voc/TaxonRank#Species"/>
+                    <span rel="tn:hasBasionym" resource="http://data.example.com/species/Felis_concolor#name"/>
+                    <span rel="tn:sameAs" resource="http://lsid.tdwg.org/urn:lsid:zoobank.org:act:6FFAFC2C-D46B-4959-BA03-C38477B9DFF1"/>
+                </span>
+            </h1>
+        </div>
+        <h2>Synonyms</h2>
+        <ul>
+            <li about="http://data.example.com/species/Felis_concolor" rel="rdfs:subClassOf"
+                href="http://data.example.com/species/Puma_concolor">
+                <p rel="tc:hasName">
+                    <span typeof="tn:TaxonName"
+                        about="http://data.example.com/species/Felis_concolor#name">
+                        <i property="tn:genusPart">Felis</i>
+                        <i property="tn:specificEpithet">concolor</i>
+                        <span property="tn:authorship">Linnaeus, 1771</span>
+                    </span>
+                </p>
+            </li>
+        </ul>
+        <h2>Parent Taxon</h2>
+        <ul>
+            <li about="http://data.example.com/species/Puma_concolor" >
+                <a rel="rdfs:subClassOf" href="http://id.elsewhere.com/taxa/Puma">Puma</a>         
+            </li>
+        </ul>
+        <h2>Child Taxa</h2>
+        <ul>
+            <!-- note that, here, even though we have a link to the child taxon we can't use it to build the relationship
+                because we don't have a inverse of rdfs:subClassOf. -->
+            <li about="http://data.example.com/species/Puma_concolor_cabrerae"  rel="rdfs:subClassOf" resource="http://data.example.com/species/Puma_concolor" >
+            <a property="rdfs:label" href="http://data.example.com/species/Puma_concolor_cabrerae">Puma concolor cabrerae</a>         
+            </li>
+        </ul>
+        
+        <h2>Description</h2>
+        <div  about="http://data.example.com/species/Puma_concolor"  rel="tc:hasDescription" >
+        <p  about="http://data.example.com/species/Puma_concolor#description"  property="dc:abstract">
+            The Cougar (Puma concolor), also known as puma, mountain lion, catamount,
+            or panther, depending on the region, is a mammal of the Felidae family,
+            native to the Americas. This large, solitary cat has the greatest range of
+            any large wild terrestrial mammal in the Western Hemisphere, extending
+            from Yukon in Canada to the southern Andes of South America. An adaptable,
+            generalist species, the cougar is found in every major American habitat type.
+            It is the second heaviest cat in the American continents after the jaguar,
+            and the fourth heaviest in the world, along with the leopard, after the
+            tiger, lion, and jaguar, although it is most closely related to smaller felines.
+        </p>
+        </div>
+
+    </body>
+</html>

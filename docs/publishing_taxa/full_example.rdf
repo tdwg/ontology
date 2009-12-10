@@ -1,0 +1,65 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:tc="http://rs.tdwg.org/ontology/voc/TaxonConcept#"
+    xmlns:tn="http://rs.tdwg.org/ontology/voc/TaxonName#"
+    xmlns:dc="http://purl.org/dc/terms/"
+    xmlns:owl="http://www.w3.org/2002/07/owl#">
+
+
+    <!-- Main block for Puma concolor -->
+    <rdf:Description rdf:about="http://data.example.com/species/Puma_concolor">
+        <rdfs:label>Puma concolor (Linnaeus, 1771) sec. Brown</rdfs:label>
+        <rdfs:label xml:lang="en-US" >Cougar</rdfs:label>
+            <rdfs:label xml:lang="fr" >Puma</rdfs:label>
+                
+        <rdfs:subClassOf rdf:resource="http://rs.tdwg.org/ontology/voc/TaxonConcept#TaxonConcept"/>
+        <rdfs:subClassOf rdf:resource="http://id.elsewhere.com/taxa/Puma"/>
+        <dc:relation rdf:resource="http://lsid.tdwg.org/urn:lsid:catalogueoflife.org:taxon:dec52d72-29c1-102b-9a4a-00304854f820:ac2009"/>
+        <tc:status rdf:resource="http://rs.tdwg.org/ontology/voc/TaxonConcept#Accepted"/>
+        <tc:hasName>
+            <tn:TaxonName rdf:about="http://data.example.com/species/Puma_concolor#name">
+                <rdfs:label>Puma concolor (Linnaeus, 1771) </rdfs:label>
+                <tn:genusPart>Puma</tn:genusPart>
+                <tn:specificEpithet>concolor</tn:specificEpithet>
+                <tn:authorship>(Linnaeus, 1771)</tn:authorship>
+                <tn:year>1771</tn:year>
+                <tn:rank rdf:resource="http://rs.tdwg.org/ontology/voc/TaxonRank#Species"/>
+                <tn:hasBasionym rdf:resource="http://data.example.com/species/Felis_concolor#name"/>
+                <owl:sameAs rdf:resource="http://lsid.tdwg.org/urn:lsid:zoobank.org:act:6FFAFC2C-D46B-4959-BA03-C38477B9DFF1"/> 
+            </tn:TaxonName>
+        </tc:hasName>
+        <tc:hasInformation rdf:resource="http://en.wikipedia.org/wiki/Cougar" />     
+    </rdf:Description>
+
+    <!-- block defines a subordinate taxon -->
+    <rdf:Description rdf:about="http://data.example.com/species/Puma_concolor_cabrerae">
+        <rdfs:subClassOf rdf:resource="http://data.example.com/species/Puma_concolor"/>
+    </rdf:Description>
+
+    <!-- Block to define synonym Felix concolor -->
+    <rdf:Description rdf:about="http://data.example.com/species/Felis_concolor">
+        <rdfs:label>Felis concolor Linnaeus, 1771 sec. Brown</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://data.example.com/species/Puma_concolor"/>
+        <tc:status rdf:resource="http://rs.tdwg.org/ontology/voc/TaxonConcept#Synonym"/>
+        <tc:hasName>
+            <tn:TaxonName rdf:about="http://data.example.com/species/Felis_concolor#name">
+                <rdfs:label>Puma concolor Linnaeus, 1771 </rdfs:label>
+                <tn:genusPart>Puma</tn:genusPart>
+                <tn:specificEpithet>concolor</tn:specificEpithet>
+                <tn:authorship>Linnaeus, 1771</tn:authorship>
+                <tn:year>1771</tn:year>
+                <tn:rank rdf:resource="http://rs.tdwg.org/ontology/voc/TaxonRank#Species"/>
+            </tn:TaxonName>
+        </tc:hasName>
+    </rdf:Description>
+
+
+    <rdf:Description rdf:about="http://www.example.com/species.php?id=123&amp;format=rdf">
+        <dc:created>2009asfsd**</dc:created>
+        <dc:modified>2009asfsd**</dc:modified>
+        <dc:creator></dc:creator>
+        <dc:license rdf:resource=""/>
+    </rdf:Description>
+
+</rdf:RDF>

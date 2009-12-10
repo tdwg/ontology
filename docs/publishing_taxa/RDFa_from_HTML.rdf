@@ -1,0 +1,65 @@
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:h="http://www.w3.org/1999/xhtml">
+   <rdf:Description rdf:about="http://data.example.com/species/Puma_concolor">
+      <rdfs:subClassOf xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" rdf:resource="http://rs.tdwg.org/ontology/voc/TaxonConcept#TaxonConcept"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="http://data.example.com/species/Puma_concolor">
+      <tc:hasName xmlns:tc="http://rs.tdwg.org/ontology/voc/TaxonConcept#" rdf:resource="http://data.example.com/species/Puma_concolor#name"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="http://data.example.com/species/Puma_concolor#name">
+      <rdf:type rdf:resource="http://rs.tdwg.org/ontology/voc/TaxonName#TaxonName"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="http://data.example.com/species/Puma_concolor#name">
+      <tn:genusPart xmlns:tn="http://rs.tdwg.org/ontology/voc/TaxonName#">Puma</tn:genusPart>
+   </rdf:Description>
+   <rdf:Description rdf:about="http://data.example.com/species/Puma_concolor#name">
+      <tn:specificEpithet xmlns:tn="http://rs.tdwg.org/ontology/voc/TaxonName#">concolor</tn:specificEpithet>
+   </rdf:Description>
+   <rdf:Description rdf:about="http://data.example.com/species/Puma_concolor#name">
+      <tn:authorship xmlns:tn="http://rs.tdwg.org/ontology/voc/TaxonName#">(Linnaeus, 1771)</tn:authorship>
+   </rdf:Description>
+   <rdf:Description rdf:about="http://data.example.com/species/Puma_concolor#name">
+      <tn:year xmlns:tn="http://rs.tdwg.org/ontology/voc/TaxonName#" rdf:nodeID="d0e31"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="http://data.example.com/species/Puma_concolor#name">
+      <tn:rank xmlns:tn="http://rs.tdwg.org/ontology/voc/TaxonName#" rdf:resource="http://rs.tdwg.org/ontology/voc/TaxonRank#Species"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="http://data.example.com/species/Puma_concolor#name">
+      <tn:hasBasionym xmlns:tn="http://rs.tdwg.org/ontology/voc/TaxonName#" rdf:resource="http://data.example.com/species/Felis_concolor#name"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="http://data.example.com/species/Puma_concolor#name">
+      <tn:sameAs xmlns:tn="http://rs.tdwg.org/ontology/voc/TaxonName#" rdf:resource="http://lsid.tdwg.org/urn:lsid:zoobank.org:act:6FFAFC2C-D46B-4959-BA03-C38477B9DFF1"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="http://data.example.com/species/Felis_concolor">
+      <rdfs:subClassOf xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" rdf:resource="http://data.example.com/species/Puma_concolor"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="http://data.example.com/species/Felis_concolor">
+      <tc:hasName xmlns:tc="http://rs.tdwg.org/ontology/voc/TaxonConcept#" rdf:resource="http://data.example.com/species/Felis_concolor#name"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="http://data.example.com/species/Felis_concolor#name">
+      <rdf:type rdf:resource="http://rs.tdwg.org/ontology/voc/TaxonName#TaxonName"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="http://data.example.com/species/Felis_concolor#name">
+      <tn:genusPart xmlns:tn="http://rs.tdwg.org/ontology/voc/TaxonName#">Felis</tn:genusPart>
+   </rdf:Description>
+   <rdf:Description rdf:about="http://data.example.com/species/Felis_concolor#name">
+      <tn:specificEpithet xmlns:tn="http://rs.tdwg.org/ontology/voc/TaxonName#">concolor</tn:specificEpithet>
+   </rdf:Description>
+   <rdf:Description rdf:about="http://data.example.com/species/Felis_concolor#name">
+      <tn:authorship xmlns:tn="http://rs.tdwg.org/ontology/voc/TaxonName#">Linnaeus, 1771</tn:authorship>
+   </rdf:Description>
+   <rdf:Description rdf:about="http://data.example.com/species/Puma_concolor">
+      <rdfs:subClassOf xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" rdf:resource="http://id.elsewhere.com/taxa/Puma"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="http://data.example.com/species/Puma_concolor_cabrerae">
+      <rdfs:subClassOf xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" rdf:resource="http://data.example.com/species/Puma_concolor"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="http://data.example.com/species/Puma_concolor_cabrerae">
+      <rdfs:label xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">Puma concolor cabrerae</rdfs:label>
+   </rdf:Description>
+   <rdf:Description rdf:about="http://data.example.com/species/Puma_concolor">
+      <tc:hasDescription xmlns:tc="http://rs.tdwg.org/ontology/voc/TaxonConcept#" rdf:resource="http://data.example.com/species/Puma_concolor#description"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="http://data.example.com/species/Puma_concolor#description">
+      <dc:abstract xmlns:dc="http://purl.org/dc/terms/">The Cougar (Puma concolor), also known as puma, mountain lion, catamount, or panther, depending on the region, is a mammal of the Felidae family, native to the Americas. This large, solitary cat has the greatest range of any large wild terrestrial mammal in the Western Hemisphere, extending from Yukon in Canada to the southern Andes of South America. An adaptable, generalist species, the cougar is found in every major American habitat type. It is the second heaviest cat in the American continents after the jaguar, and the fourth heaviest in the world, along with the leopard, after the tiger, lion, and jaguar, although it is most closely related to smaller felines.</dc:abstract>
+   </rdf:Description>
+</rdf:RDF>
