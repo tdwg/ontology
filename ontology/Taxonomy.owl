@@ -6,8 +6,23 @@
     xmlns:owl="http://www.w3.org/2002/07/owl#"
     xmlns:tc="http://rs.tdwg.org/ontology/voc/TaxonConcept#"
     xmlns:tn="http://rs.tdwg.org/ontology/voc/TaxonName#"
+    xmlns:dcterms="http://purl.org/dc/terms/"
  >
-
+    
+    <owl:Ontology rdf:about="http://rs.tdwg.org/ontology/Taxonomy.owl">
+        <dcterms:title>TDWG Taxonomy and Nomenclature Ontology</dcterms:title>
+        <dcterms:creator>Roger Hyam</dcterms:creator>
+        <dcterms:publisher>TDWG Biodiversity Information Standards</dcterms:publisher>
+        <dcterms:modified>$Date: 2007-06-26 10:36:21 +0100 (Tue, 26 Jun 2007) $</dcterms:modified>
+        <dcterms:description>Ontology describing the metadata returned for Taxa and Names</dcterms:description>  
+        <owl:versionInfo>0.2 - [SVN $Rev: 1211 $]</owl:versionInfo>   
+    </owl:Ontology>
+    
+    <!-- suck in the vocabularies we are joining here -->
+    <owl:imports rdf:resource="http://rs.tdwg.org/ontology/voc/TaxonName"/>
+    <owl:imports rdf:resource="http://rs.tdwg.org/ontology/voc/TaxonConcept"/>
+    <owl:imports rdf:resource="http://rs.tdwg.org/ontology/voc/TaxonRank"/>
+    
     <!-- ranges for TaxonConcept -->
     <rdf:Description rdf:about="tc:hasName">
         <rdfs:range rdf:resource="http://rs.tdwg.org/ontology/voc/TaxonName#TaxonName"/>

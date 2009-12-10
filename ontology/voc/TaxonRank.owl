@@ -1,0 +1,536 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="human.xsl"?>
+<!-- $Rev: 1345 $ -->
+<!-- $Date: 2007-11-19 10:47:59 +0000 (Mon, 19 Nov 2007) $ -->
+<!-- $Author: RogerHyam $ -->
+
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:owl="http://www.w3.org/2002/07/owl#"
+   xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dcterms="http://purl.org/dc/terms/"
+   xmlns:base="http://rs.tdwg.org/ontology/Base#"
+   xml:base="http://rs.tdwg.org/ontology/voc/TaxonRank"
+   xmlns="http://rs.tdwg.org/ontology/voc/TaxonRank#"
+   xmlns:trank="http://rs.tdwg.org/ontology/voc/TaxonRank#">
+
+   <owl:Ontology rdf:about="http://rs.tdwg.org/ontology/voc/TaxonName">
+      <dc:title>TDWG Taxon Rank Ontology</dc:title>
+      <dc:creator>Roger Hyam</dc:creator>
+      <dc:publisher>TDWG Biodiversity Information Standards</dc:publisher>
+      <dcterms:modified>$Date: 2007-11-19 10:47:59 +0000 (Mon, 19 Nov 2007) $</dcterms:modified>
+      <dc:description>Ontology describing a controlled vocabulary for taxon ranks.</dc:description>
+
+      <owl:versionInfo>0.2</owl:versionInfo>
+
+      <rdfs:comment rdf:parseType="Literal"> Enumerated ranks of a taxon (scientific organism name)
+         in a taxonomic hierarchy. This list is intended to be interoperable between name providers
+         for bacteria, viruses, fungi, plants, and animals. It is not assumed that in each taxonomic
+         group all ranks have to be used. The enumeration attempts to strike a balance between
+         listing all possible rank terms, and remaining comprehensible. For example, the "infra-"
+         ranks specifically mentioned in BioCode have been included (although very rarely used), but
+         the additional intermediate zoological ranks (micro, nano, pico, etc.) are not included.
+         Whether the selection of infraspecific ranks (some informal ranks, esp. from bacteriology,
+         may be missing!) probably needs some discussion. However, it is believed that this list may
+         help to start developing data sets that can easily be integrated across the barriers of
+         Language and taxonomic traditions. Not included in the list are the botanical "notho-"
+         ranks, which are used to designate hybrids (nothospecies, nothogenus). It is assumed they
+         can be generated from separate information that the taxon is a hybrid. ICBN 4.4 states:
+         "The subordinate ranks of nothotaxa are the same as the subordinate ranks of non-hybrid
+         taxa, except that nothogenus is the highest rank permitted". The following publications
+         have been consulted to determine the number of type terms that should be included and to
+         prepare the semantic definitions: The Berlin Taxonomic Information Model, MoReTax view
+         (Berendsohn &amp; al., http://www.bgbm.org/scripts/ASP/BGBMModel/Catalogues.asp?Cat=MT
+         DiversityTaxonomy model version 0.7 (G. Hagedorn &amp; T. Grafenhan 2002,
+         http://160.45.63.11/Workbench/Taxonomy/Model/InformationModels.html) ABCD version 1.44,
+         types HigherTaxonRankType and RankAbbreviationType, by W. Berendsohn, reviewed by D. Hobern
+         TaxCat2 - Database of Botanical Taxonomic Categories by Jorg Ochsmann, IPK Gatersleben;
+         http://mansfeld.ipk-gatersleben.de/TaxCat2/default.htm A several ranks have been added to
+         the original list to better accommodate names from ICNCP. (RDH). Many thanks for review and
+         help go to Dr. Walter Gams.</rdfs:comment>
+
+   </owl:Ontology>
+
+
+   <!-- ************************************
+					T A X O N    R A N K
+ 		************************************ -->
+
+   <owl:Class rdf:ID="TaxonRankTerm">
+      <rdfs:label>Taxon Rank Term</rdfs:label>
+      <rdfs:comment> The class for construction controlled vocabularies of ranks. Equivalent to TCS
+         TaxonomicRankEnum. </rdfs:comment>
+      <rdfs:subClassOf rdf:resource="http://rs.tdwg.org/ontology/Base#DefinedTerm"/>
+      <rdfs:isDefinedBy rdf:resource="http://rs.tdwg.org/ontology/voc/TaxonRank"/>
+   </owl:Class>
+
+   <!-- Candidate -->
+   <TaxonRankTerm rdf:ID="Candidate">
+      <rdfs:label>cand.</rdfs:label>
+      <dc:title>cand.</dc:title>
+      <base:definition> Candidatus' rank is proposed in bacteriology for putative taxa, which could
+         not yet be studied sufficiently to warrant the creation of a name with a known rank.
+         (Murray, R.G.E. &amp; Schleifer, K.H.: Taxonomic notes: a proposal for recording the
+         properties of putative taxa of procaryotes. Int. J. Syst. Bacteriol., 1994, 44, 174-176).
+      </base:definition>
+   </TaxonRankTerm>
+
+   <!-- InfraspecificTaxon -->
+   <TaxonRankTerm rdf:ID="InfraspecificTaxon">
+      <rdfs:label>tax. infrasp.</rdfs:label>
+      <dc:title>tax. infrasp.</dc:title>
+      <base:definition> infraspecific tax. of undefined rank -- Undefined ranks (using either no
+         rank identifier in botany, or using greek letters or symbols like stars, crosses) occur in
+         very old publications. Most frequently these are to be interpreted as varieties, but
+         occasionally they are forms or subspecies (see Stearn, W.T. 1957: Species plantarum
+         (Facsimile); Introduction. 1. London, p. 90-95, 160-161, 163). The interpretation of these
+         cases requires taxonomic knowledge that may not be available at the time when data are
+         parsed. Such lack of knowledge can be expressed using this rank identifier.
+      </base:definition>
+   </TaxonRankTerm>
+
+   <!-- SpecialForm -->
+   <TaxonRankTerm rdf:ID="SpecialForm">
+      <rdfs:label>f. sp.</rdfs:label>
+      <dc:title>f. sp.</dc:title>
+      <base:definition> The ICBN does not formally cover formae specialis (art. 4, note 3). However,
+         because of the economic importance of pathogenic f. sp., and since it is common practice to
+         handle them as if the code would apply (i. e. priority usually observed, name quoted with
+         author), they are included here. </base:definition>
+   </TaxonRankTerm>
+
+   <!-- Subsubform -->
+   <TaxonRankTerm rdf:ID="Subsubform">
+      <rdfs:label>subsubfm.</rdfs:label>
+      <dc:title>subsubfm.</dc:title>
+      <base:definition> subsubform </base:definition>
+   </TaxonRankTerm>
+
+   <!-- Subform -->
+   <TaxonRankTerm rdf:ID="Subform">
+      <rdfs:label>subfm.</rdfs:label>
+      <dc:title>subfm.</dc:title>
+      <base:definition> subform </base:definition>
+   </TaxonRankTerm>
+
+   <!-- Form -->
+   <TaxonRankTerm rdf:ID="Form">
+      <rdfs:label>fm.</rdfs:label>
+      <dc:title>fm.</dc:title>
+      <base:definition> Form, race, variety are not subject to regulation in zoology; see ICZN
+         Article 1.3.4 </base:definition>
+   </TaxonRankTerm>
+
+   <!-- Sub-Sub-Variety -->
+   <TaxonRankTerm rdf:ID="Sub-Sub-Variety">
+      <rdfs:label>subsubvar.</rdfs:label>
+      <dc:title>subsubvar.</dc:title>
+      <base:definition> sub-sub-variety </base:definition>
+   </TaxonRankTerm>
+
+   <!-- Sub-Variety -->
+   <TaxonRankTerm rdf:ID="Sub-Variety">
+      <rdfs:label>subvar.</rdfs:label>
+      <dc:title>subvar.</dc:title>
+      <base:definition> sub-variety </base:definition>
+   </TaxonRankTerm>
+
+   <!-- Variety -->
+   <TaxonRankTerm rdf:ID="Variety">
+      <rdfs:label>var.</rdfs:label>
+      <dc:title>var.</dc:title>
+      <base:definition> Form, race, variety are not subject to regulation in zoology; see ICZN
+         Article 1.3.4 Examples: Pinus nigra var. caramanica (= &quot;P. nigra subsp. nigra var.
+         caramanica&quot;; Taxus baccata var. variegata </base:definition>
+   </TaxonRankTerm>
+
+   <!-- Patho-Variety -->
+   <TaxonRankTerm rdf:ID="Patho-Variety">
+      <rdfs:label>pathovar.</rdfs:label>
+      <dc:title>pathovar.</dc:title>
+      <base:definition> patho-variety </base:definition>
+   </TaxonRankTerm>
+
+   <!-- Bio-Variety -->
+   <TaxonRankTerm rdf:ID="Bio-Variety">
+      <rdfs:label>biovar.</rdfs:label>
+      <dc:title>biovar.</dc:title>
+      <base:definition> bio-variety </base:definition>
+   </TaxonRankTerm>
+
+   <!-- Infraspecies -->
+   <TaxonRankTerm rdf:ID="Infraspecies">
+      <rdfs:label>infrasp.</rdfs:label>
+      <dc:title>infrasp.</dc:title>
+      <base:definition> infraspecies </base:definition>
+   </TaxonRankTerm>
+
+   <!-- SubspecificAggregate -->
+   <TaxonRankTerm rdf:ID="SubspecificAggregate">
+      <rdfs:label>aggr.</rdfs:label>
+      <dc:title>aggr.</dc:title>
+      <base:definition> subspecific aggregate (= group, complex) -- A loosely defined group of
+         subspecies. Zoology: &quot;Aggregate - a group of subspecies within a species. An
+         aggregate may be denoted by a group name interpolated in parentheses.&quot;
+      </base:definition>
+   </TaxonRankTerm>
+
+   <!-- Subspecies -->
+   <TaxonRankTerm rdf:ID="Subspecies">
+      <rdfs:label>subsp.</rdfs:label>
+      <dc:title>subsp.</dc:title>
+      <base:definition> subspecies -- Examples: Pinus nigra subsp. nigra Homo sapiens sapiens
+      </base:definition>
+   </TaxonRankTerm>
+
+   <!-- Species -->
+   <TaxonRankTerm rdf:ID="Species">
+      <rdfs:label>sp.</rdfs:label>
+      <dc:title>sp.</dc:title>
+      <base:definition> species -- Examples: Taxus baccata, Homo sapiens </base:definition>
+   </TaxonRankTerm>
+
+   <!-- SpeciesAggregate -->
+   <TaxonRankTerm rdf:ID="SpeciesAggregate">
+      <rdfs:label>aggr.</rdfs:label>
+      <dc:title>aggr.</dc:title>
+      <base:definition> A loosely defined group of species. Zoology: &quot;Aggregate - a group
+         of species, other than a subgenus, within a genus. An aggregate may be denoted by a group
+         name interpolated in parentheses.&quot; -- The Berlin/MoreTax model notes:
+         &quot;[these] aren't taxonomic ranks but cirumscriptions because on the one hand they
+         are necessary for the concatenation of the fullname and on the other hand they are
+         necessary for distinguishing the aggregate or species group from the
+         microspecies.&quot; Compare subspecific aggregate for a group of subspecies within a
+         species! </base:definition>
+   </TaxonRankTerm>
+
+   <!-- InfragenericTaxon -->
+   <TaxonRankTerm rdf:ID="InfragenericTaxon">
+      <rdfs:label>tax. infragen.</rdfs:label>
+      <dc:title>tax. infragen.</dc:title>
+      <base:definition> infrageneric tax. of undefined rank -- A name that appear between a genus
+         name and a species epitheton and is not clearly marked as series or section, or other may
+         be assigned to this rank until the true rank can be assigned by a taxonomic expert.
+      </base:definition>
+   </TaxonRankTerm>
+
+   <!-- Subseries -->
+   <TaxonRankTerm rdf:ID="Subseries">
+      <rdfs:label>subser.</rdfs:label>
+      <dc:title>subser.</dc:title>
+      <base:definition> subseries </base:definition>
+   </TaxonRankTerm>
+
+   <!-- Series -->
+   <TaxonRankTerm rdf:ID="Series">
+      <rdfs:label>ser.</rdfs:label>
+      <dc:title>ser.</dc:title>
+      <base:definition> series </base:definition>
+   </TaxonRankTerm>
+
+   <!-- Subsection -->
+   <TaxonRankTerm rdf:ID="Subsection">
+      <rdfs:label>subsect.</rdfs:label>
+      <dc:title>subsect.</dc:title>
+      <base:definition> subsection </base:definition>
+   </TaxonRankTerm>
+
+   <!-- Section -->
+   <TaxonRankTerm rdf:ID="Section">
+      <rdfs:label>sect.</rdfs:label>
+      <dc:title>sect.</dc:title>
+      <base:definition> section </base:definition>
+   </TaxonRankTerm>
+
+   <!-- Infragenus -->
+   <TaxonRankTerm rdf:ID="Infragenus">
+      <rdfs:label>infragen.</rdfs:label>
+      <dc:title>infragen.</dc:title>
+      <base:definition> infragenus </base:definition>
+   </TaxonRankTerm>
+
+   <!-- Subgenus -->
+   <TaxonRankTerm rdf:ID="Subgenus">
+      <rdfs:label>subgen.</rdfs:label>
+      <dc:title>subgen.</dc:title>
+      <base:definition> subgenus </base:definition>
+   </TaxonRankTerm>
+
+   <!-- Genus -->
+   <TaxonRankTerm rdf:ID="Genus">
+      <rdfs:label>gen.</rdfs:label>
+      <dc:title>gen.</dc:title>
+      <base:definition> genus -- Examples: Magnolia Homo </base:definition>
+   </TaxonRankTerm>
+
+   <!-- Infratribe -->
+   <TaxonRankTerm rdf:ID="Infratribe">
+      <rdfs:label>infratrib.</rdfs:label>
+      <dc:title>infratrib.</dc:title>
+      <base:definition> infratribe </base:definition>
+   </TaxonRankTerm>
+
+   <!-- Subtribe -->
+   <TaxonRankTerm rdf:ID="Subtribe">
+      <rdfs:label>subtrib.</rdfs:label>
+      <dc:title>subtrib.</dc:title>
+      <base:definition> subtribe </base:definition>
+   </TaxonRankTerm>
+
+   <!-- Tribe -->
+   <TaxonRankTerm rdf:ID="Tribe">
+      <rdfs:label>trib.</rdfs:label>
+      <dc:title>trib.</dc:title>
+      <base:definition> tribe </base:definition>
+   </TaxonRankTerm>
+
+   <!-- Supertribe -->
+   <TaxonRankTerm rdf:ID="Supertribe">
+      <rdfs:label>supertrib.</rdfs:label>
+      <dc:title>supertrib.</dc:title>
+      <base:definition> supertribe </base:definition>
+   </TaxonRankTerm>
+
+   <!-- Infrafamily -->
+   <TaxonRankTerm rdf:ID="Infrafamily">
+      <rdfs:label>infrafam.</rdfs:label>
+      <dc:title>infrafam.</dc:title>
+      <base:definition> infrafamily </base:definition>
+   </TaxonRankTerm>
+
+   <!-- Subfamily -->
+   <TaxonRankTerm rdf:ID="Subfamily">
+      <rdfs:label>subfam.</rdfs:label>
+      <dc:title>subfam.</dc:title>
+      <base:definition> subfamily -- Examples: Magnolioideae </base:definition>
+   </TaxonRankTerm>
+
+   <!-- Family -->
+   <TaxonRankTerm rdf:ID="Family">
+      <rdfs:label>fam.</rdfs:label>
+      <dc:title>fam.</dc:title>
+      <base:definition> family -- Examples: Magnoliaceae Hominidae </base:definition>
+   </TaxonRankTerm>
+
+   <!-- Superfamily -->
+   <TaxonRankTerm rdf:ID="Superfamily">
+      <rdfs:label>superfam.</rdfs:label>
+      <dc:title>superfam.</dc:title>
+      <base:definition> superfamily -- Examples: Magnoliacea </base:definition>
+   </TaxonRankTerm>
+
+   <!-- Infraorder -->
+   <TaxonRankTerm rdf:ID="Infraorder">
+      <rdfs:label>infraord.</rdfs:label>
+      <dc:title>infraord.</dc:title>
+      <base:definition> infraorder </base:definition>
+   </TaxonRankTerm>
+
+   <!-- Suborder -->
+   <TaxonRankTerm rdf:ID="Suborder">
+      <rdfs:label>subord.</rdfs:label>
+      <dc:title>subord.</dc:title>
+      <base:definition> suborder -- Examples: Magnolineae Catarrhini </base:definition>
+   </TaxonRankTerm>
+
+   <!-- Order -->
+   <TaxonRankTerm rdf:ID="Order">
+      <rdfs:label>ord.</rdfs:label>
+      <dc:title>ord.</dc:title>
+      <base:definition> order -- Examples: Magnoliales Primates </base:definition>
+   </TaxonRankTerm>
+
+   <!-- Superorder -->
+   <TaxonRankTerm rdf:ID="Superorder">
+      <rdfs:label>superord.</rdfs:label>
+      <dc:title>superord.</dc:title>
+      <base:definition> superorder -- Examples: Magnolianae </base:definition>
+   </TaxonRankTerm>
+
+   <!-- Infraclass -->
+   <TaxonRankTerm rdf:ID="Infraclass">
+      <rdfs:label>infracl.</rdfs:label>
+      <dc:title>infracl.</dc:title>
+      <base:definition> infraclass </base:definition>
+   </TaxonRankTerm>
+
+   <!-- Subclass -->
+   <TaxonRankTerm rdf:ID="Subclass">
+      <rdfs:label>subcl.</rdfs:label>
+      <dc:title>subcl.</dc:title>
+      <base:definition> subclass -- Examples: Magnoliidae Eutheria </base:definition>
+   </TaxonRankTerm>
+
+   <!-- Class -->
+   <TaxonRankTerm rdf:ID="Class">
+      <rdfs:label>cl.</rdfs:label>
+      <dc:title>cl.</dc:title>
+      <base:definition> class -- Examples: Magnoliopsida Mammalia </base:definition>
+   </TaxonRankTerm>
+
+   <!-- Superclass -->
+   <TaxonRankTerm rdf:ID="Superclass">
+      <rdfs:label>supercl.</rdfs:label>
+      <dc:title>supercl.</dc:title>
+      <base:definition> superclass </base:definition>
+   </TaxonRankTerm>
+
+   <!-- Infraphylum -->
+   <TaxonRankTerm rdf:ID="Infraphylum">
+      <rdfs:label>infraphyl.</rdfs:label>
+      <dc:title>infraphyl.</dc:title>
+      <base:definition> infraphylum (= infradivision) </base:definition>
+   </TaxonRankTerm>
+
+   <!-- Infradivision -->
+   <TaxonRankTerm rdf:ID="Infradivision">
+      <rdfs:label>infradiv.</rdfs:label>
+      <dc:title>infradiv.</dc:title>
+      <base:definition> infraphylum (= infradivision) </base:definition>
+   </TaxonRankTerm>
+
+   <!-- Subphylum -->
+   <TaxonRankTerm rdf:ID="Subphylum">
+      <rdfs:label>subphyl.</rdfs:label>
+      <dc:title>subphyl.</dc:title>
+      <base:definition> subphylum (= subdivision) -- Examples: Magnoliophytina Vertebrata
+      </base:definition>
+   </TaxonRankTerm>
+
+   <!-- Subdivision -->
+   <TaxonRankTerm rdf:ID="Subdivision">
+      <rdfs:label>subdiv.</rdfs:label>
+      <dc:title>subdiv.</dc:title>
+      <base:definition> subphylum (= subdivision) -- Examples: Magnoliophytina Vertebrata
+      </base:definition>
+   </TaxonRankTerm>
+
+   <!-- Phylum -->
+   <TaxonRankTerm rdf:ID="Phylum">
+      <rdfs:label>phyl.</rdfs:label>
+      <dc:title>phyl.</dc:title>
+      <base:definition> phylum (= division) -- Examples: Magnoliophyta Chordata </base:definition>
+   </TaxonRankTerm>
+
+   <!-- Division -->
+   <TaxonRankTerm rdf:ID="Division">
+      <rdfs:label>div.</rdfs:label>
+      <dc:title>div.</dc:title>
+      <base:definition> phylum (= division) -- Examples: Magnoliophyta Chordata </base:definition>
+   </TaxonRankTerm>
+
+   <!-- Superphylum -->
+   <TaxonRankTerm rdf:ID="Superphylum">
+      <rdfs:label>superphyl.</rdfs:label>
+      <dc:title>superphyl.</dc:title>
+      <base:definition> superphylum (= superdivision) </base:definition>
+   </TaxonRankTerm>
+
+   <!-- Superdivision -->
+   <TaxonRankTerm rdf:ID="Superdivision">
+      <rdfs:label>superdiv.</rdfs:label>
+      <dc:title>superdiv.</dc:title>
+      <base:definition> superphylum (= superdivision) </base:definition>
+   </TaxonRankTerm>
+
+   <!-- Infrakingdom -->
+   <TaxonRankTerm rdf:ID="Infrakingdom">
+      <rdfs:label>infrareg.</rdfs:label>
+      <dc:title>infrareg.</dc:title>
+      <base:definition> infrakingdom </base:definition>
+   </TaxonRankTerm>
+
+   <!-- Subkingdom -->
+   <TaxonRankTerm rdf:ID="Subkingdom">
+      <rdfs:label>subreg.</rdfs:label>
+      <dc:title>subreg.</dc:title>
+      <base:definition> subkingdom </base:definition>
+   </TaxonRankTerm>
+
+   <!-- Kingdom -->
+   <TaxonRankTerm rdf:ID="Kingdom">
+      <rdfs:label>reg.</rdfs:label>
+      <dc:title>reg.</dc:title>
+      <base:definition> kingdom -- Examples: Plantae Animalia </base:definition>
+   </TaxonRankTerm>
+
+   <!-- SuperKingdom -->
+   <TaxonRankTerm rdf:ID="SuperKingdom">
+      <rdfs:label>superreg.</rdfs:label>
+      <dc:title>superreg.</dc:title>
+      <base:definition> super kingdom -- Examples: Eucaryota </base:definition>
+   </TaxonRankTerm>
+
+   <!-- Domain -->
+   <TaxonRankTerm rdf:ID="Domain">
+      <rdfs:label>dom.</rdfs:label>
+      <dc:title>dom.</dc:title>
+      <base:definition> domain (= empire) -- Examples: Archaea (= Archaeobacteria), Bacteria (=
+         Eubacteria), Eukarya (= Eukaryota) </base:definition>
+   </TaxonRankTerm>
+
+   <!-- Empire -->
+   <TaxonRankTerm rdf:ID="Empire">
+      <base:definition> domain (= empire) -- Examples: Archaea (= Archaeobacteria), Bacteria (=
+         Eubacteria), Eukarya (= Eukaryota) </base:definition>
+   </TaxonRankTerm>
+
+   <!-- SupragenericTaxon -->
+   <TaxonRankTerm rdf:ID="SupragenericTaxon">
+      <rdfs:label>tax. supragen.</rdfs:label>
+      <dc:title>tax. supragen.</dc:title>
+      <base:definition> suprageneric tax. of undefined rank -- This value indicates that the rank of
+         a name is unknown. Compare &quot;incertae sedis&quot; which is commonly used as a
+         replacement for a taxon to group all taxa whose position in the classification or
+         phylogenetic tree is uncertain. </base:definition>
+   </TaxonRankTerm>
+
+   <!-- Cultivar -->
+   <TaxonRankTerm rdf:ID="Cultivar">
+      <rdfs:label>cult.</rdfs:label>
+      <dc:title>cult.</dc:title>
+      <base:definition> cultivar -- The epithet is usually output in single quotes and may contain
+         multiple words, see ICBN Â§28. Examples: Taxus baccata &apos;Variegata&apos;,
+         Juniperus Ã—pfitzeriana &apos;Wilhelm Pfitzer&apos;; Magnolia
+         &apos;Elizabeth&apos; (= a hybrid, no species epithet). </base:definition>
+   </TaxonRankTerm>
+
+   <!-- Convar -->
+   <TaxonRankTerm rdf:ID="Convar">
+      <rdfs:label>convar.</rdfs:label>
+      <dc:title>convar.</dc:title>
+      <base:definition> Used in cultivated plants (ICNCP), but deprecated, see &apos;Some notes
+         on problems of taxonomy and nomenclature of cultivated plants&apos; by J. Ochsmann,
+         http://www.genres.de/IGRREIHE/IGRREIHE/DDD/22-08.pdf </base:definition>
+   </TaxonRankTerm>
+
+   <!-- Grex -->
+   <TaxonRankTerm rdf:ID="Grex">
+      <rdfs:label>grex</rdfs:label>
+      <dc:title>grex</dc:title>
+      <base:definition> a rank equivalent to cultivar group used principly for artificial hybrid
+         swams in Orchidaceae. </base:definition>
+   </TaxonRankTerm>
+
+   <!-- Cultivar-Group -->
+   <TaxonRankTerm rdf:ID="Cultivar-Group">
+      <rdfs:label>cultivar. group</rdfs:label>
+      <dc:title>cultivar. group</dc:title>
+      <base:definition> cultivar-group </base:definition>
+   </TaxonRankTerm>
+
+   <!-- Graft-Chimaera -->
+   <TaxonRankTerm rdf:ID="Graft-Chimaera">
+      <rdfs:label>graft-chimaera</rdfs:label>
+      <dc:title>graft-chimaera</dc:title>
+      <base:definition> graft-chimaera </base:definition>
+   </TaxonRankTerm>
+
+   <!-- DenominationClass -->
+   <TaxonRankTerm rdf:ID="DenominationClass">
+      <rdfs:label>Denomination Class</rdfs:label>
+      <dc:title>Denomination Class</dc:title>
+      <base:definition> Denomination classes are constructs under ICNCP for defining the scope
+         within which a cultivar or Group epithet must be unique. </base:definition>
+   </TaxonRankTerm>
+
+
+</rdf:RDF>
