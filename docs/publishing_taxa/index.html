@@ -139,7 +139,19 @@
         <script type="text/javascript" src="contents.js" ></script>
     </head>
     <body onload="generateContents()" >
+        
+        
         <h1>How to Publish Biological Classifications as Linked Data on the Semantic Web</h1>
+        
+        
+        <p style="border: solid 1px red; color: red; padding: 5px;">
+         
+            WARNING: I am currently working through this document to convert from the use of 
+            subclassing hierarchy for taxa to one of taxa as linked instances. It is therefore currently internally inconsistent.
+        
+            RDH 2009-12-11
+        </p>
+        
         <dl>
             <dt>Authors:</dt>
             <dd>
@@ -147,19 +159,17 @@
             </dd>
             <dt>This version:</dt>
             <dd>
-                <strong>This version is defunct</strong>
-                <a href="http://www.hyam.net/publications/LinkedTaxaTutorial/20090828"
-                    >http://www.hyam.net/publications/LinkedTaxaTutorial/20090828</a>
+                ***
             </dd>
             <dt>Latest version:</dt>
             <dd>
-                <a href="http://www.hyam.net/publications/LinkedTaxaTutorial"
-                    >http://www.hyam.net/publications/LinkedTaxaTutorial</a>
+                <a href=""
+                    >**</a>
             </dd>
             <dt>Status</dt>
-            <dd>This document is still under development. Written once but not corrected.</dd>
+            <dd>This document is still under development.</dd>
             <dt>Last Modified</dt>
-            <dd>2009-09-11</dd>
+            <dd>2009-12-11</dd>
         </dl>
         <h2>Table of Contents</h2>
         <div id="toc"></div>
@@ -436,16 +446,17 @@
         <h3>The Metadata and Taxon Resources</h3>
         <pre>
     &lt;?xml version="1.0"?&gt;
-    &lt;rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"&gt;
-        <strong>
-        &lt;rdf:Description rdf:about="http://data.example.com/species/Puma_concolor" &gt;
-            &lt;!-- assertions about this taxon come here --&gt;
-        &lt;/rdf:Description&gt;
+    &lt;rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+(1)     <strong>xmlns:tc="http://rs.tdwg.org/ontology/voc/TaxonConcept#"</strong> &gt;
         
-        &lt;rdf:Description rdf:about="http://www.example.com/species.php?id=123&amp;format=rdf" &gt;
+(2)     <strong>&lt;tc:Taxon rdf:about="http://data.example.com/species/Puma_concolor" &gt;
+            &lt;!-- assertions about this taxon come here --&gt;
+        &lt;/tc:Taxon&gt;</strong>
+        
+(3)     <strong>&lt;rdf:Description rdf:about="http://www.example.com/species.php?id=123&amp;format=rdf" &gt;
             &lt;!-- metadata assertions about this document come here --&gt;
-        &lt;/rdf:Description&gt;       
-        </strong>
+        &lt;/rdf:Description&gt; </strong>      
+        
     &lt;/rdf:RDF&gt;</pre>
         <p>We wish to pass information about <i>Puma concolor</i> and so create a HTTP URI for that
             taxon (http://data.example.com/species/Puma_concolor) but in doing so we will also need
@@ -455,6 +466,7 @@
             was modified rather than the date document about the taxon was modified. Every RDF file
             therefore needs to include assertions about at least two resources, each identified by
             HTTP URIs.</p>
+        <p>(2) is the block of assertions about the cat. (3) is the block of assertions about the document. We also need to declare the TaxonConcept namespace (1).</p>
         <p>[Note that although we are presenting assertions about resources in distinct blocks, one
             for each resource, this is done only for clarity. The RDF/XML syntax does not require
             this. Each assertion could be made separately and in any order.]</p>
@@ -463,24 +475,22 @@
     &lt;?xml version="1.0"?&gt;
     &lt;rdf:RDF
         xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-(1a)    <strong>xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"</strong>
-(1b)    <strong>xmlns:tc="http://rs.tdwg.org/ontology/voc/TaxonConcept#"</strong>&gt;
+        xmlns:tc="http://rs.tdwg.org/ontology/voc/TaxonConcept#"&gt;
     
-        &lt;rdf:Description rdf:about="http://data.example.com/species/Puma_concolor" &gt;
-(2)         <strong>&lt;rdfs:subClassOf rdf:resource="http://rs.tdwg.org/ontology/voc/TaxonConcept#TaxonConcept"/&gt;</strong>
-(3)         <strong>&lt;tc:status rdf:resource="http://rs.tdwg.org/ontology/voc/TaxonConcept#Accepted"/&gt;</strong>
+        &lt;tc:Taxon rdf:about="http://data.example.com/species/Puma_concolor" &gt;
+(1)         <strong>&lt;tc:isChildTaxonOf rdf:resource="http://data.example.com/species/Puma"/&gt;</strong>
+(2)         <strong>&lt;tc:isParentTaxonOf rdf:resource="http://data.example.com/species/Puma_concolor_cabrerae"/&gt;</strong>
             &lt;-- more assertions about this taxon come here --&gt;
-        &lt;/rdf:Description&gt;
-        
-(4)     <strong>&lt;rdf:Description rdf:about="http://data.example.com/species/Puma_concolor_cabrerae" &gt;
-            &lt;rdfs:subClassOf rdf:resource="http://data.example.com/species/Puma_concolor"&gt;
-        &lt;/rdf:Description&gt;</strong>
+        &lt;/tc:Taxon&gt;
         
         &lt;rdf:Description rdf:about="http://www.example.com/species.php?id=123&amp;format=rdf" &gt;
             &lt;-- metadata assertions about this document come here --&gt;
         &lt;/rdf:Description&gt;
     
     &lt;/rdf:RDF&gt;</pre>
+        
+ <h1 style="color: green;">RDH 2009-12-11: Got to here in working through to convert from subclasses to properties.</h1>       
+        
         <p>A taxonomic hierarchy is expressed in terms of a nested set of taxon classes. (see <a
                 href="#why_taxon_classes">Why are Taxa Treated As Classes?</a> in justifications).
             In order to express this we first introduce a prefix for the RDF Schema namespace (1a).
