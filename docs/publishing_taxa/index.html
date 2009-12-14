@@ -1,17 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-stylesheet type="" href="contents.xsl"?>
-<!DOCTYPE html  PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"
-    
-    [<!ENTITY example "http://data.example.com/species/" >
-    <!ENTITY tn "http://rs.tdwg.org/ontology/voc/TaxonName#" >
-    <!ENTITY tc "http://rs.tdwg.org/ontology/voc/TaxonConcept#" >
-    <!ENTITY tr "http://rs.tdwg.org/ontology/voc/TaxonRank#" > ]
-    
-    >
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML+RDFa 1.0//EN"
+    "http://www.w3.org/MarkUp/DTD/xhtml-rdfa-1.dtd"
+>
+
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:tc="&tc;" xmlns:tn="&tn;"
-    xmlns:dc="http://purl.org/dc/terms/" xmlns:owl="http://www.w3.org/2002/07/owl#">
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:tc="http://rs.tdwg.org/ontology/voc/TaxonConcept#"
+    xmlns:tn="http://rs.tdwg.org/ontology/voc/TaxonName#" xmlns:dc="http://purl.org/dc/terms/"
+    xmlns:owl="http://www.w3.org/2002/07/owl#">
     <head>
         <title>How to Publish Biological Classifications as Linked Data on the Semantic Web</title>
         <style type="text/css">
@@ -131,40 +127,30 @@
             .hidden {
                 display: none;
             }
-            #toc ul{
+            #toc ul {
                 list-style: none;
-            }
-        
-        </style>
-        <script type="text/javascript" src="contents.js" ></script>
+            }</style>
     </head>
-    <body onload="generateContents()" >
-        
-        
+    <body>
+
         <h1>How to Publish Biological Classifications as Linked Data on the Semantic Web</h1>
-        
-        
-        <p style="border: solid 1px red; color: red; padding: 5px;">
-         
-            WARNING: I am currently working through this document to convert from the use of 
-            subclassing hierarchy for taxa to one of taxa as linked instances. It is therefore currently internally inconsistent.
-        
-            RDH 2009-12-11
-        </p>
-        
+
+
+        <p style="border: solid 1px red; color: red; padding: 5px;"> WARNING: I am currently working
+            through this document to convert from the use of subclassing hierarchy for taxa to one
+            of taxa as linked instances. It is therefore currently internally inconsistent. RDH
+            2009-12-11 </p>
+
         <dl>
             <dt>Authors:</dt>
             <dd>
                 <a href="http://www.hyam.net/">Roger Hyam</a>
             </dd>
             <dt>This version:</dt>
-            <dd>
-                ***
-            </dd>
+            <dd> *** </dd>
             <dt>Latest version:</dt>
             <dd>
-                <a href=""
-                    >**</a>
+                <a href="">**</a>
             </dd>
             <dt>Status</dt>
             <dd>This document is still under development.</dd>
@@ -172,7 +158,7 @@
             <dd>2009-12-11</dd>
         </dl>
         <h2>Table of Contents</h2>
-        <div id="toc"></div>
+        <div id="toc"/>
         <h2>Introduction</h2>
         <p> This is an instruction manual that explains how to publish taxonomic data on the web in
             RDF so that other people can consume it as Linked Data and as part of the Semantic Web.
@@ -425,11 +411,12 @@
             a templating approach to produce RDF/XML output.</p>
         <p>The basic RDF graph for a classification will look something like this. Where resources
             (identified by URIs) are in ovals and literals are in rectangles.</p>
-        <p>
-            <img src="basic_taxon_graph.png" alt="Basic Taxon Graph structure"/>
-        </p>
+        <p> [New diagram needed here] </p>
         <p>We will work through an example to create an RDF output for a single Taxon and Name.</p>
+
+
         <!-- RDF Wrapper -->
+
         <h3>The RDF Wrapper</h3>
         <pre>
     &lt;?xml version="1.0"?&gt;
@@ -443,6 +430,9 @@
             entity declarations where the same namespaces are used repeatedly as attribute values.
             The Jena class libraries take this approach when serialising RDF graphs but for clarity
             it won't be used here.</p>
+
+        <!-- Metadata and Taxon Resources -->
+
         <h3>The Metadata and Taxon Resources</h3>
         <pre>
     &lt;?xml version="1.0"?&gt;
@@ -466,7 +456,8 @@
             was modified rather than the date document about the taxon was modified. Every RDF file
             therefore needs to include assertions about at least two resources, each identified by
             HTTP URIs.</p>
-        <p>(2) is the block of assertions about the cat. (3) is the block of assertions about the document. We also need to declare the TaxonConcept namespace (1).</p>
+        <p>(2) is the block of assertions about the cat. (3) is the block of assertions about the
+            document. We also need to declare the TaxonConcept namespace (1).</p>
         <p>[Note that although we are presenting assertions about resources in distinct blocks, one
             for each resource, this is done only for clarity. The RDF/XML syntax does not require
             this. Each assertion could be made separately and in any order.]</p>
@@ -488,68 +479,52 @@
         &lt;/rdf:Description&gt;
     
     &lt;/rdf:RDF&gt;</pre>
-        
- <h1 style="color: green;">RDH 2009-12-11: Got to here in working through to convert from subclasses to properties.</h1>       
-        
-        <p>A taxonomic hierarchy is expressed in terms of a nested set of taxon classes. (see <a
-                href="#why_taxon_classes">Why are Taxa Treated As Classes?</a> in justifications).
-            In order to express this we first introduce a prefix for the RDF Schema namespace (1a).
-            We can then add a rdfs:subClassOf relationship to the <i>Puma concolor</i> block (2) to
-            show that this item is a subClass of TDWG TaxonConcept. TaxonConcept is the root concept
-            of all Taxa a little like 'Thing' in OWL or 'Object' in Java.</p>
-        <p>We also as a flag (3) to say that we accept this taxon as part of our hierarchy. i.e.
-            something we would want people to attribute things to. We need to setup the namespace
-            prefix for this as well (1b).</p>
-        <p>If we wish to express here that another Taxon is a subclass of this taxon we can simply
-            add an assertion about that Taxon (4). Here we assert that the subspecies <i>Puma
-                concolor cabrerae</i> is a subclass (or sub taxon if you like) of <i>Puma
-                concolor</i>. Further information about <i>Puma concolor cabrerae</i> can be
-            obtained by the user agent that is consuming this document by resolving the URI
-            http://data.example.com/species/Puma_concolor_cabrerae.</p>
-        <p>Because <i>Puma concolor cabrerae</i> is a subclass of <i>Puma concolor</i> and <i>Puma
-                concolor</i> is a subclass of TaxonConcept we know that <i>Puma concolor
-                cabrerae</i> is a TaxonConcept. If, however, we had not defined <i>Puma concolor</i>
-            as being a direct subclass of TaxonConcept but instead a subclass of <i>Puma</i> and
-                <i>Puma</i> was defined somewhere else then we would not be able to tell from
-            parsing only this file that any of the resources were in fact Taxa (subclasses of
-            TaxonConcept). It is therefore necessary to assert that the top taxon of the hierarchy
-            in any one file is always a subclass of TaxonConcept even if another super class is also
-            defined. This should have no effect on interpretation of the data. In fact it is
-            acceptable to assert that every Taxon in a file is a subclass of TaxonConcept if this is
-            programmatically easier than discovering the top most taxon.</p>
-        <p>Linking the hierarchy into a higher taxonomy defined elsewhere would look like this.</p>
+
+        <p>The TDWG TaxonConcept vocabulary provides properties to define the hierarchical
+            taxon-taxon relationships that occur within an single classification. These are
+            tc:isChildTaxonOf (1) and tc:isParentTaxonOf (2). Note the objects of these triples
+            could be located within this file or anywhere on the internet.</p>
+        <p>The XML serialisation of RDF also permits us to represent the classification hierarchy as
+            if it were an XML document hierarchy like this: </p>
+
         <pre>
-    &lt;?xml version="1.0"?&gt;
-        &lt;rdf:RDF
-            xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-            xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"&gt;
-        
-        &lt;rdf:Description rdf:about="http://data.example.com/species/Puma_concolor" &gt;
-(1)         &lt;rdfs:subClassOf rdf:resource="http://rs.tdwg.org/ontology/voc/TaxonConcept#TaxonConcept"&gt;
-(2)         <strong>&lt;rdfs:subClassOf rdf:resource="http://id.elsewhere.com/taxa/Puma"/&gt;</strong>
-            &lt;tc:status rdf:resource="http://rs.tdwg.org/ontology/voc/TaxonConcept#Accepted"/&gt;
-            &lt;-- more assertions about this taxon come here --&gt;
-        &lt;/rdf:Description&gt;
-        
-        &lt;rdf:Description rdf:about="http://data.example.com/species/Puma_concolor_cabrerae" &gt;
-            &lt;rdfs:subClassOf rdf:resource="http://data.example.com/species/Puma_concolor"&gt;
-        &lt;/rdf:Description&gt;
-        
-        &lt;rdf:Description rdf:about="http://www.example.com/species.php?id=123&amp;format=rdf" &gt;
-            &lt;-- metadata assertions about this document come here --&gt;
-        &lt;/rdf:Description&gt;
-        
-    &lt;/rdf:RDF&gt;</pre>
-        <p>Note that although we have added the rdfs:subClassOf assertion at (2) we leave in the
-            rdfs:subClassOf assertion at (1).</p>
+   &lt;?xml version="1.0"?&gt;
+   &lt;rdf:RDF
+            
+       xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+       xmlns:tc="http://rs.tdwg.org/ontology/voc/TaxonConcept#"&gt;
+            
+       &lt;tc:Taxon rdf:about="http://data.example.com/species/Puma" &gt;
+            <strong>&lt;tc:isParentTaxonOf&gt;</strong>
+                &lt;tc:Taxon rdf:about="http://data.example.com/species/Puma_concolor" &gt;
+                     <strong>&lt;tc:isParentTaxonOf&gt;</strong>
+                         &lt;tc:Taxon rdf:about="http://data.example.com/species/Puma_concolor" &gt;
+                            &lt;-- more assertions about this taxon come here --&gt;
+                         &lt;/tc:Taxon&gt;
+                     <strong>&lt;/tc:isParentTaxonOf&gt;</strong>
+                     &lt;-- more assertions about this taxon come here --&gt;
+                &lt;/tc:Taxon&gt;
+            <strong>&lt;/tc:isParentTaxonOf&gt;</strong>
+           &lt;-- more assertions about this taxon come here --&gt;
+       &lt;/tc:Taxon&gt;
+            
+       &lt;rdf:Description rdf:about="http://www.example.com/species.php?id=123&amp;format=rdf" &gt;
+       &lt;-- metadata assertions about this document come here --&gt;
+       &lt;/rdf:Description&gt;
+            
+   &lt;/rdf:RDF&gt;</pre>
+
+        <p>This may be a more convenient means of serialising data in some situations but, for
+            clarity, we will continue treating each taxon as a free standing block of assertions. </p>
+
+        <!-- Name Resources -->
+
         <h3>Adding the Name Resource</h3>
-        <p>So far we have said nothing about the Taxon other than its relationship to apart from
-            Taxa within the same classification. Other than in the results of phylogenetic analysis
-            we are unlikely to encounter anonymous taxa. We will therefore add a name to this
-            taxon.</p>
-        <p>Here we will concentrate on the <i>Puma concolor</i> descriptive block. Note that we are
-            including the name as a nested element but it could equally be located elsewhere in the
-            file or indeed anywhere on the internet.</p>
+        <p>So far we have said nothing about the Taxon other than its relationship other taxa the
+            same classification. Other than in the results of phylogenetic analysis we are unlikely
+            to encounter anonymous taxa and even then it is best always to provide some kind of
+            human readable label. We will therefore add a name to this taxon.</p>
+        <p>Here we will concentrate on the <i>Puma concolor</i> descriptive block.</p>
         <pre>
     &lt;?xml version="1.0"?&gt;
         &lt;rdf:RDF
@@ -558,9 +533,8 @@
             
         &lt;rdf:Description rdf:about="http://data.example.com/species/Puma_concolor" &gt;
 (1)         <strong>&lt;rdfs:label&gt;Puma concolor (Linnaeus, 1771) sec. Brown&lt;/rdfs:label&gt;</strong>
-            &lt;rdfs:subClassOf rdf:resource="http://rs.tdwg.org/ontology/voc/TaxonConcept#TaxonConcept"&gt;
-            &lt;rdfs:subClassOf rdf:resource="http://id.elsewhere.com/taxa/Puma"&gt;
-            &lt;tc:status rdf:resource="http://rs.tdwg.org/ontology/voc/TaxonConcept#Accepted"/&gt;
+            &lt;tc:isChildTaxonOf rdf:resource="http://data.example.com/species/Puma"/&gt;
+            &lt;tc:isParentTaxonOf rdf:resource="http://data.example.com/species/Puma_concolor_cabrerae"/&gt;
             &lt;-- more assertions about this taxon come here --&gt;
         &lt;/rdf:Description&gt;
                 
@@ -636,16 +610,13 @@
             a synonym for that taxon. The second type of synonymy is objective synonymy where an
             author indicates that a named <strong>Taxon</strong> (or the name bearing part of that
             Taxon) is rejected and should be considered part of one of their accepted taxa.</p>
-        <p>Both types are of synonymy are treated the same here using rdfs:subClassOf relationships
-            to the accepted taxa. For homotypic synonymy additional links between
-                <strong>Name</strong> resources are made (see next section). (see <a
-                href="why_synonyms_subclasses">Why are Synonyms Treated As Subclasses?</a> if you
-            need a justification for this - or you could just accept it.)</p>
+        <p>Both types are of synonymy are treated the same here using tc:isSynonymOf relationship to
+            the accepted taxon. For homotypic synonymy additional links between
+                <strong>Name</strong> resources are made (see next section).</p>
         <pre>
-        &lt;rdf:Description rdf:about="http://data.example.com/species/Felis_concolor" &gt;
+       &lt;rdf:Description rdf:about="http://data.example.com/species/<strong>Felis_concolor</strong>" &gt;
             &lt;rdfs:label&gt;Felis concolor Linnaeus, 1771 sec. Brown&lt;/rdfs:label/&gt;
-            &lt;rdfs:subClassOf rdf:resource="http://data.example.com/species/Puma_concolor"/&gt;
-            &lt;tc:status rdf:resource="http://rs.tdwg.org/ontology/voc/TaxonConcept#Synonym"/&gt;
+            <strong>&lt;tc:isSynonymOf rdf:resource="http://data.example.com/species/Puma_concolor"/&gt;</strong>
             &lt;tc:hasName&gt;
                 &lt;tn:TaxonName rdf:about="http://data.example.com/species/Felis_concolor#name" &gt;
                     &lt;rdfs:label&gt;Puma concolor Linnaeus, 1771 &lt;/rdfs:label&gt;
@@ -657,9 +628,22 @@
                 &lt;/tn:TaxonName&gt;
             &lt;/tc:hasName&gt;
         &lt;/rdf:Description&gt;</pre>
+
+        <p>Here we have stated that, in this classification, the taxon <i>Felis concolor</i>
+            Linnaeus, 1771 <i>sec.</i> Brown is a synonym of the <i>Puma concolor</i> we defined
+            earlier. Often it is unclear which circumscription of a taxon is included as the
+            synonym. In such a case it is acceptable to omit the sense in which the taxon name is
+            used (in this case "<i>sec.</i> Brown"). The precise meaning of synonym is often
+            difficult to establish.</p>
+
+        <p>If the real relationships between accepted and rejected taxa are known then the TDWG
+            TaxonConcept vocabulary provides a set of properties to describe these relationships:
+            tc:isCongruentTo, tc:includes, tc:isIncludedIn, tc:excludes and tc:overlaps. There are
+            also properties to describe the parentage of hybrid taxa.</p>
+
         <h3>Pure Nomenclatural Links</h3>
         <p>Nomenclature is complex. The primary relationship between names however is the new
-            combination to basionym link in botany or name placement to nominal taxon in zoology.
+            combination (<i>comb. nov.</i>) to basionym link in botany or name placement to nominal taxon link in zoology.
             Here they can be treated the same way, as links between the new combination name and the
             original combination name. To express this link we simply add a tn:hasBasionym link to
             the new combination.</p>
@@ -678,6 +662,10 @@
         &lt;/tc:hasName&gt;
         ...</pre>
         <p>Here we have added <i>Felis concolor</i> as the basionym of <i>Puma concolor</i></p>
+        
+        <h3>Name Usages in Zoology</h3>
+        <p></p>
+        
         <h3>Adding Links To Other Classifications and Nomenclators</h3>
         <p>The more links you put in to other Classifications and Nomenclators the more valuable
             your published data will be. The table below shows recommended relationships and when
@@ -1229,74 +1217,7 @@
             using them i.e. which taxonomic treatment they are thinking of when they use the name.
             Indeed it is argued that they most biologists have their own ideas of what a name stand
             for burried in their ****</p>
-        <h3><a name="why_taxon_classes"/>Why are Taxa Treated As Classes?</h3>
-        <p>There has been some philosophical debate as to whether Taxa are individuals or classes of
-            object.</p>
-        <p>Treating taxa as classes potentially enables consumers of the data to use OWL inference
-            techniques to reason over combined taxonomic hierarchies. Specimens (or determinations
-            or observations) that are asserted to be instances of one of the Taxa will automatically
-            be considered members of parent Taxa. Further more this "trickle up" process will work
-            when separate taxonomic hierarchies are joined at specific points using rdfs:subClassOf,
-            owl:equivalentClass and owl:sameAs assertions. It allows an inference engine to
-            calculate the inferred taxonomic hierarchy and distribution of determined specimens as a
-            result of taxonomic assertions - a task that humans find difficult or impossible in
-            large data sets.</p>
-        <p>Asserting Taxa as individuals when data is distributed would force the use of OWL Full if
-            they were subsequently treated as classes. OWL Full does not guarantee decidability in
-            finite time and reasoning would be far more complex. It was therefore decided to treat
-            all Taxa as subclasses of TaxonConcept.</p>
-        <p>Which choice is made here does not effect the Linked Data aspect in that they both
-            provide a series of crawl-able links between Taxa that can be explored by user agents.
-            There is an argument here also, however, that using rdf:subClassOf relationships would
-            make the graph more understandable to generic user agents as this is a well known
-            vocabulary.</p>
-        <h3><a name="why_synonyms_subclasses"/>Why are Synonyms Treated As Subclasses?</h3>
-        <p>Quite what it means when an author includes a name as a synonym in the description of a
-            taxon is debatable but all the most commonly expounded meanings involve including some
-            form of Taxon (set of specimens) within the accepted Taxon. Here are some examples:</p>
-        <ul>
-            <li>The type of this name is the same as the type of the name I recognise for the taxon
-                (homotypic synonym) = includes taxon of at least type specimen.</li>
-            <li>I include the type of this name within the circumscription of this taxon but it
-                isn't the valid/correct name for this taxon under the rules of priority = includes
-                taxon of at least type specimen.</li>
-            <li>I include the nominal taxon that is known by this name (including the type) within
-                the circumscription of this taxon.</li>
-            <li>All taxa for which this has bee the valid/accepted name in any classification form
-                part of this taxon.</li>
-            <li>This taxon is equivalent to the taxa that were previously known by this name.
-                Equivalence can be represented as a subset who's membership equals the parents</li>
-            <li>This taxon includes all the specimens that were misidentified to this name under
-                these conditions. (Misapplication of name e.g. it includes the Taxon named <i>Aus
-                    bus</i> sensu auct. New Zealand.)</li>
-        </ul>
-        <p>These included taxa may be ill defined or quite well defined, they may consist of a
-            single specimen or every specimen in the accepted Taxon, they may include types of names
-            or they may not but every interpretation appears to imply the existence of a subclass of
-            the accepted Taxon.</p>
-        <p>The major problem with taking this approach to handling synonyms is that it is likely to
-            be counter intuitive to many taxonomists. The act of placing a <strong>Name</strong> in
-            synonym is typically involves actively rejecting the existence of a
-                <strong>Taxon</strong>. Unfortunately in order to explicitly reject something you
-            have to explicitly specify what it is you are rejecting and that is the approach taken
-            here.</p>
-        <p>The major advantage of taking this approach is that the synonymous/rejected taxa get
-            their own HTTP URIs. This enables other people to link into a classification at that
-            level and inference to work across classifications on the basis of asserted synonymy.
-            Suppose, in the example above, that a survey in New Zealand has used a classification
-            that has accepted <i>Aus bus</i> as an accepted Taxon. By joining that classification to
-            the classification that synonymizes it as <i>Aus bus</i> sensu auct. New Zealand. with a
-            owl:equivalentClass assertion it should be possible to inference across the two
-            classifications. It would also be possible to assert owl:disjointWith assertions to
-            separate uses of <i>Aus bus</i> outside New Zealand. </p>
-        <p>For a poetic justification consider the following from Hugh Means (1875 – 1965)</p>
-        <blockquote>
-            <p>Yesterday upon the stair, <br/>I met a man who wasn't there. <br/>He wasn't there
-                again today, <br/>Oh how I wish he'd go away.</p>
-        </blockquote>
-        <p>We can't talk about the man on the stair not being there without mention of the man on
-            the stair. We therefore have to define things to negate them.</p>
-        <hr/>
+
 
     </body>
 </html>

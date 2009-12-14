@@ -4,8 +4,10 @@
 <!-- $Author: RogerHyam $ -->
 
 <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-   xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:owl="http://www.w3.org/2002/07/owl#"
-   xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dcterms="http://purl.org/dc/terms/"
+   xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+   xmlns:owl="http://www.w3.org/2002/07/owl#"
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:dcterms="http://purl.org/dc/terms/"
    xmlns:tbase="http://rs.tdwg.org/ontology/Base#"
    xmlns:tcom="http://rs.tdwg.org/ontology/voc/Common"
    xml:base="http://rs.tdwg.org/ontology/voc/TaxonConcept"
@@ -146,6 +148,17 @@
       <rdfs:range rdf:resource="#Taxon"/>
       <rdfs:isDefinedBy rdf:resource="http://rs.tdwg.org/ontology/voc/TaxonConcept"/>
    </owl:ObjectProperty>
+   
+   <!--isIncludedIn-->
+   <owl:ObjectProperty rdf:ID="isIncludedIn">
+      <rdfs:label>Is Included In</rdfs:label>
+      <rdfs:comment>Set Relationship: Every member of the subject taxon is a member of the object
+         taxon.</rdfs:comment>
+      <rdfs:domain rdf:resource="#Taxon"/>
+      <rdfs:range rdf:resource="#Taxon"/>
+      <rdfs:isDefinedBy rdf:resource="http://rs.tdwg.org/ontology/voc/TaxonConcept"/>
+   </owl:ObjectProperty>
+   
 
    <!--excludes-->
    <owl:ObjectProperty rdf:ID="excludes">
@@ -174,6 +187,16 @@
       <rdfs:label>Is Synonym Of</rdfs:label>
       <dc:title>Is Synonym Of</dc:title>
       <rdfs:comment>The subject taxon is a synonym of the object taxon. This is ambiguous in terms of the set relationship.</rdfs:comment>
+      <rdfs:domain rdf:resource="#Taxon"/>
+      <rdfs:range rdf:resource="#Taxon"/>
+      <rdfs:isDefinedBy rdf:resource="http://rs.tdwg.org/ontology/voc/TaxonConcept"/>
+   </owl:ObjectProperty>
+
+   <!-- hasSynonym -->
+   <owl:ObjectProperty rdf:ID="hasSynonym">
+      <rdfs:label>Has Synonym</rdfs:label>
+      <dc:title>Has Synonym</dc:title>
+      <rdfs:comment>The object taxon is a synonym of the subject taxon. This is ambiguous in terms of the set relationship.</rdfs:comment>
       <rdfs:domain rdf:resource="#Taxon"/>
       <rdfs:range rdf:resource="#Taxon"/>
       <rdfs:isDefinedBy rdf:resource="http://rs.tdwg.org/ontology/voc/TaxonConcept"/>
