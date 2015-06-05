@@ -22,8 +22,8 @@
          contact details.</dc:description>
       <owl:versionInfo>0.3</owl:versionInfo>
       <owl:deprecated rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:deprecated>
-      <rdfs:comment>This ontology is no longer under development and is no longer recommended for use.  See [placeholder] for recommended replacements.</rdfs:comment>
-      <rdfs:seeAlso rdf:resource="http://example.org/placeholder"/>
+      <rdfs:comment>This ontology is no longer under development and is no longer recommended for use.  See https://github.com/tdwg/ontology for information about recommended replacements.</rdfs:comment>
+      <rdfs:seeAlso rdf:resource="https://raw.githubusercontent.com/tdwg/ontology/master/replacements.rdf"/>
    </owl:Ontology>
 
 

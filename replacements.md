@@ -1,3 +1,3 @@
 # Recommended replacement vocabularies for deprecated TDWG Ontologies
 
-This is currently a placeholder page.
+Replace ContactDetails.rdf with the vCard Ontology: http://www.w3.org/2006/vcard/ns

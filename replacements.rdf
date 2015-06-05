@@ -5,7 +5,7 @@
 	xmlns:dcterms="http://purl.org/dc/terms/"
 	xmlns:rdfs="http://www.w3/org/2000/01/rdf-schema#"
 >
-	<rdf:Description rdf:about="https://github.com/tdwg/ontology/replacements.rdf">
+	<rdf:Description rdf:about="https://raw.githubusercontent.com/tdwg/ontology/master/replacements.rdf">
 		<dcterms:modified>2015-06-05</dcterms:modified>
 		<dc:description>RDF/XML Document to link deprecated parts of the TDWG Ontology to recommended replacement vocabularies.</dc:description>
 		<rdf:type rdf:resource ="http://xmlns.com/foaf/0.1/Document" />
@@ -14,7 +14,7 @@
 	
 	<!-- Replacement recommendations  -->
 	<rdf:Description rdf:about="http://rs.tdwg.org/ontology/voc/ContactDetails">
-		<dcterms:isReplacedBy rdf:resource="http://rs.tdwg.org/ontology/voc/TaxonConcept.rdf" />
+		<dcterms:isReplacedBy rdf:resource="http://www.w3.org/2006/vcard/ns" />
 	</rdf:Description>
 	
 </rdf:RDF>
