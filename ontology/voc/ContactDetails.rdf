@@ -1,9 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-stylesheet type="text/xsl" href="human.xsl"?>
-<!-- $Rev: 1294 $ -->
-<!-- $Date: 2007-08-15 14:05:50 +0100 (Wed, 15 Aug 2007) $ -->
-<!-- $Author: MarkusDoering $ -->
-
 <rdf:RDF
    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
@@ -22,12 +17,13 @@
       <dc:creator>Roger Hyam</dc:creator>
       <dc:publisher>TDWG Biodiversity Information Standards</dc:publisher>
       <dcterms:issued>2007-04-06</dcterms:issued>
-      <dcterms:modified>$Date: 2007-08-15 14:05:50 +0100 (Wed, 15 Aug 2007) $</dcterms:modified>
+      <dcterms:modified>2015-06-05</dcterms:modified>
       <dc:description>Ontology describing the metadata returned for LSIDs that are used for
          contact details.</dc:description>
-
-      <owl:versionInfo>0.2 - [SVN $Rev: 1294 $]</owl:versionInfo>
-
+      <owl:versionInfo>0.3</owl:versionInfo>
+      <owl:deprecated rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:deprecated>
+      <rdfs:comment>This ontology is no longer under development and is no longer recommended for use.  See [placeholder] for recommended replacements.</rdfs:comment>
+      <rdfs:seeAlso rdf:resource="http://example.org/placeholder"/>
    </owl:Ontology>
 
 
