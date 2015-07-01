@@ -1,8 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-stylesheet type="text/xsl" href="human.xsl"?>
-<!-- $Rev: 1345 $ -->
-<!-- $Date: 2007-11-19 10:47:59 +0000 (Mon, 19 Nov 2007) $ -->
-<!-- $Author: RogerHyam $ -->
 
 <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:owl="http://www.w3.org/2002/07/owl#"
@@ -49,6 +45,16 @@
 
    </owl:Ontology>
 
+   <rdf:Description rdf:about="http://rs.tdwg.org/ontology/voc/TaxonRank.owl">
+      <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Document"/>
+      <dc:format>application/rdf+xml</dc:format> 
+      <owl:deprecated rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:deprecated>
+      <dcterms:isReplacedBy rdf:resource="http://rs.tdwg.org/ontology/voc/TaxonRank.rdf" />
+      <dcterms:references rdf:resource="http://rs.tdwg.org/ontology/voc/TaxonRank"/>
+      <dcterms:modified>2015-07-01</dcterms:modified>
+      <rdfs:comment>The version of the TaxonRank ontology described by the document TaxonRank.owl is deprecated and replaced by the version described by TaxonRank.rdf</rdfs:comment>
+      <rdfs:seeAlso rdf:resource="https://github.com/tdwg/ontology" />
+   </rdf:Description>
 
    <!-- ************************************
 					T A X O N    R A N K

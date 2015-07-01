@@ -1,7 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- $Rev: 1211 $ -->
-<!-- $Date: 2007-06-26 10:36:21 +0100 (Tue, 26 Jun 2007) $ -->
-<!-- $Author: RogerHyam $ -->
 
 <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
@@ -22,11 +19,20 @@
       <dcterms:modified>$Date: 2007-06-26 10:36:21 +0100 (Tue, 26 Jun 2007) $</dcterms:modified>
       <dc:description>Ontology describing the metadata returned for LSIDs that are used for Taxon
          Concepts. </dc:description>
-
       <owl:versionInfo>0.2 - [SVN $Rev: 1211 $]</owl:versionInfo>
 
    </owl:Ontology>
-
+   
+   <rdf:Description rdf:about="http://rs.tdwg.org/ontology/voc/TaxonConcept.owl">
+      <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Document"/>
+      <dc:format>application/rdf+xml</dc:format> 
+      <owl:deprecated rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:deprecated>
+      <dcterms:isReplacedBy rdf:resource="http://rs.tdwg.org/ontology/voc/TaxonConcept.rdf" />
+      <dcterms:references rdf:resource="http://rs.tdwg.org/ontology/voc/TaxonConcept"/>
+      <dcterms:modified>2015-07-01</dcterms:modified>
+      <rdfs:comment>The version of the TaxonConcept ontology described by the document TaxonConcept.owl is deprecated and replaced by the version described by TaxonConcept.rdf</rdfs:comment>
+      <rdfs:seeAlso rdf:resource="https://github.com/tdwg/ontology" />
+   </rdf:Description>
 
    <!-- *****************************************
 					T A X O N    C O N C E P T 

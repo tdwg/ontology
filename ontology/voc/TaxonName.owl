@@ -1,8 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-stylesheet type="text/xsl" href="human.xsl"?>
-<!-- $Rev: 1065 $ -->
-<!-- $Date: 2007-05-04 12:23:59 +0100 (Fri, 04 May 2007) $ -->
-<!-- $Author: RogerHyam $ -->
 
 <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:owl="http://www.w3.org/2002/07/owl#"
@@ -32,6 +28,16 @@
 
    </owl:Ontology>
 
+   <rdf:Description rdf:about="http://rs.tdwg.org/ontology/voc/TaxonName.owl">
+      <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Document"/>
+      <dc:format>application/rdf+xml</dc:format> 
+      <owl:deprecated rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:deprecated>
+      <dcterms:isReplacedBy rdf:resource="http://rs.tdwg.org/ontology/voc/TaxonName.rdf" />
+      <dcterms:references rdf:resource="http://rs.tdwg.org/ontology/voc/TaxonName"/>
+      <dcterms:modified>2015-07-01</dcterms:modified>
+      <rdfs:comment>The version of the TaxonName ontology described by the document TaxonName.owl is deprecated and replaced by the version described by TaxonName.rdf</rdfs:comment>
+      <rdfs:seeAlso rdf:resource="https://github.com/tdwg/ontology" />
+   </rdf:Description>
 
    <!-- ************************************
 					T A X O N    N A M E
