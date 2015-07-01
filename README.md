@@ -1,12 +1,14 @@
 # TDWG Ontology
 
-TDWG has created a series of RDF and OWL ontology documents with associated documentation. The ontologies described by these documents are known in aggregate as the "TDWG Ontology". They are archived in this repository.
+TDWG has created a series of RDF and OWL ontology documents with associated documentation. The ontologies described by these documents are known in aggregate as the "TDWG Ontology". These ontologies are no longer under development and the documents are archived in this repository.
 
-These ontologies are used to define exchange and understanding of biodiversity data. Their original home was at [http://rs.tdwg.org/ontology/voc/Ontology.owl](http://rs.tdwg.org/ontology/voc/Ontology.owl). For background on the history of the ontology see Section 2.4 of the [Report of the TDWG Vocabulary Management Task Group (VoMaG)](https://github.com/tdwg/vocab/blob/master/gbif_TDWG_Vocabulary_Management_Task_Group_en_v1.0.pdf); Permanent URL: [http://www.gbif.org/resource/80862](http://www.gbif.org/resource/80862). 
+## Background
 
-## Status of components of the TDWG Ontology
+The TDWG ontologies were intended to facilitate understanding and exchange of biodiversity data. Their original home was at [http://rs.tdwg.org/ontology/voc/Ontology.owl](http://rs.tdwg.org/ontology/voc/Ontology.owl). For a detailed history of the ontology see Section 2.4 of the [Report of the TDWG Vocabulary Management Task Group (VoMaG)](https://github.com/tdwg/vocab/blob/master/gbif_TDWG_Vocabulary_Management_Task_Group_en_v1.0.pdf); Permanent URL: [http://www.gbif.org/resource/80862](http://www.gbif.org/resource/80862). 
 
-The TDWG Ontology is no longer under development.  The following individual ontologies do not have well-known alternatives and appear to be in use by at least one provider. They are likely to remain in their current form until they are replaced by new TDWG Standards.
+## Components of the TDWG Ontology still in use
+
+The following individual ontologies do not have well-known alternatives and appear to be in use by at least one provider:
 
 - http://rs.tdwg.org/ontology/voc/Collection
 - http://rs.tdwg.org/ontology/voc/CollectionType
@@ -16,7 +18,15 @@ The TDWG Ontology is no longer under development.  The following individual onto
 - http://rs.tdwg.org/ontology/voc/TaxonName
 - http://rs.tdwg.org/ontology/voc/TaxonRank
 
-The following parts of the ontology were never widely used and have been deprecated. See the [recommended replacements page](replacements.md) for recommended alternatives to some of these deprecated portions of the ontology.
+These ontologies are likely to remain in their current form until they are replaced by new TDWG Standards.  
+
+The Collection, CollectionType, and Institution ontologies are based on the stalled Natural Collections Description (NCD) draft TDWG standard [http://www.tdwg.org/standards/312/](http://www.tdwg.org/standards/312/). Recommendation 2.10 of the [VoMaG report](https://github.com/tdwg/vocab/blob/master/gbif_TDWG_Vocabulary_Management_Task_Group_en_v1.0.pdf) recommends evaluation of the status of the draft NCD standard, but as of 2015-07-01 no action has been taken on this recommendation.
+
+The TaxonConcept, TaxonName, and TaxonRank ontologies are based on the ratified Taxonomic Concept Transfer Schema (TCS) Current (2005) TDWG Standard [http://www.tdwg.org/standards/117/](http://www.tdwg.org/standards/117/).  Recommendation 2.11 of the [VoMaG report](https://github.com/tdwg/vocab/blob/master/gbif_TDWG_Vocabulary_Management_Task_Group_en_v1.0.pdf) recommends examination of the status of these three ontologies with the possibility of replacing them upon the creation of a new TCS standard based on current Linked Data/Semantic Web best practices.  As of 2015-07-01 no action has been taken on this recommendation.
+
+## Deprecated components of the TDWG Ontology
+
+The following parts of the ontology were never widely used and have been deprecated:  
 
 - http://rs.tdwg.org/ontology/Base
 - http://rs.tdwg.org/ontology/Core
@@ -38,6 +48,8 @@ The following parts of the ontology were never widely used and have been depreca
 - http://rs.tdwg.org/ontology/voc/TaxonOccurrenceInteraction
 - http://rs.tdwg.org/ontology/voc/Team
 - http://rs.tdwg.org/ontology/voc/TeamWithSource
+
+See the [recommended replacements page](replacements.md) for recommended alternatives to some of these deprecated portions of the ontology.  As of 2015-07-01, the recommended replacement list is a stub and a work in progress. 
 
 ## Details of modifications made to the TDWG ontologies based on the VoMaG Report
 
