@@ -10,10 +10,13 @@
       <dc:creator>Roger Hyam</dc:creator>
       <dc:publisher>TDWG Biodiversity Information Standards</dc:publisher>
       <dcterms:issued>2007-04-17</dcterms:issued>
-      <dcterms:modified>$Date: 2008-07-07 11:54:09 +0100 (Mon, 07 Jul 2008) $</dcterms:modified>
+      <dcterms:modified>2015-07-01</dcterms:modified>
       <dc:description>*Experimental* Ontology describing a controlled vocabulary for types of InfoItem.</dc:description>
 
-      <owl:versionInfo>0.4</owl:versionInfo>
+      <owl:versionInfo>0.5</owl:versionInfo>
+      <owl:deprecated rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:deprecated>
+      <rdfs:comment>This ontology is no longer under development and is no longer recommended for use.  See https://github.com/tdwg/ontology for information about recommended replacements.</rdfs:comment>
+      <rdfs:seeAlso rdf:resource="https://raw.githubusercontent.com/tdwg/ontology/master/replacements.rdf"/>
 
    </owl:Ontology>
 

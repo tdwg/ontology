@@ -13,10 +13,10 @@
       <dc:creator>Markus Döring</dc:creator>
       <dc:publisher>TDWG Biodiversity Information Standards</dc:publisher>
       <dcterms:issued>2007-07-25</dcterms:issued>
-      <dcterms:modified>2007-06-25</dcterms:modified>
+      <dcterms:modified>2015-07-01</dcterms:modified>
       <dc:description>Entire TDWG ontology including all other separate lsid vocabularies</dc:description>
 
-      <owl:versionInfo>0.1 - [SVN $Rev: 1354 $]</owl:versionInfo>
+      <owl:versionInfo>0.2</owl:versionInfo>
 
       <rdfs:comment rdf:parseType="Literal">
       </rdfs:comment>

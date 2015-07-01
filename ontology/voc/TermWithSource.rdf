@@ -10,17 +10,21 @@
    xml:base="http://rs.tdwg.org/ontology/voc/CollectionType"
    xmlns="http://rs.tdwg.org/ontology/voc/CollectionType#">
 
-   <owl:Ontology rdf:about="http://rs.tdwg.org/ontology/voc/CollectionType">
+   <owl:Ontology rdf:about="http://rs.tdwg.org/ontology/voc/TeamWithSource">
+      <rdfs:comment>Note: by Steve Baskauf 2015-07-01. Version 0.1 had an rdf:about value for "CollectionType" rather than "TeamWithSource".  This appears to have been an error and was corrected in this version.</rdfs:comment>
       <dc:title>TDWG Term With Source LSID Ontology</dc:title>
       <dc:creator>Markus Döring</dc:creator>
       <dc:publisher>TDWG Biodiversity Information Standards - NCD subgroup</dc:publisher>
       <dcterms:issued>2007-08-15</dcterms:issued>
-      <dcterms:modified>$Date: 2007-08-15 14:27:16 +0100 (Wed, 15 Aug 2007) $</dcterms:modified>
+      <dcterms:modified>2015-07-01</dcterms:modified>
       <dc:description>Ontology describing a externally controlled term with an ID and a source where the term comes from.</dc:description>
 
-      <owl:versionInfo>0.1</owl:versionInfo>
+      <owl:versionInfo>0.2</owl:versionInfo>
 
       <rdfs:comment rdf:parseType="Literal"> FIXME... </rdfs:comment>
+      <owl:deprecated rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:deprecated>
+      <rdfs:comment>This ontology is no longer under development and is no longer recommended for use.  See https://github.com/tdwg/ontology for information about recommended replacements.</rdfs:comment>
+      <rdfs:seeAlso rdf:resource="https://raw.githubusercontent.com/tdwg/ontology/master/replacements.rdf"/>
 
    </owl:Ontology>
 

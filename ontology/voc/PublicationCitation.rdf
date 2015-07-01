@@ -17,16 +17,19 @@
       <dc:creator>Roger Hyam</dc:creator>
       <dc:publisher>TDWG Biodiversity Information Standards</dc:publisher>
       <dcterms:issued>2006-12-06</dcterms:issued>
-      <dcterms:modified>$Date: 2007-04-25 12:21:32 +0100 (Wed, 25 Apr 2007) $</dcterms:modified>
+      <dcterms:modified>2015-07-01</dcterms:modified>
       <dc:description>Ontology describing the metadata returned for LSIDs that are used for
          publication citations. </dc:description>
 
-      <owl:versionInfo>0.2 - [SVN $Rev: 1035 $]</owl:versionInfo>
+      <owl:versionInfo>0.3</owl:versionInfo>
 
       <rdfs:comment rdf:parseType="Literal"> This ontology is based on a combination of suggestions
          from TaxMLit, TaxonX and a draft 0.95 of TCS which was, in turn based on Rich Pyle's
          Taxonomer data model which was inspired by Endnote 7.</rdfs:comment>
 
+      <owl:deprecated rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:deprecated>
+      <rdfs:comment>This ontology is no longer under development and is no longer recommended for use.  See https://github.com/tdwg/ontology for information about recommended replacements.</rdfs:comment>
+      <rdfs:seeAlso rdf:resource="https://raw.githubusercontent.com/tdwg/ontology/master/replacements.rdf"/>
    </owl:Ontology>
 
 

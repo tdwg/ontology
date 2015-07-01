@@ -13,16 +13,20 @@
    xmlns:tdi="http://rs.tdwg.org/ontology/voc/DigitalImage#"
    xml:base="http://rs.tdwg.org/ontology/voc/DigitalImage">
 
-   <owl:Ontology rdf:about="http://rs.tdwg.org/ontology/voc/ContactDetails">
+   <owl:Ontology rdf:about="http://rs.tdwg.org/ontology/voc/DigitalImage">
+      <rdfs:comment>Note: by Steve Baskauf 2015-07-01. Version 0.2 had an rdf:about value for "ContactDetails" rather than "DigitalImage".  This appears to have been an error and was corrected in this version.</rdfs:comment>
       <dc:title>TDWG DigitalImage LSID Ontology</dc:title>
       <dc:creator>Roger Hyam</dc:creator>
       <dc:publisher>TDWG Biodiversity Information Standards</dc:publisher>
       <dcterms:issued>2007-04-11</dcterms:issued>
-      <dcterms:modified>$Date: 2007-08-15 14:05:50 +0100 (Wed, 15 Aug 2007) $</dcterms:modified>
+      <dcterms:modified>2015-07-01</dcterms:modified>
       <dc:description>Ontology describing the metadata returned for LSIDs that are used for
          digital images.</dc:description>
 
-      <owl:versionInfo>0.2 - [SVN $Rev: 1294 $]</owl:versionInfo>
+      <owl:versionInfo>0.3</owl:versionInfo>
+      <owl:deprecated rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:deprecated>
+      <rdfs:comment>This ontology is no longer under development and is no longer recommended for use.  See https://github.com/tdwg/ontology for information about recommended replacements.</rdfs:comment>
+      <rdfs:seeAlso rdf:resource="https://raw.githubusercontent.com/tdwg/ontology/master/replacements.rdf"/>
 
    </owl:Ontology>
 

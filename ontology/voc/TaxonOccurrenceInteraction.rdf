@@ -9,14 +9,17 @@
       <dc:creator>Kevin Richards</dc:creator>
       <dc:publisher>TDWG Biodiversity Information Standards</dc:publisher>
       <dcterms:issued>2007-8-7</dcterms:issued>
-      <dcterms:modified>$Date: 2007-08-07 11:36:21 +0200 (Tue, 26 Jun 2007) $</dcterms:modified>
+      <dcterms:modified>2015-07-01</dcterms:modified>
       <dc:description>Ontology describing the metadata returned for LSIDs that are used for Interactions between TaxonOccurrences. </dc:description>
 
-      <owl:versionInfo>0.1</owl:versionInfo>
+      <owl:versionInfo>0.2</owl:versionInfo>
 
       <rdfs:comment rdf:parseType="Literal">This class is an initial attempt to model interactions between TaxonOccurrences, observations, specimens, etc
       to express a relationship between two of these objects.  Eg the Interaction class can be express a host/parasite relation between two TaxonOccurrences.
       </rdfs:comment>
+      <owl:deprecated rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:deprecated>
+      <rdfs:comment>This ontology is no longer under development and is no longer recommended for use.  See https://github.com/tdwg/ontology for information about recommended replacements.</rdfs:comment>
+      <rdfs:seeAlso rdf:resource="https://raw.githubusercontent.com/tdwg/ontology/master/replacements.rdf"/>
 
    </owl:Ontology>
 

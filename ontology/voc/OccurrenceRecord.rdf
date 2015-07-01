@@ -15,10 +15,13 @@
       <dc:creator>Roger Hyam</dc:creator>
       <dc:publisher>TDWG Biodiversity Information Standards</dc:publisher>
       <dcterms:issued>2006-12-06</dcterms:issued>
-      <dcterms:modified>$Date: 2007-08-15 14:05:50 +0100 (Wed, 15 Aug 2007) $</dcterms:modified>
+      <dcterms:modified>2015-07-01</dcterms:modified>
       <dc:description>Ontology describing the metadata returned for LSIDs that are used taxon
          occurrence records. </dc:description>
-      <owl:versionInfo>0.2 - [SVN $Rev: 1294 $]</owl:versionInfo>
+      <owl:versionInfo>0.3</owl:versionInfo>
+      <owl:deprecated rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:deprecated>
+      <rdfs:comment>This ontology is no longer under development and is no longer recommended for use.  See https://github.com/tdwg/ontology for information about recommended replacements.</rdfs:comment>
+      <rdfs:seeAlso rdf:resource="https://raw.githubusercontent.com/tdwg/ontology/master/replacements.rdf"/>
 
       <rdfs:comment rdf:parseType="Literal"> *** This vocabulary has been superseded by the
          TaxonOccurrence vocabulary (http://rs.tdwg.org/ontology/voc/TaxonOccurrence) Read more

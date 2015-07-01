@@ -15,13 +15,16 @@
       <dc:creator>Roger Hyam</dc:creator>
       <dc:publisher>TDWG Biodiversity Information Standards</dc:publisher>
       <dcterms:issued>2006-12-06</dcterms:issued>
-      <dcterms:modified>$Date: 2007-08-21 13:52:53 +0100 (Tue, 21 Aug 2007) $</dcterms:modified>
+      <dcterms:modified>2015-07-01</dcterms:modified>
       <dc:description>Ontology describing the metadata returned for LSIDs that are used for taxon
          occurrence records. The motivation for this vocabulary is to represent DarwinCore type data
          in a simple way. A more refined vocabulary for occurrence data in general may be developed
          in the future under the auspices of Observation and
          Specimen Records interest group (http://www.tdwg.org/activities/osr/). </dc:description>
-      <owl:versionInfo>0.2 - [SVN $Rev: 1303 $]</owl:versionInfo>
+      <owl:versionInfo>0.3</owl:versionInfo>
+      <owl:deprecated rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:deprecated>
+      <rdfs:comment>This ontology is no longer under development and is no longer recommended for use.  See https://github.com/tdwg/ontology for information about recommended replacements.</rdfs:comment>
+      <rdfs:seeAlso rdf:resource="https://raw.githubusercontent.com/tdwg/ontology/master/replacements.rdf"/>
 
       <rdfs:comment rdf:parseType="Literal">This ontology is designed to represent records of
          occurrences of taxa in the wild.</rdfs:comment>

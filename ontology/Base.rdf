@@ -7,7 +7,7 @@
    <owl:Ontology rdf:about="http://rs.tdwg.org/ontology/Base">
       <dc:creator>Robert Gales / Roger Hyam</dc:creator>
       <dcterms:issued>2006-05-26</dcterms:issued>
-      <dcterms:modified>$Date: 2007-09-10 16:55:47 +0100 (Mon, 10 Sep 2007) $</dcterms:modified>
+      <dcterms:modified>2015-07-01</dcterms:modified>
       <dc:title>TDWG Ontology - Base</dc:title>
       <dc:publisher>TDWG Biodiversity Information Standards</dc:publisher>
       <dc:description> The Base Ontology contains the highest level classes and attributes within the TDWG ontology which are typically not domain specific entities. </dc:description>
@@ -16,7 +16,10 @@
             href="http://phoebus.cs.man.ac.uk:9999/OWL/Validator">Wonder Web OWL Ontology Validator</a>
       </rdfs:comment>
 
-      <owl:versionInfo>0.3</owl:versionInfo>
+      <owl:versionInfo>0.4</owl:versionInfo>
+      <owl:deprecated rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:deprecated>
+      <rdfs:comment>This ontology is no longer under development and is no longer recommended for use.  See https://github.com/tdwg/ontology for information about recommended replacements.</rdfs:comment>
+      <rdfs:seeAlso rdf:resource="https://raw.githubusercontent.com/tdwg/ontology/master/replacements.rdf"/>
 
    </owl:Ontology>
 

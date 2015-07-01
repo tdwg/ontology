@@ -6,14 +6,18 @@
 		<dc:creator>Roger Hyam</dc:creator>
 		<dc:publisher>TDWG Biodiversity Information Standards</dc:publisher>
 		<dcterms:issued>2006-11-27</dcterms:issued>
-		<dcterms:modified>$Date: 2007-08-15 14:05:50 +0100 (Wed, 15 Aug 2007) $</dcterms:modified>
+        <dcterms:modified>2015-07-01</dcterms:modified>
 		<dc:description>Ontology describing the metadata returned for LSIDs that are used for People. </dc:description>
-		<owl:versionInfo>0.2 - [SVN $Rev: 1294 $]</owl:versionInfo>
+		<owl:versionInfo>0.3</owl:versionInfo>
 		<rdfs:comment rdf:parseType="Literal"> This ontology makes a basic split between people, their
          names and contact details. Note that there are no regular contact details here like
          telephone, mobile, skype name, zip code, postcode, PO Box number, Street address. The
          vocabulary does not try to represent information that is handled better by vCard or FOAF
          implementations. AACR2 rules on von, van de la and other compund names recommended.</rdfs:comment>
+         
+         <owl:deprecated rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:deprecated>
+         <rdfs:comment>This ontology is no longer under development and is no longer recommended for use.  See https://github.com/tdwg/ontology for information about recommended replacements.</rdfs:comment>
+         <rdfs:seeAlso rdf:resource="https://raw.githubusercontent.com/tdwg/ontology/master/replacements.rdf"/>
 	</owl:Ontology>
 	<!-- *****************************************
 					P E R S O N 

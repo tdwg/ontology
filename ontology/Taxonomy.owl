@@ -13,15 +13,23 @@
         <dcterms:title>TDWG Taxonomy and Nomenclature Ontology</dcterms:title>
         <dcterms:creator>Roger Hyam</dcterms:creator>
         <dcterms:publisher>TDWG Biodiversity Information Standards</dcterms:publisher>
-        <dcterms:modified>$Date: 2007-06-26 10:36:21 +0100 (Tue, 26 Jun 2007) $</dcterms:modified>
+        <dcterms:modified>2015-07-01</dcterms:modified>
         <dcterms:description>Ontology describing the metadata returned for Taxa and Names</dcterms:description>  
-        <owl:versionInfo>0.2 - [SVN $Rev: 1211 $]</owl:versionInfo>   
-    </owl:Ontology>
-    
+        <owl:versionInfo>0.3</owl:versionInfo>   
+        <owl:deprecated rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:deprecated>
+        <rdfs:comment>This ontology is no longer under development and is no longer recommended for use.  See https://github.com/tdwg/ontology for information about recommended replacements.</rdfs:comment>
+        <rdfs:seeAlso rdf:resource="https://raw.githubusercontent.com/tdwg/ontology/master/replacements.rdf"/>
+
+    <!-- Note by Steve Baskauf, 2015-07-01: I moved the owl:imports property/value pairs to within 
+    the Taxonomy.owl ontology description since as they stood they were not valid RDF. That seemed 
+    to be the intention of the author.-->
+
     <!-- suck in the vocabularies we are joining here -->
     <owl:imports rdf:resource="http://rs.tdwg.org/ontology/voc/TaxonName"/>
     <owl:imports rdf:resource="http://rs.tdwg.org/ontology/voc/TaxonConcept"/>
     <owl:imports rdf:resource="http://rs.tdwg.org/ontology/voc/TaxonRank"/>
+    
+    </owl:Ontology>
     
     <!-- ranges for TaxonConcept -->
     <rdf:Description rdf:about="tc:hasName">

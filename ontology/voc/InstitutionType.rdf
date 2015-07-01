@@ -15,10 +15,13 @@
       <dc:creator>Markus Döring, Constance Rinaldo</dc:creator>
       <dc:publisher>TDWG Biodiversity Information Standards - NCD subgroup</dc:publisher>
       <dcterms:issued>2007-03-08</dcterms:issued>
-      <dcterms:modified>$Date: 2007-08-15 14:27:16 +0100 (Wed, 15 Aug 2007) $</dcterms:modified>
+      <dcterms:modified>2015-07-01</dcterms:modified>
       <dc:description>Ontology describing a controlled vocabulary for type of institutions.</dc:description>
 
-      <owl:versionInfo>0.3</owl:versionInfo>
+      <owl:versionInfo>0.4</owl:versionInfo>
+      <owl:deprecated rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:deprecated>
+      <rdfs:comment>This ontology is no longer under development and is no longer recommended for use.  See https://github.com/tdwg/ontology for information about recommended replacements.</rdfs:comment>
+      <rdfs:seeAlso rdf:resource="https://raw.githubusercontent.com/tdwg/ontology/master/replacements.rdf"/>
 
       <rdfs:comment rdf:parseType="Literal">FIXME... </rdfs:comment>
 

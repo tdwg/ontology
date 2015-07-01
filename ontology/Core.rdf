@@ -13,7 +13,7 @@
    <owl:Ontology rdf:about="http://rs.tdwg.org/ontology/Core">
       <dc:creator>Robert Gales / Roger Hyam</dc:creator>
       <dcterms:issued>2006-1-28</dcterms:issued>
-      <dcterms:modified>$Date: 2007-09-10 16:55:47 +0100 (Mon, 10 Sep 2007) $</dcterms:modified>
+      <dcterms:modified>2015-07-01</dcterms:modified>
       <dc:title>TDWG Ontology - Core</dc:title>
       <dc:publisher>Taxonomic Databases Working Group</dc:publisher>
       <dc:description>
@@ -26,9 +26,12 @@
       
       <rdfs:comment rdf:parseType="Literal"></rdfs:comment>
       
-      <owl:versionInfo>0.3</owl:versionInfo>
+      <owl:versionInfo>0.4</owl:versionInfo>
       
       <owl:imports rdf:resource="http://rs.tdwg.org/ontology/Base"/>
+      <owl:deprecated rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:deprecated>
+      <rdfs:comment>This ontology is no longer under development and is no longer recommended for use.  See https://github.com/tdwg/ontology for information about recommended replacements.</rdfs:comment>
+      <rdfs:seeAlso rdf:resource="https://raw.githubusercontent.com/tdwg/ontology/master/replacements.rdf"/>
       
    </owl:Ontology>
 
