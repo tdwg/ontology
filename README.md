@@ -18,7 +18,7 @@ The following individual ontologies do not have well-known alternatives and appe
 - [http://rs.tdwg.org/ontology/voc/TaxonName](ontology/voc/TaxonName.rdf)
 - [http://rs.tdwg.org/ontology/voc/TaxonRank](ontology/voc/TaxonRank.rdf)
 
-These ontologies are likely to remain in their current form until they are replaced by new TDWG Standards.  
+These ontologies are likely to remain in their current form until they are replaced by new TDWG Standards. Changes in the statuses of these ontologies will be reported on this page.
 
 The Collection, CollectionType, and Institution ontologies are based on the stalled Natural Collections Description (NCD) draft TDWG standard [http://www.tdwg.org/standards/312/](http://www.tdwg.org/standards/312/). Recommendation 2.10 of the [VoMaG report](https://github.com/tdwg/vocab/blob/master/gbif_TDWG_Vocabulary_Management_Task_Group_en_v1.0.pdf) recommends evaluation of the status of the draft NCD standard, but as of 2015-07-01 no action has been taken on this recommendation.
 
