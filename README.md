@@ -10,13 +10,13 @@ The TDWG ontologies were intended to facilitate understanding and exchange of bi
 
 The following individual ontologies do not have well-known alternatives and appear to be in use by at least one provider:
 
-- http://rs.tdwg.org/ontology/voc/Collection
-- http://rs.tdwg.org/ontology/voc/CollectionType
-- http://rs.tdwg.org/ontology/voc/Common
-- http://rs.tdwg.org/ontology/voc/Institution
-- http://rs.tdwg.org/ontology/voc/TaxonConcept
-- http://rs.tdwg.org/ontology/voc/TaxonName
-- http://rs.tdwg.org/ontology/voc/TaxonRank
+- [http://rs.tdwg.org/ontology/voc/Collection](ontology/voc/Collection.rdf)
+- [http://rs.tdwg.org/ontology/voc/CollectionType](ontology/voc/CollectionType.rdf)
+- [http://rs.tdwg.org/ontology/voc/Common](ontology/voc/Common.rdf)
+- [http://rs.tdwg.org/ontology/voc/Institution](ontology/voc/Institution.rdf)
+- [http://rs.tdwg.org/ontology/voc/TaxonConcept](ontology/voc/TaxonConcept.rdf)
+- [http://rs.tdwg.org/ontology/voc/TaxonName](ontology/voc/TaxonName.rdf)
+- [http://rs.tdwg.org/ontology/voc/TaxonRank](ontology/voc/TaxonRank.rdf)
 
 These ontologies are likely to remain in their current form until they are replaced by new TDWG Standards.  
 
@@ -28,26 +28,26 @@ The TaxonConcept, TaxonName, and TaxonRank ontologies are based on the ratified 
 
 The following parts of the ontology were never widely used and have been deprecated:  
 
-- http://rs.tdwg.org/ontology/Base
-- http://rs.tdwg.org/ontology/Core
-- http://rs.tdwg.org/ontology/Taxonomy.owl
-- http://rs.tdwg.org/ontology/voc/ContactDetails
-- http://rs.tdwg.org/ontology/voc/CyclicityTerm
-- http://rs.tdwg.org/ontology/voc/DigitalImage
-- http://rs.tdwg.org/ontology/voc/GeographicRegion
-- http://rs.tdwg.org/ontology/voc/InstitutionType
-- http://rs.tdwg.org/ontology/voc/OccurrenceRecord
-- http://rs.tdwg.org/ontology/voc/OccurrenceStatusTerm
-- http://rs.tdwg.org/ontology/voc/Person
-- http://rs.tdwg.org/ontology/voc/Procedure
-- http://rs.tdwg.org/ontology/voc/PublicationCitation
-- http://rs.tdwg.org/ontology/voc/SpeciesProfileModel
-- http://rs.tdwg.org/ontology/voc/Specimen
-- http://rs.tdwg.org/ontology/voc/SPMInfoItems
-- http://rs.tdwg.org/ontology/voc/TaxonOccurrence
-- http://rs.tdwg.org/ontology/voc/TaxonOccurrenceInteraction
-- http://rs.tdwg.org/ontology/voc/Team
-- http://rs.tdwg.org/ontology/voc/TeamWithSource
+- [http://rs.tdwg.org/ontology/Base](ontology/Base.rdf)
+- [http://rs.tdwg.org/ontology/Core](ontology/Core.rdf)
+- [http://rs.tdwg.org/ontology/Taxonomy.owl](ontology/Taxonomy.owl)
+- [http://rs.tdwg.org/ontology/voc/ContactDetails](ontology/voc/ContactDetails.rdf)
+- [http://rs.tdwg.org/ontology/voc/CyclicityTerm](ontology/voc/CyclicityTerm.rdf)
+- [http://rs.tdwg.org/ontology/voc/DigitalImage](ontology/voc/DigitalImage.rdf)
+- [http://rs.tdwg.org/ontology/voc/GeographicRegion](ontology/voc/GeographicRegion.rdf)
+- [http://rs.tdwg.org/ontology/voc/InstitutionType](ontology/voc/InstitutionType.rdf)
+- [http://rs.tdwg.org/ontology/voc/OccurrenceRecord](ontology/voc/OccurrenceRecord.rdf)
+- [http://rs.tdwg.org/ontology/voc/OccurrenceStatusTerm](ontology/voc/OccurrenceStatusTerm.rdf)
+- [http://rs.tdwg.org/ontology/voc/Person](ontology/voc/Person.rdf)
+- [http://rs.tdwg.org/ontology/voc/Procedure](ontology/voc/Procedure.rdf)
+- [http://rs.tdwg.org/ontology/voc/PublicationCitation](ontology/voc/PublicationCitation.rdf)
+- [http://rs.tdwg.org/ontology/voc/SpeciesProfileModel](ontology/voc/SpeciesProfileModel.rdf)
+- [http://rs.tdwg.org/ontology/voc/Specimen](ontology/voc/Specimen.rdf)
+- [http://rs.tdwg.org/ontology/voc/SPMInfoItems](ontology/voc/SPMInfoItems.rdf)
+- [http://rs.tdwg.org/ontology/voc/TaxonOccurrence](ontology/voc/TaxonOccurrence.rdf)
+- [http://rs.tdwg.org/ontology/voc/TaxonOccurrenceInteraction](ontology/voc/TaxonOccurrenceInteraction.rdf)
+- [http://rs.tdwg.org/ontology/voc/Team](ontology/voc/Team.rdf)
+- [http://rs.tdwg.org/ontology/voc/TeamWithSource](ontology/voc/TeamWithSource.rdf)
 
 See the [recommended replacements page](replacements.md) for recommended alternatives to some of these deprecated portions of the ontology.  As of 2015-07-01, the recommended replacement list is a stub and a work in progress. 
 
