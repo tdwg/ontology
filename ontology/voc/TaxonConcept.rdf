@@ -15,11 +15,11 @@
       <dc:creator>Roger Hyam</dc:creator>
       <dc:publisher>TDWG Biodiversity Information Standards</dc:publisher>
       <dcterms:issued>2006-11-27</dcterms:issued>
-      <dcterms:modified>$Date: 2007-06-26 10:36:21 +0100 (Tue, 26 Jun 2007) $</dcterms:modified>
+      <dcterms:modified>2015-07-01</dcterms:modified>
       <dc:description>Ontology describing the metadata returned for LSIDs that are used for Taxon
          Concepts. </dc:description>
 
-      <owl:versionInfo>0.2 - [SVN $Rev: 1211 $]</owl:versionInfo>
+      <owl:versionInfo>0.3</owl:versionInfo>
 
       <rdfs:comment rdf:parseType="Literal"> This is not a full rendering of TaxonConcept as
          presented in the Taxon Concept Schema 1.0. Not all the possible concept-concept
@@ -29,6 +29,7 @@
          them. FIXME: <a href="http://phoebus.cs.man.ac.uk:9999/OWL/Validator">Wonder Web OWL
             Ontology Validator</a>
       </rdfs:comment>
+      <rdfs:comment>Version 0.3 removed subclass declarations to classes outside of this ontology in accordance with Recommendation 2.9 of the VoMaG Report http://www.gbif.org/resource/80862</rdfs:comment>
 
    </owl:Ontology>
 
@@ -41,7 +42,7 @@
       <rdfs:label>Taxon Concept</rdfs:label>
       <rdfs:comment> Representation of a TaxonConcept. Equivalent to TCS
          /DataSet/TaxonConcepts/TaxonConcept </rdfs:comment>
-      <rdfs:subClassOf rdf:resource="http://rs.tdwg.org/ontology/Core#Concept"/>
+<!--      <rdfs:subClassOf rdf:resource="http://rs.tdwg.org/ontology/Core#Concept"/> -->
       <rdfs:isDefinedBy rdf:resource="http://rs.tdwg.org/ontology/voc/TaxonConcept"/>
    </owl:Class>
 
@@ -168,7 +169,7 @@
    <owl:Class rdf:ID="Relationship">
       <rdfs:label>Relationship</rdfs:label>
       <rdfs:comment>A typed link to with another taxon.</rdfs:comment>
-      <rdfs:subClassOf rdf:resource="http://rs.tdwg.org/ontology/Base#BaseThing"/>
+<!--      <rdfs:subClassOf rdf:resource="http://rs.tdwg.org/ontology/Base#BaseThing"/> -->
       <rdfs:isDefinedBy rdf:resource="http://rs.tdwg.org/ontology/voc/TaxonConcept"/>
       <tcom:tcsEquivalence>/DataSet/TaxonConcepts/TaxonConcept/Relationships/Relationship</tcom:tcsEquivalence>
    </owl:Class>
@@ -208,7 +209,7 @@
       <rdfs:label>Taxon Relationship Term</rdfs:label>
       <rdfs:comment> The class for constructing a controlled vocabulary for TaxonConcept to
          TaxonConcept relationship categories.</rdfs:comment>
-      <rdfs:subClassOf rdf:resource="http://rs.tdwg.org/ontology/Base#DefinedTerm"/>
+<!--      <rdfs:subClassOf rdf:resource="http://rs.tdwg.org/ontology/Base#DefinedTerm"/> -->
       <rdfs:isDefinedBy rdf:resource="http://rs.tdwg.org/ontology/voc/TaxonConcept"/>
    </owl:Class>
 

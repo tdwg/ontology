@@ -6,15 +6,16 @@
 		<dc:creator>Markus Döring</dc:creator>
 		<dc:publisher>TDWG Biodiversity Information Standards - NCD subgroup</dc:publisher>
         <dcterms:issued>2007-03-08</dcterms:issued>
-		<dcterms:modified>$Date: 2008-08-08 12:12:15 +0100 (Fri, 08 Aug 2008) $</dcterms:modified>
+		<dcterms:modified>2015-07-01</dcterms:modified>
 		<dc:description>Ontology describing the metadata returned for LSIDs that are used for institutional records. i.e. public or private institutions such as universities, museums, gardens, research
          labs, etc. 
       </dc:description>
-		<owl:versionInfo>0.7 - [SVN $Rev: 1399 $]</owl:versionInfo>
+		<owl:versionInfo>0.8</owl:versionInfo>
 		<rdfs:comment rdf:parseType="Literal">
         The name and subname of an organisation is part of the Contact vCard details.
         The preferred name/title for the organisation should also be given as a DC:TITLE property
       </rdfs:comment>
+		<rdfs:comment>Version 0.8 removed subclass declarations to classes outside of this ontology in accordance with Recommendation 2.9 of the VoMaG Report http://www.gbif.org/resource/80862</rdfs:comment>
 	</owl:Ontology>
 	<!-- *************************************************
 					I N S T I T U T I O N
@@ -23,7 +24,7 @@
 	<owl:Class rdf:ID="Institution">
 		<rdfs:label>Institution</rdfs:label>
 		<rdfs:comment>A public or private institution</rdfs:comment>
-		<rdfs:subClassOf rdf:resource="http://rs.tdwg.org/ontology/Base#BaseThing"/>
+<!--		<rdfs:subClassOf rdf:resource="http://rs.tdwg.org/ontology/Base#BaseThing"/> -->
 		<rdfs:isDefinedBy rdf:resource="http://rs.tdwg.org/ontology/voc/Institution"/>
 	</owl:Class>
 	<owl:DatatypeProperty rdf:ID="institutionId">

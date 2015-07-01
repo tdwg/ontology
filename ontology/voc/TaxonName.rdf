@@ -10,14 +10,15 @@
       <dc:creator>Roger Hyam</dc:creator>
       <dc:publisher>TDWG Biodiversity Information Standards</dc:publisher>
       <dcterms:issued>2006-11-15</dcterms:issued>
-      <dcterms:modified>$Date: 2007-05-04 12:23:59 +0100 (Fri, 04 May 2007) $</dcterms:modified>
+      <dcterms:modified>2015-07-01</dcterms:modified>
       <dc:description>Ontology describing the metadata returned for LSIDs that are used for Taxon Names. </dc:description>
 
-      <owl:versionInfo>0.2 - [SVN $Rev: 1065 $]</owl:versionInfo>
+      <owl:versionInfo>0.3</owl:versionInfo>
 
       <rdfs:comment rdf:parseType="Literal"> This vocabulary closely follows the structure of the ScientificName complex type that is part of the TDWG standard Taxon Concept Schema. The TCS structure was based
          on the name structures suggested by the LinneanCore and those found in schemas such as ABCD. 
          It reflects the contributions of many authors over a number of years.</rdfs:comment>
+      <rdfs:comment>Version 0.3 removed subclass declarations to classes outside of this ontology in accordance with Recommendation 2.9 of the VoMaG Report http://www.gbif.org/resource/80862</rdfs:comment>
 
    </owl:Ontology>
 
@@ -35,7 +36,7 @@
       <tcom:berlinModelEquivalence>Name table</tcom:berlinModelEquivalence>
       <tcom:abcdEquivalence>ScientificName complexType</tcom:abcdEquivalence>
       <tcom:darwinCoreEquivalence>ScientificName (as string only)</tcom:darwinCoreEquivalence>
-      <rdfs:subClassOf rdf:resource="http://rs.tdwg.org/ontology/Base#Name"/>
+<!--      <rdfs:subClassOf rdf:resource="http://rs.tdwg.org/ontology/Base#Name"/> -->
       <rdfs:isDefinedBy rdf:resource="http://rs.tdwg.org/ontology/voc/TaxonName"/>
 
    </owl:Class>
@@ -361,7 +362,7 @@
          object can therefore be used in two ways. It can be the target of the 'type' property in a TaxonName object (in which case the typeOf property may be ommitted) or it can be used as a free
          standing object with its own ID and the typeOf property used to indicate which TaxonName this is a type of - this is more likely scenario in a the case of a leptotypification event.
          Equivalent to TCS ScientificName/Typification </rdfs:comment>
-      <rdfs:subClassOf rdf:resource="http://rs.tdwg.org/ontology/Base#BaseThing"/>
+<!--      <rdfs:subClassOf rdf:resource="http://rs.tdwg.org/ontology/Base#BaseThing"/> -->
       <rdfs:isDefinedBy rdf:resource="http://rs.tdwg.org/ontology/voc/TaxonName"/>
    </owl:Class>
 
@@ -403,7 +404,7 @@
       <rdfs:label>Nomenclatural Type Type</rdfs:label>
       <rdfs:comment> A kind of nomenclatural type. Nomenclatural types can be of different kinds (or types) to indicate whether they are duplicates, replacements, related specimens etc. Instances of
          this class describe kinds of nomenclatural types. Equivalent to TCS NomenclaturalTypeStatusOfUnitsEnum </rdfs:comment>
-      <rdfs:subClassOf rdf:resource="http://rs.tdwg.org/ontology/Base#DefinedTerm"/>
+<!--      <rdfs:subClassOf rdf:resource="http://rs.tdwg.org/ontology/Base#DefinedTerm"/> -->
       <rdfs:isDefinedBy rdf:resource="http://rs.tdwg.org/ontology/voc/TaxonName"/>
    </owl:Class>
 
@@ -699,7 +700,7 @@
    <owl:Class rdf:ID="NomenclaturalNote">
       <rdfs:label>Nomenclatural Note</rdfs:label>
       <rdfs:comment> A note on a Taxon Name. An object representing a comment or addition to a Taxon Name beyond it's original publication. Equivalent to TCS NomenclaturalNoteType </rdfs:comment>
-      <rdfs:subClassOf rdf:resource="http://rs.tdwg.org/ontology/Base#BaseThing"/>
+<!--      <rdfs:subClassOf rdf:resource="http://rs.tdwg.org/ontology/Base#BaseThing"/> -->
       <rdfs:isDefinedBy rdf:resource="http://rs.tdwg.org/ontology/voc/TaxonName"/>
    </owl:Class>
 
@@ -767,7 +768,7 @@
       <rdfs:label>Nomenclatural Note Type Term</rdfs:label>
       <rdfs:comment> The different types of Nomenclatural Note. An object used to represent the different types of Nomenclatural Note. No direct equivalent in TCS but used to represents different
          elements of type NomenclaturalNoteType. </rdfs:comment>
-      <rdfs:subClassOf rdf:resource="http://rs.tdwg.org/ontology/Base#DefinedTerm"/>
+<!--      <rdfs:subClassOf rdf:resource="http://rs.tdwg.org/ontology/Base#DefinedTerm"/> -->
       <rdfs:isDefinedBy rdf:resource="http://rs.tdwg.org/ontology/voc/TaxonName"/>
    </owl:Class>
 
@@ -833,7 +834,7 @@
    <owl:Class rdf:ID="NomenclaturalCodeTerm">
       <rdfs:label>Nomenclatural Code Term</rdfs:label>
       <rdfs:comment> A class for which instances can be defined to create a controlled vocabulary for the nomenclatural codes. Equivalent to TCS NomenclaturalCodesEnum </rdfs:comment>
-      <rdfs:subClassOf rdf:resource="http://rs.tdwg.org/ontology/Base#DefinedTerm"/>
+<!--      <rdfs:subClassOf rdf:resource="http://rs.tdwg.org/ontology/Base#DefinedTerm"/> -->
       <rdfs:isDefinedBy rdf:resource="http://rs.tdwg.org/ontology/voc/TaxonName"/>
    </owl:Class>
 

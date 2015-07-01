@@ -10,10 +10,10 @@
       <dc:creator>Roger Hyam</dc:creator>
       <dc:publisher>TDWG Biodiversity Information Standards</dc:publisher>
       <dcterms:issued>2006-11-15</dcterms:issued>
-      <dcterms:modified>$Date: 2007-11-19 10:47:59 +0000 (Mon, 19 Nov 2007) $</dcterms:modified>
+      <dcterms:modified>2015-07-01</dcterms:modified>
       <dc:description>Ontology describing a controlled vocabulary for taxon ranks.</dc:description>
 
-      <owl:versionInfo>0.2</owl:versionInfo>
+      <owl:versionInfo>0.3</owl:versionInfo>
 
       <rdfs:comment rdf:parseType="Literal"> Enumerated ranks of a taxon (scientific organism name) in a taxonomic hierarchy. This list is intended to be interoperable between name providers for
          bacteria, viruses, fungi, plants, and animals. It is not assumed that in each taxonomic group all ranks have to be used. The enumeration attempts to strike a balance between listing all
@@ -28,6 +28,8 @@
          Database of Botanical Taxonomic Categories by Jorg Ochsmann, IPK Gatersleben; http://mansfeld.ipk-gatersleben.de/TaxCat2/default.htm A several ranks have been added
          to the original list to better accommodate names from ICNCP. (RDH). Many thanks for review and help go to Dr. Walter Gams.</rdfs:comment>
 
+      <rdfs:comment>Version 0.3 removed subclass declarations to classes outside of this ontology in accordance with Recommendation 2.9 of the VoMaG Report http://www.gbif.org/resource/80862</rdfs:comment>
+
    </owl:Ontology>
 
 
@@ -38,7 +40,7 @@
    <owl:Class rdf:ID="TaxonRankTerm">
       <rdfs:label>Taxon Rank Term</rdfs:label>
       <rdfs:comment> The class for construction controlled vocabularies of ranks. Equivalent to TCS TaxonomicRankEnum. </rdfs:comment>
-      <rdfs:subClassOf rdf:resource="http://rs.tdwg.org/ontology/Base#DefinedTerm"/>
+<!--      <rdfs:subClassOf rdf:resource="http://rs.tdwg.org/ontology/Base#DefinedTerm"/> -->
       <rdfs:isDefinedBy rdf:resource="http://rs.tdwg.org/ontology/voc/TaxonRank"/>
    </owl:Class>
 

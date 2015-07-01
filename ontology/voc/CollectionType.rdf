@@ -15,12 +15,13 @@
       <dc:creator>Markus Döring</dc:creator>
       <dc:publisher>TDWG Biodiversity Information Standards - NCD subgroup</dc:publisher>
       <dcterms:issued>2007-03-08</dcterms:issued>
-      <dcterms:modified>$Date: 2007-08-16 15:58:24 +0100 (Thu, 16 Aug 2007) $</dcterms:modified>
+		<dcterms:modified>2015-07-01</dcterms:modified>
       <dc:description>Ontology describing a controlled vocabulary for type of (biological) collections.</dc:description>
 
-      <owl:versionInfo>0.1</owl:versionInfo>
+      <owl:versionInfo>0.2</owl:versionInfo>
 
       <rdfs:comment rdf:parseType="Literal"> FIXME... </rdfs:comment>
+      <rdfs:comment>Version 0.2 removed subclass declarations to classes outside of this ontology in accordance with Recommendation 2.9 of the VoMaG Report http://www.gbif.org/resource/80862</rdfs:comment>
 
    </owl:Ontology>
 
@@ -32,7 +33,7 @@
    <owl:Class rdf:ID="CollectionTypeTerm">
       <rdfs:label>Collection Type Term</rdfs:label>
       <rdfs:comment> The class for controlled vocabularies of collection types. Picklist keyword to indicate typical contents or unifying characteristics of the collection.</rdfs:comment>
-      <rdfs:subClassOf rdf:resource="http://rs.tdwg.org/ontology/Base#DefinedTerm"/>
+<!--      <rdfs:subClassOf rdf:resource="http://rs.tdwg.org/ontology/Base#DefinedTerm"/> -->
       <rdfs:isDefinedBy rdf:resource="http://rs.tdwg.org/ontology/voc/CollectionType"/>
    </owl:Class>
 
