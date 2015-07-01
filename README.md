@@ -10,4 +10,6 @@ Section 2.6.1 of the [VoMaG report)](https://github.com/tdwg/vocab/blob/master/g
 
 1. Clarify that documents having the extension .owl (TaxonConcept.owl, TaxonName.owl, and TaxonRank.owl) are not the authoritative documents by indicating in their RDF that they are deprecated and replaced by the corresponding documents having the extension .rdf (TaxonConcept.rdf, TaxonName.rdf, and TaxonRank.rdf). (Recommendation 2.4)
 
+2. Remove the XML stylesheet references from all documents. (See the text of Recommendation 2.5 for the rationale for this change.)
+
 
