@@ -1,7 +1,4 @@
 <?xml version="1.0"?>
-<?xml-stylesheet type="text/xsl" href="human.xsl"?>
-<!-- $Rev: 1399 $ -->
-<!-- $Date: 2008-08-08 12:12:15 +0100 (Fri, 08 Aug 2008) $ -->
 <!-- $Author: RogerHyam $ -->
 <!-- test -->
 <rdf:RDF xml:base="http://rs.tdwg.org/ontology/voc/Collection"

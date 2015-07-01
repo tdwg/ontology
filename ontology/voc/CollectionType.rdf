@@ -1,7 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-stylesheet type="text/xsl" href="human.xsl"?>
-<!-- $Rev: 1297 $ -->
-<!-- $Date: 2007-08-16 15:58:24 +0100 (Thu, 16 Aug 2007) $ -->
 <!-- $Author: MarkusDoering $ -->
 
 <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"

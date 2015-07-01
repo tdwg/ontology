@@ -1,7 +1,4 @@
 <?xml version="1.0"?>
-<?xml-stylesheet type="text/xsl" href="human.xsl"?>
-<!-- $Rev: 1399 $ -->
-<!-- $Date: 2008-08-08 12:12:15 +0100 (Fri, 08 Aug 2008) $ -->
 <!-- $Author: RogerHyam $ -->
 <rdf:RDF xml:base="http://rs.tdwg.org/ontology/voc/Institution" xmlns="http://rs.tdwg.org/ontology/voc/Institution#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:owl="http://www.w3.org/2002/07/owl#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:tbase="http://rs.tdwg.org/ontology/Base#" xmlns:tcom="http://rs.tdwg.org/ontology/voc/Common#" xmlns:tcore="http://rs.tdwg.org/ontology/Core#" xmlns:tinst="http://rs.tdwg.org/ontology/voc/Institution#" xmlns:titype="http://rs.tdwg.org/ontology/voc/InstitutionType#">
 	<owl:Ontology rdf:about="http://rs.tdwg.org/ontology/voc/Institution">

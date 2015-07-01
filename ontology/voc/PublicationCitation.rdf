@@ -1,7 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-stylesheet type="text/xsl" href="human.xsl"?>
-<!-- $Rev: 1035 $ -->
-<!-- $Date: 2007-04-25 12:21:32 +0100 (Wed, 25 Apr 2007) $ -->
 <!-- $Author: RogerHyam $ -->
 
 <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"

@@ -1,7 +1,4 @@
 <?xml version="1.0"?>
-<?xml-stylesheet type="text/xsl" href="human.xsl"?>
-<!-- $Rev: 1294 $ -->
-<!-- $Date: 2007-08-15 14:05:50 +0100 (Wed, 15 Aug 2007) $ -->
 <!-- $Author: MarkusDoering $ -->
 <rdf:RDF xml:base="http://rs.tdwg.org/ontology/voc/Person" xmlns="http://rs.tdwg.org/ontology/voc/Person#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:owl="http://www.w3.org/2002/07/owl#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:tbase="http://rs.tdwg.org/ontology/Base#" xmlns:tp="http://rs.tdwg.org/ontology/voc/Person#">
 	<owl:Ontology rdf:about="http://rs.tdwg.org/ontology/voc/Person">
