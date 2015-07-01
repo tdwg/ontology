@@ -2,7 +2,7 @@
 
 TDWG has created a series of RDF and OWL ontology documents with associated documentation. The ontologies described by these documents are known in aggregate as the "TDWG Ontology". These ontologies are no longer under development and the documents are archived in this repository.  
 
-Although none of the TDWG ontologies ever became TDWG Standards, some are in use in the wild. It is not recommended that new projects use them without tracking their current status here and on the issue list https://github.com/tdwg/ontology/issues.
+Although none of the TDWG ontologies ever became TDWG Standards, some are in use in the wild. It is not recommended that new projects use them without tracking their current status here and on the issue list at https://github.com/tdwg/ontology/issues.
 
 ## Background
 
