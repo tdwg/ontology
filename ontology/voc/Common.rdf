@@ -8,15 +8,17 @@
 
 		<dc:creator>Roger Hyam</dc:creator>
 		<dcterms:issued>2006-11-13</dcterms:issued>
-		<dcterms:modified>$Date: 2007-05-03 15:13:08 +0100 (Thu, 03 May 2007) $</dcterms:modified>
+		<dcterms:modified>2026-05-06</dcterms:modified>
 		<dc:title>TDWG Ontology LSID Vocabularies - Globals</dc:title>
 		<dc:publisher>TDWG - Biodiversity Information Standards</dc:publisher>
 		<dc:description> Global properties for use in any LSID Vocabulary classes. </dc:description>
 
 		<rdfs:comment rdf:parseType="Literal"> FIXME - must validate using: <a href="http://phoebus.cs.man.ac.uk:9999/OWL/Validator">Wonder Web OWL Ontology Validator</a>
 		</rdfs:comment>
-		<owl:versionInfo>0.1</owl:versionInfo>
+		<owl:versionInfo>0.1.1</owl:versionInfo>
 
+	    <owl:deprecated rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:deprecated>
+        <rdfs:comment>This ontology is no longer under development and is no longer recommended for use.  See https://github.com/tdwg/ontology for information about recommended replacements.</rdfs:comment>
 	</owl:Ontology>
 
 	<!-- common - isDeprecated -->

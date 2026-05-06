@@ -15,11 +15,11 @@
       <dc:creator>Roger Hyam</dc:creator>
       <dc:publisher>TDWG Biodiversity Information Standards</dc:publisher>
       <dcterms:issued>2006-11-27</dcterms:issued>
-      <dcterms:modified>2015-07-01</dcterms:modified>
+      <dcterms:modified>2026-05-06</dcterms:modified>
       <dc:description>Ontology describing the metadata returned for LSIDs that are used for Taxon
          Concepts. </dc:description>
 
-      <owl:versionInfo>0.3</owl:versionInfo>
+      <owl:versionInfo>0.3.1</owl:versionInfo>
 
       <rdfs:comment rdf:parseType="Literal"> This is not a full rendering of TaxonConcept as
          presented in the Taxon Concept Schema 1.0. Not all the possible concept-concept
@@ -31,6 +31,8 @@
       </rdfs:comment>
       <rdfs:comment>Version 0.3 removed subclass declarations to classes outside of this ontology in accordance with Recommendation 2.9 of the VoMaG Report http://www.gbif.org/resource/80862</rdfs:comment>
 
+	   <owl:deprecated rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:deprecated>
+      <rdfs:comment>This ontology is no longer under development and is no longer recommended for use.  See https://github.com/tdwg/ontology for information about recommended replacements.</rdfs:comment>
    </owl:Ontology>
 
 

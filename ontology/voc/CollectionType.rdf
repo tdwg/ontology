@@ -15,14 +15,16 @@
       <dc:creator>Markus Döring</dc:creator>
       <dc:publisher>TDWG Biodiversity Information Standards - NCD subgroup</dc:publisher>
       <dcterms:issued>2007-03-08</dcterms:issued>
-		<dcterms:modified>2015-07-01</dcterms:modified>
+	<dcterms:modified>2026-05-06</dcterms:modified>
       <dc:description>Ontology describing a controlled vocabulary for type of (biological) collections.</dc:description>
 
-      <owl:versionInfo>0.2</owl:versionInfo>
+      <owl:versionInfo>0.2.1</owl:versionInfo>
 
       <rdfs:comment rdf:parseType="Literal"> FIXME... </rdfs:comment>
       <rdfs:comment>Version 0.2 removed subclass declarations to classes outside of this ontology in accordance with Recommendation 2.9 of the VoMaG Report http://www.gbif.org/resource/80862</rdfs:comment>
 
+	<owl:deprecated rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:deprecated>
+      <rdfs:comment>This ontology is no longer under development and is no longer recommended for use.  See https://github.com/tdwg/ontology for information about recommended replacements.</rdfs:comment>
    </owl:Ontology>
 
 
