@@ -11,6 +11,7 @@
          labs, etc. 
       </dc:description>
 		<owl:versionInfo>0.8.1</owl:versionInfo>
+		<dcterms:license rdf:resource="https://creativecommons.org/publicdomain/zero/1.0/"/>
 		<rdfs:comment rdf:parseType="Literal">
         The name and subname of an organisation is part of the Contact vCard details.
         The preferred name/title for the organisation should also be given as a DC:TITLE property

@@ -14,6 +14,7 @@
       <dc:description>Ontology describing a controlled vocabulary for taxon ranks.</dc:description>
 
       <owl:versionInfo>0.3.1</owl:versionInfo>
+		<dcterms:license rdf:resource="https://creativecommons.org/publicdomain/zero/1.0/"/>
 
       <rdfs:comment rdf:parseType="Literal"> Enumerated ranks of a taxon (scientific organism name) in a taxonomic hierarchy. This list is intended to be interoperable between name providers for
          bacteria, viruses, fungi, plants, and animals. It is not assumed that in each taxonomic group all ranks have to be used. The enumeration attempts to strike a balance between listing all

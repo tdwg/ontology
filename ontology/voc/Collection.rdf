@@ -19,6 +19,7 @@
 		<dc:description>Ontology describing the metadata returned for LSIDs that are used for
 			natural collections records. i.e. curated groups of specimens. </dc:description>
 		<owl:versionInfo>0.9.1</owl:versionInfo>
+		<dcterms:license rdf:resource="https://creativecommons.org/publicdomain/zero/1.0/"/>
 		<rdfs:comment rdf:parseType="Literal"> The ontology is based on the NCD XML schema version
 			0.70 developed by TDWG, but taken forward in development, especially the controlled vocabulary. 
 			In some cases property names were changed, but in general all

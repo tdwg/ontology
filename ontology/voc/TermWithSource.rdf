@@ -20,6 +20,7 @@
       <dc:description>Ontology describing a externally controlled term with an ID and a source where the term comes from.</dc:description>
 
       <owl:versionInfo>0.2</owl:versionInfo>
+		<dcterms:license rdf:resource="https://creativecommons.org/publicdomain/zero/1.0/"/>
 
       <rdfs:comment rdf:parseType="Literal"> FIXME... </rdfs:comment>
       <owl:deprecated rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:deprecated>

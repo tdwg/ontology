@@ -6,7 +6,7 @@ Although none of the TDWG ontologies ever became TDWG Standards, some are in use
 
 ## License
 
-The ontologies and all other documents in this repository are available under TDWG's standard license: [Creative Commons Attribution 4.0 International (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/).
+Human-readable documents in this repository are available under TDWG's standard license: [Creative Commons Attribution 4.0 International (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/). The ontology documents themselves are freely available under a [CC0 1.0 Public Domain Dedication](https://creativecommons.org/publicdomain/zero/1.0/).
 
 ## Background
 

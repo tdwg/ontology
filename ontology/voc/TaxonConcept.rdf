@@ -20,6 +20,7 @@
          Concepts. </dc:description>
 
       <owl:versionInfo>0.3.1</owl:versionInfo>
+		<dcterms:license rdf:resource="https://creativecommons.org/publicdomain/zero/1.0/"/>
 
       <rdfs:comment rdf:parseType="Literal"> This is not a full rendering of TaxonConcept as
          presented in the Taxon Concept Schema 1.0. Not all the possible concept-concept

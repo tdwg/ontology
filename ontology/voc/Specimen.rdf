@@ -19,6 +19,7 @@
          records. </dc:description>
 
       <owl:versionInfo>0.3</owl:versionInfo>
+		<dcterms:license rdf:resource="https://creativecommons.org/publicdomain/zero/1.0/"/>
 
       <rdfs:comment rdf:parseType="Literal"> *** This vocabulary has been superseded by the
          TaxonOccurrence vocabulary (http://rs.tdwg.org/ontology/voc/TaxonOccurrence) Read more

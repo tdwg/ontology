@@ -19,6 +19,7 @@
          Names. </dc:description>
 
       <owl:versionInfo>0.2 - [SVN $Rev: 1065 $]</owl:versionInfo>
+		<dcterms:license rdf:resource="https://creativecommons.org/publicdomain/zero/1.0/"/>
 
       <rdfs:comment rdf:parseType="Literal"> This vocabulary closely follows the structure of the
          ScientificName complex type that is part of the TDWG standard Taxon Concept Schema. The TCS
