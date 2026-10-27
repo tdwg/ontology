@@ -16,6 +16,7 @@
       <dc:description>Ontology describing a controlled vocabulary for taxon ranks.</dc:description>
 
       <owl:versionInfo>0.2</owl:versionInfo>
+		<dcterms:license rdf:resource="https://creativecommons.org/publicdomain/zero/1.0/"/>
 
       <rdfs:comment rdf:parseType="Literal"> Enumerated ranks of a taxon (scientific organism name)
          in a taxonomic hierarchy. This list is intended to be interoperable between name providers

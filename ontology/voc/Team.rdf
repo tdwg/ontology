@@ -19,6 +19,7 @@
          collections of actors. </dc:description>
 
       <owl:versionInfo>0.3</owl:versionInfo>
+		<dcterms:license rdf:resource="https://creativecommons.org/publicdomain/zero/1.0/"/>
 
       <rdfs:comment rdf:parseType="Literal">A team is a collection of Actors (TeamMemebers) who may
          have roles and positions.</rdfs:comment>

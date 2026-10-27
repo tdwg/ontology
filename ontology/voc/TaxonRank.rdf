@@ -10,10 +10,11 @@
       <dc:creator>Roger Hyam</dc:creator>
       <dc:publisher>TDWG Biodiversity Information Standards</dc:publisher>
       <dcterms:issued>2006-11-15</dcterms:issued>
-      <dcterms:modified>2015-07-01</dcterms:modified>
+      <dcterms:modified>2026-05-06</dcterms:modified>
       <dc:description>Ontology describing a controlled vocabulary for taxon ranks.</dc:description>
 
-      <owl:versionInfo>0.3</owl:versionInfo>
+      <owl:versionInfo>0.3.1</owl:versionInfo>
+		<dcterms:license rdf:resource="https://creativecommons.org/publicdomain/zero/1.0/"/>
 
       <rdfs:comment rdf:parseType="Literal"> Enumerated ranks of a taxon (scientific organism name) in a taxonomic hierarchy. This list is intended to be interoperable between name providers for
          bacteria, viruses, fungi, plants, and animals. It is not assumed that in each taxonomic group all ranks have to be used. The enumeration attempts to strike a balance between listing all
@@ -30,6 +31,8 @@
 
       <rdfs:comment>Version 0.3 removed subclass declarations to classes outside of this ontology in accordance with Recommendation 2.9 of the VoMaG Report http://www.gbif.org/resource/80862</rdfs:comment>
 
+	    <owl:deprecated rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:deprecated>
+      <rdfs:comment>This ontology is no longer under development and is no longer recommended for use.  See https://github.com/tdwg/ontology for information about recommended replacements.</rdfs:comment>
    </owl:Ontology>
 
 

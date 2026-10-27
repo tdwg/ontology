@@ -9,6 +9,7 @@
         <dcterms:modified>2015-07-01</dcterms:modified>
 		<dc:description>Ontology describing the metadata returned for LSIDs that are used for People. </dc:description>
 		<owl:versionInfo>0.3</owl:versionInfo>
+		<dcterms:license rdf:resource="https://creativecommons.org/publicdomain/zero/1.0/"/>
 		<rdfs:comment rdf:parseType="Literal"> This ontology makes a basic split between people, their
          names and contact details. Note that there are no regular contact details here like
          telephone, mobile, skype name, zip code, postcode, PO Box number, Street address. The

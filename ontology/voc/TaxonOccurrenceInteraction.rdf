@@ -13,6 +13,7 @@
       <dc:description>Ontology describing the metadata returned for LSIDs that are used for Interactions between TaxonOccurrences. </dc:description>
 
       <owl:versionInfo>0.2</owl:versionInfo>
+		<dcterms:license rdf:resource="https://creativecommons.org/publicdomain/zero/1.0/"/>
 
       <rdfs:comment rdf:parseType="Literal">This class is an initial attempt to model interactions between TaxonOccurrences, observations, specimens, etc
       to express a relationship between two of these objects.  Eg the Interaction class can be express a host/parasite relation between two TaxonOccurrences.

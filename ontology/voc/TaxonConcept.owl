@@ -20,6 +20,7 @@
       <dc:description>Ontology describing the metadata returned for LSIDs that are used for Taxon
          Concepts. </dc:description>
       <owl:versionInfo>0.2 - [SVN $Rev: 1211 $]</owl:versionInfo>
+		<dcterms:license rdf:resource="https://creativecommons.org/publicdomain/zero/1.0/"/>
 
    </owl:Ontology>
    

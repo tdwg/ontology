@@ -10,16 +10,19 @@
       <dc:creator>Roger Hyam</dc:creator>
       <dc:publisher>TDWG Biodiversity Information Standards</dc:publisher>
       <dcterms:issued>2006-11-15</dcterms:issued>
-      <dcterms:modified>2015-07-01</dcterms:modified>
+      <dcterms:modified>2026-05-06</dcterms:modified>
       <dc:description>Ontology describing the metadata returned for LSIDs that are used for Taxon Names. </dc:description>
 
-      <owl:versionInfo>0.3</owl:versionInfo>
+      <owl:versionInfo>0.3.1</owl:versionInfo>
+		<dcterms:license rdf:resource="https://creativecommons.org/publicdomain/zero/1.0/"/>
 
       <rdfs:comment rdf:parseType="Literal"> This vocabulary closely follows the structure of the ScientificName complex type that is part of the TDWG standard Taxon Concept Schema. The TCS structure was based
          on the name structures suggested by the LinneanCore and those found in schemas such as ABCD. 
          It reflects the contributions of many authors over a number of years.</rdfs:comment>
       <rdfs:comment>Version 0.3 removed subclass declarations to classes outside of this ontology in accordance with Recommendation 2.9 of the VoMaG Report http://www.gbif.org/resource/80862</rdfs:comment>
 
+	   <owl:deprecated rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:deprecated>
+      <rdfs:comment>This ontology is no longer under development and is no longer recommended for use.  See https://github.com/tdwg/ontology for information about recommended replacements.</rdfs:comment>
    </owl:Ontology>
 
 

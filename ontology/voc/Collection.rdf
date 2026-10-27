@@ -15,10 +15,11 @@
 		<dc:creator>Markus Döring, Constance Rinaldo</dc:creator>
 		<dc:publisher>TDWG Biodiversity Information Standards</dc:publisher>
 		<dcterms:issued>2007-03-05</dcterms:issued>
-		<dcterms:modified>2015-07-01</dcterms:modified>
+		<dcterms:modified>2026-05-06</dcterms:modified>
 		<dc:description>Ontology describing the metadata returned for LSIDs that are used for
 			natural collections records. i.e. curated groups of specimens. </dc:description>
-		<owl:versionInfo>0.9</owl:versionInfo>
+		<owl:versionInfo>0.9.1</owl:versionInfo>
+		<dcterms:license rdf:resource="https://creativecommons.org/publicdomain/zero/1.0/"/>
 		<rdfs:comment rdf:parseType="Literal"> The ontology is based on the NCD XML schema version
 			0.70 developed by TDWG, but taken forward in development, especially the controlled vocabulary. 
 			In some cases property names were changed, but in general all
@@ -32,6 +33,9 @@
 			dct:extent , tcom:note , dc:format , dc:medium , dc:accessRights , dc:rights ,
 			dc:provenance , dc:relation </rdfs:comment>
 		<rdfs:comment>Version 0.9 removed subclass declarations to classes outside of this ontology in accordance with Recommendation 2.9 of the VoMaG Report http://www.gbif.org/resource/80862</rdfs:comment>
+
+	    <owl:deprecated rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:deprecated>
+        <rdfs:comment>This ontology is no longer under development and is no longer recommended for use.  See https://github.com/tdwg/ontology for information about recommended replacements.</rdfs:comment>
 	</owl:Ontology>
 	<!-- *************************************************
 					C O L L E C T I O N  

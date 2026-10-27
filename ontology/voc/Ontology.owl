@@ -17,6 +17,7 @@
       <dc:description>Entire TDWG ontology including all other separate lsid vocabularies</dc:description>
 
       <owl:versionInfo>0.2</owl:versionInfo>
+		<dcterms:license rdf:resource="https://creativecommons.org/publicdomain/zero/1.0/"/>
 
       <rdfs:comment rdf:parseType="Literal">
       </rdfs:comment>

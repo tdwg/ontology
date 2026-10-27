@@ -27,6 +27,7 @@
       <rdfs:comment rdf:parseType="Literal"></rdfs:comment>
       
       <owl:versionInfo>0.4</owl:versionInfo>
+		<dcterms:license rdf:resource="https://creativecommons.org/publicdomain/zero/1.0/"/>
       
       <owl:imports rdf:resource="http://rs.tdwg.org/ontology/Base"/>
       <owl:deprecated rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:deprecated>
